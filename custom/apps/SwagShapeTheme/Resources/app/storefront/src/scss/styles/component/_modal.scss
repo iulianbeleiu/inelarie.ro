@@ -1,0 +1,104 @@
+.b2b--modal {
+    &-navigation {
+        border-right: none;
+
+        ul li a {
+            padding: 12px 24px;
+            color: $sw-text-color;
+            font-weight: $font-weight-semibold;
+
+            &.tab--active,
+            &:hover {
+                color: $primary;
+                font-weight: $font-weight-semibold;
+                border-radius: $list-group-border-radius;
+            }
+
+            &.tab--active {
+                background: transparent;
+            }
+
+            &:hover {
+                background: $list-group-bg;
+            }
+        }
+    }
+
+    &-content > .b2b--ajax-panel {
+        .js--modal__content .inner--bottom {
+            padding: 16px 0;
+        }
+    }
+}
+
+#b2bModal {
+    .modal-dialog {
+        overflow: visible;
+    }
+
+    .modal-header {
+        border-bottom: none;
+
+        .tab--header,
+        .js--modal__title {
+            padding-left: 24px;
+
+            span {
+                font-size: 24px;
+                font-weight: $font-weight-semibold;
+                text-transform: capitalize;
+                border-bottom: solid $hr-border-width $sw-text-color;
+                line-height: 26px;
+                margin-bottom: 16px;
+                background: transparent;
+                display: block;
+                padding: 49px 0 16px;
+            }
+        }
+
+        .js--modal__title {
+            width: calc(100% - 250px);
+            padding-right: 24px;
+        }
+
+        .tab--header {
+            width: 15.625rem;
+            display: flex;
+
+            span {
+                border-right: none;
+            }
+
+            &:empty {
+                display: none;
+
+                + .js--modal__title {
+                    width: 100%;
+                }
+            }
+        }
+
+        .modal-close {
+            margin: 0;
+            height: 20px;
+            position: absolute;
+            top: 30px;
+            right: 30px;
+        }
+    }
+}
+
+.b2b--confirm-modal-content {
+    padding-top: 30px;
+}
+
+@include media-breakpoint-up(lg) {
+    .b2b--modal-navigation {
+        border-right: none;
+    }
+
+    #b2bModal .modal-dialog {
+        max-width: 1200px;
+        width: 90%;
+    }
+}

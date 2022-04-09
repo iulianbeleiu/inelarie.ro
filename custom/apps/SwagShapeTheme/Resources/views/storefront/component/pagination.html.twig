@@ -1,0 +1,21 @@
+{% sw_extends '@Storefront/storefront/component/pagination.html.twig' %}
+
+{% block component_pagination_first %}
+{% endblock %}
+
+{% block component_pagination_last %}
+{% endblock %}
+
+{% block component_pagination_loop %}
+    <li class="page-item">
+        {{ currentPage }} / {{ totalPages }}
+    </li>
+{% endblock %}
+
+{% block component_pagination_prev_icon %}
+    {% sw_icon 'ic-arrow-left' style {'pack': 'shape'} %}
+{% endblock %}
+
+{% block component_pagination_next_icon %}
+    {% sw_icon 'ic-arrow-right' style {'pack': 'shape'} %}
+{% endblock %}

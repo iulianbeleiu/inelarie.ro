@@ -1,0 +1,56 @@
+{% sw_extends '@Storefront/storefront/page/checkout/confirm/confirm-address.html.twig' %}
+
+{% block page_checkout_confirm_address_billing_actions %}
+{% endblock %}
+
+{% block page_checkout_confirm_address_shipping_actions %}
+{% endblock %}
+
+{% block page_checkout_confirm_address_billing_title %}
+    <div class="card-title confirm-card-title">
+        <div>
+            {{ "checkout.billingAddressHeader"|trans|sw_sanitize }}
+        </div>
+
+        <div class="card-actions">
+            {% set addressEditorOptions = {
+                changeBilling: true,
+                addressId: billingAddress.id,
+                csrfToken: sw_csrf("frontend.account.addressbook", {"mode": "token"})
+            } %}
+
+            {% block  page_checkout_confirm_address_billing_actions_link %}
+                <a href="{{ path('frontend.account.address.edit.page', {'addressId': billingAddress.id}) }}"
+                   title="{{ "account.overviewChangeBilling"|trans|striptags }}"
+                   data-address-editor="true"
+                   data-address-editor-options='{{ addressEditorOptions|json_encode }}'>
+                    {{ "account.overviewChangeBilling"|trans|sw_sanitize }}
+                </a>
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_checkout_confirm_address_shipping_title %}
+    <div class="card-title confirm-card-title">
+        <div>
+            {{ "checkout.shippingAddressHeader"|trans|sw_sanitize }}
+        </div>
+        <div class="card-actions">
+            {% set addressEditorOptions = {
+                changeShipping: true,
+                addressId: shippingAddress.id,
+                csrfToken: sw_csrf("frontend.account.addressbook", {"mode": "token"})
+            } %}
+
+            {% block  page_checkout_confirm_address_shipping_actions_link %}
+                <a href="{{ path('frontend.account.address.edit.page', {'addressId': shippingAddress.id}) }}"
+                   title="{{ "account.overviewChangeShipping"|trans|striptags }}"
+                   data-address-editor="true"
+                   data-address-editor-options='{{ addressEditorOptions|json_encode }}'>
+                    {{ "account.overviewChangeShipping"|trans|sw_sanitize }}
+                </a>
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

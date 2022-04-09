@@ -1,0 +1,40 @@
+.bf-contract {
+    .bf-sales-channel-detail-base__modal-contract {
+        p {
+            padding-bottom: 2em;
+        }
+    }
+    .sw-icon {
+        vertical-align: top;
+    }
+    .p-l {
+        padding-left: 20px;
+    }
+    .p-t {
+        padding-top: 1em;
+    }
+    .contract-status-section {
+        .status {
+            padding-right: 10px;
+            border-radius: 8px;
+        }
+        .active {
+            color: #37D046;
+            background-color: #E7F9E9;
+        }
+        .capitalize {
+            text-transform: capitalize;
+        }
+    }
+    .text-right {
+        text-align: right;
+    }
+    .contract-details {
+        div {
+            margin-top: 2em;
+        }
+    }
+    .border-bottom {
+        border-bottom: 1px solid #C2CCD6;
+    }
+}

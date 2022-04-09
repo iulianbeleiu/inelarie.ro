@@ -1,0 +1,147 @@
+{% block bf_sales_channel_product_detail %}
+    <div class="bf-sales-channel-detail-category-content">
+        {% block bf_sales_channel_product_detail_content %}
+            <sw-card class="bf-card" :title="$tc('products.title')" large>
+                <div class="bf-product-detail__toolbar">
+                    <sw-container
+                        columns="1fr"
+                        v-if="!userAuthorised">
+                        <sw-alert
+                            variant="warning"
+                            appearance="notification"
+                            :closable="false">
+                            {{ $tc('bf-sales-channel.detail.notAuthorisedText') }}
+                            <sw-button
+                                :disabled="false"
+                                variant="ghost"
+                                size="small"
+                                :square="false"
+                                :block="false"
+                                :isLoading="false"
+                                @click="showLoginModal = true">
+                                {{ $tc('global.login') }}
+                            </sw-button>
+                        </sw-alert>
+                    </sw-container>
+                    <sw-container
+                        columns="1fr minmax(50px, max-content)"
+                        gap="0 10px"
+                        v-if="userAuthorised && currentContract.name === undefined">
+                        <b>{{ $tc('products.no-license') }}</b>
+                    </sw-container>
+                    <sw-container>
+                        <bf-collapse @item-expand="expand">
+                            <div slot="header">Filter
+                                <sw-icon name="default-action-filter"></sw-icon>
+                                <sw-icon name="default-arrow-head-down" size="10" v-if="!isExpanded"></sw-icon>
+                                <sw-icon name="default-arrow-head-up" size="10" v-else></sw-icon>
+                            </div>
+                            <div slot="content">
+                                <sw-container columns="1fr">
+                                    <bf-filter-panel
+                                        entity="product"
+                                        :storeKey="storeKey"
+                                        :filters="listFilter"
+                                        :defaults="defaultFilters"
+                                        @criteria-changed="criteriaChanged">
+                                    </bf-filter-panel>
+                                </sw-container>
+                            </div>
+                        </bf-collapse>
+                    </sw-container>
+                    <sw-container
+                        columns="1fr"
+                        gap="0 10px"
+                        v-if="userAuthorised && currentContract.name">
+                        <br>
+                        <span :class="dangerZone ? 'danger' : warningZone ? 'warning' : 'success'">
+                            <b style="color: #5a6d80">{{ currentContract.name }}:</b>
+                            {{ total ?? 0 }} <span v-if="channelLimit > 0">/ {{ channelLimit }}</span>
+                        </span>
+                    </sw-container>
+                    <sw-container v-else>
+                        <br><span>&nbsp;</span>
+                    </sw-container>
+                    <sw-container>
+                        <sw-simple-search-field
+                            v-model="searchWord"
+                            variant="form"
+                            :delay="50"
+                            @change="getList"
+                        ></sw-simple-search-field>
+                    </sw-container>
+                </div>
+
+                {% block bf_sales_channel_product_grid %}
+                    <bf-sales-channel-product-grid
+                        :items="products"
+                        :shopProductData="shopProductData"
+                        :columns="columns"
+                        :repository="productRepository"
+                        :showSelection="false"
+                        :isLoading="isLoading"
+                        :fullPage="false"
+                        :sortBy="sortBy"
+                        :sortDirection="sortDirection"
+                        :naturalSorting="naturalSorting"
+                        :criteriaLimit="limit"
+                        :allowColumnEdit="false"
+                        :marketplace="marketplace"
+                        :marketplaceName="marketplaceName"
+                        :currentContract="currentContract"
+                        @onOpenProductErrorsModal="openProductErrorsModal"
+                        @paginateBf="paginateBf"
+                    >
+                        <template #column-name="{ item }">
+                            <sw-media-preview-v2 :source="item.cover ? item.cover.media : null"></sw-media-preview-v2>
+                            <router-link :to="{ name: 'sw.product.detail', params: { id: item.id } }">
+                                {{ item.translated ? item.translated.name : item.name }}
+                            </router-link>
+                        </template>
+                    </bf-sales-channel-product-grid>
+                {% endblock %}
+
+                <sw-modal
+                    v-if="showProductsErrorsModal"
+                    class="bf-sales-channel-product-errors-modal"
+                    ref="modal"
+                    variant="large"
+                    :title="$tc('products.modalErrors.title')"
+                    @modal-close="showProductsErrorsModal = false">
+                    {% block bf_sales_channel_product_grid_errors_modal_text %}
+                        <p>
+                            {{ $tc('products.modalErrors.text') }}
+                        </p>
+                    {% endblock %}
+
+                    {% block bf_sales_channel_product_grid_errors_modal_table %}
+                        <sw-data-grid
+                            :dataSource="shopProductsErrors"
+                            :columns="getErrorColumns()"
+                            :showSelection="false"
+                            :showActions="false"
+                        >
+                        </sw-data-grid>
+                    {% endblock %}
+
+                    {% block bf_sales_channel_product_grid_errors_modal_footer %}
+                        <template slot="modal-footer">
+                            {% block bf_sales_channel_product_grid_errors_modal_footer_abort %}
+                                <sw-button size="small" @click="showProductsErrorsModal = false">
+                                    {{ $tc('sw-sales-channel.detail.buttonCloseDeleteModal') }}
+                                </sw-button>
+                            {% endblock %}
+                        </template>
+                    {% endblock %}
+                </sw-modal>
+
+            </sw-card>
+        {% endblock %}
+        {% block sw_plugin_store_login_status_login_modal %}
+            <sw-modal :title="$tc('sw-extension.my-extensions.tabs.shopwareAccount')" v-if="showLoginModal"
+                      @modal-close="closeLoginModal">
+                <sw-extension-my-extensions-account></sw-extension-my-extensions-account>
+            </sw-modal>
+        {% endblock %}
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% sw_extends '@Storefront/storefront/page/account/order-history/order-detail-document-item.html.twig' %}
+
+{% block page_account_order_document_item_detail_file_name %}
+    <div class="col-9 col-md-6 document-item document-item-file-name">
+        <a href="{{ documentLink }}"
+           target="_blank">
+            {% block page_account_order_document_item_detail_file_name_icon %}
+                {% sw_icon 'ic-document' style {'pack' : 'shape'} %}
+            {% endblock %}
+
+            {{ block('page_account_order_document_item_detail_file_name_value') }}
+        </a>
+    </div>
+{% endblock %}
+
+{% block page_account_order_document_item_detail_view_file_btn_icon %}
+    <a href="{{ documentLink }}"
+       target="_blank"
+       class="document-item-view-file-icon-btn">
+        {% sw_icon 'external' %}
+    </a>
+{% endblock %}

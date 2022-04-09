@@ -1,0 +1,15 @@
+{% sw_extends '@Storefront/storefront/component/quickview/buy-widget.html.twig' %}
+
+{% block page_product_detail_reviews %}
+    {% if page.product.ratingAverage > 0 and page.reviews.totalReviews > 0 and config('core.listing.showReview') %}
+        <div class="product-detail-reviews">
+            {% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
+                points: page.product.ratingAverage
+            } %}
+            <span class="product-detail-reviews-link">
+                {{ page.totalReviews }}
+                {{ "detail.reviewLinkText"|trans({'%count%': page.totalReviews}) }}
+            </span>
+        </div>
+    {% endif %}
+{% endblock %}

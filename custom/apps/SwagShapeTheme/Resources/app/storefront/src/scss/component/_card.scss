@@ -1,0 +1,32 @@
+/*
+Card
+==============================================
+Custom styling for bootstrap card component.
+
+https://getbootstrap.com/docs/4.3/components/card/
+*/
+
+.card-col {
+    margin-bottom: 0;
+    padding: 0 $spacer-20;
+
+    .card-body {
+        display: block;
+    }
+}
+
+.card-title {
+    border-width: $hr-border-width;
+    text-transform: uppercase;
+    font-size: $font-size-base;
+}
+
+.card-body-wishlist .product-wishlist-info {
+    .product-action .btn {
+        @extend .btn-primary;
+
+        .icon-shape-ic-plus path {
+            fill: $white;
+        }
+    }
+}

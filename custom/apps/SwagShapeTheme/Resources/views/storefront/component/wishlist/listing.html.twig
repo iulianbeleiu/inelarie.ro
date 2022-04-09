@@ -1,0 +1,13 @@
+{% sw_extends '@Storefront/storefront/component/wishlist/listing.html.twig' %}
+
+
+{% block element_product_listing_col_empty_wishlist %}
+    <img src="{{ theme_config('sw-wishlist-empty') |sw_encode_url }}"
+         alt="{{ "wishlist.wishlistEmptyDescription"|trans|striptags }}"
+         class="wishlist-listing-empty"/>
+
+    <h1 class="text-center wishlist-listing-header">{{ "wishlist.wishlistEmptyHeader"|trans }}</h1>
+    <div class="text-center">
+        <p class="text-center d-inline-block wishlist-listing-description">{{ "wishlist.wishlistEmptyDescription"|trans }}</p>
+    </div>
+{% endblock %}

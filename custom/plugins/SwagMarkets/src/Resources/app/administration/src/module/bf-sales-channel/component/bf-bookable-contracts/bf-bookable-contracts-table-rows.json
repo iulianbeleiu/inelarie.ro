@@ -1,0 +1,16 @@
+{
+    "singleProductList": ["singleProductListLabel", "singleProductListHelpText", 1, 1, 1],
+    "assigning": ["assigningLabel", "assigningHelpText", 1, 1, 1],
+    "generalSettings": ["generalSettingsLabel", "generalSettingsHelpText", 1, 1, 1],
+    "createNewArticle": ["createNewArticleLabel", "createNewArticleHelpText", 1, 1, 1],
+    "bulletPoints": ["bulletPointsLabel", "bulletPointsHelpText", 1, 1, 1],
+    "amazonKeywords": ["amazonKeywordsLabel", "amazonKeywordsHelpText", 1, 1, 1],
+    "offerExistingItems": ["offerExistingItemsLabel", "offerExistingItemsHelpText", 1, 1, 1],
+    "channelErrorList": ["channelErrorListLabel", "channelErrorListHelpText", 1, 1, 1],
+    "deeplinkPossibility": ["deeplinkPossibilityLabel", "deeplinkPossibilityHelpText", 1, 1, 1],
+    "amazonFba": ["amazonFbaLabel", "amazonFbaHelpText", 0, 1, 1],
+    "ebayPlus": ["ebayPlusLabel", "ebayPlusHelpText", 0, 1, 1],
+    "amazonPrime": ["amazonPrimeLabel", "amazonPrimeHelpText", 0, 1, 1],
+    "ebaySuggestedPrice": ["ebaySuggestedPriceLabel", "ebaySuggestedPriceHelpText", 0, 1, 1],
+    "optionsTransfer": ["optionsTransferLabel", "optionsTransferHelpText", 1, 1, 1]
+}

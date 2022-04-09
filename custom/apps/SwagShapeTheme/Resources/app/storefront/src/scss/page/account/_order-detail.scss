@@ -1,0 +1,349 @@
+.order-item-detail {
+    background-color: $white;
+
+    .swag-customized-products-cart__configuration {
+        padding: $spacer-sm;
+    }
+
+    .order-detail-item-customized-products {
+        .account-item-children {
+            padding: $spacer-sm $spacer-12;
+        }
+
+        .account-item-collapse {
+            align-items: center;
+        }
+    }
+
+    &-list-item:last-child {
+        .order-item-detail-list-item-divider {
+            border-top: none;
+        }
+    }
+}
+
+.order-detail-content {
+    border-top: 0;
+}
+
+.order-detail-content-header {
+    margin-top: 0;
+    line-height: 20px;
+    padding-top: 32px;
+    text-transform: uppercase;
+    border-bottom: $hr-border;
+    display: block;
+
+    .col-2.order-detail-content-header-cell {
+        display: none;
+    }
+
+    .order-header-name {
+        padding-bottom: $spacer-10;
+    }
+}
+
+.order-detail-content-row {
+    padding-top: 12px;
+    padding-bottom: $spacer-sm;
+    font-size: $font-size-sm;
+    border-bottom-color: $shape-gray-200;
+    margin-left: - spacer-sm;
+    margin-right: - spacer-sm;
+
+    .document-item {
+        padding-left: 22px;
+    }
+}
+
+.order-item {
+    padding: 0 $spacer-sm;
+
+    &.order-item-quantity,
+    &.order-item-price,
+    &.order-item-total {
+        padding: 0;
+    }
+}
+
+.document-item-file-name {
+    font-weight: $font-weight-bold;
+
+    a {
+        display: flex;
+    }
+
+    .icon-shape {
+        line-height: 14px;
+        margin-right: $spacer-sm;
+    }
+}
+
+.document-item-view-file {
+    &-icon-btn {
+        .icon {
+            width: 22px;
+            height: 22px;
+
+            > svg {
+                top: 0;
+            }
+        }
+
+        path {
+            color: $gray-900;
+        }
+    }
+
+    &-text-btn {
+        line-height: 14px;
+        padding: 0;
+        color: $gray-900;
+    }
+}
+
+.document-item-date {
+    order: 1;
+}
+
+.order-item-name {
+    color: inherit;
+}
+
+.order-item-variants {
+    display: flex;
+    flex-wrap: wrap;
+
+    &-properties {
+        line-height: 21px;
+        margin-right: $spacer-sm;
+
+        &:first-child {
+            margin-right: 0;
+
+            &::after {
+                content: '|';
+                display: inline-block;
+                margin: 0 $spacer-sm;
+            }
+        }
+
+        &-name {
+            font-weight: $font-weight-base;
+        }
+
+        &-value {
+            font-weight: $font-weight-bold;
+        }
+    }
+}
+
+.order-item-number {
+    color: $shape-gray-500;
+    word-break: break-word;
+}
+
+.order-item-quantity-label,
+.order-item-price-label {
+    font-weight: $font-weight-base;
+}
+
+.order-item-detail-footer {
+    padding: $spacer-10 $spacer-lg $spacer-30;
+
+    .col-12 {
+        @include make-col(12);
+
+        &.col-md-5 {
+            order: -1;
+            padding-top: $spacer-20;
+            padding-bottom: $spacer-20;
+            margin-bottom: $spacer-20;
+            border-top: $hr-border;
+            border-bottom: $hr-border;
+        }
+    }
+
+    dl dt[class*=col-],
+    .no-gutters > [class*=col-] {
+        margin-bottom: 0;
+    }
+}
+
+.order-item-detail-summary {
+    font-size: $font-size-sm;
+
+    dd {
+        text-align: right;
+    }
+
+    .col-6 {
+        &:nth-child(3),
+        &:nth-child(4) {
+            font-size: $font-size-lg;
+        }
+    }
+}
+
+.order-item-detail-labels {
+    line-height: 23px;
+    padding-bottom: $spacer-lg;
+    padding-top: $spacer-20;
+
+    dt {
+        font-weight: $font-weight-base;
+    }
+
+    dd {
+        font-weight: $font-weight-bold;
+    }
+}
+
+@include media-breakpoint-up(xs) {
+    .account-orders {
+        .account-welcome {
+            margin-bottom: $spacer-10;
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .document-item-date {
+        order: unset;
+        padding-left: $spacer-10;
+    }
+
+    .order-detail-content-row {
+        padding-top: $spacer-20;
+        padding-bottom: 11px;
+        font-size: $font-size-base;
+
+        .document-item {
+            padding-left: $spacer-10;
+        }
+
+        .order-item-name {
+            padding: 0;
+        }
+    }
+
+    .order-item {
+        &.order-item-quantity {
+            display: inline-block;
+        }
+
+        &.order-item-price {
+            margin-top: 0;
+            text-align: center;
+        }
+    }
+
+    .order-detail-content-header {
+        padding-top: 28px;
+
+        .order-detail-content-header-cell {
+            &.col-2 {
+                display: inline-block;
+                padding: 0;
+            }
+
+            &.order-header-price {
+                text-align: center;
+            }
+        }
+    }
+
+    .order-item-detail-summary {
+        font-size: $font-size-base;
+
+        dt {
+            text-align: left;
+        }
+
+        .col-6 {
+            &:nth-child(3),
+            &:nth-child(4) {
+                font-size: $h4-font-size;
+            }
+        }
+
+    }
+
+    .order-item-detail-footer {
+        padding: 0 34px;
+
+        .order-item-detail-labels {
+            .col-md-5 {
+                @include make-col(3);
+            }
+
+            .col-md-7 {
+                @include make-col(9);
+            }
+        }
+    }
+
+    .order-detail-content-header,
+    .order-detail-content-row {
+        margin-left: 34px;
+        margin-right: 34px;
+    }
+
+    .order-item-product-image {
+        img {
+            max-width: 100%;
+        }
+    }
+
+    .order-header-price,
+    .order-item-price {
+        @include make-col(3);
+    }
+
+    .order-header-name {
+        @include make-col(5);
+    }
+
+    .order-item-name {
+        @include make-col(3);
+    }
+
+    .order-item-detail {
+        .swag-customized-products-cart__configuration {
+            padding: 0 18px;
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .order-item-detail-footer {
+        .order-item-detail-labels {
+            .col-md-5 {
+                @include make-col(2);
+            }
+
+            .col-md-7 {
+                @include make-col(4);
+            }
+
+            dt,
+            dd {
+                &:nth-of-type(1) {
+                    order: -2;
+                }
+
+                &:nth-of-type(3) {
+                    order: -1;
+                }
+            }
+        }
+    }
+
+    .order-table-header-order-table-body {
+        .order-table-header-order-table-body-cell[class*=col-] {
+            &.order-item-actions {
+                margin-top: 15px;
+            }
+        }
+    }
+}

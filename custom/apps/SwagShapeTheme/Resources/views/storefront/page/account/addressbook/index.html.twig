@@ -1,0 +1,52 @@
+{% sw_extends '@Storefront/storefront/page/account/addressbook/index.html.twig' %}
+
+{% block page_account_address_main %}
+    {% set defaultBillingAddress = context.customer.defaultBillingAddress %}
+    {% set defaultShippingAddress = context.customer.defaultShippingAddress %}
+
+    {% block page_account_address_default %}
+        {{ parent() }}
+    {% endblock %}
+
+
+    {% block page_account_address_list %}
+        <div class="address-list">
+            <div class="row">
+                {% for address in page.addresses %}
+                    <div class="col-sm-6 card-col address-card">
+                        <div class="card other-address">
+                            <div class="card-body">
+                                {% block page_account_address_overview_title %}
+                                    <div class="card-title">
+                                        <div>{{ "account.addressListHeader"|trans|sw_sanitize }}</div>
+
+                                        {{ block('page_account_address_overview_actions') }}
+                                    </div>
+                                {% endblock %}
+                                {% block page_account_address_overview_body %}
+                                    <div class="address-item-body">
+                                        {{ block('page_account_address_overview_address') }}
+                                    </div>
+                                {% endblock %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div class="col-sm-6 card-col address-card">
+                    <div class="address-action-create">
+                        <a href="{{ path('frontend.account.address.create.page') }}"
+                           title="{{ "account.addressCreateBtn"|trans|striptags }}"
+                           class="btn-add">
+                            {% sw_icon 'ic-plus' style {
+                                'pack' : 'shape',
+                                'color': '#000'
+                            } %}
+                            {{ "account.addressCreateBtn"|trans|sw_sanitize }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}

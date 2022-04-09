@@ -1,0 +1,12 @@
+.b2b--plugin {
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-weight: $font-weight-semibold;
+    }
+}
+
+.is--align-center {
+    @extend .text-center;
+}

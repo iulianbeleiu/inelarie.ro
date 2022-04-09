@@ -1,0 +1,54 @@
+{% block bf_amazon_connection_assistant_modal %}
+<div>
+    <sw-modal :title="title"
+              class="bf-amazon-connection-assistant-modal"
+              v-if="showModal" @modal-close="closeModal" :isLoading="isLoading">
+        {% block bf_amazon_connection_assistant_modal_content %}
+            {% block bf_amazon_connection_assistant_modal_content_title %}
+                <bf-amazon-connection-assistant-logo/>
+            {% endblock %}
+            <div class="bf-amazon-connection-assistant-modal__content">
+                {% block bf_amazon_connection_assistant_modal_content_descritpion %}
+                {% endblock %}
+                {% block bf_amazon_connection_assistant_modal_content_page %}
+                    <div class="bf-amazon-connection-assistant-modal__content-page">
+                        <router-view
+                            @set-title="setTitle"
+                            @ca-redirect="redirect"
+                            @ca-stepsToGetBack="addStepsToGetBack"
+                            @ca-setAccountData="setAccountData"
+                            @ca-setNextBtnState="setNextBtnState"
+                            @ca-isLoading="setIsLoadingState"
+                            @ca-resetNextBtnIsClicked="resetNextBtnIsClicked"
+                            @modal-close="closeModal"
+                            @showSupportModal="showSupportModal = true"
+                            :showSupportModal="showSupportModal"
+                            :nextBtnIsClicked="nextBtnIsClicked">
+                        </router-view>
+                    </div>
+                {% endblock %}
+            </div>
+        {% endblock %}
+        {% block bf_amazon_connection_assistant_modal_footer %}
+            <template #modal-footer>
+                <sw-button
+                    size="small"
+                    @click="closeModal">
+                        {{ $tc('button.cancel') }}
+                </sw-button>
+                <sw-button :disabled="nextIsDisabled" size="small" variant="primary" @click="onClickNext">
+                    {{ $tc('button.next') }}
+                </sw-button>
+            </template>
+        {% endblock %}
+    </sw-modal>
+
+    <bf-support
+        marketplace="amazon"
+        requestType="product_migration_request"
+        :showSupportModal="showSupportModal"
+        :supportTitle="$tc('bf-support.modal.titleTransferProducts')"
+        @closeSupportModal="showSupportModal = false"
+    ></bf-support>
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% sw_extends '@Storefront/storefront/page/account/index.html.twig' %}
+
+{% block page_account_overview_welcome %}
+    <div class="account-welcome">
+        <h1>{{ "account.overviewTitle"|trans|sw_sanitize }} {{ context.customer.firstName }} {{ context.customer.lastName }}</h1>
+        {% block page_account_overview_welcome_intro %}
+            {{ parent() }}
+        {% endblock %}
+
+        {% if page.customer.requestedGroup %}
+            {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+                type: 'info',
+                content: 'account.overviewCustomerGroupRequest'|trans({
+                    '%group%': page.customer.requestedGroup.translated.name
+                })
+            } %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block page_account_overview_profile_card %}
+    <div class="card">
+        <div class="card-body">
+            {% block page_account_overview_profile_title %}
+                <div class="card-title">
+                    <div>{{ "account.overviewProfileHeader"|trans|sw_sanitize }}</div>
+
+                    {{ block('page_account_overview_profile_actions') }}
+                </div>
+            {% endblock %}
+
+            {{ block('page_account_overview_profile_content') }}
+
+            {{ block('page_account_overview_profile_company') }}
+
+            {{ block('page_account_overview_profile_email') }}
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_account_overview_payment_card %}
+    <div class="card">
+        <div class="card-body">
+            {% block page_account_overview_payment_title %}
+                <div class="card-title">
+                    <div>{{ "account.overviewPaymentHeader"|trans|sw_sanitize }}</div>
+
+                    {{ block('page_account_overview_payment_actions') }}
+                </div>
+            {% endblock %}
+
+            {{ block('page_account_overview_payment_content') }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_account_overview_newsletter_title %}
+    <div class="card-title">
+        <div>{{ "account.newsletterTitle"|trans|sw_sanitize }}</div>
+    </div>
+{% endblock %}

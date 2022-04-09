@@ -1,0 +1,64 @@
+{% block bf_amazon_connection_assistant_start_authorize_content %}
+    <sw-container >
+        {% block bf_amazon_connection_assistant_modal_content_descritpion %}
+            <sw-card-section class="bf-amazon-connection-assistant-modal__content-description">
+                {{ $tc('amazon.authoriseDescription') }}
+            </sw-card-section>
+        {% endblock %}
+        {% block bf_amazon_connection_assistant_start_authorize_content_right %}
+            <sw-card-section>
+                <h6 class="bf-amazon-connection-assistant-start-authorize__content-title">{{ $tc('amazon.manualConnect') }}</h6>
+                {% block bf_amazon_connection_assistant_start_authorize_content_right_form %}
+                    <sw-card :hero="true" class="bf-amazon-connection-assistant-start-authorize__content-card">
+                        {% block bf_amazon_connection_assistant_start_authorize_content_righ_form_input_retailer %}
+                            <sw-text-field
+                                :placeholder="$tc('amazon.retailerIdPlaceHolderInput')"
+                                :label="$tc('amazon.retailerId')"
+                                v-model="retailerId"
+                                validation="required"
+                                required
+                            ></sw-text-field>
+                        {% endblock %}
+                        {% block bf_amazon_connection_assistant_start_authorize_content_right_form_input_token %}
+                            <sw-text-field
+                                :placeholder="$tc('amazon.mwsTokenPlaceHolderInput')"
+                                :label="$tc('amazon.mwsToken')"
+                                v-model="mwsToken"
+                                validation="required"
+                                required
+                            ></sw-text-field>
+                        {% endblock %}
+                        {% block bf_amazon_connection_assistant_start_authorize_content_right_form_button_connect %}
+                        <sw-button
+                            @click="authorizeManual"
+                            size="small"
+                            variant="primary"
+                            :block="true">
+                            {{$tc('button.connect')}}
+                        </sw-button>
+                        {% endblock %}
+                        <br>
+                        {% block bf_amazon_connection_assistant_start_authorize_mws_notification %}
+                            <sw-alert variant="info" appearance="notification" :showIcon="true" :closable="false">
+                                <sw-collapse>
+                                    <div slot="header"><strong>{{ $tc('amazon.howTo.mwsNotificationHowToTitle') }}</strong></div>
+                                    <div slot="content">
+                                        <p>
+                                            <span v-html="howToFirstPart"></span><br>
+                                            {{ $tc('amazon.howTo.mwsNotificationHowToSecondPart') }}<br><br>
+                                            <ul>
+                                                    <li><strong>{{ $tc('amazon.howTo.mwsNotificationHowToUser') }}</strong></li>
+                                                    <li><strong>{{ $tc('amazon.howTo.mwsNotificationHowToPassword') }}</strong></li>
+                                            </ul><br>
+                                            {{ $tc('amazon.howTo.mwsNotificationHowToLastPart') }}
+                                        </p>
+                                    </div>
+                                </sw-collapse>
+                            </sw-alert>
+                        {% endblock %}
+                    </sw-card>
+                {% endblock %}
+            </sw-card-section>
+        {% endblock %}
+    </sw-container>
+{% endblock %}

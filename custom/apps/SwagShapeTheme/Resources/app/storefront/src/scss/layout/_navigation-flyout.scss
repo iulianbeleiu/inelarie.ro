@@ -1,0 +1,145 @@
+/*
+Navigation flyout
+==============================================
+Custom styling for navigation flyout which opens on hover over the main navigation.
+*/
+
+@mixin show-flyout() {
+    z-index: $menu-flyout-zindex;
+    opacity: 1;
+    display: flex;
+}
+
+.main-navigation-link {
+    cursor: pointer;
+
+    .main-navigation-flyout {
+        top: 100%;
+        opacity: 0;
+        display: flex;
+        background: $white;
+        width: calc(100vw - 16px);
+        left: 0;
+        position: absolute;
+        z-index: -1;
+        margin-top: $spacer-10;
+        transition-delay: 0.125s;
+
+        &.is-level-1 {
+            text-transform: uppercase;
+        }
+
+        &.is-level-2 {
+            text-transform: none;
+            border-top: 2px solid $sw-border-color;
+            margin-top: 0;
+            padding-top: $spacer-10;
+        }
+
+        .navigation-flyout-link {
+            color: $black;
+            font-weight: $font-weight-bold;
+            padding: $spacer-30 $spacer-40 $spacer-30 0;
+            margin: 0;
+            transition: 0.5s all;
+            transition-delay: 0.125s;
+
+            &:hover {
+                color: $primary;
+                padding-left: 0;
+                cursor: pointer;
+                transition-delay: 0s;
+
+                > .main-navigation-flyout {
+                    @include show-flyout();
+                }
+            }
+
+            .navigation-flyout-link-text {
+                position: relative;
+                pointer-events: none;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            &.active {
+                >.navigation-flyout-link-text::after {
+                    content: '';
+                    position: absolute;
+                    height: 2px;
+                    bottom: -$spacer-10;
+                    margin: 0 auto;
+                    left: 0;
+                    right: 0;
+                    width: 100%;
+                    background: $primary;
+                }
+            }
+
+            &.is-level-last {
+                position: relative;
+
+                .active::after {
+                    content: none;
+                }
+            }
+        }
+
+        &.last-navigation {
+            display: none;
+            top: 70%;
+            left: 0;
+            border: none;
+            background-color: $gray-600;
+            width: auto;
+            border-radius: 4px;
+            box-shadow: $dropdown-box-shadow;
+            min-width: 250px;
+            text-transform: none;
+            flex-direction: column;
+            padding: 0;
+
+            &.is-level-1 {
+                top: 100%;
+            }
+
+            .navigation-flyout-link {
+                margin: 0;
+                padding: 12px 30px;
+                color: $white;
+
+                &:hover {
+                    background-color: $primary;
+                }
+
+                &:first-child {
+                    border-radius: 4px 4px 0 0;
+                }
+
+                &:last-child {
+                    border-radius: 0 0 4px 4px;
+                }
+
+                &:only-child {
+                    border-radius: 4px;
+                }
+
+                .navigation-flyout-link-text::after {
+                    content: none;
+                }
+            }
+        }
+    }
+
+    &.is-open {
+        > div > .main-navigation-flyout {
+            @include show-flyout();
+        }
+    }
+
+    &.active.position-relative:hover {
+        border-color: transparent;
+    }
+}

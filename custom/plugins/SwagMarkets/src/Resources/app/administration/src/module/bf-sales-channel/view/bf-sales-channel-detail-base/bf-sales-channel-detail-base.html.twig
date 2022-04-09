@@ -1,0 +1,517 @@
+{% block bf_sales_channel_detail_base %}
+    <div class="bf-sales-channel-detail-base sw-sales-channel-detail-base">
+        {% block bf_sales_channel_detail_base_general %}
+            <sw-container
+                v-if="clientExists && clientInProgress"
+                columns="1fr"
+                class="bf-sales-channel-detail-base__connection-assistant-warning">
+                {% block bf_sales_channel_base_general_client_system_state %}
+                    <sw-alert
+                        variant="warning"
+                        appearance="system"
+                        :showIcon="true"
+                        :closable="false">
+                        {{ $tc('error.global.systemSettingUp') }}
+                    </sw-alert>
+                {% endblock %}
+            </sw-container>
+            <sw-container
+                v-if="bfBpUnauthorized"
+                columns="1fr"
+                class="bf-sales-channel-detail-base__connection-assistant-warning">
+                <sw-alert
+                    variant="error"
+                    appearance="notification"
+                    :closable="false">
+                    {{ $tc('error.global.bfBpUnauthorized') }}
+                </sw-alert>
+            </sw-container>
+            {% block bf_sales_channel_detail_base_contract %}
+                <bf-contract
+                    v-if="!creatingNewSalesChannel && salesChannel"
+                    ref="bfContract"
+                    :isLoading="isLoading"
+                    :clientExists="clientExists"
+                    :currentContract="currentContract"
+                    :bookableContracts="bookableContracts"
+                    :subProcessorData="subProcessorData"
+                    :userAuthorised="userAuthorised"
+                    @onSetNewContract="onSetNewContract"
+                    @onCancelContract="onCancelContract"
+                    @refreshContractData="getContract"
+                ></bf-contract>
+            {% endblock %}
+            <sw-container
+                v-if="clientExists && !isConnected"
+                columns="1fr"
+                class="bf-sales-channel-detail-base__connection-assistant-warning"
+                v-show="showNotificationBox">
+                {% block bf_sales_channel_base_general_connection_asisstant %}
+                    <sw-alert
+                        variant="info"
+                        appearance="notification"
+                        :closable="false"
+                    >
+                        {{ $tc('salesChannel-connectionAssistant.connectionAvailable') }} <br><br>
+                        <sw-button
+                            :disabled="connectionAssistantBtnStartDisabled"
+                            variant="ghost"
+                            size="small"
+                            :square="false"
+                            :block="false"
+                            :isLoading="false"
+                            :routerLink=connectionAssistantRouterLink
+                        >
+                            {{ $tc('salesChannel-connectionAssistant.startConnectionAssistant') }}
+                        </sw-button>
+                    </sw-alert>
+                {% endblock %}
+            </sw-container>
+
+            {% block bf_sales_channel_detail_base_account %}{% endblock %}
+
+            {% block bf_sales_channel_detail_base_ebay_token_expires %}
+                <bf-sales-channel-ebay-token-expires
+                    v-if="salesChannel && isSalesChannelEbay"
+                    :salesChannel="salesChannel"
+                    :clientRdy="clientExists && !clientInProgress && isConnected">
+                </bf-sales-channel-ebay-token-expires>
+            {% endblock %}
+
+            <sw-card v-if="salesChannel" :isLoading="isLoadingBaseData"
+                     :title="$tc('sw-sales-channel.detail.titleGeneralSettings')">
+                {% block bf_sales_channel_base_general_input_name %}
+                    <sw-field
+                        type="text"
+                        validation="required"
+                        required
+                        :placeholder="placeholder(salesChannel, 'name')"
+                        :label="$tc('sw-sales-channel.detail.labelInputName')"
+                        :error="salesChannelNameError"
+                        v-model="salesChannel.name"></sw-field>
+                {% endblock %}
+
+                {% block bf_sales_channel_detail_base_general_select_marketplace %}
+                {% endblock %}
+
+                {% block bf_sales_channel_detail_base_general_marketplace_settings %}
+                    <sw-container columns="1fr 1fr" gap="20px">
+
+                        {% block bf_sales_channel_detail_base_general_marketplace_settings_select_currency %}
+                            <sw-entity-single-select
+                                :label="$tc('bf-sales-channel.create.labelCurrency')"
+                                v-model="salesChannel.currencyId"
+                                :error="salesChannelCurrencyIdError"
+                                entity="currency"
+                                validation="required"
+                                required
+                            >
+                            </sw-entity-single-select>
+                        {% endblock %}
+                        {% block bf_sales_channel_detail_base_general_marketplace_settings_select_language %}
+                            <sw-entity-single-select
+                                :label="$tc('bf-sales-channel.create.labelLanguage')"
+                                v-model="salesChannel.languageId"
+                                :error="salesChannelCurrencyIdError"
+                                entity="language"
+                                validation="required"
+                                required
+                            >
+                            </sw-entity-single-select>
+                        {% endblock %}
+                    </sw-container>
+                {% endblock %}
+
+                {% block bf_sales_channel_detail_base_general_marketplace_settings_select_country %}
+                    <sw-sales-channel-defaults-select
+                        :salesChannel="salesChannel"
+                        propertyName="countries"
+                        :propertyLabel="$tc('sw-sales-channel.detail.labelInputCountries')"
+                        :helpText="$tc('sw-sales-channel.detail.countryMultiSelectHelpText')"
+                        defaultPropertyName="countryId"
+                        :defaultPropertyLabel="$tc('sw-sales-channel.detail.labelInputDefaultCountry')">
+                    </sw-sales-channel-defaults-select>
+                {% endblock %}
+
+                {% block bf_sales_channel_detail_base_general_select_payment_method %}
+                    {% block bf_sales_channel_detail_base_ebay_payment_method %}
+                        <bf-sales-channel-ebay-payment-method
+                            v-if="salesChannel && isSalesChannelEbay && !creatingNewSalesChannel"
+                            propertyName="paymentMethods"
+                            defaultPropertyName="paymentMethodId"
+                            :clientExists="clientExists"
+                            :clientInProgress="clientInProgress"
+                            :salesChannel="salesChannel"
+                            :propertyLabel="$tc('sw-sales-channel.detail.labelInputPaymentMethods')"
+                            :defaultPropertyLabel="$tc('sw-sales-channel.detail.labelInputDefaultPaymentMethod')"
+                        ></bf-sales-channel-ebay-payment-method>
+                    {% endblock %}
+
+                    <sw-container
+                        v-if="salesChannel && isSalesChannelAmazon"
+                        columns="1fr"
+                        class="bf-sales-channel-detail-base__connection-assistant-warning"
+                    >
+                        <sw-alert variant="warning" appearance="notification" :showIcon="true" :closable="false">
+                            {{ $tc('bf-sales-channel.detail.amazonPaymentMethodInfoText') }}
+                        </sw-alert>
+                    </sw-container>
+                {% endblock %}
+
+                {% block bf_sales_channel_detail_base_general_select_shippment_method %}
+                    <sw-sales-channel-defaults-select
+                        v-if="isSalesChannelAmazon === false"
+                        :salesChannel="salesChannel"
+                        propertyName="shippingMethods"
+                        :propertyLabel="$tc('sw-sales-channel.detail.labelInputShippingMethods')"
+                        defaultPropertyName="shippingMethodId"
+                        :defaultPropertyLabel="$tc('sw-sales-channel.detail.labelInputDefaultShippingMethod')">
+                    </sw-sales-channel-defaults-select>
+                {% endblock %}
+                {% block bf_sales_channel_details_base_general_select_shipping_method_create_amazon %}
+                    <bf-sales-channel-defaults-select-only
+                            v-if="isSalesChannelAmazon && creatingNewSalesChannel"
+                            :salesChannel="salesChannel"
+                            propertyName="shippingMethods"
+                            :propertyLabel="$tc('sw-sales-channel.detail.labelInputShippingMethods')"
+                            defaultPropertyName="shippingMethodId"
+                            :defaultPropertyLabel="$tc('sw-sales-channel.detail.labelInputDefaultShippingMethod')"
+                    ></bf-sales-channel-defaults-select-only>
+                {% endblock %}
+
+                {% block bf_sales_channel_detail_base_general_select_customer_group %}
+                    <sw-container columns="1fr 1fr 1fr" gap="20px"
+                                  v-if="salesChannel && isSalesChannelAmazon && !creatingNewSalesChannel">
+                            <sw-text-field
+                                type="text"
+                                :label="$tc('salesChannelSettings.amazon.label.merchantShippingGroupName')"
+                                :placeholder="$tc('salesChannelSettings.amazon.placeholder.merchantShippingGroupName')"
+                                :value="salesChannel.merchantShippingGroupName"
+                                :helpText="$tc('salesChannelSettings.amazon.helpText.merchantShippingGroup')"
+                                name="merchantShippingGroupName"
+                                @change="salesChannel.merchantShippingGroupName = $event"
+                            >
+                            </sw-text-field>
+                            <bf-sales-channel-defaults-select-only
+                                :salesChannel="salesChannel"
+                                propertyName="shippingMethods"
+                                :propertyLabel="$tc('sw-sales-channel.detail.labelInputShippingMethods')"
+                                defaultPropertyName="shippingMethodId"
+                                :defaultPropertyLabel="$tc('sw-sales-channel.detail.labelInputDefaultShippingMethod')"
+                            ></bf-sales-channel-defaults-select-only>
+                            <sw-number-field
+                                :label="$tc('bf-sales-channel.detail.labelProcessingTime')"
+                                v-model="salesChannel.processingTime"
+                                placeholder="1"
+                                numberType="int"
+                                :step="1"
+                                :min="1"
+                                :max="99"
+                                :value="1"
+                                :digits="2"
+                            ></sw-number-field>
+                    </sw-container>
+                    <sw-entity-single-select v-else
+                                             :label="$tc('sw-sales-channel.detail.customerGroup')"
+                                             entity="customer_group"
+                                             :error="salesChannelCustomerGroupIdError"
+                                             v-model="salesChannel.customerGroupId"
+                                             validation="required"
+                                             required
+                    >
+                    </sw-entity-single-select>
+
+                <sw-container columns="1fr" v-if="salesChannel && !creatingNewSalesChannel && isSalesChannelEbay">
+                    <sw-switch-field
+                        :label="$tc('salesChannelSettings.ebay.label.manufacturerAsBrands')"
+                        :value="salesChannel.useBrandAsManufacturer"
+                        :ghostValue="false"
+                        :noMarginTop="true"
+                        :size="'small'"
+                        @change="salesChannel.useBrandAsManufacturer = $event"
+                        class="manufacturerAsBrandService">
+                    </sw-switch-field>
+                </sw-container>
+
+                    {% block bf_sales_channel_detail_base_general_amazon_settings %}
+                        <sw-container columns="1fr 1fr" gap="20px" v-if="salesChannel && !creatingNewSalesChannel && isSalesChannelAmazon">
+                            <sw-entity-single-select
+                                :label="$tc('sw-sales-channel.detail.customerGroup')"
+                                entity="customer_group"
+                                :error="salesChannelCustomerGroupIdError"
+                                v-model="salesChannel.customerGroupId"
+                                validation="required"
+                                required>
+                            </sw-entity-single-select>
+                            <sw-switch-field
+                                :label="$tc('salesChannelSettings.amazon.label.vatCalculationService')"
+                                :value="salesChannel.useAmazonTaxCalculationService"
+                                :ghostValue="false"
+                                :noMarginTop="true"
+                                :size="'small'"
+                                @change="salesChannel.useAmazonTaxCalculationService = $event"
+                                class="vatCalculationService">
+                            </sw-switch-field>
+                            <sw-entity-single-select
+                                :label="$tc('salesChannelSettings.amazon.label.fcShelfLifeAttribute')"
+                                entity="custom_field"
+                                :criteria="customFieldCriteria"
+                                v-model="salesChannel.amazonFcShelfLifeAttribute"
+                                validation="required">
+                            </sw-entity-single-select>
+                        </sw-container>
+                    {% endblock %}
+                {% endblock %}
+            </sw-card>
+            <sw-card :title="$tc('bf-sales-channel.detail.prices')"
+                     v-if="salesChannel && !creatingNewSalesChannel && (isSalesChannelAmazon || isSalesChannelEbay)">
+                {% block bf_sales_channel_net_price_general_settings %}
+                    <sw-alert
+                        variant="info"
+                        appearance="notification"
+                        :closable="false"
+                    >{{ $tc('global.globalConfigInfo') }}</sw-alert>
+                    <sw-switch-field v-if="salesChannel"
+                                     :label="$tc('bf-sales-channel.detail.netPriceSwitchLabel')"
+                                     :ghostValue="false"
+                                     :noMarginTop="true"
+                                     :size="'small'"
+                                     :value="salesChannel.useNetPrice"
+                                     @change="salesChannel.useNetPrice = $event">
+                    </sw-switch-field>
+                {% endblock %}
+            </sw-card>
+            <template v-if="salesChannel && !creatingNewSalesChannel && isSalesChannelEbay">
+                <sw-card :title="$tc('bf-sales-channel.detail.ebayAccountCardTitle')" :isLoading="isLoadingBaseData">
+                    <sw-alert variant="info" appearance="system" :showIcon="true" :closable="false"
+                              v-if="!clientExists || clientInProgress">
+                        {{ $tc('bf-sales-channel.detail.ebayAccountInfo') }}
+                    </sw-alert>
+                    {% block bf_sales_channel_detail_base_general_ebay_settings %}
+                    <sw-email-field
+                        :label="$tc('salesChannelSettings.ebay.label.payPalEmail')"
+                        :value="salesChannel.payPalEmail"
+                        @change="salesChannel.payPalEmail = $event"
+                        :disabled="!clientExists || clientInProgress" required>
+                    </sw-email-field>
+                    <sw-text-field
+                        :label="$tc('salesChannelSettings.ebay.label.ebayLogo')"
+                        :value="salesChannel.ebayLogo"
+                        placeholder="https://example.com/logo.jpg"
+                        @change="salesChannel.ebayLogo = $event"
+                        :disabled="!clientExists || clientInProgress" required>
+                    </sw-text-field>
+                    <sw-container columns="auto 1fr" gap="20px">
+                        <sw-text-field
+                            :label="$tc('salesChannelSettings.ebay.label.sellerZip')"
+                            :value="salesChannel.sellerZip"
+                            @change="salesChannel.sellerZip = $event"
+                            :disabled="!clientExists || clientInProgress" required>
+                        </sw-text-field>
+                        <sw-text-field
+                            :label="$tc('salesChannelSettings.ebay.label.sellerCity')"
+                            :value="salesChannel.sellerCity"
+                            @change="salesChannel.sellerCity = $event"
+                            :disabled="!clientExists || clientInProgress" required>
+                        </sw-text-field>
+                    </sw-container>
+                    <sw-text-field
+                        :label="$tc('salesChannelSettings.ebay.label.feedbackComment')"
+                        :value="salesChannel.feedbackComment"
+                        @change="salesChannel.feedbackComment = $event"
+                        :disabled="!clientExists || clientInProgress" required>
+                    </sw-text-field>
+                </sw-card>
+                {% endblock %}
+            </template>
+        {% endblock %}
+
+        {% block bf_sales_channel_ebay_extended_content %}
+            <bf-sales-channel-ebay-extended-configuration
+                v-if="salesChannel && !creatingNewSalesChannel && isSalesChannelEbay"
+                :salesChannel="salesChannel"
+                :clientExists="clientExists"
+                :clientInProgress="clientInProgress"
+                :currentContractName="currentContractName"
+                :isSalesChannelEbay="isSalesChannelEbay">
+            </bf-sales-channel-ebay-extended-configuration>
+        {% endblock %}
+
+        {% block bf_sales_channel_ebay_best_offer %}
+            <sw-card v-if="salesChannel && !creatingNewSalesChannel && isSalesChannelEbay"
+                     :title="$tc('bf-sales-channel.detail.ebayBestOffers')"
+                     :isLoading="!salesChannel">
+                <bf-sales-channel-ebay-best-offer
+                    v-if="salesChannel"
+                    :isGeneralPage="true"
+                    :clientExists="clientExists"
+                    :clientInProgress="clientInProgress"
+                    :currentContractName="currentContractName"
+                    :ebayBestOfferActive="salesChannel.ebayBestOfferActive"
+                    :ebayBestOfferAbsolute="salesChannel.ebayBestOfferAbsolute"
+                    :ebayBestOfferRelative="salesChannel.ebayBestOfferRelative"
+                    :ebayBestOfferAutoAccept="salesChannel.ebayBestOfferAutoAccept"
+                    :ebayBestOfferAbsoluteAutoAccept="salesChannel.ebayBestOfferAbsoluteAutoAccept"
+                    :ebayBestOfferRelativeAutoAccept="salesChannel.ebayBestOfferRelativeAutoAccept"
+                    :ebayBestOfferFix="salesChannel.ebayBestOfferFix"
+                    @change="setSalesChannelAttributeValue">
+                </bf-sales-channel-ebay-best-offer>
+            </sw-card>
+        {% endblock %}
+
+        {% block bf_sales_channel_ebay_policies %}
+            <bf-sales-channel-ebay-policy
+                v-if="salesChannel && !creatingNewSalesChannel && isSalesChannelEbay"
+                :salesChannel="salesChannel"
+                @setPolicy="setPolicy"
+                :clientRdy="clientExists && !clientInProgress  && isConnected">
+            </bf-sales-channel-ebay-policy>
+        {% endblock %}
+        <sw-card
+            v-if="salesChannel && !creatingNewSalesChannel && isSalesChannelAmazon"
+            :title="$tc('bf-category-segment-mapping.title')"
+            :isLoading="isSegmentLoading">
+            {% block bf_sales_channel_detail_segment_dropdown %}
+                <bf-sales-channel-amazon-segment-dropdown
+                    ref="segmentDropdown"
+                    :clientExists="clientExists"
+                    :clientInProgress="clientInProgress"
+                    :currentContractName="currentContractName"
+                    @onSetCurrentSegment="setCurrentSegment"
+                    @onStartLoading="isSegmentLoading = true"
+                    @onStopLoading="isSegmentLoading = false">
+                </bf-sales-channel-amazon-segment-dropdown>
+            {% endblock %}
+        </sw-card>
+
+        {% block sw_sales_channel_detail_base_options_domains %}
+            {# Kept in the Code for debuging if something not working or we have to check if the Domain setting works #}
+
+{#            <sw-sales-channel-detail-domains#}
+{#                v-if="salesChannel && isDomainAware"#}
+{#                :salesChannel="salesChannel"#}
+{#                :isLoading="isLoading">#}
+{#            </sw-sales-channel-detail-domains>#}
+        {% endblock %}
+
+        {% block sw_sales_channel_detail_base_options_status %}
+            <sw-card
+                :title="$tc('sw-sales-channel.detail.titleStatus')"
+                v-if="!creatingNewSalesChannel && salesChannel"
+                :isLoading="isLoading">
+                {% block bf_sales_channel_deactivate_info_msg %}
+                    <sw-alert variant="info" appearance="notification" :showIcon="true" :closable="false">
+                        {{ $tc('bf-sales-channel.detail.infoActivateDeactivateSalesChannel') }}
+                    </sw-alert>
+                {% endblock %}
+                {% block bf_sales_channel_ebay_activate_alerts__content %}
+                    <sw-alert
+                        v-if="isSalesChannelEbay && !salesChannel.active && salesChannel.noPaymentMethodMatching"
+                        variant="error"
+                        appearance="notification"
+                        :showIcon="true"
+                        :closable="false">
+                        {{ $tc('bf-sales-channel.detail.noPaymentMethodsSelected') }}
+                    </sw-alert>
+                    <sw-alert
+                        v-if="isSalesChannelEbay && !salesChannel.active && !salesChannel.shippingPolicy && (!salesChannel.paymentPolicy || !salesChannel.returnPolicy)"
+                        variant="error"
+                        appearance="notification"
+                        :showIcon="true"
+                        :closable="false">
+                        {{ $tc('bf-sales-channel.detail.noPoliciesSelected') }}
+                    </sw-alert>
+                {% endblock %}
+
+                {% block sw_sales_channel_detail_base_status_input_active %}
+                    <sw-field
+                        type="switch"
+                        :label="$tc('sw-sales-channel.detail.labelInputActive')"
+                        @change="onToggleActive"
+                        v-model="salesChannel.active"
+                        :disabled="!isSalesChannelActivationSwitchEnabled()">
+                    </sw-field>
+                {% endblock %}
+            </sw-card>
+        {% endblock %}
+
+        {% block bf_sales_channel_detail_base_api %}
+            <sw-card v-if="salesChannel" :isLoading="isLoadingBaseData"
+                     :title="$tc('sw-sales-channel.detail.titleOptionsApiKey')">
+                {% block bf_sales_channel_detail_base_api_description %}
+                    <div class="bf-sales-channel-detail-base__description-text"
+                         v-html="$tc('sw-sales-channel.detail.textApiAccessDescription')"></div>
+                {% endblock %}
+
+                {% block bf_sales_channel_detail_base_api_input_access_key %}
+                    <sw-field
+                        :label="$tc('sw-sales-channel.detail.labelAccessKeyField')"
+                        :disabled="true"
+                        v-model="salesChannel.accessKey"
+                    ></sw-field>
+                {% endblock %}
+            </sw-card>
+        {% endblock %}
+
+        {% block bf_sales_channel_detail_base_delete %}
+            <sw-card v-if="salesChannel" :isLoading="isLoadingBaseData"
+                     :title="$tc('sw-sales-channel.detail.deleteModalTitle')">
+                <sw-container columns="1fr 175px" gap="0 30px"
+                              class="bf-sales-channel-detail-base__delete-sales-cahnnel">
+                    {% block bf_sales_channel_detail_base_delete_description %}
+                        <div class="bf-sales-channel-detail-base__description-text">
+                            {{ $tc('bf-sales-channel.detail.delete') }}
+                        </div>
+                    {% endblock %}
+
+                    {% block bf_sales_channel_detail_base_delete_button %}
+                        <sw-button
+                            variant="danger"
+                            size="small"
+                            @click="showDeleteModal=true"
+                        >{{ $tc('sw-sales-channel.detail.buttonDelete') }}
+                        </sw-button>
+                    {% endblock %}
+                </sw-container>
+
+                {% block bf_sales_channel_detail_base_delete_modal %}
+                    <sw-modal
+                        v-if="showDeleteModal"
+                        class="bf-sales-channel-detail-base__delete-modal"
+                        ref="modal"
+                        variant="small"
+                        :title="$tc('sw-sales-channel.detail.deleteModalTitle')"
+                        @modal-close="onCloseDeleteModal"
+                    >
+                        {% block bf_sales_channel_detail_base_delete_modal_confirm_text %}
+                            <p class="bf-sales-channel-detail-base-__delete-modal-confirm-text">
+                                {{ $tc('sw-sales-channel.detail.textConfirmDelete') }}
+                            </p>
+                            <p class="bf-sales-channel-detail-base__delete-modal-name">
+                                <strong>{{ placeholder(salesChannel, 'name') }}</strong>
+                            </p>
+                            <p>{{ $tc('sw-sales-channel.detail.textDeleteInfo') }}</p>
+                        {% endblock %}
+
+                        {% block bf_sales_channel_detail_base_delete_modal_footer %}
+                            <template slot="modal-footer">
+                                {% block bf_sales_channel_detail_base_modal_footer_abort %}
+                                    <sw-button size="small" @click="onCloseDeleteModal">
+                                        {{ $tc('sw-sales-channel.detail.buttonCloseDeleteModal') }}
+                                    </sw-button>
+                                {% endblock %}
+
+                                {% block bf_sales_channel_detail_base_modal_footer_confirm %}
+                                    <sw-button size="small" @click="onConfirmDelete" variant="danger">
+                                        {{ $tc('sw-sales-channel.detail.buttonConfirmDelete') }}
+                                    </sw-button>
+                                {% endblock %}
+                            </template>
+                        {% endblock %}
+                    </sw-modal>
+                {% endblock %}
+            </sw-card>
+        {% endblock %}
+        <router-view></router-view>
+    </div>
+{% endblock %}

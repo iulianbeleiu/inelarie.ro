@@ -1,0 +1,9 @@
+{% sw_extends '@Storefront/storefront/page/account/sidebar.html.twig' %}
+
+{% block page_account_sidebar_header %}
+    {% if not headerWidget %}
+        <div class="card-header account-aside-header">
+            <h1>{{ "account.greetings"|trans|sw_sanitize }}</h1>
+        </div>
+    {% endif %}
+{% endblock %}

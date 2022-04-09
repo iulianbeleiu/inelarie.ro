@@ -1,0 +1,23 @@
+.b2b-accordion__body {
+    padding: 0 $spacer-md;
+
+    > :first-child {
+        margin-top: 0;
+    }
+}
+
+.b2b-accordion__title {
+    padding: 20px $spacer-md 24px;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: $font-weight-bold;
+
+    svg {
+        top: 2px;
+    }
+
+    .icon {
+        float: right;
+        color: $shape-gray-900;
+    }
+}

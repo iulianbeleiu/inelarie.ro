@@ -1,0 +1,39 @@
+{% block bf_ebay_connection_assistant_account %}
+    <div class="bf-ebay-connection-assistant-account">
+        {% block bf_ebay_connection_assistant_account_content %}
+            <div class="bf-ebay-connection-assistant-account__content">
+                <sw-card title="Account connected" large>
+                    <sw-container columns="auto 1fr auto">
+                        <sw-card-section slim>
+                            {% block bf_ebay_connection_assistant_account_content_avatar %}
+                                <div class="bf-ebay-connection-assistant-account__content-avatar">
+                                    <sw-avatar
+                                        color="#189eff"
+                                        size="40px"
+                                        :firstName="user.firstName"
+                                        :lastName="user.lastName"
+                                        style="margin: 0 10px"></sw-avatar>
+                                </div>
+                            {% endblock %}
+                        </sw-card-section>
+                        <sw-card-section>
+                            {% block bf_ebay_connection_assistant_account_content_user_details %}
+                                <div class="bf-ebay-connection-assistant-account__content-user-details">
+                                    <h6>{{ user.firstName }} {{ user.lastName }}</h6>
+                                    <p>{{ user.email }}</p>
+                                </div>
+                            {% endblock %}
+                        </sw-card-section>
+                        <sw-card-section>
+                            {% block bf_ebay_connection_assistant_account_content_button_group %}
+                                <div class="bf-ebay-connection-assistant-account__content-button-group">
+                                    <sw-button size="small">Disconnect</sw-button>
+                                </div>
+                            {% endblock %}
+                        </sw-card-section>
+                    </sw-container>
+                </sw-card>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

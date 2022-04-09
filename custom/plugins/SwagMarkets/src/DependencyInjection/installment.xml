@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+
+    <services>
+        <defaults autoconfigure="true" autowire="true" />
+
+        <service id="Swag\Markets\Service\SalesChannelTypeService">
+            <argument type="service" id="sales_channel_type.repository" />
+        </service>
+
+        <service id="Swag\Markets\Service\ActivationService">
+            <argument type="service" id="Swag\Markets\Service\SalesChannelTypeService" />
+            <argument type="service" id="bf_config.repository" />
+            <argument type="service" id="integration.repository" />
+            <argument type="service" id="bf_marketplace.repository" />
+            <argument type="service" id="currency.repository" />
+            <argument type="service" id="country.repository" />
+            <argument type="service" id="language.repository" />
+            <argument type="service" id="payment_method.repository" />
+        </service>
+
+        <service id="Swag\Markets\Service\DeactivationService">
+            <argument id="Doctrine\DBAL\Connection" type="service" />
+            <argument id="bf_config.repository" type="service" />
+            <argument id="integration.repository" type="service" />
+            <argument id="sales_channel_type.repository" type="service" />
+            <argument id="payment_method.repository" type="service" />
+            <argument id="parameter_bag" type="service" />
+        </service>
+
+        <service id="Swag\Markets\Setup\ActivateDeactivate">
+            <argument type="service" id="Swag\Markets\Service\ActivationService" />
+            <argument type="service" id="Swag\Markets\Service\DeactivationService" />
+        </service>
+    </services>
+</container>

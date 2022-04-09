@@ -1,0 +1,61 @@
+{
+    "document": {
+        "invoiceNumber": "Счет %invoiceNumber%",
+        "invoiceHeadline": "Счет %invoiceNumber%",
+        "stornoHeadline": "Отмена %stornoNumber% для счета-фактуры %invoiceNumber%",
+        "stornoNumber": "Номер отмены %stornoNumber%",
+        "deliveryNoteNumber": "Накладная %deliveryNoteNumber%",
+        "deliveryNoteHeadline": "Накладная %deliveryNoteNumber% для заказа %orderNumber%",
+        "creditNoteNumber": "Кредит-нота %creditNoteNumber%",
+        "creditNoteHeadline": "Кредитная нота %creditNoteNumber% для счета № %invoiceNumber%",
+        "customerNumber": "Номер клиента: %customerNumber%",
+        "date": "Дата: %date%",
+        "comment": "Комментарий: %comment%",
+        "orderDate": "Дата заказа: %orderDate%",
+        "deliveryDate": "Дата доставки: %deliveryDate%",
+        "page": "Страница %pageNumber%",
+        "orderNumber": "Номер заказа: %orderNumber%",
+        "taxNumber": "Налог номер: %taxNumber%",
+        "vatId": "НДС Рег.№: %vatId%",
+        "taxOffice": "Налоговая инспекция: %taxOffice%",
+        "bankAccount": "Банковский счет",
+        "bankIban": "IBAN: %bankIban%",
+        "bankBic": "BIC` %bankBic%",
+        "placeOfJurisdiction": "Место юрисдикции: %placeOfJurisdiction%",
+        "serviceDateNotice": "Дата обслуживания, эквивалентная дате выставления счета",
+        "placeOfFulfillment": "Место исполнения: %placeOfFulfillment%",
+        "intraCommunity": "Доставка внутри Сообщества (ЕС)",
+        "shippingAddress": "Адрес доставки",
+        "phoneNumber": "Номер телефона: %phoneNumber%",
+        "email": "Адрес электронной почты: %email%",
+        "ceo": "CEO",
+        "lineItems": {
+            "header": {
+                "position": "Поз.",
+                "label": "Метка",
+                "tax": "НДС",
+                "quantity": "Кол-во",
+                "unitPrice": "Цена товара",
+                "productNumber": " № товара",
+                "total": "Всего"
+            },
+            "tax": "плюс %taxRate%% НДС:",
+            "total": "Всего:",
+            "roundedTotal": "Округленное итог:",
+            "totalNet": "Всего (нетто):",
+            "shippingCosts": "Стоимость доставки"
+        },
+        "paymentShippingInfo": {
+            "paymentMethod": "Способ оплаты: %paymentMethod%",
+            "shippingMethod": "Способ доставки: %shippingMethod%",
+            "additionalInfo": "Поставленный товар остается нашим имуществом до полной оплаты."
+        }
+    },
+    "filter": {
+        "sortByNameAscending": "Имя А-Я",
+        "sortByNameDescending": "Имя Я-А",
+        "sortByPriceAscending": "Цены, по возрастанию",
+        "sortByPriceDescending": "Цены, по убыванию",
+        "sortByScore": "Лучшие результаты"
+    }
+}

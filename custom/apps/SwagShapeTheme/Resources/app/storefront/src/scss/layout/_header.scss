@@ -1,0 +1,113 @@
+.header {
+    &-row {
+        padding: $spacer-lg 0;
+        position: relative;
+        overflow: hidden;
+        justify-content: space-between;
+
+        @include media-breakpoint-down(md) {
+            align-items: center;
+        }
+    }
+
+    &-logo-main {
+        .header-logo-main-img {
+            max-height: $input-height-lg;
+        }
+
+        @include media-breakpoint-up(md) {
+            flex-shrink: 0;
+        }
+    }
+
+    &-search {
+        width: 288px;
+
+        .input-group-append {
+            min-width: 0;
+
+            > button.header-search-btn {
+                @include border-left-radius(0);
+                background-color: transparent;
+            }
+        }
+
+        .header-search-input {
+            padding-right: $spacer-md;
+            background-color: transparent;
+        }
+
+        .btn.header-search-btn {
+            padding-left: $spacer-md;
+            padding-right: $spacer-md;
+
+            :hover {
+                color: $primary;
+            }
+        }
+
+        &-col {
+            .collapse {
+                display: block;
+            }
+        }
+    }
+
+    &-cart-count {
+        position: absolute;
+        top: 5px;
+        font-size: $font-size-sm;
+        line-height: 1;
+    }
+
+    &-wishlist-badge {
+        font-size: $font-size-sm;
+        background-color: transparent;
+        color: $shape-gray-900;
+    }
+
+    &-actions {
+        @extend .d-flex;
+
+        &-btn {
+            &:hover {
+                color: $primary;
+
+                .header-wishlist-badge {
+                    color: $primary;
+                }
+            }
+        }
+
+        > div {
+            background-color: rgba($sw-background-color, 1);
+        }
+    }
+}
+
+.curtain-area {
+    @extend .d-none, .d-lg-inline-block;
+    height: $input-height-lg;
+    box-shadow: 0 0 20px 20px $sw-background-color;
+}
+
+@include media-breakpoint-up(sm) {
+    .header-actions-btn {
+        &.account-menu-btn,
+        .header-cart-btn {
+            padding: 0;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .header-search {
+        width: 300px;
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .header-search {
+        width: 242px;
+    }
+}

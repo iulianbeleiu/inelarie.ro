@@ -1,0 +1,15 @@
+{
+    "swagCmsExtensions": {
+        "quickview": {
+            "detailPageLinkText": "Arată mai multe detalii"
+        },
+        "form": {
+            "component": {
+                "checkbox": {
+                    "true": "da",
+                    "false": "Nu"
+                }
+            }
+        }
+    }
+}

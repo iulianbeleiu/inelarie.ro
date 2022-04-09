@@ -1,0 +1,12 @@
+{% sw_extends '@Storefront/storefront/layout/header/search-suggest.html.twig' %}
+
+{% block layout_search_suggest_result_total_link %}
+    <div class="col">
+        <a href="{{ path('frontend.search.page') }}?search={{ page.searchTerm }}"
+           title="{{ "header.searchAllResults"|trans|striptags }}"
+           class="search-suggest-total-link">
+            {% sw_icon 'arrow-right' style { 'pack': 'solid' } %}
+            {{ "header.searchAllResults"|trans|sw_sanitize }}
+        </a>
+    </div>
+{% endblock %}

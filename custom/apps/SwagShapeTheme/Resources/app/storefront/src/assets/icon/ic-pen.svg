@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>91271F34-B6E5-4353-9869-3F41239BEEF1@2x</title>
+    <defs>
+        <path d="M-9.02389274e-13,12 L4,16 L-9.02389274e-13,16 L-9.02389274e-13,12 Z M14.891418,1.10772193 C14.8921643,1.10846659 14.8929102,1.10921166 14.8936557,1.10995715 C16.0128299,2.22913131 16.0138325,4.04336173 14.8958959,5.16377214 L5.41701825,14.6636254 L1.36544095,10.6120481 L10.8443186,1.11219484 C11.9606591,-0.0066159706 13.7726072,-0.00861856183 14.891418,1.10772193 Z" id="path-1"></path>
+    </defs>
+    <g id="Overviews" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Font-Family" transform="translate(-291.000000, -597.000000)">
+            <g id="Group" transform="translate(291.000000, 597.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Combined-Shape-Copy" fill="#1F2E3D" fill-rule="nonzero" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

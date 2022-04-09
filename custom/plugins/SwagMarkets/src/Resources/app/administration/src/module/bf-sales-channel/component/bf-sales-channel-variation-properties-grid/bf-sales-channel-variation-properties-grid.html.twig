@@ -1,0 +1,60 @@
+{% block bf_sales_channel_variation_properties_grid %}
+    <div class="bf-sales-channel-variation-properties-grid--content">
+        <sw-card class="bf-card"
+                 :title="$tc('propertyMapping.card-title.variationProperties')"
+                 :showHelpTextIcon="true"
+                 :helpTextDescription="$tc('propertyMapping.information.message')"
+                 :helpTextWidth="500">
+            <sw-data-grid
+                :dataSource="variationProperties"
+                :columns="getColumns"
+                :showSelection="false"
+                :showActions="showActions"
+                :allowColumnEdit="false"
+                :allowInlineEdit="true"
+                @dblclick="onDbClickCell"
+                @inline-edit-save="onInlineEditSave"
+                identifer="bf-sales-channel-variation-properties-grid"
+                :isLoading="isLoading">
+                {% block sw_data_grid_columns_slot %}
+
+                    <template #column-selectedVariation="{item, isInlineEdit}">
+                        <template v-if="isInlineEdit">
+                            <sw-single-select
+                                v-model="item.selectedVariation"
+                                :options="[
+                                    { value: 'Color', label: 'Color'},
+                                    { value: 'Size', label: 'Size'}
+                                ]"
+                                :value="item.selectedVariation"
+                                size="small">
+                            </sw-single-select>
+                        </template>
+                        <template v-else>
+                            {{ item.selectedVariation }}
+                        </template>
+                    </template>
+                    <template #actions="{ item }">
+                        {{ $tc('propertyMapping.product-variant-properties.edit') }}
+                    </template>
+                {% endblock %}
+            </sw-data-grid>
+            {% block swag_markets_variation_properties_grid_empty_state %}
+                <sw-empty-state
+                    v-if="showEmptyStateVariationProperties"
+                    :absolute="false"
+                    :title="$tc('propertyMapping.variationProperties.emptyState')"
+                    :showDescription="false">
+                </sw-empty-state>
+            {% endblock %}
+            {% block swag_markets_variations_properties_grid__pagination %}
+                <sw-pagination :total="total"
+                               :limit="limit"
+                               :page="page"
+                               @page-change="pageChange"
+                               :steps="[5, 10]">
+                </sw-pagination>
+            {% endblock %}
+        </sw-card>
+    </div>
+{% endblock %}

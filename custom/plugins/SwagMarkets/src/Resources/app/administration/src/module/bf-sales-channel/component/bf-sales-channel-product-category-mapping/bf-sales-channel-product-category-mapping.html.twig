@@ -1,0 +1,51 @@
+{#{% block sw_category_tree_field_input_results_tree %}#}
+{#    <bf-product-category-mapping-tree v-if="term.length <= 0 && categories.length > 0"#}
+{#             :items="categories"#}
+{#             after-id-property="afterCategoryId"#}
+{#             ref="swTree"#}
+{#             @get-tree-items="getTreeItems"#}
+{#             :sortable="false">#}
+
+{#        {% block sw_category_tree_field_input_results_tree_headline %}#}
+{#            <template #headline><span></span></template>#}
+{#        {% endblock %}#}
+
+{#        {% block sw_category_tree_field_input_results_tree_search %}#}
+{#            <template #search><span></span></template>#}
+{#        {% endblock %}#}
+
+{#        {% block sw_category_tree_field_input_results_tree_items %}#}
+{#            <template #items="{#}
+{#                                                    treeItems,#}
+{#                                                    sortable,#}
+{#                                                    draggedItem,#}
+{#                                                    newElementId,#}
+{#                                                    checkItem,#}
+{#                                                    translationContext,#}
+{#                                                    onChangeRoute,#}
+{#                                                    disableContextMenu#}
+{#                                                }">#}
+{#                {% block sw_category_tree_field_input_results_tree_item %}#}
+{#                    <sw-tree-item v-for="item in treeItems"#}
+{#                                  :key="item.id"#}
+{#                                  :item="item"#}
+{#                                  :translationContext="translationContext"#}
+{#                                  :draggedItem="draggedItem"#}
+{#                                  :activeParentIds="selectedCategoriesPathIds"#}
+{#                                  :activeItemIds="selectedCategoriesItemsIds"#}
+{#                                  @check-item="onCheckItem"#}
+{#                                  :sortable="false"#}
+{#                                  shouldFocus#}
+{#                                  :activeFocusId="selectedTreeItem.id"#}
+{#                                  :markInactive="true">#}
+
+{#                        {% block sw_category_tree_field_input_results_tree_item_actions %}#}
+{#                            <template #actions><span></span></template>#}
+{#                        {% endblock %}#}
+
+{#                    </sw-tree-item>#}
+{#                {% endblock %}#}
+{#            </template>#}
+{#        {% endblock %}#}
+{#    </bf-product-category-mapping-tree>#}
+{#{% endblock %}#}

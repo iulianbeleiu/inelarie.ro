@@ -1,0 +1,8 @@
+{% block sw_card_title %}
+    <slot name="title">
+        <div class="sw-card__title" v-if="title">{{ title }}
+            <sw-help-text v-if="showHelpTextIcon" :text="helpTextDescription" :width="helpTextWidth" tooltipPosition="top">
+            </sw-help-text>
+        </div>
+    </slot>
+{% endblock %}

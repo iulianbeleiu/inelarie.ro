@@ -1,0 +1,14 @@
+.b2b--tab-menu {
+    .tab--navigation {
+        font-size: 0;
+
+        > .ajax-panel-link {
+            margin-right: 10px;
+            margin-bottom: 10px;
+
+            @include media-breakpoint-up(md) {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

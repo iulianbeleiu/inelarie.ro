@@ -1,0 +1,104 @@
+.address-main-header,
+.cart-main-header,
+.confirm-main-header,
+.checkout-aside-product-header,
+.checkout-aside-summary-header {
+    @include checkout-headline;
+
+    margin-bottom: 30px;
+}
+
+.checkout-aside-summary {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.cart-item-details-container {
+    .swag-customized-products-cart__configuration {
+        @extend .d-none;
+    }
+}
+
+.customized-checkout-hidden-image {
+    display: none;
+
+    .cart-item-info-img {
+        @extend .p-0;
+    }
+
+    @include media-breakpoint-up(md) {
+        display: flex;
+        opacity: 0;
+        height: 0;
+    }
+}
+
+.swag-customized-products-cart__configuration {
+    @extend .pt-3;
+    border-top: 1px solid $sw-border-color;
+
+    .swag-customized-products-cart__name {
+        text-transform: uppercase;
+        font-size: $font-size-base;
+        font-weight: $font-weight-bold;
+    }
+
+    .swag-customized-products-cart__items {
+        @extend .pl-3;
+
+        .swag-customized-products-cart__list {
+            list-style-type: none;
+            @extend .ml-0;
+        }
+    }
+
+    .swag-customized-products-cart__item-title {
+        @extend .d-flex, .justify-content-between;
+    }
+}
+
+.cart-item-row {
+    .product-wishlist {
+        @extend .mb-0;
+    }
+}
+
+.cart-item-customized-products {
+    @extend .pb-2;
+
+    .swag-customized-products-cart__title-toggle {
+        font-size: $font-size-lg;
+    }
+
+    .cart-item-row {
+        .swag-customized-products-cart__configuration {
+            .swag-customized-products-cart__items {
+                @extend .pl-0;
+            }
+        }
+    }
+
+    .cart-item-quantity {
+        @extend .justify-content-start;
+        @extend .pl-2;
+        text-align: left;
+    }
+
+    @include media-breakpoint-up(md) {
+        .cart-item-row {
+            .swag-customized-products-cart__configuration {
+                margin-left: $spacer;
+
+                .swag-customized-products-cart__items {
+                    padding-left: $spacer !important;
+                }
+            }
+        }
+    }
+}
+
+.checkout-aside {
+    .cart-item-customized-products {
+        border-left: none;
+    }
+}

@@ -1,0 +1,29 @@
+{% sw_extends '@Storefront/storefront/component/listing/filter/filter-multi-select.html.twig' %}
+
+{% block component_filter_multi_select_toggle %}
+    <button class="filter-panel-item-toggle btn{% if sidebar %} btn-block{% endif %}"
+            aria-expanded="false"
+            data-text="{{ displayName }}"
+            {% if sidebar %}
+            data-toggle="collapse"
+            data-target="#{{ filterItemId }}"
+            {% else %}
+            data-toggle="dropdown"
+            data-boundary="viewport"
+            data-offset="0,8"
+            aria-haspopup="true"
+            {% endif %}>
+
+            {% block component_filter_multi_select_display_name %}
+                {{ parent() }}
+            {% endblock %}
+
+            {% block component_filter_multi_select_count %}
+                {{ parent() }}
+            {% endblock %}
+
+            {% block component_filter_multi_select_toggle_icon %}
+                {{ parent() }}
+            {% endblock %}
+    </button>
+{% endblock %}

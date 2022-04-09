@@ -1,0 +1,51 @@
+{
+  "name": "swag/markets",
+  "description": "Multichannel markets integration for Shopware 6",
+  "version": "1.3.9",
+  "type": "shopware-platform-plugin",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "shopware AG"
+    }
+  ],
+  "require": {
+    "shopware/core": "~6.1"
+  },
+  "extra": {
+    "shopware-plugin-class": "Swag\\Markets\\SwagMarkets",
+    "copyright": "(c) by shopware AG",
+    "label": {
+      "de-DE": "Shopware Markets",
+      "en-GB": "Shopware Markets"
+    },
+    "description": {
+      "de-DE": "Multichannel plugin für Shopware 6",
+      "en-GB": "Multichannel plugin for Shopware 6"
+    },
+    "manufacturerLink": {
+      "de-DE": "https://store.shopware.com/shopware-ag.html",
+      "en-GB": "https://store.shopware.com/en/shopware-ag.html"
+    },
+    "supportLink": {
+      "de-DE": "https://docs.shopware.com/de",
+      "en-GB": "https://docs.shopware.com/en"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Swag\\Markets\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Swag\\Markets\\Test\\": "tests/"
+    }
+  },
+  "suggest": {
+    "shopware/administration": "Require '*'. Allows you to set up the plugin easily"
+  },
+  "conflict": {
+    "shopware/administration": "<6,>=7"
+  }
+}

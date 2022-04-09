@@ -1,0 +1,56 @@
+.filter-property-select {
+    &-preview {
+        border-radius: 50%;
+        border: none;
+        width: $spacer-lg;
+        height: $spacer-lg;
+
+        &[style*='background-image'] {
+            border-radius: $spacer-sm;
+
+            .filter-property-select-preview-checkmark {
+                border-radius: $spacer-10;
+            }
+        }
+
+        &-checkmark {
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            transform: none;
+            width: auto;
+            height: auto;
+            border: 2px solid $sw-border-color;
+            opacity: 1;
+            background-color: transparent;
+            border-radius: inherit;
+
+            .icon {
+                display: none;
+            }
+        }
+
+        ~ .filter-multi-select-item-label {
+            margin-left: $spacer-12;
+        }
+    }
+
+    &-list-item {
+        &:not(.disabled):hover {
+            .filter-property-select-preview-checkmark {
+                border-color: $shape-gray-900;
+            }
+        }
+
+        .custom-checkbox {
+            flex-grow: 1;
+        }
+
+        .filter-property-select-checkbox:checked {
+            ~ .filter-property-select-preview-checkmark {
+                border-color: $primary;
+            }
+        }
+    }
+}

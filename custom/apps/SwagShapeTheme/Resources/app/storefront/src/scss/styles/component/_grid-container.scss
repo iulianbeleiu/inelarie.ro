@@ -1,0 +1,42 @@
+.b2b--grid-container {
+    > .pl-2.pr-2 {
+        padding-left: $spacer-md !important;
+        padding-right: $spacer-md !important;
+    }
+
+    .custom-select {
+        line-height: 16px;
+    }
+
+    &.m-n4 {
+        margin: 0 !important;
+    }
+
+    .header-search-btn.btn:disabled {
+        justify-content: center;
+        opacity: 0.5;
+    }
+}
+
+.create-field.b2b--orderlist-add {
+    //@extend .mb-0;
+
+    input.form-control {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-right: 10px;
+    }
+
+    > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle) {
+        border-top-right-radius: 24px;
+        border-bottom-right-radius: 24px;
+        margin-right: 10px;
+        min-width: 90px;
+        width: auto;
+    }
+
+    &.input-group > .input-group-append {
+        position: relative;
+        min-width: auto;
+    }
+}

@@ -1,0 +1,46 @@
+{% block sw_category_tree_field_input_results_search_results %}
+    <ul v-else-if="searchResult.length > 0 && term.length > 0"
+        class="sw-category-tree-field__search-results swag-markets-category-tree-field__search-results">
+        {% block sw_category_tree_field_input_results_search_results_item %}
+            <li v-for="item in searchResult"
+                class="sw-category-tree-field__search-result swag-markets-category-tree-field__search-result"
+                :class="{ 'is--focus': isSearchResultInFocus(item)}"
+                @click.stop="onCheckSearchItem(item)">
+
+                {% block sw_category_tree_field_input_results_search_results_item_checkbox %}
+                    <sw-field type="checkbox"
+                              :value="isSearchItemChecked(item.id)"
+                              class="sw-category-tree-field__search-results-checkbox">
+                    </sw-field>
+                {% endblock %}
+
+                {% block sw_category_tree_field_input_results_search_results_item_folder %}
+                    <div v-if="item.childCount > 0" class="sw-category-tree-field__search-results-icon">
+                        {% block sw_category_tree_field_input_results_search_results_item_folder_icon %}
+                            <sw-icon name="multicolor-folder-tree" multicolor small></sw-icon>
+                        {% endblock %}
+                    </div>
+                {% endblock %}
+
+                {% block sw_category_tree_field_input_results_search_results_item_endpoint %}
+                    <div v-else class="sw-category-tree-field__search-results-icon">
+                        {% block sw_category_tree_field_input_results_search_results_item_endpoint_icon %}
+                            <sw-icon name="small-default-circle-small" size="18"></sw-icon>
+                        {% endblock %}
+                    </div>
+                {% endblock %}
+
+                {% block sw_category_tree_field_input_results_search_results_item_name %}
+                    <span class="sw-category-tree-field__search-results-name">
+                        {% block sw_category_tree_field_input_results_search_results_item_name_highlight %}
+                            <sw-highlight-text :searchTerm="term"
+                                               :text="getBreadcrumb(item)">
+                            </sw-highlight-text>
+                        {% endblock %}
+                    </span>
+                {% endblock %}
+            </li>
+        {% endblock %}
+    </ul>
+{% endblock %}
+

@@ -1,0 +1,74 @@
+{% block bf_sales_channel_detail %}
+    <sw-page class="bf-sales-channel-detail">
+        {% block bf_sales_channel_detail_header %}
+            <template slot="smart-bar-header">
+                {% block bf_sales_channel_detail_header_headline %}
+                    <h2>{{ placeholder(salesChannel, 'name', $tc('sw-sales-channel.detail.textHeadline')) }}</h2>
+                {% endblock %}
+            </template>
+        {% endblock %}
+
+        {% block bf_sales_channel_detail_actions %}
+            <template slot="smart-bar-actions">
+                {% block bf_sales_channel_detail_action_save %}
+                    <sw-button-process
+                        class="bf-sales-channel-detail__save-action"
+                        :isLoading="isLoading"
+                        :processSuccess="isSaveSuccessful"
+                        :disabled="isLoading"
+                        variant="primary"
+                        @process-finish="saveFinish"
+                        v-tooltip.bottom="toolTipSave"
+                        @click.prevent="onSave">
+                        {{ $tc('sw-sales-channel.detail.buttonSave') }}
+                    </sw-button-process>
+                {% endblock %}
+            </template>
+        {% endblock %}
+
+        {% block bf_sales_channel_detail_language_switch %}
+            <sw-language-switch
+                slot="language-switch"
+                @on-change="onChangeLanguage"
+                :saveChangesFunction="saveOnLanguageChange"
+                :abortChangeFunction="abortOnLanguageChange">
+            </sw-language-switch>
+        {% endblock %}
+
+        {% block bf_sales_channel_detail_content %}
+            <sw-card-view slot="content">
+
+                {% block bf_saels_channel_detail_content_language_info %}
+                    <sw-language-info
+                        :entityDescription="placeholder(salesChannel, 'name', $tc('sw-sales-channel.detail.textHeadline'))">
+                    </sw-language-info>
+                {% endblock %}
+
+                {% block bf_sales_channel_detail_content_tabs %}
+                    <sw-tabs class="bf-sales-channel-detail__tabs">
+                        {% block bf_sales_channel_detail_content_tab_general %}
+                            <sw-tabs-item
+                                :route="{name: 'bf.sales.channel.detail', params: {id: $route.params.id} }">
+                                {{ $tc('tabs.general') }}
+                            </sw-tabs-item>
+                        {% endblock %}
+                        <!-- TODO - the following must inject new elements somehow -->
+                        {% block bf_sales_channel_detail_content_tab %}{% endblock %}
+                    </sw-tabs>
+                {% endblock %}
+
+                {% block bf_sales_channel_detail_content_view %}
+                    <router-view
+                        :salesChannel="salesChannel"
+                        class="bf-sales-channel-detail-content-view"
+                        :isLoading="isLoading"
+                        :key="$route.params.id"
+                        :salesChannelType="salesChannelType"
+                        @setPolicy="setPolicy">
+                    </router-view>
+                {% endblock %}
+            </sw-card-view>
+        {% endblock %}
+
+    </sw-page>
+{% endblock %}

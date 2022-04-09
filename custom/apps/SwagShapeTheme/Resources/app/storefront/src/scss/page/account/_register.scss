@@ -1,0 +1,191 @@
+.account-register {
+    .register-personal {
+        margin-bottom: 0;
+    }
+
+    .register-billing,
+    .register-shipping {
+        @include media-breakpoint-down(sm) {
+            > .form-row {
+                .form-group.col-md-2,
+                .form-group.col-md-4 {
+                    @include make-col(12);
+                }
+            }
+        }
+    }
+
+    .register-billing {
+        .form-row {
+            &.country-and-state-form-elements,
+            &.contact-address {
+                > .col-md-6,
+                > .col-sm-6 {
+                    @include make-col(12);
+                }
+            }
+        }
+    }
+
+    .form-row.contact-register {
+        &:not(:first-child) {
+            > .col-md-6,
+            > .col-sm-6 {
+                @include make-col(12);
+            }
+        }
+    }
+
+    .register-address {
+        padding-top: $spacer-40;
+    }
+
+    .swag-amazon-pay-card {
+        text-align: center;
+        padding-bottom: 0;
+    }
+
+    .swag-amazon-pay-wrapper {
+        margin: 0 auto;
+    }
+}
+
+.register {
+    &-card {
+        .account-register & {
+            padding-top: $spacer-50;
+        }
+    }
+
+    &-form {
+        display: flex;
+        flex-wrap: wrap;
+
+        .account-register & {
+            padding-bottom: $spacer-10;
+        }
+
+        > div:not(.privacy-notice) {
+            width: 100%;
+        }
+    }
+
+    &-address {
+        margin-bottom: $spacer;
+    }
+
+    &-shipping {
+        padding-top: $spacer-lg;
+        padding-bottom: $spacer-20;
+        border-bottom: $hr-border;
+
+        .card-title {
+            .account-register & {
+                font-size: $h4-font-size;
+            }
+        }
+
+        .form-row {
+            > .col-md-3 {
+                @include make-col(12);
+            }
+
+            > .col-md-2,
+            > .col-md-4 {
+                @include make-col(6);
+            }
+        }
+    }
+
+    &-different-shipping {
+        padding-bottom: $spacer-md * 2;
+        border-bottom: $hr-border;
+        margin-bottom: $spacer-sm;
+    }
+
+    &-submit {
+        order: 2;
+
+        .btn {
+            @extend .btn-block;
+            @extend .btn-lg;
+        }
+    }
+
+    &-personal {
+        .col-md-3 {
+            @include make-col(12);
+        }
+    }
+}
+
+.privacy-notice {
+    order: 1;
+    margin-top: 0;
+    margin-bottom: $spacer-40;
+    letter-spacing: -0.05px;
+
+    strong,
+    br {
+        @extend .d-none;
+    }
+
+    label {
+        margin-bottom: 0;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .register-required-info {
+        width: 30%;
+        line-height: 21px;
+        text-align: right;
+    }
+
+    .privacy-notice {
+        width: 70%;
+        order: 0;
+    }
+
+    .account-register {
+        .register-form {
+            padding-bottom: 28px;
+        }
+
+        .register-personal {
+            .form-row {
+                > .col-md-2 {
+                    @include make-col(4);
+                }
+            }
+        }
+
+        .register-shipping {
+            .card-title {
+                text-align: left;
+                padding-bottom: $spacer-lg;
+            }
+
+            .form-row.country-and-state-form-elements {
+                > .col-md-6 {
+                    @include make-col(12);
+                }
+            }
+        }
+
+        .register-personal,
+        .register-shipping {
+            .col-12.col-md-6 {
+                @include make-col(12);
+            }
+        }
+    }
+
+    .register-shipping {
+        .form-row.contact-address {
+            > .col-md-6 {
+                @include make-col(12);
+            }
+        }
+    }
+}

@@ -1,0 +1,85 @@
+{% block swag_markets_custom_fields_mapping %}
+    <div>
+        {% block swag_markets_custom_fields_grid_content %}
+        <sw-data-grid
+            v-if="!showEmptyState"
+            :dataSource="customFieldsMapping"
+            :columns="columns"
+            :allowInlineEdit="true"
+            @inline-edit-save="saveInlineEdit"
+            :showSelection="false"
+            :plainAppearance="true"
+            :isLoading="isLoadingCustomFieldsMapping"
+            style="min-height: 300px">
+            <template slot="column-assigned" slot-scope="{ item }">
+                <sw-icon v-if="item.assigned" name="small-default-checkmark-line-medium" small class="is--active"></sw-icon>
+                <sw-icon v-else name="small-default-x-line-medium" small class="is--inactive"></sw-icon>
+            </template>
+            <template #actions="{ item }">
+                <sw-context-menu-item @click="showAttributesMappingModalWindow(item)">
+                    {{$tc('attributesMapping.selectAttribute')}}
+                </sw-context-menu-item>
+                <sw-context-menu-item
+                    :disabled="!item.assigned"
+                    variant="danger"
+                    @click="showRemoveAssignmentModal(item)">
+                    {{ $tc('attributesMapping.removeAssignment') }}
+                </sw-context-menu-item>
+            </template>
+        </sw-data-grid>
+        {% endblock %}
+        {% block swag_markets_attributes_mapping_properties_delete_modal %}
+            <sw-modal
+                v-if="showDeleteModalCustomFieldsAttributesMapping"
+                class="bf-sales-channel-product-errors-modal"
+                :title="$tc('bf-category-segment-mapping.deleteModalWarning')"
+                @modal-close="showDeleteModalCustomFieldsAttributesMapping = false">
+                {{ $tc('attributesMapping.removeWarningMsg') }}
+                <template slot="modal-footer">
+                    {% block swag_markets_categories_mapping_footer_cancel %}
+                        <sw-button
+                            @click="closeRemoveAssignmentModal"
+                            size="small">
+                            {{ $tc('bf-category-segment-mapping.deleteModalCancelBtn') }}
+                        </sw-button>
+                    {% endblock %}
+                    {% block swag_markets_attributes_mapping_properties_footer_delete %}
+                        <sw-button
+                            @click="removeCustomFieldsAssignment"
+                            variant="danger"
+                            size="small">
+                            {{ $tc('bf-category-segment-mapping.deleteModalDeleteBtn') }}
+                        </sw-button>
+                    {% endblock %}
+                </template>
+            </sw-modal>
+        {% endblock %}
+        {% block swag_markets_custom_fields_mapping_empty_state %}
+            <sw-empty-state
+                v-else-if="showEmptyState"
+                :absolute="false"
+                :title="$tc('attributesMapping.custom-fields.emptyStateText')"
+                :showDescription="false">
+            </sw-empty-state>
+        {% endblock %}
+        {% block swag_markets_attributes_mapping_modal %}
+            <attributes-mapping-modal
+                :showAttributesMappingModal="showAttributesMappingModal"
+                :attributesMappingModalItem="attributesMappingModalItem"
+                :salesChannelType="salesChannelType"
+                :amazonSegment="amazonSegment"
+                :amazonProductType="amazonProductType"
+                @modal-close-attr-mapping-win="closeAttributesMappingModalWindow"
+                @save-attribute-mapping="saveInlineEdit">
+            </attributes-mapping-modal>
+        {% endblock %}
+        {% block swag_markets_properties_grid__pagination %}
+            <sw-pagination :total="total"
+                           :limit="limit"
+                           :page="page"
+                           @page-change="pageChange"
+                           :steps="[5, 10]">
+            </sw-pagination>
+        {% endblock %}
+    </div>
+{% endblock %}

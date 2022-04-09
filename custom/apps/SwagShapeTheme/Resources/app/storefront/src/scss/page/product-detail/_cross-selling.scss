@@ -1,0 +1,45 @@
+.product-detail-cross-selling {
+    @include media-breakpoint-down(xs) {
+        .tab-pane {
+            margin-top: 0;
+            padding-top: 12px;
+            padding-bottom: $spacer-lg;
+            border-bottom: $hr-border-width solid $gray-300;
+
+            .cms-element-title {
+                margin-left: -$spacer-20;
+                margin-right: -$spacer-20;
+                padding-bottom: 12px;
+                line-height: 31px;
+            }
+
+        }
+    }
+
+    .card {
+        margin-top: 0;
+    }
+}
+
+.card-tabs {
+    .product-cross-selling-tab-navigation {
+        padding: 0;
+
+        .nav-item:first-child {
+            .nav-link {
+                border-top: none;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(xs) {
+    .product-cross-selling-tab-navigation {
+        .nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+    }
+}

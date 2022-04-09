@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="11px" viewBox="0 0 11 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>1C4D8EB8-425D-4F40-9277-781717148027@1x</title>
+    <defs>
+        <path d="M3.225,3.225 C3.525,2.925 3.975,2.925 4.275,3.225 L4.275,3.225 L8.175,7.05 L12,3.225 C12.3,2.925 12.75,2.925 13.05,3.225 C13.35,3.525 13.35,3.975 13.05,4.275 L13.05,4.275 L9.225,8.1 L9.207,8.117 L12.975,11.925 C13.2477273,12.1977273 13.2725207,12.5944215 13.0493802,12.8896882 L12.975,12.975 C12.825,13.125 12.6,13.2 12.45,13.2 C12.3,13.2 12.075,13.125 11.925,12.975 L11.925,12.975 L8.121,9.13 L8.1,9.15 L4.275,12.975 C4.125,13.125 3.9,13.2 3.75,13.2 C3.6,13.2 3.375,13.125 3.225,12.975 C2.925,12.675 2.925,12.225 3.225,11.925 L3.225,11.925 L7.05,8.1 L3.225,4.275 C2.925,3.975 2.925,3.525 3.225,3.225 Z" id="path-1"></path>
+    </defs>
+    <g id="Overviews" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Font-Family" transform="translate(-332.000000, -682.000000)">
+            <g id="Group" transform="translate(329.000000, 679.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Combined-Shape" fill="#1F2E3D" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

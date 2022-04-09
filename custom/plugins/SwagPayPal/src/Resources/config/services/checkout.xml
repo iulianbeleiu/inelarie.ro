@@ -1,0 +1,156 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="Swag\PayPal\Checkout\CheckoutSubscriber">
+            <argument type="service" id="Swag\PayPal\Util\Lifecycle\Method\PaymentMethodDataRegistry"/>
+            <argument type="service" id="Swag\PayPal\Util\Logger"/>
+            <argument type="service" id="Swag\PayPal\Checkout\Cart\Service\CartPriceService"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <service id="Swag\PayPal\Checkout\Cart\Validation\CartValidator">
+            <argument type="service" id="Swag\PayPal\Checkout\Cart\Service\CartPriceService"/>
+            <argument type="service" id="Swag\PayPal\Util\Lifecycle\Method\PaymentMethodDataRegistry"/>
+            <argument type="service" id="Swag\PayPal\Setting\Service\SettingsValidationService"/>
+            <tag name="shopware.cart.validator"/>
+        </service>
+
+        <service id="Swag\PayPal\Checkout\Cart\Service\CartPriceService"/>
+
+        <service id="Swag\PayPal\Checkout\SalesChannel\ErrorRoute" public="true">
+            <argument type="service" id="session"/>
+            <argument type="service" id="translator"/>
+            <argument type="service" id="Swag\PayPal\Util\Logger"/>
+        </service>
+
+        <service id="Swag\PayPal\Checkout\SalesChannel\CreateOrderRoute" public="true">
+            <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartService"/>
+            <argument type="service" id="order.repository"/>
+            <argument type="service" id="Swag\PayPal\OrdersApi\Builder\OrderFromOrderBuilder"/>
+            <argument type="service" id="Swag\PayPal\OrdersApi\Builder\OrderFromCartBuilder"/>
+            <argument type="service" id="Swag\PayPal\RestApi\V2\Resource\OrderResource"/>
+            <argument type="service" id="Swag\PayPal\Util\Logger"/>
+        </service>
+
+        <service id="Swag\PayPal\Checkout\SalesChannel\FilteredPaymentMethodRoute"
+                 decorates="Shopware\Core\Checkout\Payment\SalesChannel\PaymentMethodRoute"
+                 public="true">
+            <argument type="service" id=".inner"/>
+            <argument type="service" id="Swag\PayPal\Util\Lifecycle\Method\PaymentMethodDataRegistry"/>
+            <argument type="service" id="Swag\PayPal\Setting\Service\SettingsValidationService"/>
+            <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartService"/>
+            <argument type="service" id="Swag\PayPal\Checkout\Cart\Service\CartPriceService"/>
+        </service>
+
+        <service id="Swag\PayPal\Checkout\Payment\Method\ACDCHandler">
+            <argument type="service" id="Swag\PayPal\Setting\Service\SettingsValidationService"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="Swag\PayPal\Checkout\Payment\Service\OrderExecuteService"/>
+            <argument type="service" id="Swag\PayPal\Checkout\Payment\Service\OrderPatchService"/>
+            <argument type="service" id="Swag\PayPal\Checkout\Payment\Service\TransactionDataService"/>
+            <argument type="service" id="Swag\PayPal\Util\Logger"/>
+            <tag name="shopware.payment.method.sync"/>
+        </service>
+
+        <service id="Swag\PayPal\Checkout\Payment\Method\SEPAHandler">
+            <argument type="service" id="Swag\PayPal\Setting\Service\SettingsValidationService"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="Swag\PayPal\Checkout\Payment\Service\OrderExecuteService"/>
+            <argument type="service" id="Swag\PayPal\Checkout\Payment\Service\OrderPatchService"/>
+            <argument type="service" id="Swag\PayPal\Checkout\Payment\Service\TransactionDataService"/>
+            <argument type="service" id="Swag\PayPal\Util\Logger"/>
+            <tag name="shopware.payment.method.sync"/>
+        </service>
+
+        <service id="Swag\PayPal\Checkout\Payment\PayPalPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="Swag\PayPal\Checkout\Payment\Handler\EcsSpbHandler"/>
+            <argument type="service" id="Swag\PayPal\Checkout\Payment\Handler\PayPalHandler"/>
+            <argument type="service" id="Swag\PayPal\Checkout\Payment\Handler\PlusPuiHandler"/>
+            <argument type="service" id="state_machine_state.repository"/>
+            <argument type="service" id="Swag\PayPal\Util\Logger"/>
+            <argument type="service" id="Swag\PayPal\Setting\Service\SettingsValidationService"/>
+            <tag name="shopware.payment.method.async"/>
+        </service>
+
+        <service id="Swag\PayPal\Checkout\Payment\PayPalPuiPaymentHandler">
+            <argument type="service" id="Swag\PayPal\Checkout\Payment\Handler\PlusPuiHandler"/>
+            <argument type="service" id="Swag\PayPal\RestApi\V1\Resource\PaymentResource"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="order_transaction.repository"/>
+            <argument type="service" id="Swag\PayPal\Util\Logger"/>
+            <argument type="service" id="Swag\PayPal\Setting\Service\SettingsValidationService"/>
+            <tag name="shopware.payment.method.async"/>
+        </service>
+
+        <service id="Swag\PayPal\Checkout\Payment\Handler\EcsSpbHandler">
+            <argument type="service" id="order_transaction.repository"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="currency.repository"/>
+            <argument type="service" id="Swag\PayPal\OrdersApi\Patch\PurchaseUnitPatchBuilder"/>
+            <argument type="service" id="Swag\PayPal\RestApi\V2\Resource\OrderResource"/>
+            <argument type="service" id="Swag\PayPal\OrdersApi\Builder\Util\ItemListProvider"/>
+            <argument type="service" id="Swag\PayPal\Checkout\Payment\Service\TransactionDataService"/>
+            <argument type="service" id="Swag\PayPal\Util\Logger"/>
+        </service>
+
+        <service id="Swag\PayPal\Checkout\Payment\Handler\PayPalHandler">
+            <argument type="service" id="order_transaction.repository"/>
+            <argument type="service" id="Swag\PayPal\OrdersApi\Builder\OrderFromOrderBuilder"/>
+            <argument type="service" id="Swag\PayPal\RestApi\V2\Resource\OrderResource"/>
+            <argument type="service" id="Swag\PayPal\Checkout\Payment\Service\OrderExecuteService"/>
+            <argument type="service" id="Swag\PayPal\Checkout\Payment\Service\OrderPatchService"/>
+            <argument type="service" id="Swag\PayPal\Checkout\Payment\Service\TransactionDataService"/>
+            <argument type="service" id="Swag\PayPal\Util\Logger"/>
+        </service>
+
+        <service id="Swag\PayPal\Checkout\Payment\Handler\PlusPuiHandler">
+            <argument type="service" id="Swag\PayPal\RestApi\V1\Resource\PaymentResource"/>
+            <argument type="service" id="order_transaction.repository"/>
+            <argument type="service" id="Swag\PayPal\PaymentsApi\Builder\OrderPaymentBuilder"/>
+            <argument type="service" id="Swag\PayPal\PaymentsApi\Patch\PayerInfoPatchBuilder"/>
+            <argument type="service" id="Swag\PayPal\PaymentsApi\Patch\OrderNumberPatchBuilder"/>
+            <argument type="service" id="Swag\PayPal\PaymentsApi\Patch\CustomTransactionPatchBuilder"/>
+            <argument type="service" id="Swag\PayPal\PaymentsApi\Patch\ShippingAddressPatchBuilder"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="Swag\PayPal\Util\Logger"/>
+        </service>
+
+        <service id="Swag\PayPal\Checkout\Payment\Service\OrderExecuteService">
+            <argument type="service" id="Swag\PayPal\RestApi\V2\Resource\OrderResource"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="Swag\PayPal\OrdersApi\Patch\OrderNumberPatchBuilder"/>
+            <argument type="service" id="Swag\PayPal\Util\Logger"/>
+        </service>
+
+        <service id="Swag\PayPal\Checkout\Payment\Service\OrderPatchService">
+            <argument type="service" id="Swag\PayPal\OrdersApi\Patch\CustomIdPatchBuilder"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="Swag\PayPal\OrdersApi\Patch\OrderNumberPatchBuilder"/>
+            <argument type="service" id="Swag\PayPal\RestApi\V2\Resource\OrderResource"/>
+        </service>
+
+        <service id="Swag\PayPal\Checkout\Payment\Service\TransactionDataService">
+            <argument type="service" id="order_transaction.repository"/>
+        </service>
+
+        <service id="Swag\PayPal\Checkout\Payment\ScheduledTask\CancelTransactionsTask">
+            <tag name="shopware.scheduled.task"/>
+        </service>
+
+        <service id="Swag\PayPal\Checkout\Payment\ScheduledTask\CancelTransactionsTaskHandler">
+            <argument type="service" id="scheduled_task.repository"/>
+            <argument type="service" id="Swag\PayPal\Util\PaymentMethodUtil"/>
+            <argument type="service" id="state_machine_state.repository"/>
+            <argument type="service" id="order_transaction.repository"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <tag name="messenger.message_handler"/>
+        </service>
+
+    </services>
+</container>

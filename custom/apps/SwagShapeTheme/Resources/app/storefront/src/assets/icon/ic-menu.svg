@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="8px" viewBox="0 0 18 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>04F1459F-24F9-4BD8-8F70-EDF0418E3965@1x</title>
+    <defs>
+        <path d="M22.0066023,16 C22.5160523,16 22.935933,16.3827202 22.9933167,16.8826674 L23,17 C23,17.5522847 22.5550537,18 22.0066023,18 L5.99339768,18 C5.48394775,18 5.06406704,17.6172798 5.00668331,17.1173326 L5,17 C5,16.4477153 5.44494629,16 5.99339768,16 L22.0066023,16 Z M22.0066023,10 C22.5160523,10 22.935933,10.3827202 22.9933167,10.8826674 L23,11 C23,11.5522847 22.5550537,12 22.0066023,12 L5.99339768,12 C5.44475929,12 5,11.5561352 5,11 C5,10.4477153 5.44494629,10 5.99339768,10 L22.0066023,10 Z" id="path-1"></path>
+    </defs>
+    <g id="Overviews" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Font-Family" transform="translate(-458.000000, -521.000000)">
+            <g id="Group" transform="translate(453.000000, 511.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#1F2E3D" fill-rule="nonzero" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

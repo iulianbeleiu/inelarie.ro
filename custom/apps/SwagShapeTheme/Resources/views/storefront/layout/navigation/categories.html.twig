@@ -1,0 +1,71 @@
+{% block layout_navigation_categories %}
+    {% set navigationMaxDepth = 3 %}
+
+    {% if not level %}
+        {% set level = 0 %}
+    {% endif %}
+    {% set activeId = page.header.navigation.active.id %}
+
+    {% if page.product is defined %}
+        {% set activePath = page.product.categoryTree %}
+    {% else %}
+        {% set activePath = page.header.navigation.active.path %}
+    {% endif %}
+
+    {% set haveGrandChildren = false %}
+    {% if level < 3 and navigationTree|length > 0 %}
+        {% for category in navigationTree %}
+            {% if category.children|length > 0 %}
+                {% set haveGrandChildren = true %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% if navigationTree|length > 0 %}
+        <div class="main-navigation-flyout is-level-{{ level }} {% if not haveGrandChildren %}last-navigation{% endif %}">
+            {% for treeItem in navigationTree %}
+                {% set id = treeItem.category.id %}
+                {% set name = treeItem.category.translated.name %}
+                {% set link = category_url(treeItem.category) %}
+
+                {% set haveChildNavigation = false %}
+                {% if level < 2 %}
+                    {% for category in treeItem.children %}
+                        {% if category.children|length > 0 %}
+                            {% set haveChildNavigation = true %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+                {% block layout_navigation_categories_item %}
+                    {% block layout_navigation_categories_item_link %}
+                        <div class="nav-item nav-link navigation-flyout-link{% if id == activeId or id in activePath %} active{% endif %}{% if not haveChildNavigation %} is-level-last{% endif %}"
+                            {% if treeItem.category.type != 'folder' %}
+                                data-href="{{ link }}"
+                                itemprop="url"
+                                {% if category_linknewtab(treeItem.category) %}target="_blank"
+                                    {# Added rel="noopener noreferrer" to flyout navigation if the link is external #}
+                                    {% if treeItem.category.linkType == "external" %}rel="noopener noreferrer"{% endif %}
+                                {% endif %}
+                                data-navigation-link="true"
+                            {% endif %}
+                            title="{{ name }}">
+                            <span class="navigation-flyout-link-text">
+                                {{ name }}
+                            </span>
+                            {% block layout_navigation_categories_recoursion %}
+                                {% if level < navigationMaxDepth %}
+                                    {% sw_include '@Storefront/storefront/layout/navigation/categories.html.twig' with {
+                                        navigationTree: treeItem.children,
+                                        level: level + 1,
+                                        page: page
+                                    } only %}
+                                {% endif %}
+                            {% endblock %}
+                        </div>
+                    {% endblock %}
+                {% endblock %}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

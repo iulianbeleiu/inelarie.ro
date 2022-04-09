@@ -1,0 +1,53 @@
+.checkout-aside-summary {
+    background-color: transparent;
+}
+
+.checkout-aside-summary-label {
+    padding-bottom: 1rem;
+}
+
+.checkout-aside-summary-total {
+    padding-top: 20px;
+    font-size: 20px;
+}
+
+.checkout-aside-products {
+    margin-bottom: 34px;
+    padding-top: 0;
+
+    .checkout-aside-item-image {
+        padding-left: 0;
+    }
+}
+
+.checkout-add-promotion {
+    margin-bottom: 30px;
+}
+
+.checkout-aside-summary-list-container {
+    border-bottom: 2px solid $hr-border-color;
+}
+
+.input-group.checkout-aside-add-code {
+    .form-control {
+        @extend .form-control-lg;
+        @include border-left-radius($input-border-radius-lg);
+
+        margin-right: $input-group-append-width-lg / 2;
+        padding-right: calc(#{$input-padding-x} + #{$input-group-append-width-lg} / 2);
+    }
+
+    .input-group-append {
+        min-width: $input-group-append-width-lg;
+    }
+}
+
+.checkout-aside-summary-value.checkout-aside-summary-total,
+.checkout-aside-summary-label.checkout-aside-summary-total {
+    border-width: $hr-border-width;
+}
+
+.checkout-aside-summary-value.checkout-aside-summary-total::before {
+    left: 0;
+    right: $grid-gutter-width / 2;
+}

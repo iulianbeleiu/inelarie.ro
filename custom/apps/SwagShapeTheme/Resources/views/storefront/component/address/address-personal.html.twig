@@ -1,0 +1,79 @@
+{% sw_extends '@Storefront/storefront/component/address/address-personal.html.twig' %}
+
+{# override this block in order to custom form width, remove col-md-3 class #}
+{% block component_address_personal_fields_salutation %}
+{% endblock %}
+
+{% block component_address_personal_account_type %}
+    <div class="form-row">
+        {% if config('core.loginRegistration.showAccountTypeSelection') and not hideCustomerTypeSelect %}
+            <div class="form-group col-sm-6 contact-type">
+                {% block component_address_personal_account_type_label %}
+                    {{ parent() }}
+                {% endblock %}
+
+                {% block component_address_personal_account_type_select %}
+                    {{ parent() }}
+                {% endblock %}
+
+                {% block component_address_personal_account_type_error %}
+                    {{ parent() }}
+                {% endblock %}
+            </div>
+        {% elseif not hideCustomerTypeSelect %}
+            <input type="hidden" name="accountType">
+        {% endif %}
+
+        {% block component_address_personal_fields_salutation_type %}
+            <div class="form-group col-sm-6">
+                {% block component_address_personal_fields_salutation_label %}
+                    {{ parent() }}
+                {% endblock %}
+
+                {% block component_address_form_salutation_select %}
+                    {{ parent() }}
+                {% endblock %}
+
+                {% block component_address_form_salutation_select_error %}
+                    {{ parent() }}
+                {% endblock %}
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}
+
+{% block component_address_personal_fields_birthday_label %}
+    <label class="form-label" for="{{ prefix }}personalBirthday">
+        {{ "account.personalBirthdayLabel"|trans|sw_sanitize }}{{ config('core.loginRegistration.birthdayFieldRequired') ? "general.required"|trans|sw_sanitize }}
+    </label>
+{% endblock %}
+
+{% block component_address_personal_fields_first_name %}
+    <div class="form-group {% if isAddressModal %}col-6 {% else %}col-12{% endif%}">
+        {{ block('component_address_personal_fields_first_name_label') }}
+
+        {{ block('component_address_personal_fields_first_name_input') }}
+
+        {{ block('component_address_personal_fields_first_name_input_error') }}
+    </div>
+{% endblock %}
+
+{% block component_address_personal_fields_last_name %}
+    <div class="form-group {% if isAddressModal %}col-6 {% else %}col-12{% endif %}">
+        {{ block('component_address_personal_fields_last_name_label') }}
+
+        {{ block('component_address_personal_fields_last_name_input') }}
+
+        {{ block('component_address_personal_fields_last_name_input_error') }}
+    </div>
+{% endblock %}
+
+{% block component_address_personal_fields_title %}
+    {% if config('core.loginRegistration.showTitleField') %}
+        <div class="form-group col-12">
+            {{ block('component_address_personal_fields_title_label') }}
+
+            {{ block('component_address_personal_fields_title_input') }}
+        </div>
+    {% endif %}
+{% endblock %}

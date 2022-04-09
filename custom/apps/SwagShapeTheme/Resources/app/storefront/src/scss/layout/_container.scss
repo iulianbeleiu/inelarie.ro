@@ -1,0 +1,40 @@
+/*
+Container
+==============================================
+Additional styling for bootstrap container layout.
+
+https://getbootstrap.com/docs/4.3/layout/overview/
+*/
+
+@mixin container-gutter() {
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    max-width: 1360px;
+}
+
+.container-main {
+    max-width: 1668px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: $shape-gray-100;
+
+    footer & {
+        min-height: unset;
+    }
+}
+
+.content-main {
+    overflow-x: hidden;
+}
+
+@include media-breakpoint-up(xl) {
+    .container-main {
+        footer & {
+            min-height: unset;
+        }
+    }
+}

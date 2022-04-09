@@ -1,0 +1,56 @@
+{% block layout_footer_social_media %}
+    <div class="footer-social-media">
+        <div class="row footer-links">
+            {% block layout_footer_logo %}
+                <div class="col-6 col-lg-12 footer-logo">
+                    <a class="footer-logo-main-link"
+                       href="{{ path('frontend.home.page') }}"
+                       title="{{ "header.logoLink"|trans|striptags }}"
+                       rel="noopener"
+                       target="_blank">
+                        {% block layout_header_footer_image %}
+                            {% if theme_config('sw-footer-logo') %}
+                                <img src="{{ theme_config('sw-footer-logo') |sw_encode_url }}"
+                                     alt="{{ "header.logoLink"|trans|striptags }}"
+                                     class="img-fluid header-logo-main-img"/>
+                            {% endif %}
+                        {% endblock %}
+                    </a>
+                </div>
+            {% endblock %}
+            {% block layout_footer_soial_links %}
+                <div class="col-6 col-lg-12 footer-social_links">
+                    <a class="links instagram"
+                       href="{{ theme_config('sw-instagram-link') |sw_encode_url }}"
+                       title="{{ "footer.instagramLink"|trans|striptags }}"
+                       rel="noopener"
+                       target="_blank">
+                        {% sw_icon 'ic-twitter' style {'pack' : 'shape'} %}
+                    </a>
+                    <a class="links facebook"
+                       href="{{ theme_config('sw-facebook-link') |sw_encode_url }}"
+                       title="{{ "footer.facebookLink"|trans|striptags }}"
+                       rel="noopener"
+                       target="_blank">
+                        {% sw_icon 'ic-facebook' style {'pack' : 'shape'} %}
+                    </a>
+                    <a class="links printer"
+                       href="{{ theme_config('sw-pinterest-link') |sw_encode_url }}"
+                       title="{{ "footer.pinterestLink"|trans|striptags }}"
+                       rel="noopener"
+                       target="_blank">
+                        {% sw_icon 'ic-pinterest' style {'pack' : 'shape'} %}
+                    </a>
+                </div>
+            {% endblock %}
+        </div>
+
+        <div class="row footer-links">
+            <div class="col-6 col-lg-12">
+                {{ 'footer.serviceContactLink'|trans({
+                    '%url%': path('frontend.cms.page', { id: config('core.basicInformation.contactPage') })
+                })|raw }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

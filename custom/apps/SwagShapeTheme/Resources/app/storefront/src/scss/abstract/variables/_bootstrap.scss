@@ -1,0 +1,156 @@
+// contains variable overrides for bootstrap variables located under
+// shopRoot/src/vendor/shopware/storefront/Resources/app/storefront/vendor/bootstrap/scss/_variables.scss
+$asset-path: '#{$sw-asset-theme-url}/bundles/swagshapetheme/assets' !default;
+
+// Color system
+$gray-100: lighten($sw-color-brand-primary, 30%) !default;
+$gray-300: lighten($sw-color-brand-primary, 25%) !default;
+$gray-400: lighten($sw-color-brand-primary, 20%) !default;
+$gray-500: lighten($sw-color-brand-primary, 15%) !default;
+$gray-600: lighten($sw-color-brand-primary, 10%) !default;
+$gray-700: #637182 !default;
+$gray-800: lighten($sw-color-brand-primary, 5%) !default;
+$gray-900: $sw-color-brand-primary !default;
+
+$box-shadow-color: saturate($sw-color-brand-primary, 10%);
+
+// Colors
+$shape-gray-100: #f9fafc !default;
+$shape-gray-200: #eff2f7 !default;
+$shape-gray-300: $sw-border-color !default;
+$shape-gray-400: #b2bcd2 !default;
+$shape-gray-500: #9ea7bc !default;
+$shape-gray-600: #768699 !default;
+$shape-gray-800: #344254 !default;
+$shape-gray-900: #1f2e3d !default;
+$shape-gray-light: #fdfdfd !default;
+
+$green: #42954d !default;
+
+$secondary: $sw-color-brand-primary !default;
+
+// Body
+$body-bg: rgba($sw-background-color, 1) !default;
+
+// Typography
+$font-size-base: 0.875rem !default;
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-bold: 600 !default;
+$font-weight-bolder: 700 !default;
+$font-weight-extrabold: 800 !default;
+
+// Components
+//
+// Button
+$btn-border-radius: 20px !default;
+$btn-border-radius-lg: 24px !default;
+$btn-border-radius-sm: 18px !default;
+
+$btn-line-height-sm: 28px;
+$btn-line-height: 32px;
+$btn-line-height-lg: 40px;
+$btn-border-width: 2px !default;
+$btn-font-size-lg: 14px !default;
+$btn-block-spacing-y: 12px !default;
+
+// Form Input
+$input-border-width: 2px !default;
+$input-border-radius: $btn-border-radius;
+$input-border-radius-lg: $btn-border-radius-lg;
+
+$input-height-lg: 48px;
+$input-border-color: $shape-gray-300;
+$input-placeholder-color: $shape-gray-500;
+$input-height: 40px;
+$input-padding-x-lg: 24px;
+
+$input-btn-padding-x: 16px;
+
+// Custom Forms
+$form-feedback-valid-color: $gray-700;
+$custom-select-border-radius: 20px !default;
+$custom-select-padding-x: 1rem;
+
+$custom-control-indicator-border-color: $sw-border-color !default;
+$custom-control-indicator-checked-bg: $sw-color-brand-primary;
+$custom-checkbox-indicator-border-radius: 2px !default;
+$custom-select-bg-size: 0.625rem !default;
+
+$custom-select-focus-box-shadow: none;
+
+//$custom-switch-indicator-size: 0.625rem !default;
+
+// Badges
+$badge-font-size: 10px !default;
+
+// Alerts
+$alert-padding-y: 0.75rem !default;
+$alert-padding-x: 1.25rem !default;
+
+// Tables
+$table-accent-bg: $shape-gray-200;
+$table-cell-padding: 12px 24px;
+
+// List items
+$list-group-action-color: $shape-gray-900 !default;
+$list-group-action-hover-color: $shape-gray-900 !default;
+$list-group-action-active-color: $shape-gray-900 !default;
+
+// List group
+$list-group-bg: $shape-gray-200 !default;
+$list-group-border-radius: 22px !default;
+
+//
+// Horizontal rules
+//
+$hr-border-width: 2px !default;
+$hr-border-color: $shape-gray-300;
+
+// Dropdowns
+$dropdown-color: $shape-gray-800;
+$dropdown-font-size: 12px;
+$dropdown-min-width: 100%;
+$dropdown-item-padding-y: 10px;
+$dropdown-item-padding-x: 10px;
+$dropdown-border-color: #fff !default;
+$dropdown-box-shadow: 0 20px 160px 0 rgba($box-shadow-color, 0.12) !default;
+$dropdown-border-width: 2px;
+$dropdown-border-color: $sw-text-color;
+
+$dropdown-link-color: $dropdown-color;
+$dropdown-link-active-bg: $shape-gray-200;
+
+// btn-buy
+$buy-btn-bg: $sw-color-brand-primary !default;
+
+// Heading
+$headings-color: $shape-gray-900;
+$headings-font-weight: $font-weight-bold !default;
+$headings-line-height: 1.4 !default;
+
+// Forms
+$form-grid-gutter-width: 24px;
+$form-text-margin-top: 10px !default;
+
+// Modal
+$modal-lg: 870px;
+$modal-content-border-radius: 4px;
+$modal-header-padding: 34px;
+$modal-content-bg: $shape-gray-100;
+
+// Order
+$order-grid-gutter-width: 24px !default;
+
+// Grid breakpoints
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+) !default;
+
+// Form
+$custom-select-indicator: url('#{$asset-path}/icon/ic-chevron-down.svg') !default;

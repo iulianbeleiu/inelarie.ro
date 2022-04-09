@@ -1,0 +1,21 @@
+{% sw_extends '@Storefront/storefront/component/listing/filter-panel.html.twig' %}
+
+{% block component_filter_panel_header %}
+    <div class="filter-panel-offcanvas-header{% if sidebar %} is--sidebar{% endif %}">
+        <h3 class="filter-panel-offcanvas-only">{{ "listing.filterTitleText"|trans }}</h3>
+
+        <div class="filter-panel-offcanvas-only filter-panel-offcanvas-close js-offcanvas-close">
+            {% sw_icon 'ic-close' style { 'pack': 'shape' } %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block component_filter_panel_active_container %}
+    <div class="filter-panel-active-container">{% block component_filter_panel_active_container_inner %}{% endblock %}</div>
+{% endblock %}
+
+{% block component_filter_panel_items_container %}
+    {% apply spaceless %}
+        {{ parent() }}
+    {% endapply %}
+{% endblock %}

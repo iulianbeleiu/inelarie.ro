@@ -1,0 +1,48 @@
+.module-account {
+    .col-sm-3 {
+        @extend .col-sm-12;
+        @extend .col-lg-3;
+    }
+
+    .col-sm-6 {
+        @extend .col-sm-12;
+        @extend .col-lg-9;
+    }
+
+    .b2b-accordion--open {
+        .b2b-accordion__title,
+        .b2b-accordion__body {
+            background-color: transparent;
+        }
+    }
+
+    .b2b-accordion__title {
+        padding: 24px 0;
+
+        &:hover {
+            background-color: transparent;
+        }
+    }
+
+    .b2b-accordion__body {
+        padding: 0;
+    }
+
+    .list--masterdata {
+        list-style: none;
+        padding: 0;
+        line-height: 23px;
+    }
+
+    .b2b-accordion {
+        padding: 0 24px;
+        margin-bottom: 20px;
+        background-color: #fff;
+        border-radius: 3px;
+    }
+
+    .input-group > .form-control {
+        margin-right: 0;
+        padding-right: 16px;
+    }
+}

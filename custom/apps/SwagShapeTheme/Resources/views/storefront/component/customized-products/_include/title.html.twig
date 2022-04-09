@@ -1,0 +1,32 @@
+{% sw_extends '@Storefront/storefront/component/customized-products/_include/title.html.twig' %}
+
+{% block swag_customized_products_option_type_template_label %}
+    <div class="card-title swag-customized-products__title-link-container">
+        <a href="#collapseCustomizedProductsConfigurationOption-{{ option.id }}"
+           class="swag-customized-products__title-link"
+           role="button"
+           data-toggle="collapse"
+           data-customized-products-toggle="true"
+           aria-controls="collapseCustomizedProductsConfigurationOption-{{ option.id }}"
+           aria-expanded="{{ option.required ? 'true' : 'false' }}">
+            <div class="container">
+                {% block swag_customized_products_option_type_template_label_container %}
+                    {{ parent() }}
+                {% endblock %}
+            </div>
+        </a>
+    </div>
+{% endblock %}
+
+
+{% block swag_customized_products_option_type_template_label_toggle_icon_plus %}
+    <div class="toggle-icon-plus">
+        {% sw_icon 'ic-expand' style { 'pack': 'shape' } %}
+    </div>
+{% endblock %}
+
+{% block swag_customized_products_option_type_template_label_toggle_icon_minus %}
+    <div class="toggle-icon-minus">
+        {% sw_icon 'ic-collapse' style { 'pack': 'shape' } %}
+    </div>
+{% endblock %}

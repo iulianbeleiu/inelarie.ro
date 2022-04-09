@@ -1,0 +1,59 @@
+.b2b--plugin {
+    @extend .container;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 50px;
+
+    @include media-breakpoint-up(md) {
+        margin: 0 auto;
+    }
+}
+
+.b2b--modal,
+.b2b--plugin {
+    .input-group > .input-group-append > .btn.header-search-btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}
+
+.b2b--component-pagination {
+    .btn {
+        background: transparent;
+        color: $body-color;
+        border: none;
+        line-height: 14px;
+        padding: 0;
+        border-radius: 0;
+
+        &:disabled {
+            color: $shape-gray-400;
+        }
+    }
+
+    .btn--previous {
+        padding-right: 24px;
+    }
+
+    .btn--next {
+        padding-left: 24px;
+    }
+}
+
+.is-ctl-b2bsalesrepresentative {
+    .header-row {
+        overflow: visible;
+    }
+}
+
+.is--b2b-acl-controller-b2bbudget {
+    select {
+        @extend .custom-select;
+    }
+}
+
+.is--b2b-acl-action-updateDiscount {
+    .card-title {
+        @extend .pb-2;
+    }
+}

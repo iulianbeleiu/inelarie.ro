@@ -1,0 +1,13 @@
+{% sw_extends '@Storefront/storefront/component/checkout/_include/cart-configuration-title.html.twig' %}
+
+{% block component_cart_customized_products_configuration_title_label_link_content_icon_plus %}
+    <div class="toggle-icon-plus">
+        {% sw_icon 'ic-expand' style { 'pack': 'shape' } %}
+    </div>
+{% endblock %}
+
+{% block component_cart_customized_products_configuration_title_label_link_content_icon_minus %}
+    <div class="toggle-icon-minus">
+        {% sw_icon 'ic-collapse' style { 'pack': 'shape' } %}
+    </div>
+{% endblock %}

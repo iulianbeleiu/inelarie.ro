@@ -1,0 +1,212 @@
+{% block bf_sales_channel_detail_base_contract %}
+<div class="bf-contract">
+    <sw-container
+        v-if="userAuthorised && currentContract.name === undefined"
+        columns="1fr"
+        class="bf-sales-channel-detail-base__connection-assistant-warning">
+        <sw-alert
+            variant="warning"
+            appearance="notification"
+            :closable="false">
+            {{$tc('salesChannel-connectionAssistant.connectionNotAvailable')}} <br><br>
+            <sw-button
+                :disabled="false"
+                variant="ghost"
+                size="small"
+                :square="false"
+                :block="false"
+                :isLoading="false"
+                @click="openContractModal"
+            >
+                {{$tc('salesChannel-connectionAssistant.chooseContract')}}
+            </sw-button>
+        </sw-alert>
+    </sw-container>
+
+    <sw-container
+        v-if="!userAuthorised"
+        columns="1fr"
+        class="bf-sales-channel-detail-base__connection-assistant-warning">
+        <sw-alert
+            variant="warning"
+            appearance="notification"
+            :closable="false">
+            <p>
+                {{ $tc('bf-sales-channel.detail.notAuthorisedText') }}
+            </p>
+
+            <sw-button
+                :disabled="false"
+                variant="ghost"
+                size="small"
+                :square="false"
+                :block="false"
+                :isLoading="false"
+                @click="showLoginModal = true"
+            >
+                {{ $tc('global.login') }}
+            </sw-button>
+        </sw-alert>
+    </sw-container>
+
+    <sw-card v-if="userAuthorised && currentContract.name" :isLoading="isLoading" :title="$tc('bf-sales-channel.detail.contractLabel')">
+        <sw-container columns="1fr 1fr" class="border-bottom">
+            <div>
+                <div v-if="currentContract.name === undefined">
+                    <strong>
+                        {{ $tc('bf-sales-channel.detail.withoutContractTitle') }}
+                    </strong>
+                </div>
+                <div v-else class="sw-sales-channel-detail-base__description-text">
+                    <div>
+                        <sw-icon name="default-basic-checkmark-circle" color="#37D046" :small="true"></sw-icon>
+                        <strong class="active-license-status">
+                            {{ currentContract.label }}
+                        </strong>
+                    </div>
+                    <div class="p-l">
+                        &euro; {{ currentContract.minPricePerMonth ?? 0 }} / {{ $tc('bf-sales-channel.contractModal.month') }}
+                    </div>
+                </div>
+            </div>
+            <div class="contract-status-section text-right">
+                <span class="status active">
+                    <sw-color-badge color="#37D046" rounded></sw-color-badge>
+                    <strong class="capitalize">
+                        {{ $tc('bf-sales-channel.detail.labelInputActive') }}
+                    </strong>
+                </span>
+            </div>
+        </sw-container>
+
+        <sw-container columns="1fr 1fr 1fr 1fr" class="contract-details">
+            <div>
+                <strong>{{ $tc('bf-sales-channel.detail.labelActiveSince') }}</strong></br>
+                {{ formatDate(currentContract.creationDate) }}
+            </div>
+            <div>
+                <strong>{{ $tc('bf-sales-channel.detail.labelNextBilling') }}</strong></br>
+                {{ formatDate(currentContract.facturaDate) }}
+            </div>
+            <div class="text-right">
+                <sw-button @click="showAgbDialog(currentContract, 'cancel')">
+                    {{ $tc('bf-sales-channel.contractModal.buttonRemove') }}
+                </sw-button>
+            </div>
+            <div class="text-right">
+                <sw-button variant="ghost" @click="openContractModal">
+                    {{ $tc('bf-sales-channel.detail.contractButton') }}
+                </sw-button>
+            </div>
+        </sw-container>
+    </sw-card>
+
+    {% block bf_sales_channel_detail_base_contract_modal %}
+    <sw-modal
+        v-if="showContractModal && userAuthorised"
+        class="bf-sales-channel-detail-base__modal-contract"
+        ref="modal"
+        variant="large"
+        :title="$tc('bf-sales-channel.contractModal.title')"
+        @modal-close="onCloseContractModal"
+    >
+        {% block bf_sales_channel_detail_base_contract_modal_confirm_text %}
+            <bf-bookable-contracts
+                :bookableContracts="bookableContracts"
+                :currentContract="currentContract"
+                @setNewContract="showAgbDialog"
+                @onRemoveContract="showAgbDialog"
+                @openPermissionModal="openPermissionModal"
+                @openSubProcessorModal="openSubProcessorModal"
+            ></bf-bookable-contracts>
+        {% endblock %}
+
+        {% block bf_sales_channel_detail_base_contract_modal_footer %}
+        <template slot="modal-footer">
+            {% block bf_sales_channel_detail_contract_modal_footer_abort %}
+            <sw-button size="small" @click="onCloseContractModal">
+                {{ $tc('sw-sales-channel.detail.buttonCloseDeleteModal') }}
+            </sw-button>
+            {% endblock %}
+        </template>
+        {% endblock %}
+    </sw-modal>
+    {% endblock %}
+
+    {% block bf_sales_channel_detail_base_contract_cancel_modal %}
+    <sw-modal
+        v-if="showContractCancelModal"
+        class="bf-sales-channel-detail-base__modal-contract"
+        ref="modal"
+        :title="$tc('bf-sales-channel.contractCancelModal.title')"
+        @modal-close="onCloseContractCancelModal"
+    >
+        {% block bf_sales_channel_detail_base_contract_cancel_modal_confirm_text %}
+        <p>
+            {{ $tc('bf-sales-channel.contractCancelModal.text', selectedContract.name,{ name: selectedContract.name }) }}
+        </p>
+        <p>
+            <sw-checkbox-field
+                :label="$tc('bf-sales-channel.contractCancelModal.agreementWithCancelingLabel')"
+                @change="confirmedAgb = $event"
+            ></sw-checkbox-field>
+        </p>
+        {% endblock %}
+
+        {% block bf_sales_channel_detail_base_contract_cancel_modal_footer %}
+        <template slot="modal-footer">
+            {% block bf_sales_channel_detail_contract_cancel_modal_footer_abort %}
+            <sw-button size="small" @click="onCloseContractCancelModal">
+                {{ $tc('sw-sales-channel.detail.buttonCloseDeleteModal') }}
+            </sw-button>
+            {% endblock %}
+
+            {% block bf_sales_channel_detail_contract_cancel_modal_footer_confirm %}
+            <sw-button size="small" @click="onRemoveContract" variant="danger" :disabled="!confirmedAgb">
+                {{ $tc('bf-sales-channel.contractModal.buttonRemove') }}
+            </sw-button>
+            {% endblock %}
+        </template>
+        {% endblock %}
+    </sw-modal>
+    {% endblock %}
+
+    {% block sw_plugin_store_login_status_login_modal %}
+        <sw-modal :title="$tc('sw-extension.my-extensions.tabs.shopwareAccount')" v-if="showLoginModal" @modal-close="closeLoginModal">
+            <sw-extension-my-extensions-account></sw-extension-my-extensions-account>
+        </sw-modal>
+    {% endblock %}
+
+    {% block swag_markets_permissions__modal %}
+        <sw-modal v-if="showPermissions"
+                  @modal-close="closePermissionsModal"
+                  :title="$tc('bf-sales-channel.contractModal.permissionsModalTitle')">
+            <bf-bookable-contracts-permissions @go-to-sub-processor="closePermissionsModal"></bf-bookable-contracts-permissions>
+            {% block swag_markets_permissions_modal_footer %}
+                <template slot="modal-footer">
+                    {% block swag_markets_permissions_modal_footer__close %}
+                        <sw-button size="small" @click="closePermissionsModal" variant="primary">
+                            {{ $tc('bf-sales-channel.contractModal.permissionsClose') }}
+                        </sw-button>
+                    {% endblock %}
+                </template>
+            {% endblock %}
+        </sw-modal>
+    {% endblock %}
+
+    {% block swag_markets_sub_processor__modal %}
+        <sw-modal v-if="showSubProcessor" @modal-close="closeSubProcessorModal" :title="$tc('bf-sales-channel.contractModal.subProcessorTitle')">
+            <bf-bookable-contracts-sub-processor :subProcessorData="subProcessorData"></bf-bookable-contracts-sub-processor>
+            {% block swag_markets_sub_processor_modal_footer %}
+                <template slot="modal-footer">
+                    {% block swag_markets_sub_processor_modal_footer__close %}
+                        <sw-button size="small" @click="closeSubProcessorModal" variant="primary">
+                            {{ $tc('bf-sales-channel.contractModal.permissionsClose') }}
+                        </sw-button>
+                    {% endblock %}
+                </template>
+            {% endblock %}
+        </sw-modal>
+    {% endblock %}
+</div>
+{% endblock %}

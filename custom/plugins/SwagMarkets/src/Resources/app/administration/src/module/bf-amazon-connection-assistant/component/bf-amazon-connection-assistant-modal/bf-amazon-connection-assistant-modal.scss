@@ -1,0 +1,28 @@
+.bf-amazon-connection-assistant-modal {
+    &.sw-modal--default .sw-modal__dialog {
+        /*height: 735px;*/
+        max-height: calc(100vh - 48px);
+        width: 688px;
+        display: flex;
+        justify-content: start;
+        align-content: center;
+        max-width: 1030px !important;
+    }
+
+    &.sw-modal .sw-modal__body {
+        height: 100%;
+        //overflow-y: hidden !important;
+        padding: 0;
+        overflow: auto;
+    }
+
+    .bf-amazon-connection-assistant-modal__content-description {
+        color: rgb(82,102,122);
+        font-size: 14px;
+        font-weight: normal;
+        letter-spacing: 0.1px;
+        line-height: 22px;
+        text-align: center;
+        padding: 0 30px 55px;
+    }
+}

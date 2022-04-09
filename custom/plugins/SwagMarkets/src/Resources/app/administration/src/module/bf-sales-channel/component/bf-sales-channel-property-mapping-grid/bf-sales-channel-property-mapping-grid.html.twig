@@ -1,0 +1,10 @@
+{% block sw_data_grid_columns_render_value %}
+    <span class="sw-data-grid__cell-value">
+        <template v-if="column.property === 'mandatory'">
+            <sw-color-badge :class="item.mandatory ? 'is--success' : 'is--error'"></sw-color-badge>
+        </template>
+        <template v-else>
+            {{ renderColumn(item, column) }}
+        </template>
+    </span>
+{% endblock %}

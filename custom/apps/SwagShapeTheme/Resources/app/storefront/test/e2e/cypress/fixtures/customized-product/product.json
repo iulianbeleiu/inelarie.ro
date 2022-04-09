@@ -1,0 +1,394 @@
+{
+  "id": "71f45644c54146298ebf05e226ab8d3b",
+  "name": "Customized Product",
+  "stock": 10,
+  "isCloseout": false,
+  "purchaseSteps": 1,
+  "minPurchase": 1,
+  "shippingFree": false,
+  "restockTime": 3,
+  "productNumber": "RS-333",
+  "description": "Product description",
+  "taxName": "Standard rate",
+  "price": [
+    {
+      "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+      "net": 8.4,
+      "linked": true,
+      "gross": 10
+    }
+  ],
+  "url": "/product-name.html",
+  "swagCustomizedProductsTemplate": {
+    "id": "c5f2cdcdb34e41f996b8e16e052b5d29",
+    "productId": "71f45644c54146298ebf05e226ab8d3b",
+    "internalName": "E2E Template",
+    "displayName": "E2E Template",
+    "active": true,
+    "stepByStep": false,
+    "confirmInput": false,
+    "optionsAutoCollapse": true,
+    "options": [
+      {
+        "type": "select",
+        "displayName": "Example select",
+        "typeProperties": {
+          "isMultiSelect": false,
+          "isDropDown": false
+        },
+        "required": true,
+        "oneTimeSurcharge": true,
+        "relativeSurcharge": false,
+        "advancedSurcharge": false,
+        "position": 1,
+        "price": [
+          {
+            "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+            "net": 8.4,
+            "gross": 10,
+            "linked": true
+          }
+        ],
+        "values": [
+          {
+            "value": {
+              "_value": ""
+            },
+            "displayName": "Example #1",
+            "default": true,
+            "oneTimeSurcharge": false,
+            "relativeSurcharge": false,
+            "advancedSurcharge": false,
+            "position": 4,
+            "price": [
+              {
+                "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+                "net": 8.4,
+                "gross": 10,
+                "linked": true
+              }
+            ]
+          },
+          {
+            "value": {
+              "_value": ""
+            },
+            "displayName": "Example #2",
+            "default": false,
+            "oneTimeSurcharge": false,
+            "relativeSurcharge": false,
+            "advancedSurcharge": false,
+            "position": 5,
+            "price": [
+              {
+                "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+                "net": 8.4,
+                "gross": 10,
+                "linked": true
+              }
+            ]
+          },
+          {
+            "value": {
+              "_value": ""
+            },
+            "displayName": "Example #3",
+            "default": false,
+            "oneTimeSurcharge": false,
+            "relativeSurcharge": false,
+            "advancedSurcharge": false,
+            "position": 6,
+            "price": [
+              {
+                "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+                "net": 8.4,
+                "gross": 10,
+                "linked": true
+              }
+            ]
+          },
+          {
+            "value": {
+              "_value": ""
+            },
+            "displayName": "Example #4",
+            "default": false,
+            "oneTimeSurcharge": false,
+            "relativeSurcharge": false,
+            "advancedSurcharge": false,
+            "position": 7,
+            "price": [
+              {
+                "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+                "net": 8.4,
+                "gross": 10,
+                "linked": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "displayName": "Example checkbox",
+        "typeProperties": {},
+        "required": false,
+        "oneTimeSurcharge": true,
+        "relativeSurcharge": false,
+        "advancedSurcharge": false,
+        "position": 2,
+        "price": [
+          {
+            "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+            "net": 8.4,
+            "gross": 10,
+            "linked": true
+          }
+        ]
+      },
+      {
+        "type": "textfield",
+        "displayName": "Example textfield",
+        "typeProperties": {},
+        "required": true,
+        "oneTimeSurcharge": true,
+        "relativeSurcharge": false,
+        "advancedSurcharge": false,
+        "position": 3,
+        "price": [
+          {
+            "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+            "net": 8.4,
+            "gross": 10,
+            "linked": true
+          }
+        ]
+      },
+      {
+        "type": "textarea",
+        "displayName": "Example textarea",
+        "typeProperties": {},
+        "required": true,
+        "oneTimeSurcharge": true,
+        "relativeSurcharge": false,
+        "advancedSurcharge": false,
+        "position": 4,
+        "price": [
+          {
+            "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+            "net": 8.4,
+            "gross": 10,
+            "linked": true
+          }
+        ]
+      },
+      {
+        "type": "numberfield",
+        "displayName": "Example numberfield",
+        "typeProperties": {},
+        "required": true,
+        "oneTimeSurcharge": true,
+        "relativeSurcharge": false,
+        "advancedSurcharge": false,
+        "position": 5,
+        "price": [
+          {
+            "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+            "net": 8.4,
+            "gross": 10,
+            "linked": true
+          }
+        ]
+      },
+      {
+        "type": "datetime",
+        "displayName": "Example datefield",
+        "typeProperties": {},
+        "required": false,
+        "oneTimeSurcharge": true,
+        "relativeSurcharge": false,
+        "advancedSurcharge": false,
+        "position": 6,
+        "price": [
+          {
+            "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+            "net": 8.4,
+            "gross": 10,
+            "linked": true
+          }
+        ]
+      },
+      {
+        "type": "timestamp",
+        "displayName": "Example timefield",
+        "typeProperties": {},
+        "required": false,
+        "oneTimeSurcharge": true,
+        "relativeSurcharge": false,
+        "advancedSurcharge": false,
+        "position": 7,
+        "price": [
+          {
+            "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+            "net": 8.4,
+            "gross": 10,
+            "linked": true
+          }
+        ]
+      },
+      {
+        "type": "colorselect",
+        "displayName": "Example color select",
+        "typeProperties": {
+          "isMultiSelect": false,
+          "isDropDown": false
+        },
+        "required": false,
+        "oneTimeSurcharge": true,
+        "relativeSurcharge": false,
+        "advancedSurcharge": false,
+        "position": 8,
+        "price": [
+          {
+            "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+            "net": 8.4,
+            "gross": 10,
+            "linked": true
+          }
+        ],
+        "values": [
+          {
+            "value": {
+              "_value": "#1abc9c"
+            },
+            "displayName": "Example Turquoise",
+            "default": true,
+            "oneTimeSurcharge": false,
+            "relativeSurcharge": false,
+            "advancedSurcharge": false,
+            "position": 4,
+            "price": [
+              {
+                "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+                "net": 8.4,
+                "gross": 10,
+                "linked": true
+              }
+            ]
+          },
+          {
+            "value": {
+              "_value": "#3498db"
+            },
+            "displayName": "Example Blue",
+            "default": false,
+            "oneTimeSurcharge": false,
+            "relativeSurcharge": false,
+            "advancedSurcharge": false,
+            "position": 5,
+            "price": [
+              {
+                "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+                "net": 8.4,
+                "gross": 10,
+                "linked": true
+              }
+            ]
+          },
+          {
+            "value": {
+              "_value": "#9b59b6"
+            },
+            "displayName": "Example Purple",
+            "default": true,
+            "oneTimeSurcharge": false,
+            "relativeSurcharge": false,
+            "advancedSurcharge": false,
+            "position": 6,
+            "price": [
+              {
+                "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+                "net": 8.4,
+                "gross": 10,
+                "linked": true
+              }
+            ]
+          },
+          {
+            "value": {
+              "_value": "#e74c3c"
+            },
+            "displayName": "Example Red",
+            "default": false,
+            "oneTimeSurcharge": false,
+            "relativeSurcharge": false,
+            "advancedSurcharge": false,
+            "position": 7,
+            "price": [
+              {
+                "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+                "net": 8.4,
+                "gross": 10,
+                "linked": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "fileupload",
+        "displayName": "Example file upload",
+        "typeProperties": {},
+        "required": false,
+        "oneTimeSurcharge": true,
+        "relativeSurcharge": false,
+        "advancedSurcharge": false,
+        "position": 9,
+        "price": [
+          {
+            "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+            "net": 8.4,
+            "gross": 10,
+            "linked": true
+          }
+        ]
+      },
+      {
+        "type": "imageupload",
+        "displayName": "Example image upload",
+        "typeProperties": {},
+        "required": false,
+        "oneTimeSurcharge": true,
+        "relativeSurcharge": false,
+        "advancedSurcharge": false,
+        "position": 10,
+        "price": [
+          {
+            "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+            "net": 8.4,
+            "gross": 10,
+            "linked": true
+          }
+        ]
+      },
+      {
+        "type": "htmleditor",
+        "displayName": "Example html",
+        "typeProperties": {},
+        "required": false,
+        "oneTimeSurcharge": true,
+        "relativeSurcharge": false,
+        "advancedSurcharge": false,
+        "position": 11,
+        "price": [
+          {
+            "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+            "net": 8.4,
+            "gross": 10,
+            "linked": true
+          }
+        ]
+      }
+    ]
+  }
+}

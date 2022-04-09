@@ -1,0 +1,59 @@
+{% block bf_sales_channel_detail_category_segment_content %}
+    <div v-if="marketplaceName === 'amazon'">
+        <sw-card
+            :isLoading="isSegmentLoading"
+            class="swag_markets_card_mapping__content"
+            :title="$tc('bf-category-segment-mapping.title')"
+            :showHelpTextIcon="true"
+            :helpTextDescription="$tc('bf-category-segment-mapping.description')"
+            :helpTextWidth="500">
+            {% block bf_sales_channel_detail_category_segment_content_container %}
+                <sw-container columns="1fr 1fr" gap="20px">
+                    <sw-card-section>
+                        {% block bf_sales_channel_detail_category_segment_content_shopware_category_tree %}
+                            <bf-sales-channel-shopware-segment-category-tree @onSelectCategory="onSelectCategory"/>
+                        {% endblock %}
+                    </sw-card-section>
+
+                    <sw-card-section>
+                        {% block bf_sales_channel_detail_category_segment_content_dropdown %}
+                            <div class="bf-sales-channel-shopware-category-tree">
+                                <div class="bf-sales-channel-shopware-category-tree__content">
+                                    <div class="bf-sales-channel-shopware-category-tree__content-tree">
+                                        <div class="bf-tree" v-if="activeCategoryId">
+                                            {% block bf_sales_channel_detail_category_segment_content_dropdown_fields %}
+                                                <sw-container class="sw-tree">
+                                                    {% block bf_sales_channel_shopware_segment_dropdown_headline %}
+                                                        <div class="sw-tree-actions__headline">
+                                                            {{ $tc('bf-category-segment-mapping.title') }}
+                                                        </div>
+                                                    {% endblock %}
+
+                                                    <bf-sales-channel-amazon-segment-dropdown
+                                                        ref="segmentDropdown"
+                                                        :clientExists="clientExists"
+                                                        :clientInProgress="clientInProgress"
+                                                        :currentContractName="currentContractName"
+                                                        @onSetCurrentSegment="setCurrentCategorySegment"
+                                                        @onStartLoading="isSegmentLoading = true"
+                                                        @onStopLoading="isSegmentLoading = false"
+                                                    />
+                                                </sw-container>
+                                            {% endblock %}
+                                        </div>
+
+                                        <div v-else>
+                                            <sw-alert variant="info" appearance="notification" :closable="false">
+                                                {{ $tc('bf-category-segment-mapping.information') }}
+                                            </sw-alert>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endblock %}
+                    </sw-card-section>
+                </sw-container>
+            {% endblock %}
+        </sw-card>
+    </div>
+{% endblock %}

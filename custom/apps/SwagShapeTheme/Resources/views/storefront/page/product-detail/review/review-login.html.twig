@@ -1,0 +1,49 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/review/review-login.html.twig' %}
+
+{% block component_account_login_password_recover %}
+{% endblock %}
+
+{% block component_account_login_submit %}
+    <div class="row">
+        <div class="col">
+            <div class="login-password-recover">
+                {{ block('component_account_login_password_recover_link') }}
+            </div>
+        </div>
+        <div class="col col-lg-4">
+            <div class="d-flex justify-content-end">
+                {% block page_product_detail_review_form_cancel %}
+                    <a href="#"
+                       class="btn btn-link {{ marginEndClass }}-2"
+                       {{ dataBsToggleAttr }}="collapse"
+                       {{ dataBsTargetAttr }}=".multi-collapse"
+                       aria-expanded="false"
+                       aria-controls="review-form review-list">
+                        {{ "detail.reviewLoginCancelButton"|trans|sw_sanitize }}
+                    </a>
+                {% endblock %}
+
+                {% block component_account_login_review %}
+                    <button type="submit"
+                            class="btn btn-primary">
+                        {{ "account.loginSubmit"|trans|sw_sanitize }}
+                    </button>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block component_account_login_form_mail %}
+    <div class="form-group col-12">
+        {{ block('component_account_login_form_mail_label') }}
+        {{ block('component_account_login_form_mail_input') }}
+    </div>
+{% endblock %}
+
+{% block component_account_login_form_password %}
+    <div class="form-group col-12">
+        {{ block('component_account_login_form_password_label') }}
+        {{ block('component_account_login_form_password_input') }}
+    </div>
+{% endblock %}

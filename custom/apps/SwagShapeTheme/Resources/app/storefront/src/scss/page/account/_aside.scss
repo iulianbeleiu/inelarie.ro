@@ -1,0 +1,18 @@
+.account-aside-item {
+    background: transparent;
+    font-weight: $font-weight-bold;
+    font-size: $h5-font-size;
+
+    &.is-active {
+        color: $primary;
+        background: transparent;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $sw-text-color;
+        background: $list-group-bg;
+        border-radius: $list-group-border-radius;
+    }
+}

@@ -1,0 +1,149 @@
+{% block bf_tree %}
+    <div class="sw-tree">
+        {% block bf_tree_search %}
+            <slot name="search">
+                <div class="sw-tree__search bf-tree-search" v-if="searchable">
+                    <sw-field
+                        name="categoryTreeSearch"
+                        :placeholder="$tc('sw-tree.general.placeholderSearch')"
+                        v-model="currentTreeSearch"
+                        @input="searchItems"
+                        size="small">
+                        <template #prefix>
+                            <sw-icon name="default-action-search"></sw-icon>
+                        </template>
+                    </sw-field>
+                </div>
+            </slot>
+        {% endblock %}
+
+        {% block bf_tree_actions_headline %}
+            <slot name="headline">
+                <div class="sw-tree-actions__headline">
+                    {{ title }}
+                </div>
+            </slot>
+        {% endblock %}
+
+        {% block bf_tree_content %}
+            <div class="sw-tree__content">
+                <div class="tree-items">
+                    {% block bf_tree_items %}
+                        <div class="sw-tree__content-no-items" v-if="hasNoItems">
+                            <p>No categories to show</p>
+                        </div>
+                        <slot v-else
+                              name="items"
+                              :treeItems="treeItems"
+                              :onChangeItem="onChange">
+                            <bf-tree-item
+                                    v-for="item in treeItems"
+                                    :key="item.id"
+                                    :item="item">
+                            </bf-tree-item>
+                        </slot>
+                    {% endblock %}
+
+                    {% block bf_tree_loader %}
+                        <sw-loader v-if="isLoading"></sw-loader>
+                    {% endblock %}
+                </div>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {#                    <h1>Items</h1>#}
+    {#                    <pre>{{ items }}</pre>#}
+    {#                    <h1>Tree Items</h1>#}
+    {#                    <pre>{{ treeItems }}</pre>#}
+    {#                    <ul>#}
+    {#                        <li v-for="item in items" :key="item.id">#}
+    {#                            <sw-loader v-if="isLoading" size="14"></sw-loader>#}
+    {#                            <p>#}
+    {#                                {{ item.name }}#}
+    {#                                {{ item.children }}#}
+    {#                                <br>#}
+    {#                                <button type="button" @click="getItems(item.id)" v-if="item.childCount > 0">Load child#}
+    {#                                    categories for {{ item.name }}</button>#}
+    {#                            </p>#}
+    {#                            <p v-if="categories">#}
+    {#                            <pre>{{ categories }}</pre>#}
+    {#                                I am here#}
+    {#                                {{ item.name }}#}
+    {#                            </p>#}
+    {#                            <li v-if="item.children.length > 0">#}
+
+    {#                                <ul>#}
+    {#                                    <li v-for="child in item.children" :key="child.id">#}
+    {#                                        {{ child.name }}#}
+    {#                                        <button type="button" @click="getItems(child.id)" v-if="child.childCount > 0">Load child#}
+    {#                                            categories for {{ child.name }}</button>#}
+    {#                                    </li>#}
+    {#                                </ul>#}
+    {#                            </li>#}
+    {#                        </li>#}
+    {#                    </ul>#}
+    {#                    <ul>#}
+    {#                        <li v-for="item in items">#}
+    {#                        <li class="" v-if="item.children.length > 0">#}
+    {#                            <ul>#}
+    {#                                <li v-for="child in item.children">#}
+    {#                                    <p>{{ child.name }}</p>#}
+    {#                                </li>#}
+    {#                            </ul>#}
+    {#                        </li>#}
+    {#                        </li>#}
+    {#                        #}{#                     <slot v-else#}
+    {#                        #}{#                           name="options"#}
+    {#                        #}{#                           :treeItems="items"#}
+    {#                        #}{#                           :name="name"#}
+    {#                        #}{#                           @check-item="checkItem"#}
+    {#                        #}{#                           @change="changeItem">#}
+    {#                        #}{#                         {% block bf_tree_slot_items %}#}
+    {#                        #}{#                             <bf-tree-item#}
+    {#                        #}{#                                     :items="items"#}
+    {#                        #}{#                                     :disabled="true"#}
+    {#                        #}{#                                     :name="name"#}
+    {#                        #}{#                                     @change="changeItem"#}
+    {#                        #}{#                             ></bf-tree-item>#}
+    {#                        #}{#                         {% endblock %}#}
+    {#                        #}{#                     </slot>#}
+    {#                    </ul>#}

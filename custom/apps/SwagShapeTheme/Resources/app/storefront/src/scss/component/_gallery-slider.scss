@@ -1,0 +1,202 @@
+/*
+Gallery slider
+==============================================
+Styling for gallery slider component.
+Displays images in a slider gallery with thumbnail navigation.
+based on "base-slider" component and "tiny-slider" (https://github.com/ganlanyuan/tiny-slider)
+*/
+
+.gallery-slider-col .gallery-slider-item,
+.gallery-slider-col .gallery-slider-single-image {
+    padding-bottom: 100%;
+
+    &.is-contain {
+        .gallery-slider-image {
+            width: 100%;
+        }
+    }
+
+    &.is-standard {
+        position: relative;
+
+        .gallery-slider-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+}
+
+.gallery-slider-row {
+    &.row {
+        height: 100%;
+        overflow: hidden;
+
+        .product-detail-media & {
+            overflow: unset;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        &.row {
+            overflow: unset;
+        }
+    }
+}
+
+.gallery-slider-thumbnails-item {
+    height: 90px;
+    width: 90px;
+
+    &-inner {
+        border-color: $shape-gray-100;
+        border-radius: 0;
+        opacity: 0.65;
+        padding: 0;
+    }
+
+    &.tns-nav-active {
+        .gallery-slider-thumbnails-item-inner {
+            opacity: 1;
+            border-color: $shape-gray-800;
+            border-width: $hr-border-width;
+        }
+    }
+}
+
+.gallery-slider-thumbnails-col {
+    .gallery-slider-thumbnails-controls-prev,
+    .gallery-slider-thumbnails-controls-next {
+        height: 14px;
+        width: 18px;
+
+        .icon {
+            width: 14px;
+            height: 18px;
+
+            svg {
+                top: 0;
+            }
+        }
+    }
+
+    &.is-left {
+        padding-left: 0;
+        padding-right: $spacer-10;
+
+        .cms-element-image-gallery & {
+            padding-left: $spacer-20;
+        }
+
+        .gallery-slider-thumbnails-controls-prev {
+            top: 0;
+        }
+
+        .gallery-slider-thumbnails-controls-next {
+            bottom: -30px;
+        }
+    }
+
+    &.is-underneath {
+        padding-left: $spacer-20;
+        padding-right: $spacer-20;
+
+        .tns-outer {
+            margin: 0;
+        }
+
+        .gallery-slider-thumbnails-controls-prev {
+            left: -20px;
+        }
+
+        .gallery-slider-thumbnails-controls-next {
+            right: -20px;
+        }
+
+    }
+}
+
+.gallery-slider-thumbnails {
+    &.is-underneath {
+        margin-top: 0;
+    }
+}
+
+.gallery-slider-controls-prev {
+    left: 0;
+
+    &.is-nav-prev-outside {
+        left: -40px;
+    }
+}
+
+.gallery-slider-controls-next {
+    right: 0;
+
+    &.is-nav-next-outside {
+        right: -40px;
+    }
+}
+
+
+@include media-breakpoint-up(md) {
+    .gallery-slider-thumbnails-col {
+        &.is-left {
+            .gallery-slider-thumbnails-controls {
+                margin-top: $spacer-40;
+            }
+
+            .gallery-slider-thumbnails-item {
+                padding-bottom: 0;
+                margin-bottom: $spacer-10 !important;
+            }
+
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .gallery-slider-thumbnails-col {
+        &.is-left {
+            .gallery-slider-thumbnails-item {
+                margin-bottom: 25px !important;
+            }
+        }
+    }
+
+    .product-slider-item {
+        padding-bottom: $spacer-50;
+    }
+}
+
+@include media-breakpoint-up(xxl) {
+    .gallery-slider-controls-prev {
+        &.is-nav-prev-outside {
+            left: -50px;
+        }
+    }
+
+    .gallery-slider-controls-next {
+        &.is-nav-next-outside {
+            right: -50px;
+        }
+    }
+}
+
+.gallery-slider-single-image .icon-placeholder {
+    object-fit: cover;
+    font-family: 'object-fit: cover;'; /* stylelint-disable-line */ // IE polyfill
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0 auto;
+}
+
+.gallery-slider-thumbnails-container {
+    display: flex;
+    flex-direction: column-reverse;
+}

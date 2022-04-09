@@ -1,0 +1,13 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/description.html.twig' %}
+
+{% block utilities_offcanvas_close %}
+    <button class="product-detail-offcanvas-close offcanvas-close js-offcanvas-close sticky-top">
+        {% block utilities_offcanvas_close_icon %}
+            {% sw_icon 'ic-chevron-left' style { 'pack': 'shape', 'size': 'xs' } %}
+        {% endblock %}
+
+        {% block utilities_offcanvas_close_text %}
+            {{ "detail.tabsDescription"|trans|sw_sanitize }}
+        {% endblock %}
+    </button>
+{% endblock %}

@@ -1,0 +1,59 @@
+/*
+Alert
+==============================================
+Custom styling for bootstrap alert component.
+
+https://getbootstrap.com/docs/4.3/components/alerts/
+*/
+.alert {
+    font-weight: $font-weight-bold;
+    padding: $alert-padding-y $alert-padding-x;
+    border: none;
+    font-size: 1rem;
+
+    .alert-content-container {
+        background-color: unset;
+        color: $white;
+        display: flex;
+        padding-left: 0;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 1px;
+            height: 100%;
+            background-color: $white;
+            margin: 0 1rem;
+        }
+    }
+
+    .icon {
+        margin: 0;
+    }
+}
+
+.alert-success {
+    color: $white;
+    background-color: $success;
+}
+
+.alert-warning {
+    color: $white;
+    background-color: $warning;
+}
+
+.alert-danger {
+    color: $white;
+    background-color: $danger;
+}
+
+.alert-info,
+.alert-dark {
+    color: $white;
+    background-color: $dark;
+}
+
+.alert-primary,
+.alert-secondary {
+    color: $white;
+}

@@ -1,0 +1,11 @@
+{% sw_extends '@Storefront/storefront/page/account/order/line-item-header.html.twig' %}
+
+{% block page_checkout_cart_header_container %}
+    <div class="row cart-header-row">
+        {% block page_checkout_cart_header_product_info %}
+            <div class="col-12 cart-header-info">
+                {{ "checkout.cartHeaderInfo"|trans|sw_sanitize }}
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

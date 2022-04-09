@@ -1,0 +1,111 @@
+.filter-actions {
+    font-size: 0;
+
+    > a {
+        @extend .mr-2;
+    }
+}
+
+.module-statistic {
+    .filter-container {
+        @extend .mt-0;
+        max-width: 440px;
+
+        .form-row {
+            margin: 0;
+        }
+
+        > .form-row:not(.panel-content-filter) {
+            margin: 0 -4px;
+
+            .form-group {
+                @include make-col(6);
+                @extend .mr-0;
+
+                padding: 0 4px;
+            }
+        }
+
+        > .block {
+            @extend .mt-0;
+
+            margin-bottom: 20px;
+        }
+
+        > h5 {
+            @extend .d-none;
+        }
+
+        select,
+        .flatpickr-input {
+            max-width: 100%;
+        }
+
+        .flatpickr-input {
+            margin-right: 0;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+    }
+
+    .flatpickr-input + .input-group-append {
+        min-width: auto;
+        right: 12px;
+        top: -1px;
+
+        > .input-group-text {
+            border: 0;
+            background: transparent;
+            padding: 0;
+        }
+    }
+
+    select {
+        @extend .custom-select;
+    }
+
+    label {
+        @extend .mt-0;
+
+        display: block;
+    }
+
+    h5 {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .apexcharts-legend-marker {
+        border-radius: 2px !important;
+        width: 16px !important;
+        height: 16px !important;
+        margin-right: 8px;
+
+        &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 16px;
+            height: 16px;
+            content: '';
+            background: no-repeat 50% / #{$custom-control-indicator-bg-size};
+            background-image: $custom-checkbox-indicator-icon-checked;
+        }
+    }
+
+    .apexcharts-legend.position-bottom {
+        .apexcharts-legend-series {
+            margin: 0 24px 0 0 !important;
+            align-items: flex-end !important;
+        }
+    }
+}
+
+.panel-content-filter > .form-group {
+    width: 100%;
+}

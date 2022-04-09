@@ -1,0 +1,41 @@
+<sw-card :title="$tc('bf-sales-channel.detail.amazonFbaPrimeShippingMethodsTitle')" :isLoading="isLoading">
+    <sw-alert v-if="isDisabled" variant="info" appearance="notification" :showIcon="true" :closable="false">
+        {{ $tc('salesChannelSettings.invalidContractInfo') }}
+    </sw-alert>
+    {% block bf_sales_channel_amazon_fba_shipping_methods_matching %}
+        <sw-container columns="1fr 1fr" gap="0px 30px">
+            <sw-single-select
+                :label="$tc('bf-sales-channel.detail.amazonFbaPrimeFbaLabel')"
+                :options="shippingMethods"
+                v-model="amazonFbaPrimeShippingMethods.fba.shippingMethodId"
+                :helpText="$tc('bf-sales-channel.detail.amazonFbaPrimeFbaHelpText')"
+                :disabled="isDisabled"
+                @change="changedItem(arguments, 'fba')">
+            </sw-single-select>
+            <sw-single-select
+                :label="$tc('bf-sales-channel.detail.amazonFbaPrimePrimeLabel')"
+                v-model="amazonFbaPrimeShippingMethods.prime.shippingMethodId"
+                :options="shippingMethods"
+                :helpText="$tc('bf-sales-channel.detail.amazonFbaPrimePrimeHelpText')"
+                :disabled="isDisabled"
+                @change="changedItem(arguments, 'prime')">
+            </sw-single-select>
+            <sw-single-select
+                :label="$tc('bf-sales-channel.detail.amazonFbaPrimePrimeNextDayLabel')"
+                v-model="amazonFbaPrimeShippingMethods.primeNextDay.shippingMethodId"
+                :options="shippingMethods"
+                :helpText="$tc('bf-sales-channel.detail.amazonFbaPrimePrimeNextDayHelpText')"
+                :disabled="isDisabled"
+                @change="changedItem(arguments, 'primeNextDay')">
+            </sw-single-select>
+            <sw-single-select
+                :label="$tc('bf-sales-channel.detail.amazonFbaPrimePrimeSecondDayLabel')"
+                v-model="amazonFbaPrimeShippingMethods.primeSecondDay.shippingMethodId"
+                :options="shippingMethods"
+                :helpText="$tc('bf-sales-channel.detail.amazonFbaPrimePrimeSecondDayHelpText')"
+                :disabled="isDisabled"
+                @change="changedItem(arguments, 'primeSecondDay')">
+            </sw-single-select>
+        </sw-container>
+    {% endblock %}
+</sw-card>

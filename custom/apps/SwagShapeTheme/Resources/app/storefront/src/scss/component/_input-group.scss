@@ -1,0 +1,48 @@
+.input-group {
+    > .form-control,
+    > .custom-select {
+        &:not(:first-child) {
+            @include border-left-radius($input-border-radius);
+        }
+    }
+
+    > .form-control {
+        margin-right: $input-group-append-width / 2;
+        padding-right: calc(#{$input-padding-x} + #{$input-group-append-width} / 2);
+
+        &[type='number'] {
+            padding-right: $input-padding-x;
+        }
+    }
+
+    > .input-group-append {
+        position: absolute;
+        height: 100%;
+        min-width: $input-group-append-width;
+        right: 0;
+        z-index: 10;
+
+        button.btn {
+            @include border-radius($input-border-radius-lg);
+            width: 100%;
+        }
+    }
+}
+
+.input-group-lg {
+    > .form-control {
+        margin-right: $input-group-append-width-lg / 2;
+        padding-right: calc(#{$input-padding-x} + #{$input-group-append-width-lg} / 2);
+    }
+
+    > .input-group-append {
+        min-width: $input-group-append-width-lg;
+    }
+
+    > .form-control,
+    > .custom-select {
+        &:not(:first-child) {
+            @include border-left-radius($input-border-radius-lg);
+        }
+    }
+}

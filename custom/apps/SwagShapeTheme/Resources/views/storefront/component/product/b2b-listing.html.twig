@@ -1,0 +1,21 @@
+{% if b2b_acl_check('b2bfastorder', 'index') %}
+    {% block element_product_listing_pagination_view_mode %}
+        <div class="cms-element-product-listing-view-mode">
+            <button class="btn border-primary js--b2b-listingview-mode">
+                {% if b2bListingView == 'table' %}
+                    {% sw_icon 'view-grid' %}
+
+                    <span class="ml-2">
+                            {{ 'b2b.CategoryViewStandard'|trans }}
+                        </span>
+                {% else %}
+                    {% sw_icon 'editor-list' %}
+
+                    <span class="ml-2">
+                            {{ 'b2b.CategoryViewTable'|trans }}
+                        </span>
+                {% endif %}
+            </button>
+        </div>
+    {% endblock %}
+{% endif %}

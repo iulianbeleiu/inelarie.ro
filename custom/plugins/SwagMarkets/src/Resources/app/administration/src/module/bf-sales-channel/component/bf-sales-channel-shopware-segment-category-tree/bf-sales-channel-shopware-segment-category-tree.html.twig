@@ -1,0 +1,30 @@
+{% block bf_sales_channel_shopware_segment_category_tree %}
+    <div class="bf-sales-channel-shopware-category-tree">
+        {% block bf_sales_channel_shopware_segment_category_tree_content %}
+            <div class="bf-sales-channel-shopware-category-tree__content">
+                {% block bf_sales_channel_shopware_segment_category_tree_content_tree %}
+                    <div class="bf-sales-channel-shopware-category-tree__content-tree">
+                        <div class="bf-tree">
+                            <bf-segment-category-tree
+                                    :title="$tc('categories.shopware-tree-title')"
+                                    :items="categories"
+                                    @get-tree-items="onGetTreeItems"
+                                    @on-change="onChangeCategory"
+                                    @search-tree-items="searchTreeItems"
+                            >
+                                <template #items="{treeItems, onChangeItem}">
+                                    <bf-segment-category-tree-item
+                                        v-for="item in treeItems"
+                                        :key="item.id"
+                                        :item="item"
+                                        @on-change="onChangeCategory"
+                                    ></bf-segment-category-tree-item>
+                                </template>
+                            </bf-segment-category-tree>
+                        </div>
+                    </div>
+                {% endblock %}
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

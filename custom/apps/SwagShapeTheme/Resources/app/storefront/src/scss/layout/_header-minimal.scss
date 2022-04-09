@@ -1,0 +1,30 @@
+/*
+Header minimal
+==================================================
+Contains custom styles for the minimal header which is used on checkout pages.
+*/
+.header-minimal-row {
+    --spacing: 29px;
+
+    padding: var(--spacing) 0;
+}
+
+.header-minimal-back-to-shop-button {
+    color: $sw-color-brand-primary;
+    font-weight: $font-weight-bolder;
+    text-transform: uppercase;
+    font-size: $font-size-sm;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    .icon {
+        --icon-size: 1rem;
+
+        width: var(--icon-size);
+        height: var(--icon-size);
+        color: unset;
+        margin-right: $spacer-sm;
+    }
+}

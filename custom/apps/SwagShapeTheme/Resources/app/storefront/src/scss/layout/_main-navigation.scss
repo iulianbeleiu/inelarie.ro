@@ -1,0 +1,70 @@
+.nav-main {
+    margin-top: 10px;
+}
+
+.main-navigation {
+    @extend .ml-4;
+
+    &-menu {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        max-width: 900px;
+        white-space: nowrap;
+        position: relative;
+        margin-bottom: -12px;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .main-navigation-link {
+        padding: 0;
+        padding-right: 32px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid transparent;
+
+        .main-navigation-link-text {
+            padding: 0;
+            border: none;
+            line-height: 1;
+            text-transform: uppercase;
+            font-weight: $font-weight-bold;
+            position: relative;
+        }
+
+        &.active {
+            color: $sw-text-color;
+
+            .main-navigation-link-text::after {
+                content: '';
+                position: absolute;
+                height: 2px;
+                bottom: -$spacer-10;
+                margin: 0 auto;
+                left: 0;
+                right: 0;
+                width: 100%;
+                background: $primary;
+            }
+
+        }
+
+        &:hover {
+            color: $primary;
+            cursor: pointer;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .main-navigation {
+        display: none;
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .main-navigation {
+        display: inherit;
+    }
+}

@@ -1,0 +1,50 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/buy-widget.html.twig' %}
+
+{% block page_product_detail_ordernumber_container %}
+    {% if b2bSuite %}
+        {% sw_include '@SwagB2bPlatform/storefront/_custom/product-detail/b2b-product-detail.html.twig' ignore missing %}
+    {% endif %}
+{% endblock %}
+
+{% block page_product_detail_buy_inner %}
+    {% sw_include '@Storefront/storefront/page/product-detail/headline.html.twig' %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block page_product_detail_tax %}
+    {{ parent() }}
+
+    {% block page_product_detail_ordernumber_container_inner %}
+        {% if page.product.productNumber %}
+            <div class="product-detail-ordernumber-container">
+                {{ block('page_product_detail_ordernumber_label') }}
+
+                {{ block('page_product_detail_ordernumber') }}
+            </div>
+        {% endif %}
+    {% endblock %}
+{% endblock %}
+
+{# override this block in order to swap 2 block page_product_detail_delivery_informations and page_product_detail_reviews  #}
+{% block page_product_detail_data %}
+     {{ block('page_product_detail_data_rich_snippet_url') }}
+
+     {{ block('page_product_detail_data_rich_snippet_price_range') }}
+
+     {{ block('page_product_detail_data_rich_snippet_price_currency') }}
+
+     {{ block('page_product_detail_price') }}
+
+     {{ block('page_product_detail_tax') }}
+
+    {{ block('page_product_detail_delivery_informations') }}
+
+    {% set remoteClickOptions = {
+        selector: "#review-tab",
+        scrollToElement: true
+    } %}
+
+    {{ block('page_product_detail_reviews') }}
+{% endblock %}
+

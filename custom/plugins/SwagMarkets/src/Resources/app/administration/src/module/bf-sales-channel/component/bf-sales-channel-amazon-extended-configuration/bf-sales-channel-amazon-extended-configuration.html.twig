@@ -1,0 +1,34 @@
+<sw-card v-if="isSalesChannelAmazon" :title="$tc('salesChannelSettings.card.title.extendedSettings')">
+    <sw-alert v-if="isDisabled" variant="info" appearance="notification" :showIcon="true" :closable="false">
+        {{ $tc('salesChannelSettings.invalidContractInfo') }}
+    </sw-alert>
+    <sw-container>
+        <sw-switch-field
+            :label="$tc('salesChannelSettings.amazon.label.enableFba')"
+            :value="enableFba"
+            :ghostValue="false"
+            :noMarginTop="true"
+            :disabled="isDisabled"
+            :helpText="$tc('salesChannelSettings.amazon.helpText.fba')"
+            size="small"
+            @change="changedEnableFba">
+        </sw-switch-field>
+    </sw-container>
+    <sw-alert v-if="!isDisabled" variant="info" appearance="notification" :showIcon="true" :closable="false">
+        {{ $tc('bf-sales-channel.detail.amazonFbaRequiredInfo') }}
+    </sw-alert>
+    <sw-container columns="1fr 1fr" gap="0px 30px">
+        <sw-single-select :label="$tc('bf-sales-channel.detail.amazonDangerousGoodsLabel')"
+                          :disabled="isDisabled"
+                          :options="dangerousGoods"
+                          v-model="dangerousGoodsItem"
+                          @change="changedDangerousGoods" required>
+        </sw-single-select>
+        <sw-single-select :label="$tc('bf-sales-channel.detail.amazonNeedsBatteryLabel')"
+                          :disabled="isDisabled"
+                          :options="needsBattery"
+                          v-model="needsBatteryItem"
+                          @change="changedBattery" required>
+        </sw-single-select>
+    </sw-container>
+</sw-card>

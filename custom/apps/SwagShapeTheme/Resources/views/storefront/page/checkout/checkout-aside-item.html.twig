@@ -1,0 +1,26 @@
+{% sw_extends '@Storefront/storefront/page/checkout/checkout-aside-item.html.twig' %}
+
+{% block page_checkout_aside_item_data %}
+    <div class="col-8 checkout-aside-item-data">
+        {{ block('page_checkout_aside_item_title') }}
+
+        {{ block('page_checkout_aside_item_variant_characteristics') }}
+
+        {{ block('page_checkout_aside_item_info_features') }}
+
+        <div class="row">
+            <div class="col-4">
+                {% block page_checkout_aside_item_quantity %}
+                    <div class="checkout-aside-item-link-quantity">
+                        {% if lineItem.quantity and lineItem.type != "promotion" %}
+                            {{ lineItem.quantity }}
+                        {% endif %}
+                    </div>
+                {% endblock %}
+            </div>
+            <div class="col">
+                {{ block('page_checkout_aside_item_price') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

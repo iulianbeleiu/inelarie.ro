@@ -1,0 +1,89 @@
+{% sw_extends '@Storefront/storefront/page/checkout/cart/index.html.twig' %}
+
+{% block page_checkout_container %}
+    {% if page.cart.lineItems.count is same as(0) %}
+        <div class="checkout-cart-empty">
+            {% sw_icon 'ic-empty-basket' style { 'pack': 'shape' } %}
+            <h1 class="checkout-cart-empty__title">{{ "checkout.cartEmpty"|trans|sw_sanitize }}</h1>
+            <p class="checkout-cart-empty__desc">{{ "checkout.cartyEmptyDesc"|trans|sw_sanitize }}</p>
+        </div>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block page_checkout_summary_header %}
+    {{ parent() }}
+
+    {% block page_checkout_cart_add_promotion %}
+        <div class="checkout-add-promotion">
+            {{ parent() }}
+        </div>
+    {% endblock %}
+{% endblock %}
+
+{% block page_checkout_aside_actions %}
+    {{ block('page_checkout_cart_action_proceed') }}
+{% endblock %}
+
+{% block page_checkout_cart_shipping_costs_trigger %}{% endblock %}
+
+{% block page_checkout_cart_add_product_and_shipping %}
+    <div class="row">
+        {{ block('page_checkout_cart_shipping_costs') }}
+
+        {{ block('page_checkout_cart_add_product') }}
+
+        {% block page_checkout_cart_shipping_costs_toggle %}
+            <div class="col-md-6">
+                <a class="btn btn-link cart-shipping-costs-btn"
+                   data-toggle="collapse"
+                   href="#collapseShippingCost"
+                   role="button"
+                   aria-expanded="false"
+                   aria-controls="collapseExample">
+                    {{ "checkout.shippingCosts"|trans|sw_sanitize }}
+                </a>
+            </div>
+        {% endblock %}
+    </div>
+
+    {% if b2bSuite %}
+        {% sw_include '@SwagB2bPlatform/storefront/_custom/cart/b2b-cart-orderlist.html.twig' ignore missing %}
+    {% endif %}
+{% endblock %}
+
+{% block page_checkout_cart_shipping_costs_form_group %}
+    <div class="collapse" id="collapseShippingCost">
+        <div class="row">
+            {% if not context.customer %}
+                <div class="col-md-12">
+                    {% block page_checkout_cart_shipping_costs_form_group_country %}
+                        {{ parent() }}
+                    {% endblock %}
+                </div>
+            {% endif %}
+            <div class="col-md-6">
+                {% block page_checkout_cart_shipping_costs_form_group_payment_method %}
+                    {{ parent() }}
+                {% endblock %}
+            </div>
+            <div class="col-md-6">
+                {% block page_checkout_cart_shipping_costs_form_group_shipping_method %}
+                    {{ parent() }}
+                {% endblock %}
+            </div>
+            <input type="hidden" name="redirectTo" value="frontend.checkout.cart.page">
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_checkout_cart_add_product_input_group %}
+    <div class="input-group input-group-lg">
+        {{ block('page_checkout_cart_add_product_label') }}
+
+        {{ block('page_checkout_cart_add_product_input') }}
+
+        {{ block('page_checkout_cart_add_product_submit') }}
+    </div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{
+    "document": {
+        "invoiceNumber": "Faktura nr %invoiceNumber%",
+        "invoiceHeadline": "Faktura nr %invoiceNumber%",
+        "stornoHeadline": "Storno nr %stornoNumber% do faktury nr %invoiceNumber%",
+        "stornoNumber": "Storno nr %stornoNumber%",
+        "deliveryNoteNumber": "List przewozowy nr %deliveryNoteNumber%",
+        "deliveryNoteHeadline": "List przewozowy nr %deliveryNoteNumber% do zamówienia nr %orderNumber%",
+        "creditNoteNumber": "Nota kredytowa %creditNoteNumber%",
+        "creditNoteHeadline": "Storno nr %creditNoteNumber% do faktury nr %invoiceNumber%",
+        "customerNumber": "Nr klienta: %customerNumber%",
+        "date": "Data %date%",
+        "comment": "Komentarz: %comment%",
+        "orderDate": "Data zamówienia %orderDate%",
+        "deliveryDate": "Termin dostawy %deliveryDate%",
+        "page": "Strona %pageNumber%",
+        "orderNumber": "Nr zamówienia: %orderNumber%",
+        "taxNumber": "Nr podatku: %taxNumber%",
+        "vatId": "Nr VAT: %vatId%",
+        "taxOffice": "Urząd skarbowy: %taxOffice%",
+        "bankAccount": "Dane bankowe",
+        "bankIban": "IBAN %bankIban%",
+        "bankBic": "BIC %bankBic%",
+        "placeOfJurisdiction": "Właściwością miejscową sądu jest %placeOfJurisdiction%",
+        "serviceDateNotice": "Data usługi równoważna dacie faktury",
+        "placeOfFulfillment": "Miejscem wykonania zobowiązania jest %placeOfFulfillment%",
+        "intraCommunity": "Dostawa wewnątrzwspólnotowa (UE)",
+        "shippingAddress": "Adres wysyłki",
+        "phoneNumber": "Numer telefonu: %phoneNumber%",
+        "email": "Adres e-mail: %email%",
+        "ceo": "Dyrektor generalny",
+        "lineItems": {
+            "header": {
+                "position": "Poz.",
+                "label": "Nazwa",
+                "tax": "VAT",
+                "quantity": "Ilość",
+                "unitPrice": "Cena za szt.",
+                "productNumber": "Prod. Nr",
+                "total": "Łącznie"
+            },
+            "tax": "plus %taxRate%% VAT:",
+            "total": "Suma całkowita:",
+            "roundedTotal": "Całkowita zaokrąglona:",
+            "totalNet": "Suma całkowita (netto):",
+            "shippingCosts": "Koszty wysyłki"
+        },
+        "paymentShippingInfo": {
+            "paymentMethod": "Wybrana metoda płatności: %paymentMethod%",
+            "shippingMethod": "Wybrana metoda wysyłki: %shippingMethod%",
+            "additionalInfo": "Towar pozostaje naszą własnością do momentu uiszczenia całej kwoty zapłaty."
+        }
+    },
+    "filter": {
+        "sortByNameAscending": "Nazwa, A–Z",
+        "sortByNameDescending": "Nazwa, Z–A",
+        "sortByPriceAscending": "Cena, od najniższej do najwyższej",
+        "sortByPriceDescending": "Cena, od najwyższej do najniższej",
+        "sortByScore": "Najlepsze wyniki"
+    }
+}

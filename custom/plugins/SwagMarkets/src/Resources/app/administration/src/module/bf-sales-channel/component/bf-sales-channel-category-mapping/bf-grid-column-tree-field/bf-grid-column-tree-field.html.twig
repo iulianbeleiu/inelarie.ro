@@ -1,0 +1,19 @@
+{% block swag_markets_grid_column_tree_field_content %}
+    <sw-inherit-wrapper v-model="marketplaceCategories.categories"
+                        :inheritedValue="null"
+                        isAssociation
+                        >
+        <template #content="{ currentValue, isInherited }">
+            <bf-sales-channel-category-mapping-tree-field
+                :marketplaceCategories="marketplaceCategories"
+                :categoriesCollection="currentValue ? currentValue : []"
+                class="sw-product-detail__select-category"
+                :disabled="isInherited"
+                :key="isInherited"
+                :placeholder="$tc('sw-product.categoryForm.placeholderCategory')"
+                @selection-add="marketplaceCategorySelectionAdd"
+                @selection-remove="marketplaceCategoriesSelectionRemove">
+            </bf-sales-channel-category-mapping-tree-field>
+        </template>
+    </sw-inherit-wrapper>
+{% endblock %}

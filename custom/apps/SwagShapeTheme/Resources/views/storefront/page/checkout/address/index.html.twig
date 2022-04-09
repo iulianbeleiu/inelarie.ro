@@ -1,0 +1,29 @@
+{% sw_extends '@Storefront/storefront/page/checkout/address/index.html.twig' %}
+
+{% block page_checkout_address_header %}
+    {{ parent() }}
+
+    <h4 class="register-subheadline">{{ "checkout.welcome"|trans|sw_sanitize }}</h4>
+{% endblock %}
+
+{% block page_checkout_address_login %}
+    {{ parent() }}
+    <hr class="divider checkout-divider" />
+{% endblock %}
+
+{% block page_checkout_aside_summary %}
+    {% block page_checkout_address_products %}
+        {{ parent() }}
+    {% endblock %}
+
+    <div class="checkout-aside-summary">
+        {% block page_checkout_summary_header %}
+            {{ parent() }}
+        {% endblock %}
+
+        {% block page_checkout_summary_list %}
+            {{ parent() }}
+        {% endblock %}
+    </div>
+
+{% endblock %}

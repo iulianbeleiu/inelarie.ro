@@ -1,0 +1,52 @@
+<sw-modal
+    v-if="showAttributesMappingModal"
+    @modal-close="$emit('modal-close-attr-mapping-win')"
+    variant="large"
+    title="Attributes mapping values">
+    {% block bf_sales_channel_property_mapping__content %}
+        {% block bf_sales_channel_property_mapping__content_base %}
+            <sw-text-field
+                type="text"
+                :label="$tc('propertyMapping.labels.search')"
+                :placeholder="$tc('propertyMapping.placeholder.search')"
+                v-model="searchString"
+{#                :name="property.productsAttributesId + '-search'"#}
+                @keyup.enter="loadAttributeData">
+            </sw-text-field>
+            <bf-sales-channel-property-mapping-grid
+                :dataSource="attributeData"
+                :columns="columns"
+                :isLoading="isLoading"
+                :showActions="false"
+                ref="attributeGrid">
+            </bf-sales-channel-property-mapping-grid>
+        {% endblock %}
+    {% endblock %}
+    {% block swag_markets_attributes_mapping_modal__footer %}
+        <template slot="modal-footer">
+            {% block swag_markets_attributes_mapping_modal__footer_cancel %}
+                <sw-button
+                    @click="$emit('modal-close-attr-mapping-win')"
+                    size="small">
+                    {{ $tc('propertyMapping.buttons.cancel') }}
+                </sw-button>
+            {% endblock %}
+            {% block swag_markets_attributes_mapping_modal__footer_save %}
+                <sw-button
+                    @click="saveData"
+                    variant="primary"
+                    size="small">
+                    {{ $tc('propertyMapping.buttons.save') }}
+                </sw-button>
+            {% endblock %}
+        </template>
+    {% endblock %}
+    {% block swag_markets_attributes_modal__pagination %}
+        <sw-pagination :total="total"
+                       :limit="limit"
+                       :page="page"
+                       @page-change="pageChange"
+                       :steps="[10, 25]">
+        </sw-pagination>
+    {% endblock %}
+</sw-modal>

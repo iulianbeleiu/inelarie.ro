@@ -1,0 +1,15 @@
+{
+    "swagCmsExtensions": {
+        "quickview": {
+            "detailPageLinkText": "Rādīt detalizēti"
+        },
+        "form": {
+            "component": {
+                "checkbox": {
+                    "true": "Jā",
+                    "false": "Nē"
+                }
+            }
+        }
+    }
+}

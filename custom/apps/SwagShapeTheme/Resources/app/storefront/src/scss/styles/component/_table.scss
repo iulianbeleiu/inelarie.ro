@@ -1,0 +1,65 @@
+.b2b-table {
+    tr {
+        td {
+            line-height: 22px;
+
+            &.col-actions {
+                text-align: center;
+
+                .btn {
+                    @include button-change;
+                    line-height: 24px;
+                    border-radius: 0;
+                }
+
+                .btn .icon {
+                    color: $primary;
+                }
+
+                .icon-paper-pencil-signed {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            .icon-star {
+                svg {
+                    top: 2px;
+                }
+            }
+
+            > span {
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            h4,
+            p {
+                font-size: 14px;
+                font-weight: 400;
+            }
+        }
+    }
+
+    .product-price-info {
+        margin-top: 0;
+    }
+
+    .product-cheapest-price {
+        margin-bottom: 0;
+        min-height: 1px;
+    }
+}
+
+.listing-view--grid {
+    .b2b--grid-container {
+        padding-bottom: 0;
+        margin-bottom: 24px;
+    }
+
+    .input-group {
+        > .form-control {
+            margin-right: 0;
+        }
+    }
+}

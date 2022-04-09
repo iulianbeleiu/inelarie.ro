@@ -1,0 +1,16 @@
+.btn-primary,
+.btn-secondary {
+    .icon {
+        color: $white;
+    }
+}
+
+.btn-light {
+    .icon {
+        color: $black;
+    }
+}
+
+.icon-review {
+    color: $shape-gray-900;
+}

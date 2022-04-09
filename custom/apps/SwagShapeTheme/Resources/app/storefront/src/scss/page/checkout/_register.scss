@@ -1,0 +1,212 @@
+$checkout-offset-sm: 20px;
+$checkout-offset: 163px;
+
+$checkout-spacing-sm: 40px;
+$checkout-spacing: 70px;
+$checkout-aside-spacing: 27px;
+$checkout-aside-drop: rgba(0, 0, 0, 0.1) 0 1px 2px;
+
+.is-act-checkoutregisterpage,
+.is-act-confirmpage,
+.is-act-finishpage,
+.is-act-editorder,
+.is-act-cartpage {
+    .container-main,
+    .checkout {
+        @extend .pt-0;
+    }
+
+    .checkout-container {
+        @extend .mb-0;
+
+        padding-bottom: 140px;
+        background-color: $shape-gray-100;
+    }
+
+    .checkout {
+        @extend .container;
+
+        .checkout-aside,
+        .checkout-main {
+            padding-top: $checkout-spacing-sm;
+            padding-bottom: $checkout-spacing-sm;
+        }
+
+        .checkout-main {
+            @extend .ml-0;
+            @extend .mb-0;
+        }
+
+        .checkout-aside {
+            @include make-col(12);
+
+            margin-left: 0;
+            background-color: $white;
+            position: relative;
+            box-shadow: $checkout-aside-shadow;
+            padding-left: $grid-gutter-width / 2;
+            padding-right: $grid-gutter-width / 2;
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 100%;
+
+                background: linear-gradient(135deg, $white 33.333%, transparent 0),
+                    linear-gradient(-135deg, $white 33.333%, transparent 0);
+                width: 100%;
+                height: 1em;
+                background-size: 1.5em 100%;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .checkout {
+            .checkout-main,
+            .checkout-aside {
+                @include make-col(7);
+
+                padding-top: $checkout-spacing;
+                padding-bottom: $checkout-spacing;
+            }
+
+            .checkout-aside {
+                @include make-col(4);
+
+                max-width: 424px;
+                margin-left: auto;
+                padding-left: $checkout-aside-spacing;
+                padding-right: $checkout-aside-spacing;
+            }
+        }
+    }
+}
+
+.is-act-checkoutregisterpage {
+    .login-collapse-toggle,
+    .login-submit button {
+        min-width: 92px;
+        text-transform: uppercase;
+        font-size: $font-size-base;
+    }
+
+    .address-main-header {
+        margin-bottom: 40px;
+    }
+
+    .register-card .card-title,
+    .register-subheadline {
+        font-size: 24px;
+        font-weight: $font-weight-bold;
+    }
+
+    .register-login-collapse-toogle {
+        margin-bottom: 2rem;
+
+        > span.icon-avatar {
+            display: none;
+        }
+    }
+
+    .register-login-collapse-toogle + .row.mb-2 {
+        margin-bottom: $spacer-30 !important;
+    }
+
+    div[data-swag-paypal-express-button='true'] {
+        @include make-col(12);
+    }
+
+    div[data-swag-paypal-installment-banner='true'] {
+        margin-top: 0 !important;
+    }
+
+    .register-card .card-title {
+        padding-bottom: 0;
+        border-bottom: 0;
+        margin-bottom: 4px;
+    }
+
+    .register-shipping .card-title,
+    .card-register-intro {
+        margin-bottom: 20px;
+    }
+
+    .checkout-divider {
+        margin-top: 0;
+        margin-bottom: 40px;
+    }
+
+    .login-submit button {
+        @extend .btn-lg;
+
+        width: 100%;
+    }
+
+    .register-submit {
+        text-align: left;
+
+        button {
+            display: block;
+            width: 100%;
+            text-transform: uppercase;
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+        div[data-swag-paypal-installment-banner='true'] {
+            display: none;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        .login-submit button {
+            width: unset;
+        }
+
+        div[data-swag-paypal-express-button='true'] {
+            @include make-col(5);
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .register-submit button {
+            width: 50%;
+        }
+
+        .checkout-main {
+            padding-top: 1.5rem;
+        }
+    }
+}
+
+.register-billing > .form-row:first-child {
+    .form-group.col-md-6 {
+        @include make-col(12);
+    }
+
+    .form-group.col-md-2 {
+        @include make-col(6);
+    }
+
+    .form-group.col-md-4 {
+        @include make-col(6);
+    }
+}
+
+.register-address {
+    margin-bottom: 2rem;
+}
+
+.privacy-notice {
+    margin-top: 23px;
+}
+
+.register-required-info {
+    font-size: $font-size-sm;
+}
+
+.checkout-aside-summary {
+    @extend .pt-0;
+}

@@ -1,0 +1,19 @@
+.b2b--search-container {
+    position: relative;
+
+    .b2b--search-results {
+        border: none;
+        border-radius: 4px;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+        max-width: 100%;
+
+        ul li {
+            padding: 15px 16px;
+            line-height: 16px;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid $border-color;
+            }
+        }
+    }
+}

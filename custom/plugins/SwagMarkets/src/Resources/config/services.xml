@@ -1,0 +1,119 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="swagMarkets.host.production">https://brickfox.io</parameter>
+        <parameter key="swagMarkets.headers" type="collection">
+            <parameter key="bf-access-key">MkJGMTQxQzhBMkRDMjE5REU4NTNBQjYxQjZENEM=</parameter>
+            <parameter key="bf-secret-key">QGxfamU9XzEobSNpPXJpXiF6Mi09PSgoISVhOWY5dio3N3lpNyU2d3ZlNXUkaiYoaCQ=</parameter>
+        </parameter>
+    </parameters>
+
+    <services>
+        <defaults autoconfigure="true" autowire="true" />
+
+        <service id="Swag\Markets\Entity\Extension\SalesChannelExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="Swag\Markets\Entity\Extension\CurrencyExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="Swag\Markets\Entity\Extension\CountryExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="Swag\Markets\Entity\Extension\LanguageExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="Swag\Markets\Entity\Config\SwagMarketsConfigurationEntityDefinition">
+            <tag name="shopware.entity.definition" entity="bf_config"/>
+        </service>
+
+        <service id="Swag\Markets\Entity\Marketplace\MarketplaceDefinition">
+            <tag name="shopware.entity.definition" entity="bf_marketplace"/>
+        </service>
+
+        <service id="Swag\Markets\Entity\Marketplace\Aggregate\MarketplaceSalesChannel\MarketplaceSalesChannelDefinition">
+            <tag name="shopware.entity.definition" entity="bf_marketplace_sales_channel"/>
+        </service>
+
+        <service id="Swag\Markets\Entity\Marketplace\Aggregate\MarketplaceSettings\MarketplaceSettingsDefinition">
+            <tag name="shopware.entity.definition" entity="bf_marketplace_settings"/>
+        </service>
+
+        <service id="Swag\Markets\Entity\CategoryMapping\CategoryMappingDefinition">
+            <tag name="shopware.entity.definition" entity="bf_category_mapping" />
+        </service>
+
+        <service id="Swag\Markets\Entity\Support\SupportDefinition">
+            <tag name="shopware.entity.definition" entity="bf_support" />
+        </service>
+
+        <service id="Swag\Markets\Entity\ProductToDelete\SwagMarketsProductToDeleteEntityDefinition">
+            <tag name="shopware.entity.definition" entity="bf_product_to_delete"/>
+        </service>
+
+        <service id="Swag\Markets\Service\SwagMarketsService">
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+        </service>
+
+        <service id="Swag\Markets\Service\ConfigService">
+            <argument type="service" id="bf_config.repository" />
+        </service>
+
+        <service id="Swag\Markets\Service\IntegrationUserService">
+            <argument type="service" id="bf_config.repository" />
+            <argument type="service" id="integration.repository" />
+        </service>
+
+        <service id="Swag\Markets\Controller\Api\ConfigController">
+            <argument type="service" id="Swag\Markets\Service\ConfigService" />
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService" />
+            <argument type="service" id="Swag\Markets\Service\IntegrationUserService" />
+            <argument type="service" id="user.repository" />
+            <argument type="service" id="bf_config.repository" />
+            <argument>%kernel.shopware_version%</argument>
+        </service>
+
+        <service id="Swag\Markets\Controller\SupportRequestController">
+            <argument type="service" id="Shopware\Core\Content\Mail\Service\MailService"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService" />
+            <argument type="service" id="Swag\Markets\Controller\Api\ConfigController" />
+            <argument type="service" id="salutation.repository"/>
+        </service>
+
+        <service id="Swag\Markets\Controller\SwagMarketsController" public="true">
+            <argument type="service" id="Swag\Markets\Service\SwagMarketsService"/>
+            <argument type="service" id="bf_product_to_delete.repository"/>
+        </service>
+
+        <service id="Swag\Markets\Controller\AmazonConnectionAssistantController">
+            <argument type="service" id="Swag\Markets\Service\ConfigService" />
+        </service>
+
+        <service id="Swag\Markets\Controller\EbayConnectionAssistantController">
+            <argument type="service" id="Swag\Markets\Service\ConfigService" />
+        </service>
+
+        <service id="Swag\Markets\DataAbstractionLayer\SalesChannelRepositoryDecorator" decorates="sales_channel.repository">
+            <argument type="service" id="Swag\Markets\DataAbstractionLayer\SalesChannelRepositoryDecorator.inner" />
+        </service>
+
+        <service id="Swag\Markets\Controller\SalesChannelApiController">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <service id="Swag\Markets\Subscriber\ProductDeleteSubscriber">
+            <argument type="service" id="bf_product_to_delete.repository"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+    </services>
+</container>

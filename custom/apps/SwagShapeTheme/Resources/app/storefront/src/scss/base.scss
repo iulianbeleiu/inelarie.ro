@@ -1,0 +1,129 @@
+/*
+SwagShapeTheme theme styles
+==================================================
+Contains the imports to all theme styles.
+
+The file organization follows the 7-1 pattern architecture
+https://sass-guidelin.es/#the-7-1-pattern
+*/
+/*
+ * Variables, Mixins, Functions
+ * ---------------------------- */
+@import 'abstract/variables/custom';
+@import 'abstract/mixins/bootstrap';
+@import 'abstract/mixins/custom';
+/*
+ * Vendors
+ * ------- */
+/*
+ * Base stuff
+ * ---------- */
+@import 'base/base';
+@import 'base/font';
+@import 'base/typography';
+
+/*
+ * Components
+ * ---------- */
+@import 'component/button';
+@import 'component/icon';
+@import 'component/forms';
+@import 'component/input-group';
+@import 'component/product-box';
+@import 'component/alert';
+@import 'component/tables';
+@import 'component/custom-forms';
+@import 'component/offcanvas';
+@import 'component/filter-panel';
+@import 'component/dropdown';
+@import 'component/quickview-modal';
+@import 'component/card';
+@import 'component/modal';
+@import 'component/address-editor';
+@import 'component/payment-method';
+@import 'component/scroll-navigation/scroll-navigation';
+@import 'component/tab-menu';
+@import 'component/cms-block';
+@import 'component/breadcrumb';
+@import 'component/pagination';
+@import 'component/gallery-slider';
+@import 'component/base-slider';
+@import 'component/cms-element';
+@import 'component/filter-multi-select';
+@import 'component/filter-property-select';
+@import 'component/product-wishlist';
+@import 'component/category-navigation';
+@import 'component/filter-rating-select';
+@import 'component/cms-sections';
+@import 'component/quickview/quickview';
+@import 'component/customized-product/customized-product';
+@import 'component/basic-captcha';
+/*
+ * Layout-related sections
+ * ----------------------- */
+@import 'layout/container';
+@import 'layout/header';
+@import 'layout/main-navigation';
+@import 'layout/header-minimal';
+@import 'layout/footer';
+@import 'layout/offcanvas-cart';
+@import 'layout/top-bar';
+@import 'layout/scroll-up';
+@import 'layout/account-menu';
+@import 'layout/navigation-offcanvas';
+@import 'layout/navigation-flyout';
+@import 'layout/search-suggest';
+@import 'layout/plugin';
+/*
+ * Page-specific styles
+ * -------------------- */
+@import 'page/checkout/aside';
+@import 'page/checkout/cart-item';
+@import 'page/checkout/cart-item-children';
+@import 'page/checkout/checkout';
+@import 'page/checkout/register';
+@import 'page/checkout/finish';
+@import 'page/checkout/confirm';
+@import 'page/checkout/cart';
+@import 'page/error/maintenance';
+@import 'page/account/overview';
+@import 'page/account/account';
+@import 'page/account/order';
+@import 'page/account/order-detail';
+@import 'page/account/aside';
+@import 'page/account/login';
+@import 'page/account/register';
+@import 'page/account/profile';
+@import 'page/account/address';
+@import 'page/account/order-history/order-detail-list-item';
+@import 'page/account/payment';
+@import 'page/account/profile/index';
+@import 'page/product-detail/product-detail';
+@import 'page/product-detail/configurator';
+@import 'page/product-detail/tabs';
+@import 'page/product-detail/cross-selling';
+@import 'page/product-detail/review';
+@import 'page/wishlist/wishlist';
+@import 'page/listing/listing';
+@import 'page/search/search';
+/*
+ * Plugin styles
+ * -------------------- */
+@import 'styles/pages/statistic';
+@import 'styles/pages/dashboard';
+@import 'styles/pages/account';
+@import 'styles/pages/fastorder';
+@import 'styles/pages/order';
+@import 'styles/component/grid-container';
+@import 'styles/component/headline';
+@import 'styles/component/tree-node';
+@import 'styles/component/table';
+@import 'styles/component/tab';
+@import 'styles/component/assignment-grid';
+@import 'styles/component/modal';
+@import 'styles/component/remote-list';
+@import 'styles/component/accordion';
+@import 'styles/component/upload';
+@import 'styles/component/avatar';
+@import 'styles/component/product-search';
+@import 'styles/layout/navigation';

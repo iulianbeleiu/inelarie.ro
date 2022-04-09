@@ -1,0 +1,193 @@
+.account-profile {
+    padding-bottom: 32px;
+
+    .profile-form-submit {
+        @extend .btn-primary;
+        @extend .w-100;
+
+        margin-top: $spacer-lg;
+        margin-bottom: $spacer-xs;
+    }
+
+    .required-fields,
+    .text-muted {
+        font-size: $font-size-sm;
+        padding-left: $spacer-md;
+        line-height: 16px;
+    }
+
+    .form-group {
+        margin-bottom: $spacer-md;
+    }
+
+    .form-label {
+        @extend .d-none;
+    }
+
+    .form-control {
+        padding-left: 16px;
+    }
+}
+
+.account-profile-personal {
+    @include card-box;
+
+    margin-bottom: 28px;
+}
+
+.card-profile-change-mail,
+.card-profile-change-pass,
+.card-account-deleting {
+    .card {
+        @include card-box;
+    }
+
+    .card-actions {
+        float: right;
+    }
+
+    .account-profile-change {
+        @include button-change;
+
+        font-size: $font-size-base;
+    }
+}
+
+.profile-content {
+    .card {
+        @include card-box;
+    }
+
+    .form-row {
+        > .col,
+        > .col-6 {
+            @extend .col-12;
+            @extend .col-md-6;
+
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+    }
+
+    .text-muted,
+    .account-profile-required-info {
+        padding-left: 12px;
+    }
+}
+
+.account-profile-credentials {
+    margin-bottom: 0;
+}
+
+.confirm-delete-account-modal {
+    .modal-content {
+        padding: 32px 25px 50px;
+    }
+
+    .modal-header {
+        padding: 0;
+        border-bottom: none;
+        flex-wrap: wrap;
+
+        .modal-close {
+            order: -1;
+            padding: 0;
+            margin: 0 0 6px;
+            width: 100%;
+            text-align: right;
+            opacity: 1;
+            line-height: 14px;
+        }
+    }
+
+    svg {
+        width: 12px;
+        height: 12px;
+
+        path {
+            fill: $black;
+        }
+    }
+
+    .modal-body {
+        padding: 0;
+
+        form[action*='delete'] {
+            p {
+                white-space: pre-line;
+
+                + p {
+                    font-weight: $font-weight-bold;
+                }
+            }
+        }
+    }
+
+    .h3 {
+        font-size: 23px;
+        line-height: 34px;
+        padding-bottom: 14px;
+        border-bottom: $hr-border-width solid $sw-text-color;
+        width: 100%;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .account-profile-personal,
+    .profile-content {
+        .required-fields,
+        .card-actions {
+            float: left;
+        }
+
+        .required-fields {
+            width: calc(100% - 140px);
+        }
+
+        .card-actions {
+            width: 140px;
+        }
+
+        .profile-form-submit {
+            margin-top: 0;
+        }
+    }
+
+    .confirm-delete-account-modal {
+        .modal-dialog {
+            max-width: 872px;
+        }
+
+        .h3,
+        .modal-body {
+            margin-left: 75px;
+            margin-right: 75px;
+        }
+
+        .modal-content {
+            padding: 36px;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .account-profile-personal {
+        margin-bottom: 22px;
+    }
+
+    .confirm-delete-account-modal {
+        .modal-dialog {
+            max-width: 872px;
+        }
+
+        .h3,
+        .modal-body {
+            margin-left: 75px;
+            margin-right: 75px;
+        }
+
+        .modal-content {
+            padding: 36px;
+        }
+    }
+}

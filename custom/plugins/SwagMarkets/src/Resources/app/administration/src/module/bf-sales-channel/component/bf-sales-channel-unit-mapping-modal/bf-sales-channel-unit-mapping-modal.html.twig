@@ -1,0 +1,39 @@
+{% block bf_sales_channel_product_detail %}
+    <sw-modal
+        class="bf-modal"
+        :title="title"
+        @modal-close="$emit('modal-close')">
+        {% block bf_sales_channel_product_detail__content %}
+            {% block bf_sales_channel_product_detail__content_base %}
+                <sw-data-grid
+                    ref="unitGrid"
+                    :dataSource="unitData"
+                    :columns="columns"
+                    :showActions="false"
+                    :fullPage="false"
+                    :compect="true"
+                >
+                </sw-data-grid>
+            {% endblock %}
+        {% endblock %}
+        {% block bf_sales_channel_product_detail__footer %}
+            <template slot="modal-footer">
+                {% block bf_sales_channel_product_detail__footer_cancel %}
+                    <sw-button
+                        @click="$emit('modal-close')"
+                        size="small">
+                        Cancel
+                    </sw-button>
+                {% endblock %}
+                {% block bf_sales_channel_product_detail__footer_save %}
+                    <sw-button
+                        @click="saveData"
+                        variant="primary"
+                        size="small">
+                        Save
+                    </sw-button>
+                {% endblock %}
+            </template>
+        {% endblock %}
+    </sw-modal>
+{% endblock %}

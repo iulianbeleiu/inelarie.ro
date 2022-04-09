@@ -1,0 +1,17 @@
+.b2b--assignment-grid {
+    .b2b-table thead th {
+        border-bottom-color: $primary;
+    }
+}
+
+.b2b--modal-content {
+    .bottom--actions {
+        .btn {
+            min-width: 115px;
+        }
+
+        form {
+            margin-right: 10px;
+        }
+    }
+}

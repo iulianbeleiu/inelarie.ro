@@ -1,0 +1,49 @@
+{% block sw_category_tree_field_input_labels %}
+    <sw-label v-for="selectedCategory in visibleTags"
+              :key="selectedCategory.id"
+              selected=""
+              @dismiss="removeItem(selectedCategory)"
+              v-tooltip="{
+                                        message: getBreadcrumb(selectedCategory),
+                                        width: 300
+                                    }"
+              class="sw-category-tree-field__selected-label"
+              v-if="showLabelName">
+        {% block sw_category_tree_field_input_labels_property %}
+            <span class="sw-category-tree-field__label-property">
+                <slot name="labelProperty">
+                    {{ getLabelName(selectedCategory) }}
+                </slot>
+            </span>
+        {% endblock %}
+
+        {% block sw_category_tree_field_input_labels_dismiss_icon %}
+            <template slot="dismiss-icon">
+                <sw-icon name="small-default-x-line-medium"></sw-icon>
+            </template>
+        {% endblock %}
+
+    </sw-label>
+{% endblock %}
+{% block sw_category_tree_field_input_labels_hidden_tag %}
+    <sw-label v-if="numberOfHiddenTags > 0 && showLabelName"
+              :dismissAble="true"
+              @selected="removeTagLimit"
+              class="sw-category-tree-field__label-more">
+
+            <span class="sw-category-tree-field__label-more-property">
+                <slot name="labelProperty">+{{ numberOfHiddenTags }}</slot>
+            </span>
+    </sw-label>
+{% endblock %}
+
+{% block sw_category_tree_field_input_field %}
+    <input type="text"
+           class="sw-category-tree__input-field-bf"
+           v-model="term"
+           :placeholder="placeholder"
+           ref="searchInput"
+           :disabled="disabled"
+           @focus="openDropdown({ setFocusClass, removeFocusClass });"
+           @keydown.delete="onDeleteKeyup">
+{% endblock %}

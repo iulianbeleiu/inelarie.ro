@@ -1,0 +1,15 @@
+{% sw_extends '@Storefront/storefront/layout/header/actions/account-widget.html.twig' %}
+
+{% block layout_header_actions_account_widget_dropdown_button %}
+    <button class="btn account-menu-btn header-actions-btn"
+            type="button"
+            id="accountWidget"
+            data-offcanvas-account-menu="true"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-label="{{ "account.myAccount"|trans|striptags }}"
+            title="{{ "account.myAccount"|trans|striptags }}">
+        {% sw_icon 'ic-profile' style { 'pack':'shape' }%}
+    </button>
+{% endblock %}

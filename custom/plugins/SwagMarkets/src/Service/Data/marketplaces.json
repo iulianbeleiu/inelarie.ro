@@ -1,0 +1,56 @@
+[
+  {
+    "name": "amazon.de",
+    "type": "amazon",
+    "settings": {
+      "country": "DE",
+      "language": "Deutsch",
+      "currency": "EUR"
+    }
+  },
+  {
+    "name": "amazon.at",
+    "type": "amazon",
+    "settings": {
+      "country": "AT",
+      "language": "Deutsch",
+      "currency": "EUR"
+    }
+  },
+  {
+    "name": "amazon.ch",
+    "type": "amazon",
+    "settings": {
+      "country": "CH",
+      "language": "Deutsch",
+      "currency": "CHF"
+    }
+  },
+  {
+    "name": "ebay.de",
+    "type": "ebay",
+    "settings": {
+      "country": "DE",
+      "language": "Deutsch",
+      "currency": "EUR"
+    }
+  },
+  {
+    "name": "ebay.at",
+    "type": "ebay",
+    "settings": {
+      "country": "AT",
+      "language": "Deutsch",
+      "currency": "EUR"
+    }
+  },
+  {
+    "name": "ebay.ch",
+    "type": "ebay",
+    "settings": {
+      "country": "CH",
+      "language": "Deutsch",
+      "currency": "CHF"
+    }
+  }
+]

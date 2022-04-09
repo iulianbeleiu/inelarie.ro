@@ -1,0 +1,21 @@
+{% block bf_sales_channel_ebay_extended_configuration %}
+<sw-card
+    v-if="isSalesChannelEbay"
+    :title="$tc('salesChannelSettings.card.title.extendedSettings')">
+    <sw-alert v-if="isDisabled" variant="info" appearance="notification" :showIcon="true" :closable="false">
+        {{ $tc('salesChannelSettings.invalidContractInfo') }}
+    </sw-alert>
+
+    <sw-switch-field
+        :label="$tc('salesChannelSettings.ebay.label.enableEbayPlus')"
+        :value="salesChannel && salesChannel.ebayPlus"
+        :ghostValue="false"
+        :noMarginTop="true"
+        :helpText="$tc('salesChannelSettings.ebay.helpText.ebayPlus')"
+        :disabled="isDisabled"
+        size="small"
+        @change="salesChannel.ebayPlus = $event"
+    >
+    </sw-switch-field>
+</sw-card>
+{% endblock %}

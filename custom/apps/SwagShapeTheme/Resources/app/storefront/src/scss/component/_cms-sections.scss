@@ -1,0 +1,45 @@
+/*
+CMS sections
+==============================================
+General styling for cms sections
+*/
+
+@mixin container-full-width () {
+    $gutter-width: calc((100vw - 100%) / 2);
+
+    margin-left: calc(#{$gutter-width} * -1);
+    margin-right: calc(#{$gutter-width} * -1);
+}
+
+.cms-page .cms-section {
+    .boxed {
+        padding: 0 $spacer-20;
+    }
+
+    .full-width {
+        @extend .container;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .cms-page .cms-section {
+        &.cms-full-width {
+            .cms-section-sidebar-main-content {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .cms-page .cms-section {
+        &.cms-full-width {
+            @include container-full-width();
+
+            .full-width {
+                max-width: 100%;
+            }
+        }
+    }
+}

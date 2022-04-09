@@ -1,0 +1,43 @@
+@import "~scss/variables";
+
+.bf-ebay-connection-assistant-account__content {
+    margin: 0 30px;
+
+    .sw-card {
+        .sw-card__title {
+            font-size: 14px;
+            font-weight: 600;
+            height: 22px;
+            letter-spacing: 0.1px;
+            line-height: 22px;
+            margin-bottom: 12px;
+        }
+
+        .sw-card__content {
+            padding: 0px;
+            background-color: rgb(249, 250, 251);
+
+            h6 {
+                font-size: 14px;
+                font-weight: 600;
+                height: 22px;
+                letter-spacing: 0.1px;
+                line-height: 22px;
+                margin-bottom: 0px;
+            }
+            .sw-card-section {
+                padding: 16px 0 16px 16px;
+                display: flex;
+                align-items: center;
+            }
+
+            .bf-ebay-connection-assistant-account__content-button-group {
+                padding-right: 16px;
+
+                button {
+                    color: #189eff;
+                }
+            }
+        }
+    }
+}

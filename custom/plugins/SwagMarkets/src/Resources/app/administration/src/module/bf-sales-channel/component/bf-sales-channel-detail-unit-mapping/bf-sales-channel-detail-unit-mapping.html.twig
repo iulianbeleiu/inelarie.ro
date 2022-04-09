@@ -1,0 +1,37 @@
+{% block bf_sales_cahnnel_detail_unit_mapping %}
+<div>
+    <sw-card
+        class="bf-card"
+        :title="$tc('unitMapping.card-title')"
+        :showHelpTextIcon="true"
+        :helpTextDescription="$tc('unitMapping.infoText')"
+        :helpTextWidth="500"
+        >
+        {% block bf_sales_cahnnel_detail_property_list_grid %}
+            <bf-sales-channel-unit-mapping-grid
+                v-if="units"
+                :dataSource="units"
+                :columns="columns"
+                ref="unitMappingGrid"
+                identifier="unitMappingGrid"
+                :showSelection="false"
+                :fullPage="false"
+                :sortBy="sortBy"
+                :sortDirection="sortDirection"
+                :isLoading="isLoading"
+                :compactMode="false"
+                :unitMappings="unitMappings"
+                @load-unit-mapping="getList('*')">
+            </bf-sales-channel-unit-mapping-grid>
+        {% endblock %}
+        {% block swag_markets_category_mapping_empty_state %}
+            <sw-empty-state
+                style="position: relative;"
+                v-if="unitMappings == null || unitMappings.length == 0"
+                :title="$tc('unitMapping.noScaleUnit')"
+                :showDescription="false">
+            </sw-empty-state>
+        {% endblock %}
+    </sw-card>
+</div>
+{% endblock %}

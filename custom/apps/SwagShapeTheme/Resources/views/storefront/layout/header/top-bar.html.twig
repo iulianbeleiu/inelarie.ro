@@ -1,0 +1,29 @@
+{% sw_extends '@Storefront/storefront/layout/header/top-bar.html.twig' %}
+
+{% block layout_header_top_bar %}
+    <div class="top-bar">
+        <div class="container">
+            <nav class="top-bar-nav row">
+                <div class="col-12 offset-xl-2 col-xl-8">
+                    {% block layout_header_top_message %}
+                        <p class="text-center top-bar-message mb-0">
+                            {{ "header.topBarMessage"|trans|striptags }}
+                            {{ 'footer.serviceContactLink'|trans({
+                                '%url%': path('frontend.cms.page', { id: config('core.basicInformation.contactPage') })
+                            })|raw }}
+                        </p>
+                    {% endblock %}
+                </div>
+                <div class="col-2 d-none d-xl-block">
+                    {% block layout_header_top_bar_currency %}
+                        {{ parent() }}
+                    {% endblock %}
+
+                    {% block layout_header_top_bar_language %}
+                        {{ parent() }}
+                    {% endblock %}
+                </div>
+            </nav>
+        </div>
+    </div>
+{% endblock %}

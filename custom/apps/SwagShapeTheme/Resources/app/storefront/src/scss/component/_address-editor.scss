@@ -1,0 +1,104 @@
+.address-editor-list-wrapper,
+.address-editor-create-address-wrapper {
+    margin-top: $spacer-30;
+}
+
+.address-editor-create-address-wrapper {
+    .contact-address {
+        > .form-group.col-md-6 {
+            @include make-col(12);
+        }
+
+        > .form-group.col-md-2.col-4 {
+            @include make-col(6);
+        }
+
+        > .form-group.col-md-4.col-8 {
+            @include make-col(6);
+        }
+    }
+}
+
+.address-editor-list-wrapper {
+    .card-actions {
+        .col-6,
+        .col-sm-6 {
+            @include make-col(12);
+        }
+    }
+}
+
+.address-editor-accordion-row {
+    justify-content: center;
+
+    > .col-12.col-md-4 {
+        margin-right: 1rem;
+    }
+
+    .btn {
+        font-size: $font-size-sm;
+    }
+
+    .btn.collapsed {
+        @extend .btn-outline-dark;
+    }
+
+    @include media-breakpoint-up(md) {
+        > .col-12.col-md-4 {
+            @include make-col(3);
+        }
+    }
+}
+
+.address-editor-modal {
+    .address-billing-card,
+    .address-editor-card {
+        @include card-box;
+
+        height: 100%;
+
+        &:hover {
+            box-shadow: $dropdown-min-width;
+        }
+    }
+
+    .address-billing-card {
+        box-shadow: $dropdown-box-shadow;
+    }
+
+    .address-editor-card:hover {
+        box-shadow: none;
+    }
+}
+
+.address-editor-card {
+    .btn {
+        font-size: $font-size-base;
+        color: $primary;
+    }
+}
+
+.address-editor-edit {
+    margin-bottom: 1rem;
+    cursor: pointer;
+
+    @include media-breakpoint-up(md) {
+        margin-bottom: 0;
+    }
+}
+
+.address-editor-card-row {
+    > .address-editor-card {
+        @include make-col(6);
+
+        margin-bottom: 1rem;
+    }
+}
+
+.address-form-actions {
+    @extend .form-row;
+
+    .btn {
+        @extend .col-6;
+    }
+}

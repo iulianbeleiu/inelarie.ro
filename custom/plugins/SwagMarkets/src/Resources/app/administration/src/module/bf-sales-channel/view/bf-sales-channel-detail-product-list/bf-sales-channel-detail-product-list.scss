@@ -1,0 +1,30 @@
+.bf-product-detail__toolbar {
+  padding: 25px;
+  background-color: #f0f2f5;
+  border-bottom: 1px solid #d1d9e0;
+
+    .success {
+        color: green;
+    }
+    .warning {
+        color: darkorange;
+    }
+    .danger {
+        color: red;
+    }
+
+    .bf-filter-panel {
+        padding: 0px !important;
+    }
+}
+.traffic-light-counter {
+  text-align: right;
+}
+
+.bf-sales-channel-product-errors-modal div.sw-data-grid__cell-content {
+    height: auto !important;
+
+    span.sw-data-grid__cell-value {
+        white-space: normal;
+    }
+}

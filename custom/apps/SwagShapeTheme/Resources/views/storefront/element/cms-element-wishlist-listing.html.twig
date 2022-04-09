@@ -1,0 +1,23 @@
+{% sw_extends '@Storefront/storefront/element/cms-element-wishlist-listing.html.twig' %}
+
+{% block element_wishlist_listing %}
+    {% set listingColumns = 'col-sm-6 col-lg-4 col-xl-4' %}
+
+    {% if section and section.type == 'sidebar' %}
+        {% set listingColumns = 'col-sm-6 col-lg-6 col-xl-4' %}
+    {% endif %}
+
+    {% set slot = null %}
+
+    {% set filterUrl = null %}
+    {% set dataUrl = url('widgets.wishlist.pagelet') %}
+
+    {% set boxLayout = 'wishlist' %}
+    {% set displayMode = null %}
+
+    {% set sidebar = sectionType == 'sidebar' %}
+
+    {% set params = { slots: slot.id, 'no-aggregations': 1 } %}
+
+    {{ block('element_wishlist_listing_wrapper') }}
+{% endblock %}

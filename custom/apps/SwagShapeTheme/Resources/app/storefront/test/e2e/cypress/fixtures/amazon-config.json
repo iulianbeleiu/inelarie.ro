@@ -1,0 +1,15 @@
+{
+  "SwagAmazonPay.settings.merchantId": "A20SUKFV8Z8AHP",
+  "SwagAmazonPay.settings.clientId": "amzn1.application-oa2-client.262fc0e8959742388f7df1a9c1d0dd8c",
+  "SwagAmazonPay.settings.publicKeyId": "AGP33PJWK4F7I77FPMA7U5VR",
+  "SwagAmazonPay.settings.privateKey": "-----BEGIN PRIVATE KEY-----MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCYX46VOX/htb6eEfcnnHD0nLnwgyzMi2VI7t7+NXf+MUaV+sEjc+6tvW6bLRN4BxgCv8+fRWXKW+WIuIEpjlHtDVrBi5uNoD1PazwKSnbZhkXhhlYbYKYbUjHvewp35VzGzREkEY30oLfva0A9yDuHBsGnc+cnUNL4FptMQFh5bUTQDDK+eTHnmjRVYAS3A3O7e/sUQGQ6H+y+P72UZZsMmP2w5LpvTE9/isGK/UJm/jzb0KSXFeqAoL0DsukUmH5hul3vm4wX45DFsinFNxweWSSrBIxawXkFQbGjxmKoL6Psto26tDjbcOnveFOe4I3UOUcBDZa+8GyA/iDD7WG9AgMBAAECggEAJe74JK9NZmgkHd8UHDDmsAcKhVVqxDtZykfpjPjLuCUVUQY9qfFVNLypugkFRUbi0+BjtF+HAVNSd/CS+0D6pVzDQNbcMWx4hvqH1noGT44NfKFAc41inP+f/eIwT3vy1m07/LJAGGwgjoKxWhAsvadRc7o3jEKjWu7p15hXTlcin5oX1p0Kt+WrpLD/9RuPH8b+Uqrjp9APLupSwUoFYvAM/iTB+yve86KcNHVlGsl5VxfXCi8TM6CVrrOgpY++F2wZfiYL4gKBomuAXHeSQB0cRtboeTDWEN6T7oFCJyDPF9HQpTS9npDIUzYfX+ChE9FCo2DELtMi/3RHvZ4BYwKBgQDRMX6Vz1Fw95GHwPxeU2bTKia1oBr3w8iH/QxOHlQA8jgw+AZtIxjaNiMbOQ/tI+j3p91gF4SLj+VvQZqJOL/7ZHteR7c69s5G/hfKiaAKTbP1gdrHwbxLW1A4LDV9HOe5ZHcHF+C7PpZVJRO5ot7vOmT1mVg3z3DyDhCRaVtHSwKBgQC6d27gRmed9thowlpFwcFS6uCkOO8zIixyzld5WjSs8LRyh46FaIph1I5WXhPwVFNpNDbUR1zBFPbwWPieehxY+6CAWqV7wHpVWkjS02/c+1t0r8cbv+eO7zsPBU3XJFHeTKQYasXz0iYD92j+V2tyDFuMUja/KiDz/KXZ0q+uFwKBgGPkrZzeDfbS0XSw7BIi42QMqcVrOdV8cUK2zGx1QQneoISJu4/cBZ8V4Pe77OYBktrIFwcu08VNJnNVMXU7WzmxhtPDjTSj7GasKTI3O+wPpNKkepOO6NpXNVxNiBFBf0nhNpF1joP7ZBAuj1fC9Y/pI5K/8gdckIOVwcWeOM83AoGAAzH2uWsbbW6EaM8jwtw+FtClhsre9m5YeqMkhpTQIEKDpQ7Dl2+iJ2kAA2TbTJv1TfEyG1MZuMlGLfooUHbhM3kkV+61tTgoIHxKkSpEWXIJMCeu7r/MFPvudCRwIAakTH3dtflmaPYp5pl/uBQBaFPj4bSq8X2kUOn8YY4lqoMCgYEAtK7eEB6wxeMRQ7PXY5ZEapNjIIZL/hlRgJ2JPeJCnluf+cSMJTdSIrNjycTMU3SEonyDbHIlH8usbdL56yohKh/C2Zbt5O7GYZr7o2W2OaDem2qiGUapEopLB4xtTbBWkhBrKJwF6oT9dLATfhoNMd5RtCBhuwA0kmXySXaUVeo=-----END PRIVATE KEY-----",
+  "SwagAmazonPay.settings.sandbox": true,
+  "SwagAmazonPay.settings.hideOneClickCheckoutButtons": false,
+  "SwagAmazonPay.settings.displayButtonOnProductPage": true,
+  "SwagAmazonPay.settings.displayButtonOnCheckoutRegisterPage": true,
+  "SwagAmazonPay.settings.ledgerCurrency": "EUR",
+  "SwagAmazonPay.settings.displayLoginButtonOnRegistrationPage": true,
+  "SwagAmazonPay.settings.displayPaymentMethod": true,
+  "SwagAmazonPay.settings.buttonColor": "Gold",
+  "SwagAmazonPay.settings.excludedProductIds": []
+}

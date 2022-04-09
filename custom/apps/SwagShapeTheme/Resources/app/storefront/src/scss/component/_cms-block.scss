@@ -1,0 +1,127 @@
+/*
+CMS blocks
+==============================================
+General styling for cms blocks and
+specific styling for elements dependent on their parent block
+*/
+
+.cms-block {
+    &.cms-block-product-description-reviews,
+    &.cms-block-gallery-buybox,
+    &.cms-block-product-listing {
+        overflow: unset;
+    }
+
+    &.cms-block-product-listing {
+        .cms-block-container {
+            padding-top: 0;
+        }
+    }
+
+    .cms-block-container {
+        padding: $spacer-20 0;
+    }
+
+    &-category-navigation,
+    &-sidebar-filter,
+    &-gallery-buybox,
+    &-product-listing {
+        .cms-block-container {
+            .cms-full-width & {
+                padding: 0 $spacer-20 !important;
+            }
+
+            .alert {
+                margin-top: $spacer-20;
+            }
+
+            .product-detail-name {
+                @include media-breakpoint-up(md) {
+                    margin-top: 40px;
+                }
+            }
+
+            .base-slider {
+                margin-top: 40px;
+            }
+        }
+    }
+
+    &-gallery-buybox .cms-block-container {
+        .base-slider {
+            margin-top: 0;
+        }
+    }
+}
+
+.cms-section-sidebar-main-content,
+.cms-section-sidebar-sidebar-content {
+    padding: 0;
+}
+
+.cms-element-text {
+    h2 {
+        font-size: $h1-font-size;
+        line-height: 40px;
+        font-weight: $font-weight-semibold;
+        margin-bottom: $spacer-12;
+    }
+
+    hr {
+        border-color: $shape-gray-900;
+    }
+}
+
+.cms-block-sidebar-filter {
+    .cms-block-container {
+        padding: 0 !important;
+    }
+}
+
+.cms-block-sidebar-filter + .cms-block-category-navigation {
+    margin-bottom: $spacer-20;
+    border-bottom: $hr-border;
+    padding-bottom: $spacer-20;
+
+    .cms-section-sidebar-sidebar-content & {
+        padding-top: $spacer-20;
+        border-top: $hr-border;
+    }
+}
+
+.cms-element-manufacturer-logo {
+    .cms-image-link {
+        line-height: 32px;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .cms-block {
+        .cms-block-container {
+            padding: $spacer-50 0;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .cms-section-sidebar-sidebar-content {
+        padding-left: 0;
+        padding-right: 45px;
+    }
+
+    .cms-section-sidebar-main-content {
+        padding-left: $spacer-20;
+        padding-right: $spacer-20;
+    }
+
+    .cms-block-sidebar-filter + .cms-block-category-navigation {
+        margin-bottom: 0;
+        border-bottom: none;
+        padding-bottom: 0;
+
+        .cms-section-sidebar-sidebar-content & {
+            padding-top: 0;
+            border-top: none;
+        }
+    }
+}

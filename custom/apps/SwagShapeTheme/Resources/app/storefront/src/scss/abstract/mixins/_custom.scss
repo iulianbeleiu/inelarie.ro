@@ -1,0 +1,119 @@
+@mixin checkout-headline {
+    font-size: 28px;
+    line-height: 34px;
+    padding-bottom: 1rem;
+    border-bottom: $hr-border-width solid $shape-gray-900;
+    font-weight: $font-weight-bold;
+}
+
+@mixin card-box {
+    padding: $spacer-lg;
+    margin-bottom: $spacer-20;
+    background-color: $white;
+
+    &:hover {
+        box-shadow: $dropdown-box-shadow;
+    }
+}
+
+@mixin card-title {
+    padding-bottom: $spacer-sm;
+    margin-bottom: $spacer-md;
+    border-bottom: $hr-border-width solid $hr-border-color;
+    text-transform: uppercase;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-weight: $font-weight-bold;
+    font-size: $h6-font-size;
+    line-height: 16px;
+    align-items: center;
+}
+
+@mixin button-change {
+    line-height: 16px;
+    color: $sw-color-brand-primary;
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    &:focus,
+    &.focus {
+        box-shadow: none;
+    }
+
+    &:not(:disabled):not(.disabled) {
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: transparent;
+            border-color: transparent;
+            box-shadow: none;
+        }
+    }
+}
+
+@mixin shape-card-title {
+    text-transform: uppercase;
+    font-size: $font-size-base;
+    line-height: 20px;
+    padding-bottom: $spacer-sm;
+    border-bottom-width: 2px;
+    border-color: $shape-gray-900;
+    margin-bottom: 1rem;
+}
+
+@mixin delete {
+    border: none;
+    content: $icon-delete;
+}
+
+@mixin shape-filter-selector {
+    .filter-panel-item-toggle[aria-expanded='true'] {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        border-color: $shape-gray-900;
+        border-bottom: none;
+        color: $shape-gray-900;
+
+        .icon-filter-panel-item-toggle,
+        svg {
+            color: inherit;
+            transform: none;
+        }
+    }
+
+    .filter-panel-item-dropdown {
+        background-color: $white;
+        border-radius: $spacer-10;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border: 2px solid $shape-gray-800;
+        border-top: none;
+        box-shadow: none;
+        margin-top: 0;
+        padding-top: 0;
+        overflow: hidden;
+
+        .filter-multi-select-list-item {
+            padding: $spacer-10 $spacer-lg;
+        }
+    }
+}
+
+@mixin shape-scrollbar {
+    *::-webkit-scrollbar {
+        width: 15px;
+        background-color: $shape-gray-100;
+        border-radius: 3px;
+        border-left: 3px solid $white;
+        border-right: 8px solid $white;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: $shape-gray-200;
+        border-radius: 3px;
+        border-left: 3px solid $white;
+        border-right: 8px solid $white;
+    }
+}

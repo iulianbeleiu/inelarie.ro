@@ -1,0 +1,13 @@
+{% sw_extends '@Storefront/storefront/component/review/review.html.twig' %}
+
+{% block component_review_tab_pane %}
+    <div class="row product-detail-review-content js-review-container">
+        {{ block('component_review_main') }}
+
+        {% block component_review_aside %}
+            <div class="col-12 col-lg-5 product-detail-review-widget-wrapper">
+                {{ block('component_review_widget_container') }}
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

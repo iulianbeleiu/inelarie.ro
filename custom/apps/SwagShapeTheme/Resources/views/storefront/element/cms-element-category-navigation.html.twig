@@ -1,0 +1,11 @@
+<div class="cms-element-{{ element.type }}">
+    {% set navigationResult1 = page.header.navigation.tree %}
+    {% set activeResult1 = page.header.navigation.active %}
+    <div class="category-navigation-box">
+        <h4 class="category-navigation-label"> {{ "general.categories"|trans|striptags }} </h4>
+        {% sw_include '@Storefront/storefront/layout/sidebar/category-navigation.html.twig' with {
+            navigationTree: page.header.navigation.tree,
+            activeResult: page.header.navigation.active
+        } only %}
+    </div>
+</div>

@@ -1,0 +1,9 @@
+@mixin caret-down {
+    border: none;
+    content: $icon-caret-down;
+}
+
+@mixin caret-up {
+    border: none;
+    content: $icon-caret-up;
+}

@@ -1,0 +1,42 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/configurator/select.html.twig' %}
+
+{% block page_product_detail_configurator_group_select %}
+    <div class="product-detail-configurator-group-title">
+        {{ group.translated.name }}
+    </div>
+    <div
+        class="product-detail-configurator-dropdown dropdown">
+        {% block component_filter_multi_select_toggle %}
+            {% set activeOption = {} %}
+            {% for option in group.options %}
+                {% if option.id in page.product.optionIds %}
+                    {% set activeOption = option %}
+                {% endif %}
+            {% endfor %}
+
+            <button class="btn btn-block dropdown-toggle" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true">
+                {{ activeOption.translated.name }}
+            </button>
+        {% endblock %}
+
+        {% block component_filter_multi_select_dropdown %}
+            <div
+                class="product-detail-configurator-dropdown-menu dropdown-menu"
+                id="{{ group.id }}">
+                {% block component_filter_multi_select_list %}
+                    <ul class="filter-multi-select-list">
+                        {% for option in group.options %}
+                            {% block component_filter_multi_select_list_item %}
+                                <li class="filter-multi-select-list-item">
+                                    {% block component_filter_multi_select_list_item_inner %}
+                                        {% sw_include '@Storefront/storefront/page/product-detail/configurator/select-list-item.html.twig' %}
+                                    {% endblock %}
+                                </li>
+                            {% endblock %}
+                        {% endfor %}
+                    </ul>
+                {% endblock %}
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

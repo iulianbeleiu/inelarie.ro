@@ -1,0 +1,20 @@
+.cart-item {
+    &-children {
+        padding: $spacer-sm $spacer-12 $spacer-sm $spacer-xs;
+        margin-left: 0;
+        background-color: transparent;
+        @include media-breakpoint-up(md) {
+            margin-left: calc(#{$spacer} + #{$cart-item-img-width});
+        }
+    }
+
+    &-headline {
+        display: flex;
+        align-items: center;
+    }
+
+    &-child-remove-icon-container:empty {
+        @extend .d-none;
+    }
+}
+

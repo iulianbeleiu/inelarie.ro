@@ -1,0 +1,34 @@
+.basic-captcha-content {
+    &-image {
+        display: flex;
+        min-height: 65px;
+        width: auto;
+    }
+
+    &-refresh-icon {
+        height: $spacer-40;
+        width: $spacer-40;
+        margin-left: $spacer-10;
+        flex-shrink: 0;
+
+        .icon {
+            height: 18px;
+            width: 18px;
+        }
+    }
+}
+
+.captcha-google-re-captcha-v2,
+.captcha-google-re-captcha-v3 {
+    margin-top: $spacer-20;
+    margin-bottom: $spacer-20;
+    padding: 0 $spacer-12;
+    width: 100%;
+}
+
+@include media-breakpoint-up(md) {
+    .captcha-google-re-captcha-v2,
+    .captcha-google-re-captcha-v3 {
+        margin-bottom: 0;
+    }
+}

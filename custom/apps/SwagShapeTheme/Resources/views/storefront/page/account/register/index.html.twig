@@ -1,0 +1,12 @@
+{% sw_extends '@Storefront/storefront/page/account/register/index.html.twig' %}
+
+{% block page_account_register_advantages %}
+    {% set amazonPayButton = page.extensions.SwagAmazonPayButton %}
+    {% if amazonPayButton and not amazonPayButton.hideButton %}
+        <div class="card swag-amazon-pay-card">
+            <div class="card-body">
+                {{ block('page_checkout_address_login_swag_amazon_pay_card_body') }}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

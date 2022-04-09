@@ -1,0 +1,15 @@
+{% sw_extends '@Storefront/storefront/component/customized-products/option-type/select/checkboxes.html.twig' %}
+
+{% block swag_customized_products_option_type_template_select_input_list_radio_no_selection_label %}
+    <label class="custom-control-label forms-boolean-label swag-customized-products-option-type-select-checkboxes-label no-selection"
+           for="swag-customized-products-option-id-{{ option.id }}">
+        <span class="swag-customized-products-option-type-select-checkboxes-label__property">
+                                {% if option.translated.placeholder is not null %}
+                                    {{ option.translated.placeholder }}
+                                {% else %}
+                                    {{ "customizedProducts.optionTypes.selectNoValueText"|trans }}
+                                {% endif %}
+                            </span>
+        <div class="swag-customized-products-option-type-select-checkboxes-label__surcharge-info"></div>
+    </label>
+{% endblock %}

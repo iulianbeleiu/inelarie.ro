@@ -1,0 +1,26 @@
+{% block bf_ebay_connection_assistant_start_authorize_oauth_content %}
+    <sw-container>
+        {% block bf_ebay_connection_assistant_modal_content_description %}
+            <sw-card-section class="bf-ebay-connection-assistant-modal__content-description">
+                {{ $tc('ebay.authoriseOAuthDescription') }}
+            </sw-card-section>
+        {% endblock %}
+        {% block bf_ebay_connection_assistant_start_authorize_oauth_content %}
+        <sw-card-section divider="right">
+            <div class="bf-ebay-connection-assistant-start-authorize__content-left">
+                {% block bf_ebay_connection_assistant_start_authorize_content_left_form %}
+                {% block bf_ebay_connection_assistant_start_authorize_content_left_form_button_connect %}
+                <sw-button
+                    @click="authorizeOAuth"
+                    size="small"
+                    variant="primary"
+                    :block="true">
+                    {{ $tc('button.connect') }}
+                </sw-button>
+                {% endblock %}
+                {% endblock %}
+            </div>
+        </sw-card-section>
+        {% endblock %}
+    </sw-container>
+{% endblock %}

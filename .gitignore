@@ -110,7 +110,6 @@ config/jwt/
 config/packages/
 config/services*
 
-custom
 files/*
 install.lock
 /phpstan.neon

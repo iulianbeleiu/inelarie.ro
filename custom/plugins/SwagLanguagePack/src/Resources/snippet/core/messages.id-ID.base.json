@@ -1,0 +1,61 @@
+{
+    "document": {
+        "invoiceNumber": "Tagihan %invoiceNumber%",
+        "invoiceHeadline": "Tagihan %invoiceNumber%",
+        "stornoHeadline": "Pembatalan %stornoNumber% untuk tagihan %invoiceNumber%",
+        "stornoNumber": "Nomor pembatalan %stornoNumber%",
+        "deliveryNoteNumber": "Nota pengiriman %deliveryNoteNumber%",
+        "deliveryNoteHeadline": "Nota pengiriman %deliveryNoteNumber% untuk pesanan %orderNumber%",
+        "creditNoteNumber": "Catatan kredit %creditNoteNumber%",
+        "creditNoteHeadline": "Nota kredit %creditNoteNumber% untuk nomor tagihan %invoiceNumber%",
+        "customerNumber": "Pelanggan no: %customerNumber%",
+        "date": "Tanggal: %date%",
+        "comment": "Komentar: %comment%",
+        "orderDate": "Tanggal pesan: %orderDate%",
+        "deliveryDate": "Tanggal pengiriman: %deliveryDate%",
+        "page": "Halaman %pageNumber%",
+        "orderNumber": "No Pesanan: %orderNumber%",
+        "taxNumber": "No. Pajak: %taxNumber%",
+        "vatId": "Reg.No. PPN: %vatId%",
+        "taxOffice": "Kantor Pajak: %taxOffice%",
+        "bankAccount": "Akun bank",
+        "bankIban": "IBAN: %bankIban%",
+        "bankBic": "BIC: %bankBic%",
+        "placeOfJurisdiction": "Tempat yuridiksi: %placeOfJurisdiction%",
+        "serviceDateNotice": "Tanggal layanan setara dengan tanggal faktur",
+        "placeOfFulfillment": "Tempat pemenuhan: %placeOfFulfillment%",
+        "intraCommunity": "Pengiriman Intra-komunitas (UE)",
+        "shippingAddress": "Alamat pengiriman",
+        "phoneNumber": "Nomor telepon: %phoneNumber%",
+        "email": "Alamat email: %email%",
+        "ceo": "CEO",
+        "lineItems": {
+            "header": {
+                "position": "Pos.",
+                "label": "Label",
+                "tax": "VAT",
+                "quantity": "Qty",
+                "unitPrice": "Harga barang",
+                "productNumber": "Nomor prod.",
+                "total": "Total"
+            },
+            "tax": "plus %taxRate%% VAT:",
+            "total": "Total:",
+            "roundedTotal": "Total dibulatkan:",
+            "totalNet": "Total bersih:",
+            "shippingCosts": "Biaya pengiriman"
+        },
+        "paymentShippingInfo": {
+            "paymentMethod": "Metode pembayaran: %paymentMethod%",
+            "shippingMethod": "Metode pengiriman: %shippingMethod%",
+            "additionalInfo": "Barang yang dikirim tetap menjadi milik kami sampai pembayaran penuh dilakukan."
+        }
+    },
+    "filter": {
+        "sortByNameAscending": "Nama, A-Z",
+        "sortByNameDescending": "Nama, Z-A",
+        "sortByPriceAscending": "Harga, naik",
+        "sortByPriceDescending": "Harga, turun",
+        "sortByScore": "Hasil terbaik"
+    }
+}

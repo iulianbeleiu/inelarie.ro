@@ -1,0 +1,27 @@
+{% sw_extends '@Storefront/storefront/component/customized-products/option-type/fileupload/fileupload.html.twig' %}
+
+{% block swag_customized_products_option_type_template_fileupload_dropzone_container_cols %}
+    {% block swag_customized_products_option_type_template_fileupload_dropzone_content %}
+        <div class="customized-products-upload__dropzone-col col">
+            {% block swag_customized_products_option_type_template_fileupload_dropzone_icon %}
+                <div class="customized-products-upload__dropzone-icon">
+                    {% block swag_customized_products_option_type_template_fileupload_dropzone_icon_content %}
+                        {% sw_icon 'ic-cloud-upload' style { 'pack': 'shape' } %}
+                    {% endblock %}
+                </div>
+            {% endblock %}
+
+            {% block swag_customized_products_option_type_template_fileupload_dropzone_browse %}
+                <div class="customized-products-upload__dropzone-button">
+                    {% block swag_customized_products_option_type_template_fileupload_dropzone_browse_button %}
+                        {{ parent() }}
+                    {% endblock %}
+                </div>
+            {% endblock %}
+
+            {% block swag_customized_products_option_type_template_fileupload_dropzone_text %}
+                {{ parent() }}
+            {% endblock %}
+        </div>
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,22 @@
+.b2b-remote-list {
+    &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 20px;
+        padding-bottom: 0;
+    }
+}
+
+.action--cart-add {
+    .icon-arrow-right {
+        @extend .d-none;
+    }
+}
+
+.product-detail-buy {
+    .b2b-remote-list-orderlist {
+        @extend .mt-2;
+        @extend .mb-2;
+    }
+}

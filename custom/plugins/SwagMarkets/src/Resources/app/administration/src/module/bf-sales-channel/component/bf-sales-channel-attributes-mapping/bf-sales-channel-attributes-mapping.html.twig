@@ -1,0 +1,22 @@
+{% block swag_markets_attributes_mapping__container %}
+    <sw-card class="bf-card"
+             :title="$tc('propertyMapping.card-title.transferredProperties')"
+             :showHelpTextIcon="true"
+             :helpTextDescription="$tc('propertyMapping.information.message')"
+             :helpTextWidth="500">
+        {% block swag_markets_properties_mapping_component__container %}
+            <properties-mapping
+                :salesChannelType="salesChannelType"
+                :amazonSegment="amazonSegment"
+                :amazonProductType="amazonProductType">
+            </properties-mapping>
+        {% endblock %}
+        {% block swag_markets_custom_fields_mapping_component__container %}
+            <custom-fields-mapping
+                :salesChannelType="salesChannelType"
+                :amazonSegment="amazonSegment"
+                :amazonProductType="amazonProductType">
+            </custom-fields-mapping>
+        {% endblock %}
+    </sw-card>
+{% endblock %}

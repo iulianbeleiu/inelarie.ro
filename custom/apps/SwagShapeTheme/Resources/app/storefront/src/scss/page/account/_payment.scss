@@ -1,0 +1,83 @@
+.account-payment {
+    .payment-form-group {
+        @include card-box;
+
+        padding: 18px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+    }
+
+    .payment-methods {
+        @include make-row(12);
+
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+
+    .payment-method {
+        @include make-col(12);
+
+        padding-left: 12px;
+        padding-right: 12px;
+        display: flex;
+
+        .payment-form-group {
+            width: 100%;
+        }
+
+        .payment-method-radio {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .payment-method-description {
+        padding-left: $spacer-xs;
+
+        strong {
+            text-transform: uppercase;
+        }
+
+        p {
+            color: $sw-text-color;
+            line-height: 23px;
+            margin-top: $spacer-xs;
+        }
+    }
+}
+
+.account-payment-card {
+    padding-bottom: $spacer-20;
+
+    .card-title {
+        display: none;
+    }
+
+    .btn-primary {
+        min-width: 115px;
+        font-size: $font-size-sm;
+    }
+}
+
+
+
+@include media-breakpoint-up(md) {
+    .account-payment {
+        .payment-form-group {
+            padding: $spacer-lg $spacer-20;
+        }
+
+        .payment-method {
+            @include make-col(6);
+        }
+    }
+}
+
+@include media-breakpoint-up(xs) {
+    .account-payment .account-welcome {
+        margin-bottom: $spacer-xs;
+    }
+}

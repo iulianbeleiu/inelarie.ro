@@ -1,0 +1,32 @@
+/*
+Filter rating select
+==============================================
+Styling for rating select filter item.
+This filter item should only be used inside a filter panel.
+*/
+
+div[data-filter-rating-select='true'] {
+    .filter-rating-select-list-item {
+        margin-left: 32px;
+        margin-right: 32px;
+    }
+}
+
+.filter-rating-select-item-checkmark {
+    top: 0;
+    left: -25px;
+    background-color: $primary;
+}
+
+
+.filter-rating-select-item-label {
+    &:hover {
+        .filter-rating-select-item-label-text {
+            font-weight: $font-weight-normal;
+        }
+    }
+
+    .product-review-rating {
+        margin-top: -2px;
+    }
+}

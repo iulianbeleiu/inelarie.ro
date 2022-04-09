@@ -1,0 +1,41 @@
+.pagination {
+    @extend .justify-content-center;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+
+    .page-link {
+        @extend .bg-transparent, .p-0;
+        border: none;
+        color: $sw-text-color;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    .page-prev {
+        @extend .pr-4;
+    }
+
+    .page-next {
+        @extend .pl-4;
+    }
+
+    .page-item {
+        &.disabled {
+            .page-link {
+                color: $shape-gray-400;
+            }
+        }
+    }
+
+    &-nav {
+        margin-bottom: $spacer-lg;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .pagination-nav {
+        margin-bottom: 90px;
+    }
+}

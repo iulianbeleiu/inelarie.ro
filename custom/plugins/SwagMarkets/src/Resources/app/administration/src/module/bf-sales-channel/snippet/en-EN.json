@@ -1,0 +1,633 @@
+{
+    "global": {
+        "error-codes": {
+            "bd79c0ab-ddba-46cc-a703-a7a4b08de310": "This email is invalid",
+            "d94b19cc-114f-4f44-9cc4-4138e80a87b9": "Max length must be 20 characters",
+            "9ff3fdc4-b214-49db-8718-39c315e33d45": "Min length must be 8 characters",
+            "de1e3db3-5ed4-4941-aae4-59f3667cc3a3": "Phone number is not valid"
+        },
+        "titleSaveError": "Error",
+        "clientNotReady": "The client is not ready",
+        "notAuthorised": "User is not authorised",
+        "yes": "Yes",
+        "no": "No",
+        "globalConfigInfo": "Please notice, these Settings are for all Marketplace Saleschannels!",
+        "login": "Login"
+    },
+    "bf-ebay-best-offer": {
+        "notification": {
+            "error": {
+                "title": "Ebay Price Proposal Error",
+                "absoluteAutoAcceptMessage": "Automatically accept from absolute discount value must not be less than Maximum Absolute Discount",
+                "relativeAutoAcceptMessage": "Automatically accept from relative discount value must not be less than Maximum Relative Discount"
+            }
+        }
+    },
+    "bf-sales-channel": {
+        "create": {
+            "labelMarketplace": "Marketplace",
+            "labelCountry": "Country",
+            "labelCurrency": "Currency",
+            "labelLanguage": "Language"
+        },
+        "detail": {
+            "labelInputActive": "active",
+            "labelInputNotActive": "not active",
+            "labelInputProcessingTime": "Processing time",
+            "labelActiveSince": "Active since",
+            "labelNextBilling": "Next billing",
+            "contractLabel": "Contract details",
+            "contractButton": "Change contract",
+            "withoutContractTitle": "Without contract",
+            "contractContentDescription": "Description",
+            "contractContentPrice": "Price",
+            "labelProcessingTime": "Standard processing time",
+            "notAuthorisedText": "To see which subscription you have booked, please log into the Shopware account ",
+            "delete": "Removing this sales channel will be permanent. All settings will be lost. All products will be removed from the marketplace and can not be reactivated.",
+            "titleGeneralEbayPolicies": "Policies",
+            "ebayShippingPolicyLabel": "Shipping",
+            "ebayPaymentPolicyLabel": "Payment",
+            "ebayReturnPolicyLabel": "Return",
+            "ebayPoliciesInfo": "Please follow the link to activate the ebay policies: ",
+            "ebayPoliciesLinkName": "ebay policies",
+            "ebayPoliciesSystemInfo": "To configure the ebay policies you have to connect to your ebay account.",
+            "ebayErrorLoadingPolicies": "Error while loading ebay policies. Please check ebay account connection.",
+            "ebayExpireTokenTitle": "ebay - Token",
+            "ebayExpireTokenOAuthTitle": "The OAuth-Token is valid until:",
+            "ebayExpireTokenAuthTitle": "The Auth-Token is valid until:",
+            "ebayExpireTokenOAuthNotAvailable": "Not available",
+            "ebayExpireTokenAuthNotAvailable": "Not available",
+            "ebayExtendTokenOAuthBtn": "Renew OAuth-Token",
+            "ebayExtendTokenAuthBtn": "Renew Auth-Token",
+            "ebayTokenSystemInfo": "To generate new tokens you have to connect to your ebay account.",
+            "ebayErrorLoadingTokens": "Error while loading the ebay tokens. Please check the ebay account connection.",
+            "infoActivateDeactivateSalesChannel": "Please notice: All Stock an price information will not be send any more if you are deactivate this saleschannel.",
+            "ebayAccountCardTitle": "ebay - Account",
+            "ebayAccountInfo": "To configure the ebay account information you have to connect to your ebay account.",
+            "ebayPaymentMethods": "ebay - payment methods",
+            "ebayBestOffers": "ebay - Best offers",
+            "ebayBestOfferAbsolute": "Maximum absolute discount",
+            "ebayBestOfferAbsoluteHelpText": "If the discount on the price proposal is higher than the specified value, it will be automatically rejected",
+            "ebayBestOfferAbsoluteAutoAccept": "Automatically accept from absolute discount",
+            "ebayBestOfferAbsoluteAutoAcceptHelpText": "If the discount on the price proposal is lower than the specified value, it will be accepted automatically",
+            "ebayBestOfferActive": "Best offer active",
+            "ebayBestOfferActiveHelpText": "The price proposal is only possible in some categories and cannot be used with variants",
+            "ebayBestOfferAutoAccept": "Accept automatically",
+            "ebayBestOfferAutoAcceptHelpText": "If the discount of the price proposal is lower than the maximum discount, it will be accepted automatically",
+            "ebayBestOfferRelative": "Maximum relative discount",
+            "ebayBestOfferRelativeHelpText": "If the discount on the price proposal is higher than the specified value, it will be automatically rejected",
+            "ebayBestOfferRelativeAutoAccept": "Automatically accept from relative discount",
+            "ebayBestOfferRelativeAutoAcceptHelpText": "If the discount on the price proposal is lower than the specified value, it will be accepted automatically",
+            "ebayBestOfferFix": "Turn off price suggestions automatically",
+            "ebayBestOfferFixHelpText": "Automatically switch off price suggestions if someone has already bid on them. The auction will be ended and then restarted",
+            "ebayPaymentMethodPayPal": "ebay - PayPal: ",
+            "ebayPaymentMethodMoneyXferAcceptedInCheckout": "ebay - Pay in advance: ",
+            "ebayPaymentMethodCashOnPickup": "ebay - Cash on pickup: ",
+            "ebayPaymentMethodCod": "ebay - Cash on delivery: ",
+            "ebayPaymentMethodEbayPayments": "ebay -Payments: ",
+            "ebayPaymentSelectName": "Select...",
+            "showPaymentChangedNotificationMsg": "The payment methods where changed, please save these changes first.",
+            "noPaymentMethodsSelected":  "To activate the saleschannel you have to match min. one payment method.",
+            "noPoliciesSelected":  "To activate the saleschannel you have to select all ebay policies.",
+            "amazonFbaPrimeShippingMethodsTitle": "FBA / Prime shipping methods",
+            "amazonFbaPrimeFbaLabel": "FBA",
+            "amazonFbaPrimeFbaHelpText": "If you want to use another shipping method for FBA.",
+            "amazonFbaPrimePrimeHelpText": "If you want to use another shipping method for Prime.",
+            "amazonFbaPrimePrimeNextDayHelpText": "If you want to use another shipping method for Prime next day.",
+            "amazonFbaPrimePrimeSecondDayHelpText": "If you want to use another shipping method for Prime second day.",
+            "amazonFbaPrimePrimeLabel": "Prime",
+            "amazonFbaPrimePrimeNextDayLabel": "Prime next day",
+            "amazonFbaPrimePrimeSecondDayLabel": "Prime second day",
+            "amazonDangerousGoodsLabel": "Value for dangerous goods",
+            "amazonNeedsBatteryLabel": "Batteries are needed?",
+            "amazonFbaRequiredInfo": "Amazon need the following information for FBA products.",
+            "netPriceSwitchLabel": "Sell products with net prices",
+            "amazonPaymentMethodInfoText": "The saleschannel is linked to the corresponding payment method \"Shopware Markets - Amazon\". All incoming orders will be mapped to this payment method. It must therefore must not be deleted, otherwise orders cannot be transferred to Shopware!",
+            "prices": "Prices"
+        },
+        "contractModal": {
+            "title": "Contract details",
+            "text": "If you want to change your contract, then choose some other option and click save button.",
+            "chooseButton": "Choose",
+            "currentContractText": "Current contract",
+            "month": "Month",
+            "buttonRemove": "Cancel contract",
+            "buttonChooseContract": "Select",
+            "perChannel": "Products per sales channel",
+            "includedText": "Sells are included*",
+            "extraPriceText": "* for each extra sell",
+            "bfSpecialProposal": "* After checking by brickfox GmbH you will receive a separate offer",
+            "permissionsModalTitle": "Shopware Markets permissions",
+            "permissionsClose": "Close",
+            "permissionsSharedData": {
+                "contentText": "Shopware Markets will share some of he following data with our sub-processor",
+                "contentTextEnd": "",
+                "headLine": "Shared customer data",
+                "name": "Customer names",
+                "email": "Customer email addresses",
+                "phone": "Customer phone numbers",
+                "birthdate": "Customer date of birth",
+                "address": "Customer shipping and billing addresses"
+            },
+            "subProcessorTitle": "Subprocessor of Shopware",
+            "table": {
+                "withoutLimitText": "Without limit",
+                "feeLabel": "Transaction fee",
+                "feeHelpText": "Costs per extra Sell",
+                "transactionsLabel": "Transaction incl.",
+                "transactionsHelpText": "Sells without additional costs",
+                "limitsLabel": "SKU-Limit / Channel",
+                "limitsHelpText": "Maximum of Articles in the Saleschannels",
+                "singleProductListLabel": "List single product",
+                "singleProductListHelpText": "Listing an Article to on a Saleschannel.",
+                "assigningLabel": "Assigning articles to a category",
+                "assignHelpText": "Possibility to assign a Shopware category / subcategory to a marketplace category at once. All items associated with the shop category are thus assigned to the marketplace category.",
+                "generalSettingsLabel": "General Settings",
+                "generalSettingsHelpText": "General settings are made in this area, e.g. Shipping and payment methods.",
+                "createNewArticleLabel": "Creation new Article",
+                "createNewArticleHelpText": "An article that is not yet listed on amazon or eBay is automatically created as a new marketplace offer.",
+                "bulletPointsLabel": "Bullet points",
+                "bulletPointsHelpText": "Attributes can be assigned and transferred directly to the marketplace fields as bullet points.",
+                "amazonKeywordsLabel": "Amazon Keywords",
+                "amazonKeywordsHelpText": "Search terms can be assigned and transferred directly to the marketplace fields.",
+                "offerExistingItemsLabel": "Offer existing items",
+                "offerExistingItemsHelpText": "An article from the range for which there is already an offer on the marketplace is automatically assigned to this offer.",
+                "channelErrorListLabel": "Access to channel error lists",
+                "channelErrorListHelpText": "Articles that have errors are marked accordingly and the error list can be called up. Logging into the Seller Central / My eBay is not necessary.",
+                "deeplinkPossibilityLabel": "Deeplink to marketplace articles",
+                "deeplinkPossibilityHelpText": "The listed marketplace article can be called up directly via a link displayed in the Sales Channel and viewed in a separate browser window.",
+                "amazonFbaLabel": "Amazon FBA",
+                "amazonFbaHelpText": "In the Sales Channel is possible to mark articles for which there is an inventory directly in an amazon warehouse. If this marking is set, the available inventory is not transferred from Shopware to amazon and amazon uses its own inventory. All other item information will continue to be updated (e.g. price changes).",
+                "ebayPlusLabel": "Ebay Plus",
+                "ebayPlusHelpText": "In the sales channel eBay you can make special settings for eBay Plus, the premium shipping free of charge for eBay customers, e.g. Mark items for eBay Plus and create a special shipping method for them.",
+                "amazonPrimeLabel": "Amazon Prime",
+                "amazonPrimeHelpText": "SW-Markets can participate in the amazon program \"Prime for retailers\" and thus use the Prime logo on amazon for its own shipping. Among other things, set up a special shipping method to identify Prime for merchant orders. The ERP system used must also support \"Prime for dealers\".",
+                "customEbayTemplateLabel": "Custom ebay Template",
+                "customEbayTemplateHelpText": "There is a template provided by shopware, which can be used to display the products on eBay.",
+                "ebaySuggestedPriceLabel": "eBay suggested price",
+                "ebaySuggestedPriceHelpText": "You can set rules for eBay’s suggested pricing feature. This enables eBay to automatically respond to price suggestions without the trader having to decide in individual cases.",
+                "optionsTransferLabel": "Option account transfer *",
+                "optionsTransferHelpText": "Shopware connects to the existing marketplace account. If the marketplace account is already filled, a question is asked as to whether existing offers should be taken over.",
+                "contractTermsAndConditionsBegin": "I accept the ",
+                "contractTermsAndConditionsLink": "https://www.shopware.com/en/gtc/",
+                "contractTermsAndConditionsEnd": "terms and conditions ",
+                "contractSubProcessorBegin": "I am aware that this app needs further ",
+                "contractSubProcessorLink1": "permissions ",
+                "contractSubProcessorMiddle": "and accept ",
+                "contractSubProcessorLink2": "brickfox GmbH ",
+                "contractSubProcessorEnd": "as new sub-processor of Shopware"
+            },
+            "notification": {
+                "title": "Contract",
+                "canceledMessage": "Contract was canceled successful",
+                "changedMessage": "New contract signed",
+                "errorTitle": "Error",
+                "errorSkuLimitAchieved": "Your limit in {limit} on the number of assigned products on {name} channels has been reached.",
+                "errorTooMuchProductsAssigned": "The license {contractName} cannot be terminated because there are still active products assigned."
+            }
+        },
+        "contractAgbModal": {
+            "text": "Through the campaign you acquire the chargeable Sales Channel Plugin",
+            "agreementWithPaymentLabel": "I confirm the purchase of the license with costs \"{name}\" for {price} EUR monthly",
+            "agreementWithAgbLabel": "I agree to the terms",
+            "agreementWithAgbText": "Please note our"
+        },
+        "contractCancelModal": {
+            "title": "Cancel license",
+            "text": "The \"{name}\" license will be terminated immediately. Support is no longer available.",
+            "agreementWithCancelingLabel": "I confirm that the license will be terminated immediately"
+        }
+    },
+    "bf-support": {
+        "modal": {
+            "titleSupport": "Support request",
+            "titleTransferProducts": "Request for Article transfer",
+            "nameFieldLabel": "First- / Lastname",
+            "labelMessage": "Your Message",
+            "messagePlaceholder": "Write here your message",
+            "agreementWithSendToBrickfox": "I Agree to the transfer of my data to brickfox GmbH, Silberburgstrasse 148, 70176 Stuttgart for the request of the article transfer service. The request itself is free of charge.",
+            "buttonSendRequest": "Send Request"
+        },
+        "notification": {
+            "success": {
+                "title": "Success",
+                "message": "Your request was successful sent"
+            },
+            "error": {
+                "title": "Error",
+                "message": "You have some errors"
+            }
+        }
+    },
+    "bf-property-transfer": {
+        "tab": {
+            "label": "Property transfer",
+            "text": "Before you are able to connect Shopware Proberties with the Marketplace Attributes, please select the Properties you would like to use in this Marketplace. After this you are able to map all Properties you have selected.",
+            "warningText": "Please notice, these Settings are for all Marketplace Saleschannels!"
+        },
+        "list": {
+            "columnName": "Property name",
+            "columnTransfer": "Transfer"
+        },
+        "notification": {
+            "title": "Property transferring",
+            "messageSuccess": "Property was transferred successful.",
+            "messageError": "Property was not transferred. Please contact with administration."
+        }
+    },
+    "bf-custom-fields-transfer": {
+        "tab": {
+            "label": "Custom Fields transfer",
+            "text": "Before you are able to connect Shopware Custom fields with the Marketplace Attributes, please select the Custom fields you would like to use in this Marketplace. After this you are able to map all Custom fields you have selected."
+        },
+        "list": {
+            "columnName": "Custom field technical name",
+            "columnTransfer": "Transfer"
+        },
+        "notification": {
+            "title": "Custom Fields transfering",
+            "messageSuccess": "Custom fields was transferred successful.",
+            "messageError": "Custom fields was not transferred. Please contact with administration."
+        }
+    },
+    "bf-category-segment-mapping": {
+        "title": "Segment mapping",
+        "description": "Here you are able to connect your shopware categories with Amazon Product Segment and Producttype. On the left side are the Shopware Categories. With choosing one category all articles here will be selected.\nOn the right side you can select one Product Segment and one Producttype. When you click save both trees will be connected.",
+        "information": "Choose some category for assigning Amazon segment and product type",
+        "notification": {
+            "title": "Category to Amazon segment mapping",
+            "messageSuccess": "Your category mapped successful",
+            "messageError": "Error happened"
+        },
+        "deleteCategoryMapping": "Remove category mapping",
+        "amazonProductSegmentLabel": "Product segment",
+        "amazonProductTypeLabel": "Product type",
+        "savedCategoryMapping": "Saved category mapping successful.",
+        "savedCategoryMappingTitle": "Category mapping",
+        "deleteModalWarning": "Warning",
+        "deleteModalWarningMsg": "Are you sure to delete this categories assignment?",
+        "deleteModalCancelBtn": "Cancel",
+        "deleteModalDeleteBtn": "Delete",
+        "categoriesMappingEmptyState": "No categories mapping yet",
+        "categoriesMappingDescription": "Here you are able to connect your shopware categories with your marketplace categories. All products from the selected shopware categories will be assigned to the selected marketplace categories.",
+        "categoriesMappingTitle": "Categories mapping"
+    },
+    "attributesMapping": {
+        "amazonColumnName": "Amazon attributes name",
+        "ebayColumnName": "Ebay attributes name",
+        "assigned": "Assigned",
+        "removeWarningMsg": "Are you sure to remove this assignment?",
+        "properties": {
+            "emptyStateText": "No properties given yet",
+            "columnName": "Shopware properties"
+        },
+        "custom-fields":{
+            "emptyStateText": "No custom fields given yet",
+            "columnName": "Shopware custom fields"
+        },
+        "removeAssignment": "remove assignment",
+        "selectAttribute": "select attribute",
+        "mandatory": "Mandatory"
+    },
+    "products": {
+        "title": "Assigned Products",
+        "tab-title": "Products",
+        "table-headers": {
+            "product-name": "Name",
+            "product-number": "Product number",
+            "status": "Active",
+            "online-status": "Marketplace online status",
+            "category-name": "Category",
+            "error": "Error",
+            "asin": "ASIN",
+            "asinManagement": "ASIN management"
+        },
+        "no-license": "No License",
+        "showErrorsButton": "Display errors",
+        "notTransferredProduct": "The Product was not transferred to the Brickfox business platform.",
+        "notTransferredProductToMarketplace": "The Product is not transferred to the marketplace.",
+        "failedShopsFilter": "The product failed to pass a channel filter: ",
+        "modalErrors": {
+            "title": "Errors",
+            "text": "Here you can see errors related to your product from marketplace."
+        },
+        "action": {
+            "openMarketplaceProduct": "Open marketplace product"
+        },
+        "edit": {
+            "noInformation": "No information",
+            "invalidContractInfo": "To use the extended settings, you need to upgrade your contract.",
+            "basisBFeatures": "Extended Settings",
+            "cancel": "Cancel",
+            "save": "Save",
+            "general": "General Settings",
+            "label": {
+                "ebayPlus": "Activate ebayPlus for this article",
+                "condition": "Article condition",
+                "conditionNote": "Article condition note",
+                "merchantShippingGroupName": "Merchant Shipping Group",
+                "searchTerms": "Search Terms",
+                "platinumKeywords": "Platinum Keywords",
+                "fbaActive": "Activate FBA for this article"
+            },
+            "placeholder": {
+                "merchantShippingGroupName": "Standardvorlage Amazon",
+                "searchTerms": "Keyword 1, Keyword 2, Keyword 3, …",
+                "platinumKeywords": "Keyword 1, Keyword 2, Keyword 3, …"
+            },
+            "conditions": {
+                "ebay": {
+                    "new": "New",
+                    "asNew": "As new",
+                    "used": "Used",
+                    "veryGood": "Very good",
+                    "good": "Good",
+                    "acceptable": "Acceptable"
+                },
+                "amazon": {
+                    "new": "New",
+                    "usedLikeNew": "Used - like new",
+                    "usedVeryGood": "Used - Very good",
+                    "usedGood": "Used - good",
+                    "usedAcceptable": "Used - acceptable",
+                    "collectibleLikeNew": "Collectible - like new",
+                    "collectibleVeryGood": "Collectible - Very good",
+                    "collectibleGood": "Collectible - good",
+                    "collectibleAcceptable": "Collectible - acceptable",
+                    "refurbished": "Refurbished",
+                    "club": "Club"
+                }
+            },
+            "notification": {
+                "title": {
+                    "success": "Success",
+                    "error": "Error"
+                },
+                "message": {
+                    "success": "Product information was successfully saved.",
+                    "error": "An error occurred while saving the product information."
+                }
+            }
+        }
+    },
+    "salesChannel-connectionAssistant": {
+        "connectionNotAvailable": "Before you can connect to the marketplace and activate this sales channel. You have to choose an contract.",
+        "connectionAvailable": "To activate this sales channel you have to connect to the marketplace.",
+        "startConnectionAssistant": "Start connection - assistant",
+        "chooseContract": "Choose your contract"
+    },
+    "salesChannelSettings": {
+        "invalidContractInfo": "To use the extended settings, you need to upgrade your contract.",
+        "card": {
+            "title": {
+                "extendedSettings": "Extended Settings"
+            }
+        },
+        "amazon": {
+            "helpText": {
+                "merchantShippingGroup": "<a class=\"bf-help-link\" href=\"https://sellercentral.amazon.de/gp/help/201834130\" target=\"_blank\">>> Go to help page</a>",
+                "fba": "<a class=\"bf-help-link\" href=\"https://sellercentral.amazon.de/gp/help/help.html?itemID=53921\" target=\"_blank\">>> Go to help page</a>"
+            },
+            "label": {
+                "merchantShippingGroupName": "Merchant Shipping Group",
+                "enableFba": "Enable FBA service",
+                "vatCalculationService": "VAT-Calculation-Service",
+                "fcShelfLifeAttribute": "FCShelfLife attribute for amazon"
+            },
+            "placeholder": {
+                "merchantShippingGroupName": "Standardvorlage Amazon"
+            }
+        },
+        "ebay": {
+            "helpText": {
+                "ebayPlus": "Here you can activate or deactivate eBay Plus service"
+            },
+            "label": {
+                "enableEbayPlus": "Enable eBay Plus",
+                "payPalEmail": "PayPal email address",
+                "ebayLogo": "Seller-Logo URL",
+                "sellerZip": "Postcode",
+                "sellerCity": "Item location",
+                "feedbackComment": "Automatic buyer rating",
+                "manufacturerAsBrands" : "Export Manufacturer as Brand"
+            }
+        }
+    },
+    "categories": {
+        "tab-title": "Categories",
+        "title": "Categories mapping",
+        "shopware-tree-title": "Shopware Categories",
+        "amazon-marketplace-title": "Amazon Categories",
+        "ebay-marketplace-title": "ebay Categories",
+        "marketplace-default-title": "Marketplace categories",
+        "descriptionAmazon": "<p>Here you are able to connect your shopware categories with Amazon Categories. On the left side are the Shopware Categories. With choosing one category all articles here will be selected.</p><p>On the right side you can select one or more categories from Amazon. When you click save both trees will be connected. All Products will be shown in the new categories.</p>",
+        "descriptionEbay": "<p>Here you are able to connect your shopware categories with ebay Categories. On the left side are the Shopware Categories. With choosing one category all articles here will be selected.</p><p>On the right side you can select one or more categories from ebay. When you click save both trees will be connected. All Products will be shown in the new categories.</p>"
+    },
+    "propertyMapping": {
+        "tab-title": "Mapping",
+        "card-title": {
+            "transferredProperties": "Attribute mapping",
+            "variationProperties": "Product variant properties"
+        },
+        "variationProperties": {
+            "swLabel": "Variation properties",
+            "amazonLabel": "Amazon properties",
+            "emptyState": "No variation properties given yet"
+        },
+        "columns": {
+            "name": "Name",
+            "externalName": "External name"
+        },
+        "labels": {
+            "search": "Search"
+        },
+        "placeholder": {
+            "search": "Search name …"
+        },
+        "buttons": {
+            "save": "Save",
+            "cancel": "Cancel"
+        },
+        "infoText": "Here you are able to map all properties and custom fields to the attributes from your saleschannel. You will only see the proberties you already had transfered before.",
+        "notifications": {
+            "title": {
+                "success": "Success",
+                "warning": "Warning",
+                "error": "Error"
+            },
+            "message": {
+                "success": "Property / Custom field mapping has been saved successfully.",
+                "error": "An error occurred while saving the property / custom field mapping.",
+                "warningTooManySelected": "Only one external name can be selected.",
+                "warningNoSelection": "No external name has been selected.",
+                "noPropertiesFound": "No external names could be found.",
+                "noVariationPropertiesFound": "No properties were found which are used to create a product variation"
+            }
+        },
+        "information": {
+            "message": "You can only map properties/custom fields when products with assignments are transferred."
+        },
+        "product-variant-properties" : {
+            "edit": "To edit, please double-click the column"
+        }
+    },
+    "unitMapping": {
+        "tab-title": "Scale unit mapping",
+        "card-title": "Scale units",
+        "column": {
+            "name": "Name",
+            "externalName": "External name",
+            "type": "Type"
+        },
+        "edit": {
+            "externalName": "External name"
+        },
+        "infoText": "Here you are able to map all unit of measures to the units from your saleschannel. You will only see the Units of measures from the products you have put to Sales Channels before.",
+        "notifications": {
+            "title": {
+                "success": "Success",
+                "warning": "Warning",
+                "error": "Error"
+            },
+            "message": {
+                "success": "Scale unit mapping has been saved successfully.",
+                "error": "An error occurred while saving the scale unit mapping.",
+                "warningTooManySelected": "Only one scale unit can be selected.",
+                "warningNoSelection": "No scale unit has been selected."
+            }
+        },
+        "noScaleUnit": "No scale unit yet"
+    },
+    "amazonFbaPrime": {
+        "tab-title": "FBA / Prime Einstellungen"
+    },
+    "tabs": {
+        "general": "General"
+    },
+    "amazon": {
+        "baseTitle": "Amazon Connection Assistant - Account - ",
+        "step1": "Step 1",
+        "step2": "Step 2",
+        "step3": "Step 3",
+        "authoriseDescription": "For selling your products with Amazon it is necessary to connect your Shopware Shop with Amazon. Please Enter your Amazon SellerCenral Login Data to start the connection.",
+        "manualConnect": "Manual connect",
+        "retailerIdPlaceHolderInput": "Enter Amazon Retailer ID...",
+        "retailerId": "Amazon Retailer ID",
+        "mwsTokenPlaceHolderInput": "Enter Amazon MWS Token...",
+        "mwsToken": "Amazon MWS Token",
+        "validateMarketplaceDescription": "In this step Shopware will check if you are allowed to sell Articles in the selected Saleschannel.",
+        "validateMarketplaceTooltip": "Check if your account is allowed to sell on Amazon Marketplace for your country.",
+        "validateMarketplaceBtnTitle": "Marketplace permission check",
+        "validateMarketplaceTitle": "Amazon Connection Assistant - Account - Marketplace check",
+        "productCheckDescription": "In this step we will check if there are already existing products at your selected Saleschannel.",
+        "productCheckTooltip": "Check if your account already has listed products on Amazon.",
+        "productCheckTitle": "Amazon Connection Assistant - Account - Product check",
+        "productCheckCongrats": "Congrats, you are now ready to sell products on Amazon.",
+        "productCheckDeleteExistingBtn": "Please click here for getting into your Amazon Account",
+        "productCheckDeleteExistingTitle": "Deleting Amazon Articles",
+        "productCheckDeleteExistingContent": "If you don't want to choose the import service please delete first all Articles all Amazon Articles. After deleting you are able to check again for excisting Articles.",
+        "productCheckBookTransfer": "Asking for  Import service",
+        "productCheckBookTransferTitle": "Import service Articles to Shopware 6",
+        "productCheckBookTransferContent": "If you want to transfer articles to your Shopware Shop it is possible. This service is not for free. For asking for the conditions please use this option. ",
+        "productCheckAccountHasAlreadyProducts": "The connected Amazon account already has products.",
+        "productCheckBtn": "Existing Product check",
+        "howTo": {
+            "mwsNotificationHowToTitle": "Where do I find my Amazon MWS-Token? Please click here!",
+            "mwsNotificationHowToUser": "User: brickfox",
+            "mwsNotificationHowToPassword": "Password: 6133-1265-3313",
+            "mwsNotificationHowToLastPart": "Afterward you will get your MWS-Auth-Token for the Login.",
+            "mwsNotificationHowToFirstPart": "For connecting your shop with Amazon please login into your {link}",
+            "mwsNotificationHowToSecondPart": "Please choose step 2 and add the following Settings:"
+        },
+        "amazonConfirmFinishModalTitle": "Info",
+        "amazonConfirmFinishModalMessageFirstPart": "You successfully connected and activated your selected sales channel.",
+        "amazonConfirmFinishModalMessageSecondPart": "After finishing the connection assistant, changing of existing connection data to selected sales channel or changing the selected sales channel is not easy. Are you sure that you wish to finish the connection assistant?"
+    },
+    "ebay": {
+        "baseTitle": "ebay Connection Assistant - Account - ",
+        "step1": "Step 1",
+        "step2": "Step 2",
+        "step3": "Step 3",
+        "step4": "Step 4",
+        "authoriseDescription": "For selling your products with ebay it is necessary to connect your Shopware Shop with ebay.",
+        "authoriseOAuthDescription": "For selling your products with ebay it is necessary to create an OAuth-Token.",
+        "validateMarketplaceDescription": "In this step Shopware will check if you are allowed to sell Articles in the selected Saleschannel.",
+        "validateMarketplaceTooltip": "Check if your account is allowed to sell on Amazon Marketplace for your country.",
+        "validateMarketplaceTitle": "ebay Connection Assistant - Account - Marketplace check",
+        "validateMarketplaceBtnTitle": "Marketplace permission check",
+        "productCheckDescription": "In this step we will check if there are already existing products at your selected Saleschannel.",
+        "productCheckTooltip": "Check if your account already has listed products on ebay.",
+        "productCheckTitle": "ebay Connection Assistant - Account - Product check",
+        "productCheckCongrats": "Congrats, you are now ready to sell products on ebay.",
+        "productCheckDeleteExistingBtn": "Please click here for getting into your ebay Account",
+        "productCheckDeleteExistingTitle": "Deleting ebay Articles",
+        "productCheckDeleteExistingContent": "If you don't want to choose the import service please delete first all Articles all ebay Articles. After deleting you are able to check again for existing Articles.",
+        "productCheckBookTransfer": "Asking for  Import service",
+        "productCheckBookTransferTitle": "Import service Articles to Shopware 6",
+        "productCheckBookTransferContent": "If you want to transfer articles to your Shopware Shop it is possible. This service is not for free. For asking for the conditions please use this option. ",
+        "productCheckAccountHasAlreadyProducts": "The connected ebay account already has products.",
+        "productCheckBtn": "Existing Product check",
+        "amazonConfirmFinishModalTitle": "Info",
+        "amazonConfirmFinishModalMessageFirstPart": "You successfully connected and activated your selected sales channel.",
+        "amazonConfirmFinishModalMessageSecondPart": "After finishing the connection assistant, changing of existing connection data to selected sales channel or changing the selected sales channel is not easy. Are you sure that you wish to finish the connection assistant?",
+        "infoAuthorization": "If the connection is successful you will be go to the next step automatically.",
+        "paymentMethodError": "No Ebay-Payment method selected."
+    },
+    "button": {
+        "connect": "Connect",
+        "cancel": "Cancel",
+        "next": "Next",
+        "finish": "Finish"
+    },
+    "error": {
+        "notification": {
+            "title": "Error"
+        },
+        "global": {
+            "internalError": "Something went wrong. Please try again later.",
+            "bfBpUnauthorized": "The connection between your shop and the marketplace could not be established. Please contact Shopware Support",
+            "systemSettingUp": "The marketplace system is setting up right now this can take some minutes. "
+        },
+        "amazon": {
+            "title": "Amazon Connection Assistant",
+            "credentialValidationError": "Amazon Retailer ID and Amazon Mws Token are required fields.",
+            "accountConnectionError": "Your connection to Amazon failed. Please check your credentials.",
+            "validateMarketplaceError": "You are not able to sell on the given Amazon marketplace.",
+            "confirmFinishSavingDataError": "Something went wrong while saving the data. Please try again."
+        },
+        "ebay": {
+            "title": "ebay Connection Assistant",
+            "accountConnectionError": "Something went wrong while trying to connect to your ebay account.",
+            "validateMarketplaceError": "You are not able to sell on the given ebay marketplace.",
+            "cantGetConnectionLink": "Something went wrong, please try again later.",
+            "productCheck": "An error occurred. Please try again later.",
+            "ebayInvalidLogoUrl": "Your logo url could not be saved. Your logo must be available at https://",
+            "ebayInvalidPayPalMailAddress": "Your PayPal email address could not be save. Invalid email address."
+        }
+    },
+    "success": {
+        "amazon": {
+            "title": "Amazon Connection Assistant",
+            "accountConnectionSuccess": "You are successfully connected to amazon.",
+            "validateMarketplaceSuccess": "Validation of the Amazon marketplace was successful. You are eligible to sell on Amazon.",
+            "successfulFinishedConnectionAssistant": "You`re data was successfully stored. Now you`re abel to sell on Amazon."
+        },
+        "ebay": {
+            "title": "ebay Connection Assistant",
+            "accountConnectionSuccess": "You are successfully connected to ebay.",
+            "validateMarketplaceSuccess": "Validation of the ebay marketplace was successful. You are eligible to sell on ebay."
+        }
+    },
+    "bf-plugin-configuration": {
+        "integration": {
+            "repair-description": "In case the integration user for the SwagMarkets business platform is no longer present in Shopware or the communication keeps failing otherwise, this process can repair the connection to use the marketplaces",
+            "repair-integration-button": "Repair integration",
+            "dialogue": {
+                "successTitle": "Repair successful",
+                "successMessage": "The integration user for SwagMarkets was sccessfully repaired!",
+                "errorTitle": "Repair failed",
+                "errorMessage": "An error occurred while trying to repair the integration user!"
+            }
+        }
+    }
+}

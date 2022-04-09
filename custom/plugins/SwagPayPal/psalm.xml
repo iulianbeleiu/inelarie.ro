@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<psalm
+    cacheDirectory="var/cache/psalm"
+    autoloader="bin/static-analyze-autoloader.php"
+    findUnusedVariablesAndParams="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+>
+    <projectFiles>
+        <directory name="src"/>
+        <directory name="tests"/>
+        <ignoreFiles>
+            <directory name="../../../src"/> <!-- would otherwise inspect Shopware -->
+            <directory name="../../../vendor"/> <!-- would otherwise inspect vendor -->
+            <directory name="vendor"/> <!-- would otherwise inspect vendor -->
+            <file name="tests/TestBootstrapper.php"/>
+        </ignoreFiles>
+    </projectFiles>
+
+    <plugins>
+        <pluginClass class="Psalm\SymfonyPsalmPlugin\Plugin"/>
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
+    </plugins>
+
+    <forbiddenFunctions>
+        <function name="dump"/>
+        <function name="dd"/>
+        <function name="var_dump"/>
+        <function name="error_log"/>
+    </forbiddenFunctions>
+
+    <issueHandlers>
+        <MoreSpecificImplementedParamType>
+            <errorLevel type="info">
+                <file name="src/Webhook/Handler/*.php"/>
+                <file name="src/Pos/Sync/Product/Util/ProductGroupingCollection.php"/>
+                <file name="src/Pos/DataAbstractionLayer/Entity/*Collection.php"/>
+                <file name="src/Pos/MessageQueue/Handler/*Handler.php"/>
+                <file name="src/Pos/MessageQueue/Handler/Sync/*Handler.php"/>
+                <file name="src/Pos/Webhook/Handler/*Handler.php"/>
+            </errorLevel>
+        </MoreSpecificImplementedParamType>
+
+        <InternalMethod>
+            <errorLevel type="info">
+                <file name="src/Pos/Command/*Command.php"/>
+                <file name="src/Pos/Schedule/*Handler.php"/>
+                <file name="src/Checkout/Payment/ScheduledTask/CancelTransactionsTaskHandler.php"/>
+                <!-- is only used on webhook registration, no caching issues -->
+                <referencedMethod name="Shopware\Core\System\SystemConfig\SystemConfigService::getDomain"/>
+                <directory name="tests"/>
+            </errorLevel>
+        </InternalMethod>
+
+        <DeprecatedMethod>
+            <errorLevel type="info">
+                <!-- <deprecated> tag:v6.0.0 - remove with Shopware 6.5 compatibility -->
+                <referencedMethod name="Shopware\Core\Framework\Struct\Collection::getIterator"/>
+                <referencedMethod
+                    name="Shopware\Core\System\SalesChannel\SalesChannelContext::getFallbackCustomerGroup"/>
+                <referencedMethod name="Shopware\Core\System\StateMachine\StateMachineRegistry::getInitialState"/>
+                <referencedMethod name="Doctrine\DBAL\Connection::executeUpdate"/>
+
+                <!-- <deprecated> tag:v6.0.0 - remove -->
+                <file name="src/Checkout/Payment/PayPalPuiPaymentHandler.php"/>
+                <file name="tests/Checkout/CheckoutSubscriberTest.php"/>
+                <referencedMethod name="Swag\PayPal\OrdersApi\Builder\AbstractOrderBuilder::createAddress"/>
+                <referencedMethod name="Swag\PayPal\OrdersApi\Builder\AbstractOrderBuilder::__construct"/>
+                <referencedMethod name="Swag\PayPal\Checkout\Payment\Handler\PlusPuiHandler::handlePlusPayment"/>
+            </errorLevel>
+        </DeprecatedMethod>
+
+        <DeprecatedConstant>
+            <errorLevel type="info">
+                <!-- <deprecated> tag:v6.0.0 - remove with Shopware 6.5 compatibility due to usage of Defaults::SALES_CHANNEL -->
+                <directory name="tests"/>
+                <file name="src/Checkout/Payment/PayPalPaymentHandler.php"/>
+                <file name="src/Util/PaymentStatusUtilV2.php"/>
+                <file name="tests/Checkout/Payment/ScheduledTask/CancelTransactionsTaskHandlerTest.php"/>
+                <file name="tests/Checkout/Payment/PayPalPaymentHandlerTest.php"/>
+                <file name="tests/Util/PaymentStatusUtilV2Test.php"/>
+
+                <!-- <deprecated> tag:v6.0.0 - remove -->
+                <file name="src/Util/Lifecycle/Installer/SettingsInstaller.php"/>
+                <file name="src/Setting/Settings.php"/>
+                <file name="src/Checkout/SPBCheckout/Service/SPBMarksDataService.php"/>
+                <file name="src/Checkout/SPBCheckout/SPBCheckoutSubscriber.php"/>
+                <file name="src/Checkout/Plus/Service/PlusDataService.php"/>
+                <file name="src/Checkout/Plus/PlusSubscriber.php"/>
+                <file name="src/Checkout/Plus/PlusPaymentFinalizeController.php"/>
+                <file name="src/Checkout/PayUponInvoice/PayUponInvoiceSubscriber.php"/>
+                <file name="src/Storefront/Data/Service/SPBCheckoutDataService.php"/>
+            </errorLevel>
+        </DeprecatedConstant>
+
+        <DeprecatedClass>
+            <errorLevel type="info">
+                <!-- <deprecated> tag:v6.0.0 - remove -->
+                <referencedClass name="Swag\PayPal\Checkout\Payment\Handler\AbstractPaymentHandler"/>
+                <file name="tests/Checkout/SPBCheckout/SPBCheckoutSubscriberTest.php"/>
+                <file name="tests/Checkout/SPBCheckout/SalesChannel/SPBCreateOrderRouteTest.php"/>
+                <file name="src/Checkout/SPBCheckout/SalesChannel/SPBCreateOrderRoute.php"/>
+                <file name="src/Checkout/PayUponInvoice/PayUponInvoiceSubscriber.php"/>
+                <file name="tests/Checkout/PayUponInvoice/PayUponInvoiceSubscriberTest.php"/>
+                <file name="tests/Checkout/Payment/PayPalPuiPaymentHandlerTest.php"/>
+                <file name="src/Checkout/Plus/Service/PlusDataService.php"/>
+                <file name="src/Checkout/Plus/PlusSubscriber.php"/>
+                <file name="tests/Checkout/Plus/PlusSubscriberTest.php"/>
+                <file name="tests/Checkout/Plus/PlusPaymentFinalizeControllerTest.php"/>
+            </errorLevel>
+        </DeprecatedClass>
+
+        <PossiblyInvalidArgument>
+            <errorLevel type="info">
+                <file name="tests/Pos/Sync/Inventory/StockSubscriberTest.php"/>
+            </errorLevel>
+        </PossiblyInvalidArgument>
+
+        <PossiblyUndefinedMethod>
+            <errorLevel type="info">
+                <file name="tests/Pos/Sync/Inventory/StockSubscriberTest.php"/>
+            </errorLevel>
+        </PossiblyUndefinedMethod>
+
+        <UndefinedConstant>
+            <errorLevel type="info">
+                <file name="tests/Checkout/Payment/PayPalPaymentHandlerTest.php"/>
+                <file name="tests/Checkout/Payment/PayPalPuiPaymentHandlerTest.php"/>
+            </errorLevel>
+        </UndefinedConstant>
+
+        <UnsafeInstantiation>
+            <errorLevel type="info">
+                <file name="tests/Pos/Mock/Repositories/RepoTrait.php"/>
+                <file name="tests/OrdersApi/Builder/APMOrderBuilderTest.php"/>
+            </errorLevel>
+        </UnsafeInstantiation>
+
+        <NonInvariantDocblockPropertyType>
+            <errorLevel type="info">
+                <file name="src/Checkout/TokenResponse.php"/>
+            </errorLevel>
+        </NonInvariantDocblockPropertyType>
+
+        <UndefinedDocblockClass>
+            <errorLevel type="info">
+                <referencedClass name="UnitEnum"/>
+            </errorLevel>
+        </UndefinedDocblockClass>
+
+        <DocblockTypeContradiction>
+            <errorLevel type="info">
+                <!-- remove with Symfony 5.4 base -->
+                <file name="src/Administration/PayPalPaymentMethodController.php"/>
+            </errorLevel>
+        </DocblockTypeContradiction>
+
+        <RedundantCastGivenDocblockType>
+            <errorLevel type="info">
+                <!-- remove with Symfony 5.4 base -->
+                <file name="src/PaymentsApi/Administration/PayPalPaymentController.php"/>
+                <file name="src/OrdersApi/Administration/Service/CaptureRefundCreator.php"/>
+                <file name="src/OrdersApi/Administration/PayPalOrdersController.php"/>
+            </errorLevel>
+        </RedundantCastGivenDocblockType>
+
+        <!-- level 3 issues - slightly lazy code writing, but provably low false-negatives -->
+        <PropertyNotSetInConstructor errorLevel="info"/>
+        <MissingConstructor errorLevel="info"/>
+        <MissingFile>
+            <errorLevel type="info">
+                <file name="tests/TestBootstrap.php"/>
+            </errorLevel>
+        </MissingFile>
+    </issueHandlers>
+</psalm>

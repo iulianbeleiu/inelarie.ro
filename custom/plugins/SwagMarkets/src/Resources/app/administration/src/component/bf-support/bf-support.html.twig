@@ -1,0 +1,110 @@
+{% block bf_support %}
+<sw-modal
+    v-if="showSupportModal"
+    ref="modal"
+    variant="small"
+    :title="getModalTitle()"
+    :isLoading="isLoading"
+    @modal-close="$emit('closeSupportModal')"
+>
+    {% block bf_support_form %}
+        <sw-container gap="0px 32px">
+            <sw-container columns="150px 1fr" gap="32px">
+                {% block bf_support_form_salutation_field %}
+                    <sw-entity-single-select
+                        required
+                        validation="required"
+                        class="sw-customer-base-form__salutation-select"
+                        entity="salutation"
+                        labelProperty="displayName"
+                        v-model="userForm.salutationId"
+                        :label="$tc('sw-customer.baseForm.labelSalutation')"
+                        :placeholder="$tc('sw-customer.baseForm.placeholderSalutation')"
+                        :error="errors.supportSalutationIdError">
+                    </sw-entity-single-select>
+                {% endblock %}
+
+                {% block bf_support_form_name_field %}
+                    <sw-text-field
+                        required
+                        validation="required"
+                        v-model="userForm.name"
+                        placeholder="Max Mustermann"
+                        :label="$tc('bf-support.modal.nameFieldLabel')"
+                        :error="errors.supportNameError">
+                    </sw-text-field>
+                {% endblock %}
+            </sw-container>
+
+            <sw-container columns="1fr">
+                {% block bf_support_form_company_field %}
+                    <sw-text-field
+                        required
+                        placeholder="Shopware AG"
+                        :label="$tc('sw-customer.addressForm.labelCompany')"
+                        :error="errors.supportCompanyError"
+                        v-model="userForm.company">
+                    </sw-text-field>
+                {% endblock %}
+
+                {% block bf_support_form_email_field %}
+                    <sw-text-field
+                        required
+                        placeholder="example@mail.com"
+                        :label="$tc('sw-customer.baseForm.labelEmail')"
+                        :error="errors.supportEmailError"
+                        v-model="userForm.email">
+                    </sw-text-field>
+                {% endblock %}
+
+                {% block bf_support_form_phone_field %}
+                    <sw-text-field
+                        placeholder="+49 30 343262211"
+                        v-model="userForm.phoneNumber"
+                        :label="$tc('sw-customer.addressForm.labelPhoneNumber')"
+                        :error="errors.supportPhoneNumberError">
+                    </sw-text-field>
+                {% endblock %}
+
+                {% block bf_support_message_field %}
+                    <sw-textarea-field
+                        type="textarea"
+                        v-model="userForm.message"
+                        :label="$tc('bf-support.modal.labelMessage')"
+                        :placeholder="$tc('bf-support.modal.messagePlaceholder')"
+                        :error="errors.supportMessageError"
+                    ></sw-textarea-field>
+                {% endblock %}
+
+                {% block bf_support_accept_checkbox %}
+                    <sw-checkbox-field
+                        :label="$tc('bf-support.modal.agreementWithSendToBrickfox')"
+                        @change="userForm.requestAccept = $event"
+                    ></sw-checkbox-field>
+                {% endblock %}
+            </sw-container>
+        </sw-container>
+    {% endblock %}
+
+    {% block bf_support_modal_footer %}
+    <template slot="modal-footer">
+        {% block bf_support_footer_abort %}
+        <sw-button size="small" @click="$emit('closeSupportModal')">
+            {{ $tc('sw-sales-channel.detail.buttonCloseDeleteModal') }}
+        </sw-button>
+        {% endblock %}
+
+        {% block bf_support_footer_send_request %}
+        <sw-button
+            size="small"
+            variant="primary"
+            :disabled="!userForm.requestAccept"
+            :isLoading="isLoading"
+            @click="sendRequest">
+            {{ $tc('bf-support.modal.buttonSendRequest') }}
+        </sw-button>
+        {% endblock %}
+    </template>
+    {% endblock %}
+</sw-modal>
+{% endblock %}

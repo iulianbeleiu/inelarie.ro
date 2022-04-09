@@ -1,0 +1,312 @@
+.is-ctl-accountprofile {
+    .container-main {
+        padding: 0;
+    }
+}
+
+.order-table {
+    border: none;
+    margin-bottom: 44px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 100%;
+
+        background: linear-gradient(135deg, $white 33.333%, transparent 0),
+            linear-gradient(-135deg, $white 33.333%, transparent 0);
+        width: 100%;
+        height: 1em;
+        background-size: 1.5em 100%;
+    }
+
+    .account-overview-newest-order & {
+        margin-bottom: 80px;
+    }
+}
+
+.order-item-header {
+    @include card-box;
+
+    margin-bottom: 0;
+
+    .btn-light {
+        @include button-change;
+
+        svg path {
+            fill: $gray-900;
+        }
+    }
+}
+
+.order-table-header-context-menu {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+    border-color: $gray-900;
+    border-width: $hr-border-width;
+    position: relative;
+    overflow: unset;
+
+    .icon {
+        position: unset;
+        margin: 0;
+        width: 24px;
+        height: 24px;
+
+        > svg {
+            width: 24px;
+            position: unset;
+
+            path {
+                fill: $gray-900;
+            }
+        }
+    }
+
+    &::after {
+        content: '';
+        height: 14px;
+        width: 14px;
+        display: block;
+        position: absolute;
+        right: -5px;
+        top: 0;
+        border-radius: 50%;
+    }
+
+    &.open,
+    &.in_progress {
+        &::after {
+            background-color: $info;
+        }
+    }
+
+    &.completed {
+        &::after {
+            background-color: $success;
+        }
+    }
+
+    &.failed,
+    &.cancelled {
+        &::after {
+            background-color: $danger;
+        }
+    }
+
+    &-indicator {
+        &.notification-dot {
+            width: 14px;
+            height: 14px;
+            z-index: 1;
+            top: -1px;
+
+            + .order-table-header-context-menu {
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.order-table-header-heading {
+    font-size: $h4-font-size;
+    font-weight: $font-weight-bold;
+    height: 26px;
+    line-height: 26px;
+    margin-bottom: $spacer-sm;
+}
+
+.order-item-status-badge {
+    font-size: $h5-font-size;
+    font-weight: $font-weight-bold;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 $spacer-30;
+}
+
+.order-table-header-order {
+    &-status {
+        @include media-breakpoint-down(xs) {
+            margin-bottom: $spacer-sm;
+        }
+    }
+
+    &-number {
+        padding-bottom: $spacer-lg;
+        border-bottom: solid $hr-border-width $hr-border-color;
+
+        .order-table-header-label {
+            display: inline-block;
+            width: auto;
+            margin-right: $spacer-xs;
+            text-transform: unset;
+        }
+
+        strong,
+        span {
+            font-weight: $font-weight-bold;
+        }
+    }
+
+    &-table-body .order-table-header-order-table-body-cell[class*='col-'] {
+        margin-top: 15px;
+
+        &:first-of-type {
+            margin-top: $spacer-lg;
+        }
+
+        &:nth-of-type(2),
+        &:nth-of-type(3) {
+            .order-table-body-value {
+                color: #a9a9a9;
+            }
+        }
+
+        &:last-of-type {
+            @include make-col(12);
+
+            text-align: center;
+        }
+
+        &.order-item-actions {
+            margin-top: 32px;
+        }
+    }
+
+    &-table-header-cell[class*='col-'] {
+        text-transform: uppercase;
+
+        &:last-of-type {
+            display: none;
+        }
+    }
+}
+
+.order-table-header-label {
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+}
+
+.order-item-actions {
+    padding-top: 18px;
+
+    svg {
+        margin-top: -3px;
+        margin-left: $spacer-sm;
+        width: 14px;
+    }
+
+    .order-hide-btn-text,
+    .order-view-btn-text {
+        font-weight: $font-weight-bold;
+    }
+}
+
+.order-item-detail-footer {
+    background-color: $white;
+}
+
+.order-item-label {
+    font-weight: $font-weight-bold;
+}
+
+.account-overview {
+    > .row {
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+
+    .card-col {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+.order-table-header-context-menu-content {
+    min-width: 172px;
+    border-radius: 4px;
+    margin-top: $spacer-10;
+
+    &-link {
+        padding: $spacer-10 14px;
+
+        &:hover {
+            background-color: $shape-gray-200;
+            color: inherit;
+        }
+    }
+}
+
+.order-item {
+    &.order-item-quantity {
+        display: none;
+    }
+
+    &.order-item-price {
+        margin-top: 15px;
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    .account-welcome {
+        margin-bottom: $spacer-30;
+
+        h1 {
+            font-size: $h3-font-size;
+        }
+
+        p {
+            font-size: $h5-font-size;
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .order-table-header-order-table-body {
+        border-width: $hr-border-width;
+
+        .order-table-header-order-table-body-cell[class*='col-'] {
+            &:first-of-type {
+                margin-top: 15px;
+            }
+        }
+    }
+
+    .order-item-status-badge {
+        margin: $spacer-5 0;
+    }
+
+    .order-table-header-context-menu-wrapper {
+        top: $spacer-20;
+        right: $spacer-20;
+    }
+
+    .order-table-header-order-number {
+        border-bottom: none;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .order-table-header-order {
+        &-table-body .order-table-header-order-table-body-cell[class*='col-'] {
+            &:last-of-type {
+                @include make-col(2);
+
+                text-align: right;
+                padding-top: 0;
+            }
+        }
+
+        &-table-header-cell[class*='col-'] {
+            &:last-of-type {
+                display: inline-block;
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+{% block bf_sales_channel_property_mapping %}
+    <sw-modal
+        :isLoading="isLoading"
+        variant="large"
+        :title="title"
+        @modal-close="$emit('modal-close')">
+        {% block bf_sales_channel_property_mapping__content %}
+            {% block bf_sales_channel_property_mapping__content_base %}
+                <sw-text-field
+                    type="text"
+                    :label="$tc('propertyMapping.labels.search')"
+                    :placeholder="$tc('propertyMapping.placeholder.search')"
+                    v-model="searchString"
+                    :name="property.productsAttributesId + '-search'"
+                    @keyup.enter="loadAttributeData"
+                >
+                </sw-text-field>
+                <bf-sales-channel-property-mapping-grid
+                    :dataSource="attributeData"
+                    :columns="columns"
+                    :isLoading="isLoading"
+                    :showActions="false"
+                    ref="attributeGrid"
+                    @colum-sort="sortList"
+                >
+                </bf-sales-channel-property-mapping-grid>
+            {% endblock %}
+        {% endblock %}
+        {% block bf_sales_channel_property_mapping__footer %}
+            <template slot="modal-footer">
+                {% block bf_sales_channel_property_mapping__footer_cancel %}
+                    <sw-button
+                        @click="$emit('modal-close')"
+                        size="small">
+                        {{ $tc('propertyMapping.buttons.cancel') }}
+                    </sw-button>
+                {% endblock %}
+                {% block bf_sales_channel_property_mapping__footer_save %}
+                    <sw-button
+                        @click="saveData"
+                        variant="primary"
+                        size="small">
+                        {{ $tc('propertyMapping.buttons.save') }}
+                    </sw-button>
+                {% endblock %}
+            </template>
+        {% endblock %}
+    </sw-modal>
+{% endblock %}

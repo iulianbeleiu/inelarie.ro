@@ -1,0 +1,21 @@
+.bf-ebay-connection-assistant-start {
+
+    .bf-ebay-connection-assistant-start__content-title {
+        color: rgb(82, 102, 122);
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 0.1px;
+        line-height: 22px;
+    }
+
+    .bf-ebay-connection-assistant-start__content-card {
+        &.sw-card {
+            margin-bottom: 24px;
+        }
+
+        .sw-card__content {
+            padding: 0;
+            text-align: start;
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{% sw_extends '@Storefront/storefront/component/quickview/index.html.twig' %}
+
+{% block swag_cms_extensions_component_quickview_header %}{% endblock %}
+
+{% block swag_cms_extensions_component_quickview_content %}
+    <div class="swag-cms-extensions-quickview-content row">
+
+        <div class="swag-cms-extensions-quickview-content-left col-lg-7">
+            {% if page.product.media %}
+                {% sw_include '@Storefront/storefront/element/cms-element-image-gallery.html.twig' with {
+                    'mediaItems': mediaItems,
+                    'zoom': true,
+                    'zoomImageContainerSelector': "[data-swag-cms-extensions-quickview-carousel-product-id=\"#{page.listingProductId}\"] .js-magnifier-zoom-image-container",
+                    'zoomModal': false,
+                    'displayMode': 'contain',
+                    'gutter': 1,
+                    'minHeight': '430px',
+                    'navigation': true,
+                    'navigationArrows': 'outside',
+                    'navigationDots': 'inside',
+                    'galleryPosition': 'underneath',
+                    'isProduct': true,
+                    'fallbackImageTitle': page.product.translated.name,
+                    'startIndexThumbnails': page.product.cover.position + 1,
+                    'startIndexSlider': page.product.cover.position + 1
+                } %}
+            {% endif %}
+        </div>
+
+        <div class="swag-cms-extensions-quickview-content-right col-lg-5">
+            {% sw_include '@SwagCmsExtensions/storefront/component/quickview/buy-widget.html.twig' %}
+        </div>
+    </div>
+{% endblock %}

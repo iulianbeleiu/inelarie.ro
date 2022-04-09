@@ -1,0 +1,55 @@
+{% block sw_sales_channel_defaults_select %}
+<sw-container :title="$tc('bf-sales-channel.detail.ebayPaymentMethods')"
+              :isLoading="loadingPaymentMatching"
+              class="bf-sales-channel-ebay-payment-methods">
+    {% block bf_sales_channel_ebay_payment_container__content %}
+    <sw-container columns="1fr 1fr 1fr" gap="2em">
+        {%  block bf_sales_channel_payment_container_selects__PayPal %}
+            <sw-select-field
+                :label="$tc('bf-sales-channel.detail.ebayPaymentMethodPayPal')"
+                :options="payments"
+                @change="changedEbayPayment($event,'payPal')"
+                :value="selectedPayment.payPal.id"
+                required>
+            </sw-select-field>
+        {% endblock %}
+        {%  block bf_sales_channel_payment_container_selects__MoneyXferAcceptedInCheckout %}
+            <sw-select-field
+                :label="$tc('bf-sales-channel.detail.ebayPaymentMethodMoneyXferAcceptedInCheckout')"
+                :options="payments"
+                @change="changedEbayPayment($event,'moneyXferAcceptedInCheckout')"
+                :value="selectedPayment.moneyXferAcceptedInCheckout.id"
+                required>
+            </sw-select-field>
+        {% endblock %}
+        {%  block bf_sales_channel_payment_container_selects__CashOnPickup %}
+            <sw-select-field
+                :label="$tc('bf-sales-channel.detail.ebayPaymentMethodCashOnPickup')"
+                :options="payments"
+                @change="changedEbayPayment($event,'cashOnPickup')"
+                :value="selectedPayment.cashOnPickup.id"
+                required>
+            </sw-select-field>
+        {% endblock %}
+        {%  block bf_sales_channel_payment_container_selects__COD %}
+            <sw-select-field
+                :label="$tc('bf-sales-channel.detail.ebayPaymentMethodCod')"
+                :options="payments"
+                @change="changedEbayPayment($event,'cod')"
+                :value="selectedPayment.cod.id"
+                required>
+            </sw-select-field>
+        {% endblock %}
+        {%  block bf_sales_channel_payment_container_selects__EbayPayments %}
+            <sw-select-field
+                :label="$tc('bf-sales-channel.detail.ebayPaymentMethodEbayPayments')"
+                :options="payments"
+                @change="changedEbayPayment($event,'ebayPayments')"
+                :value="selectedPayment.ebayPayments.id"
+                required>
+            </sw-select-field>
+        {% endblock %}
+    {% endblock %}
+    </sw-container>
+</sw-container>
+{% endblock %}

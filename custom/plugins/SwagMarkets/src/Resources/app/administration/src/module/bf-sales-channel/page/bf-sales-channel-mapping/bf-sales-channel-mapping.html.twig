@@ -1,0 +1,22 @@
+{% block bf_sales_channel_detail_content_tab %}
+    {% parent() %}
+
+    {% block bf_sales_channel_detail_content_tab_mapping %}
+        <sw-tabs-item
+            :disabled="!clientExists || clientInProgress"
+            :route="{ name: 'bf.sales.channel.detail.mapping', params: { id: $route.params.id } }"
+            :title="$tc('sw-sales-channel.detail.tabProductComparison')">
+            {{ $tc('propertyMapping.tab-title') }}
+        </sw-tabs-item>
+    {% endblock %}
+{% endblock %}
+{% block bf_sales_channel_detail_content_view %}
+    <router-view :salesChannel="salesChannel"
+                 class="bf-sales-channel-detail-content-view"
+                 :isLoading="isLoading"
+                 :key="$route.params.id"
+                 :salesChannelType="salesChannelType"
+                 @setPolicy="setPolicy"
+                 :categoriesReloadTriggerEvent="categoriesReloadTriggerEvent">
+    </router-view>
+{% endblock %}

@@ -1,0 +1,57 @@
+// contains new variables specific to the theme
+$disabled-btn-color: $shape-gray-500 !default;
+
+$footer-bg-color: $gray-500 !default;
+$footer-color: $sw-footer-text-color !default;
+$footer-border-color: $shape-gray-800 !default;
+$footer-bottom-color: $gray-700 !default;
+
+// Product Detail font sizes
+$product-detail-name: 24px;
+$product-detail-price: 20px;
+
+$border-radius: 20px !default;
+$border-radius-lg: 24px !default;
+$border-radius-sm: 18px !default;
+
+$checkout-aside-shadow: 0 50px 159px 0 rgba(0, 0, 0, 0.07);
+
+// 404 page
+$picture-width-sm: 295px;
+$picture-width: 390px;
+
+$input-group-append-width: 60px;
+$input-group-append-width-lg: 80px;
+$input-group-append-width-xl: 120px;
+
+// Newsletter
+$newsletter-bg-color: $gray-500;
+
+//
+// Spacing
+//
+$spacer-xs: ($spacer * 0.25) !default; // 4px
+$spacer-sm: ($spacer * 0.5) !default; // 8px
+$spacer-md: $spacer !default; // 16px
+$spacer-lg: ($spacer * 1.5) !default; // 24px
+$spacer-xl: ($spacer * 3) !default; // 48px
+$spacer-xxl: ($spacer * 3.5) !default; // 56px
+
+$spacer-5: ($spacer * 0.3125) !default; // 5px
+$spacer-10: ($spacer * 0.625) !default; // 10px
+$spacer-12: ($spacer * 0.75) !default; // 12px
+$spacer-20: ($spacer * 1.25) !default; // 20px
+$spacer-26: ($spacer * 1.625) !default; // 26px
+$spacer-28: ($spacer * 1.75) !default; // 28px
+$spacer-30: ($spacer * 1.875) !default; // 30px
+$spacer-36: ($spacer * 1.25) !default; // 36px
+$spacer-40: ($spacer * 2.5) !default; // 40px
+$spacer-50: ($spacer * 3.125) !default; // 50px
+$spacer-60: ($spacer * 3.75) !default; // 60px
+
+// icon
+$icon-caret-down: url('#{$asset-path}/icon/ic-caret-down.svg');
+$icon-caret-up: url('#{$asset-path}/icon/ic-caret-up.svg');
+$icon-delete: url('#{$asset-path}/icon/ic-delete.svg');
+
+$hr-border: $hr-border-width solid $hr-border-color;

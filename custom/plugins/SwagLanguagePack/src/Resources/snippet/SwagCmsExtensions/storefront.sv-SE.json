@@ -1,0 +1,15 @@
+{
+    "swagCmsExtensions": {
+        "quickview": {
+            "detailPageLinkText": "Visa mer information"
+        },
+        "form": {
+            "component": {
+                "checkbox": {
+                    "true": "Javisst",
+                    "false": "Nej"
+                }
+            }
+        }
+    }
+}

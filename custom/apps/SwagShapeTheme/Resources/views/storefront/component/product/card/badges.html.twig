@@ -1,0 +1,19 @@
+{% sw_extends '@Storefront/storefront/component/product/card/badges.html.twig' %}
+
+{% block component_product_badges_discount %}
+    {% set price = product.calculatedPrice %}
+    {% if product.calculatedPrices.count > 0 %}
+        {% set price = product.calculatedPrices.last %}
+    {% endif %}
+
+    {% set listPrice = price.listPrice.percentage > 0 %}
+    {% set hasRange = product.calculatedPrices.count > 1 %}
+
+    {% if listPrice and not hasRange %}
+        {% block page_product_detail_was_price_badge %}
+            <div class="badge badge-danger badge-discount">
+                <span>{{ "detail.sale"|trans|sw_sanitize }}</span>
+            </div>
+        {% endblock %}
+    {% endif %}
+{% endblock %}

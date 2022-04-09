@@ -1,0 +1,21 @@
+{% sw_extends '@Storefront/storefront/component/address/address-editor-modal.html.twig' %}
+
+{% block component_address_address_editor_modal_accordion_overview_billing_card %}
+    <h5 class="modal-title">{{ "account.addressHeadline"|trans|sw_sanitize }}</h5>
+
+    <div class="address-billing-card">
+        {{ parent() }}
+    </div>
+{% endblock %}
+
+{% block component_address_address_editor_modal_accordion_actions %}
+    {% if not page.address %}
+        <div class="row address-editor-accordion-row no-gutters">
+            {{ block("component_address_address_editor_modal_accordion_action_edit") }}
+
+            {{ block("component_address_address_editor_modal_accordion_action_list") }}
+
+            {{ block("component_address_address_editor_modal_accordion_action_create") }}
+        </div>
+    {% endif %}
+{% endblock %}

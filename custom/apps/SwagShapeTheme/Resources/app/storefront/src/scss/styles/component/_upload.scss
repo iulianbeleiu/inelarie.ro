@@ -1,0 +1,14 @@
+.b2b-upload {
+    &__header-title {
+        font-size: 20px;
+        line-height: 26px;
+        padding-bottom: 24px;
+    }
+}
+
+.b2b-upload__configuration-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-end;
+}

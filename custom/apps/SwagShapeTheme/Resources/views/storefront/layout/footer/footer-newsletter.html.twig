@@ -1,0 +1,30 @@
+{% block layout_footer_newsletter_form %}
+    <div class="footer-newsletter-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 p-0 footer-newsletter-header">
+                    {% block layout_footer_newsletter_header %}
+                        <h1>{{ 'footer.newsletterHeadline'|trans|sw_sanitize }}</h1>
+                    {% endblock %}
+                </div>
+
+                <div class="col-md-7 p-0 offset-md-1 footer-newsletter-content">
+                    {% block layout_footer_newsletter_form_header %}
+                        <h5>{{ 'footer.newsletterInfo'|trans|sw_sanitize }}</h5>
+                    {% endblock %}
+                    <a
+                        href="{{ path('frontend.cms.page',{ id: config('core.basicInformation.newsletterPage')}) }}"
+                        data-toggle="modal"
+                        data-url="{{ path('frontend.cms.page',{ id: config('core.basicInformation.newsletterPage')}) }}"
+                        class="btn btn-primary"
+                        role="button"
+                        title="{{ 'newsletter.formSubscribe'|trans|striptags }}"
+                        id="footerNewsletterBtnAddon"
+                   >
+                        {{ 'newsletter.formSubscribe'|trans|striptags }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

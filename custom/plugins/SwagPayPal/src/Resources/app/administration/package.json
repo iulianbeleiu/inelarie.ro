@@ -1,0 +1,28 @@
+{
+    "name": "swagpaypal-admin",
+    "version": "1.0.0",
+    "description": "Administration for PayPal",
+    "main": "index.js",
+    "author": "Shopware Services",
+    "license": "MIT",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "unit": "jest --config jest.config.js --ci",
+        "unit-watch": "jest --config jest.config.js --watch"
+    },
+    "devDependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.16.7",
+        "@babel/preset-env": "^7.16.11",
+        "@shopware-ag/jest-preset-sw6-admin": "^2.0.1",
+        "@vue/test-utils": "^1.1.0",
+        "jest": "^26.4.2",
+        "vue": "2.6.10",
+        "vuex": "^3.6.2"
+    },
+    "dependencies": {
+        "core-js": "^3.21.1",
+        "vue-template-compiler": "2.6.10"
+    }
+}

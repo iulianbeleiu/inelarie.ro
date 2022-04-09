@@ -1,0 +1,10 @@
+{% sw_extends '@Storefront/storefront/layout/navigation/offcanvas/show-all-link.html.twig' %}
+
+{% block layout_navigation_offcanvas_navigation_home_link_text %}
+    <span class="navigation-offcanvas-link-icon js-navigation-offcanvas-loading-icon">
+        {% sw_icon 'ic-menu' style { 'pack': 'shape' } %}
+    </span>
+    <span itemprop="name">
+        {{ "general.mainMenu"|trans|sw_sanitize }}
+    </span>
+{% endblock %}

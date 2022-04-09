@@ -1,0 +1,47 @@
+<sw-card v-if="showPolicies"
+         :title="$tc('bf-sales-channel.detail.titleGeneralEbayPolicies')"
+         :isLoading="shippingPolicy.shippingPoliciesIsLoading ||
+          paymentPolicy.paymentPoliciesIsLoading || returnPolicy.returnPoliciesIsLoading">
+    {% block bf_sales_channel_ebay_policies_info %}
+    <sw-alert variant="info" appearance="system" :showIcon="true" :closable="false" v-if="!clientRdy">
+        {{ $tc('bf-sales-channel.detail.ebayPoliciesSystemInfo') }}
+    </sw-alert>
+    <sw-alert variant="error" appearance="system" :showIcon="true" :closable="false" v-if="errorLoadingPolicies">
+        {{ $tc('bf-sales-channel.detail.ebayErrorLoadingPolicies') }}
+    </sw-alert>
+    <sw-alert variant="info" appearance="notification" :showIcon="true" :closable="false">
+        {{ $tc('bf-sales-channel.detail.ebayPoliciesInfo') }}
+        <a href="https://www.ebay.de/help/selling/business-policies/rahmenbedingungen-fr-ihre-angebote?id=4212" target="_blank">{{ $tc('bf-sales-channel.detail.ebayPoliciesLinkName') }}</a>
+    </sw-alert>
+    {% endblock %}
+    {% block bf_sales_channel_ebay_policies_shipping_single_select %}
+        <sw-single-select
+            :options="shippingPolicy.shippingPolicies"
+            :label="$tc('bf-sales-channel.detail.ebayShippingPolicyLabel')"
+            :value="shippingPolicy.selectedShippingPolicy"
+            v-model="shippingPolicy.selectedShippingPolicy"
+            :disabled="!clientRdy || errorLoadingPolicies"
+            required>
+        </sw-single-select>
+    {% endblock %}
+    {% block bf_sales_channel_ebay_policies_payment_single_select %}
+        <sw-single-select
+            :options="paymentPolicy.paymentPolicies"
+            :label="$tc('bf-sales-channel.detail.ebayPaymentPolicyLabel')"
+            :value="paymentPolicy.selectedPaymentPolicy"
+            v-model="paymentPolicy.selectedPaymentPolicy"
+            :disabled="!clientRdy || errorLoadingPolicies"
+            required>
+        </sw-single-select>
+    {% endblock %}
+    {% block bf_sales_channel_ebay_policies_return_single_select %}
+        <sw-single-select
+            :options="returnPolicy.returnPolicies"
+            :label="$tc('bf-sales-channel.detail.ebayReturnPolicyLabel')"
+            :value="returnPolicy.selectedReturnPolicy"
+            v-model="returnPolicy.selectedReturnPolicy"
+            :disabled="!clientRdy || errorLoadingPolicies"
+            required>
+        </sw-single-select>
+    {% endblock %}
+</sw-card>

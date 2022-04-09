@@ -1,0 +1,15 @@
+{
+    "swagCmsExtensions": {
+        "quickview": {
+            "detailPageLinkText": "További részletek"
+        },
+        "form": {
+            "component": {
+                "checkbox": {
+                    "true": "Igen",
+                    "false": "Nem"
+                }
+            }
+        }
+    }
+}

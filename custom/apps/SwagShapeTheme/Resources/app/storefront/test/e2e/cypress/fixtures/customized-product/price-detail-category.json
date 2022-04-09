@@ -1,0 +1,7 @@
+{
+  "name": "Price detail catalogue",
+  "active": true,
+  "displayNestedProducts": false,
+  "type": "page",
+  "productAssignmentType": "product"
+}

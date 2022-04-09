@@ -1,0 +1,61 @@
+{
+    "document": {
+        "invoiceNumber": "Faktura č. %invoiceNumber%",
+        "invoiceHeadline": "Faktura č. %invoiceNumber%",
+        "stornoHeadline": "Č. storna %stornoNumber% pro fakturu č. %invoiceNumber%",
+        "stornoNumber": "Č. storna %stornoNumber%",
+        "deliveryNoteNumber": "Dodací list č. %deliveryNoteNumber%",
+        "deliveryNoteHeadline": "Dodací list č. %deliveryNoteNumber% pro objednávku č. %orderNumber%",
+        "creditNoteNumber": "Dobropis %creditNoteNumber%",
+        "creditNoteHeadline": "Dobropis č. %creditNoteNumber% pro fakturu č. %invoiceNumber%",
+        "customerNumber": "Zákazník č.: %customerNumber%",
+        "date": "Datum %date%",
+        "comment": "Komentář: %comment%",
+        "orderDate": "Datum objednávky %orderDate%",
+        "deliveryDate": "Termín dodání %deliveryDate%",
+        "page": "Strana %pageNumber%",
+        "orderNumber": "Objednávací číslo: %orderNumber%",
+        "taxNumber": "Číslo daně: %taxNumber%",
+        "vatId": "č. DPH: %vatId%",
+        "taxOffice": "Daňový úřad: %taxOffice%",
+        "bankAccount": "Bankovní spojení",
+        "bankIban": "IBAN %bankIban%",
+        "bankBic": "BIC %bankBic%",
+        "placeOfJurisdiction": "Sídlo soudu je %placeOfJurisdiction%",
+        "serviceDateNotice": "Datum doručení odpovídající datu faktury",
+        "placeOfFulfillment": "Místem plnění je %placeOfFulfillment%",
+        "intraCommunity": "Dodávka uvnitř Společenství (EU)",
+        "shippingAddress": "Dodací adresa",
+        "phoneNumber": "Telefonní číslo: %phoneNumber%",
+        "email": "E-mailová adresa: %email%",
+        "ceo": "Jednatel",
+        "lineItems": {
+            "header": {
+                "position": "Pol.",
+                "label": "Název",
+                "tax": "DPH",
+                "quantity": "Qty",
+                "unitPrice": "Cena za kus",
+                "productNumber": "Prod. Č.",
+                "total": "Celkem"
+            },
+            "tax": "plus %taxRate%% DPH:",
+            "total": "Celková částka:",
+            "roundedTotal": "Zaokrouhlený celkem",
+            "totalNet": "Celková částka (netto):",
+            "shippingCosts": "Zasilatelské náklady"
+        },
+        "paymentShippingInfo": {
+            "paymentMethod": "Zvolený způsob platby: %paymentMethod%",
+            "shippingMethod": "Zvolený způsob dopravy: %shippingMethod%",
+            "additionalInfo": "Zboží zůstává našim vlastnictvím až do úplného zaplacení."
+        }
+    },
+    "filter": {
+        "sortByNameAscending": "Jméno, A-Z",
+        "sortByNameDescending": "Jméno, Z-A",
+        "sortByPriceAscending": "Cena vzestupně",
+        "sortByPriceDescending": "Cena, sestupně",
+        "sortByScore": "Nejlepší výsledky"
+    }
+}

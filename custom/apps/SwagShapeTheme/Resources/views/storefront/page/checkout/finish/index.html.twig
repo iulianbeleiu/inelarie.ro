@@ -1,0 +1,25 @@
+{% sw_extends '@Storefront/storefront/page/checkout/finish/index.html.twig' %}
+
+{% block page_checkout_finish %}
+    {{ block('page_checkout_finish_details') }}
+{% endblock %}
+
+{% block page_checkout_aside %}
+    <div class="checkout-main">
+            <div class="row">
+                <div class="col-lg-7">
+                    {{ block('page_checkout_finish_product_table') }}
+                </div>
+
+                <div class="col-lg-4 offset-lg-1 finish-summary">
+                    {{ parent() }}
+                </div>
+            </div>
+    </div>
+{% endblock %}
+
+{% block page_checkout_finish_table_header %}
+    <div class="cart-header-info">
+        {{ "checkout.cartHeaderInfo"|trans|sw_sanitize }}
+    </div>
+{% endblock %}

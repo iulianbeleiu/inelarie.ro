@@ -1,0 +1,108 @@
+$cart-item-img-width: 112px;
+
+.cart-item {
+    border-bottom: $hr-border-width solid $hr-border-color;
+    padding: 34px 0;
+    position: relative;
+
+    .cart-item-row {
+        align-items: center;
+    }
+
+    &-details {
+        min-width: 0;
+    }
+
+    .cart-item-unit-price-label {
+        display: inline;
+        color: $shape-gray-500;
+        font-weight: $font-weight-medium;
+        margin-right: $spacer-xs;
+    }
+
+    .cart-item-unit-price {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+    }
+
+    .cart-item-total-price,
+    .cart-item-label {
+        font-size: 1rem;
+    }
+
+    .cart-item-tax-price {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+    }
+
+    .cart-item-unit-price,
+    .cart-item-ordernumber,
+    .cart-item-tax-price {
+        color: $shape-gray-500;
+    }
+
+    .cart-item-quantity-label,
+    .cart-item-unit-price-label,
+    .cart-item-total-price-label,
+    .cart-item-tax-price-label {
+        display: none;
+    }
+
+    .cart-item-quantity-row {
+        margin-bottom: 0;
+    }
+
+    .cart-item-remove {
+        position: absolute;
+        right: 0;
+        top: $spacer;
+    }
+
+    .cart-item-img-container {
+        width: $cart-item-img-width;
+    }
+
+    .cart-item-remove-button {
+        @extend .p-0;
+
+        line-height: 1;
+        border: none;
+        width: 18px;
+        height: 18px;
+        background-color: transparent;
+
+        &:focus {
+            background-color: transparent;
+        }
+
+        > .icon {
+            width: $spacer;
+            height: $spacer;
+
+            > svg {
+                top: 0;
+            }
+        }
+    }
+
+    .cart-item-characteristics {
+        font-size: 11px;
+    }
+
+    @include media-breakpoint-up(md) {
+        .cart-item-total-price,
+        .cart-item-label {
+            font-size: 20px;
+        }
+
+        .cart-item-details-container {
+            padding-left: $spacer;
+        }
+    }
+}
+
+.checkout-product-table {
+    div[data-swag-paypal-installment-banner=true] {
+        @include make-col(12);
+    }
+}

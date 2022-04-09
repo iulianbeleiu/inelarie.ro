@@ -1,0 +1,18 @@
+{% block bf_sales_channel_detail_amazon_prime_fba %}
+    <div>
+        <bf-sales-channel-amazon-extended-configuration
+            :isSalesChannelAmazon="isSalesChannelAmazon"
+            :salesChannel="salesChannel"
+            :currentContractName="currentContractName"
+            :clientExists="clientExists"
+            :clientInProgress="clientInProgress"
+        ></bf-sales-channel-amazon-extended-configuration>
+        <bf-sales-channel-amazon-fba-prime-shipping-methods
+            :isSalesChannelAmazon="isSalesChannelAmazon"
+            :salesChannel="salesChannel"
+            :currentContractName="currentContractName"
+            :clientExists="clientExists"
+            :clientInProgress="clientInProgress"
+        ></bf-sales-channel-amazon-fba-prime-shipping-methods>
+    </div>
+{% endblock %}

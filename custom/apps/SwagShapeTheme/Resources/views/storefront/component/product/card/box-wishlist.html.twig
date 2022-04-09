@@ -1,0 +1,35 @@
+{% sw_extends '@Storefront/storefront/component/product/card/box-wishlist.html.twig' %}
+
+{% block component_product_box_content %}
+    <div class="card-body card-body-wishlist">
+        {{ block('component_product_box_rich_snippets') }}
+
+        {{ block('component_product_box_image') }}
+
+        {% block component_product_box_wishlist_action %}{% endblock %}
+
+        {{ block('component_product_box_wishlist') }}
+
+        {% block component_product_box_info %}
+            <div class="product-info product-wishlist-info">
+                <div class="product-labels-ratings{% if (listPrice and not hasRange) or product.markAsTopseller or product.isNew %} justify-content-between{% else %} justify-content-center{% endif %}">
+                    {{ block('component_product_box_badges') }}
+
+                    {{ block('component_product_box_rating') }}
+                </div>
+
+                {{ block('component_product_box_name') }}
+
+                {{ block('component_product_box_variant_characteristics') }}
+
+                {{ block('component_product_box_manufacturer') }}
+
+                {{ block('component_product_box_delivery_time') }}
+
+                {{ block('component_product_box_price') }}
+
+                {{ block('component_product_box_action') }}
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% block bf_ebay_connection_assistant_account_marketplace %}
+    <div class="bf-ebay-connection-assistant-account-marketplace__content">
+
+        {% block bf_ebay_connection_assistant_account_marketplace_content_information %}
+            <sw-card-section class="bf-ebay-connection-assistant-modal__content-description">
+                {{ $tc('ebay.validateMarketplaceDescription') }}
+            </sw-card-section>
+            <div class="bf-ebay-connection-assistant-account__content-information">
+                {% block bf_ebay_connection_assistant_account_marketplace_content_information_error %}
+                    <sw-alert variant="error" v-if="canRetailerSell !== null && !canRetailerSell">
+                        {{$tc('error.ebay.validateMarketplaceError')}}
+                    </sw-alert>
+                {% endblock %}
+                {% block bf_ebay_connection_assistant_account_marketplace_content_information_success %}
+                    <sw-alert variant="success" v-if="canRetailerSell !== null && canRetailerSell">
+                        {{$tc('success.ebay.validateMarketplaceSuccess')}}
+                    </sw-alert>
+                {% endblock %}
+            </div>
+        {% endblock %}
+
+        <sw-container align="end" justify="end"
+                      class="bf-ebay-connection-assistant-account-marketplace__content-button-check">
+            {% block bf_ebay_connection_assistant_accout_marketplace_check_button %}
+                <sw-button
+                    v-if="canRetailerSell === null || !canRetailerSell"
+                    size="small"
+                    variant="primary"
+                    :block="true"
+                    @click="siteIdCheck"
+                    v-tooltip="tooltip">
+                    {{$tc('ebay.validateMarketplaceBtnTitle')}}
+                </sw-button>
+            {% endblock %}
+        </sw-container>
+    </div>
+{% endblock %}

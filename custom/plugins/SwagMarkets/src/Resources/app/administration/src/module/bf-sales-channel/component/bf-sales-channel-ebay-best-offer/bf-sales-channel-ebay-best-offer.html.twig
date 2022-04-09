@@ -1,0 +1,100 @@
+<sw-container>
+    <sw-alert v-if="isDisabled" variant="info" appearance="notification" :showIcon="true" :closable="false" class="mb-2">
+        {{ $tc('salesChannelSettings.invalidContractInfo') }}
+    </sw-alert>
+    {% block bf_sales_channel_best_offer_selects__ebayBestOfferActive %}
+        <sw-switch-field
+            :label="$tc('bf-sales-channel.detail.ebayBestOfferActive')"
+            :value="ebayBestOfferActive"
+            :ghostValue="false"
+            :noMarginTop="true"
+            :helpText="$tc('bf-sales-channel.detail.ebayBestOfferActiveHelpText')"
+            :disabled="isDisabled"
+            size="small"
+            @change="$emit('change', 'ebayBestOfferActive', $event)">
+        </sw-switch-field>
+    {% endblock %}
+    <sw-container columns="1fr 1fr" gap="0 30px">
+        {% block bf_sales_channel_best_offer_selects__ebayBestOfferAbsolute %}
+            <sw-number-field
+                numberType="float"
+                :step="1"
+                :min="0"
+                :digits="2"
+                :label="$tc('bf-sales-channel.detail.ebayBestOfferAbsolute')"
+                :helpText="$tc('bf-sales-channel.detail.ebayBestOfferAbsoluteHelpText')"
+                :value="ebayBestOfferAbsolute"
+                @change="changeInput('ebayBestOfferAbsolute', $event)"
+                :disabled="!ebayBestOfferActive || isDisabled">
+            </sw-number-field>
+        {% endblock %}
+        {% block bf_sales_channel_best_offer_selects__ebayBestOfferRelative %}
+            <sw-number-field
+                numberType="float"
+                :step="1"
+                :min="0"
+                :max="100"
+                :digits="2"
+                :label="$tc('bf-sales-channel.detail.ebayBestOfferRelative')"
+                :helpText="$tc('bf-sales-channel.detail.ebayBestOfferRelativeHelpText')"
+                :value="ebayBestOfferRelative"
+                @change="changeInput('ebayBestOfferRelative', $event)"
+                :disabled="!ebayBestOfferActive || isDisabled">
+            </sw-number-field>
+        {% endblock %}
+    </sw-container>
+    {% block bf_sales_channel_best_offer_selects__ebayBestOfferAutoAccept %}
+        <sw-switch-field
+            :label="$tc('bf-sales-channel.detail.ebayBestOfferAutoAccept')"
+            :value="ebayBestOfferAutoAccept"
+            :ghostValue="false"
+            :noMarginTop="true"
+            :helpText="$tc('bf-sales-channel.detail.ebayBestOfferAutoAcceptHelpText')"
+            :disabled="!ebayBestOfferActive || isDisabled"
+            size="small"
+            @change="$emit('change', 'ebayBestOfferAutoAccept', $event)">
+        </sw-switch-field>
+    {% endblock %}
+    <sw-container columns="1fr 1fr" gap="0 30px">
+        {% block bf_sales_channel_best_offer_selects__ebayBestOfferAbsoluteAutoAccept %}
+            <sw-number-field
+                numberType="float"
+                :step="1"
+                :min="0"
+                :digits="2"
+                :label="$tc('bf-sales-channel.detail.ebayBestOfferAbsoluteAutoAccept')"
+                :helpText="$tc('bf-sales-channel.detail.ebayBestOfferAbsoluteAutoAcceptHelpText')"
+                :value="ebayBestOfferAbsoluteAutoAccept"
+                @change="changeInput('ebayBestOfferAbsoluteAutoAccept', $event)"
+                :disabled="!ebayBestOfferActive || !ebayBestOfferAutoAccept || isDisabled">
+            </sw-number-field>
+        {% endblock %}
+        {% block bf_sales_channel_best_offer_selects__ebayBestOfferRelativeAutoAccept %}
+            <sw-number-field
+                numberType="float"
+                :step="1"
+                :min="0"
+                :max="100"
+                :digits="2"
+                :label="$tc('bf-sales-channel.detail.ebayBestOfferRelativeAutoAccept')"
+                :helpText="$tc('bf-sales-channel.detail.ebayBestOfferRelativeAutoAcceptHelpText')"
+                :value="ebayBestOfferRelativeAutoAccept"
+                @change="changeInput('ebayBestOfferRelativeAutoAccept', $event)"
+                :disabled="!ebayBestOfferActive || !ebayBestOfferAutoAccept || isDisabled">
+            </sw-number-field>
+        {% endblock %}
+    </sw-container>
+    {% block bf_sales_channel_best_offer_selects__ebayBestOfferFix %}
+        <sw-switch-field
+            v-if="isGeneralPage"
+            :label="$tc('bf-sales-channel.detail.ebayBestOfferFix')"
+            :value="ebayBestOfferFix"
+            :ghostValue="false"
+            :noMarginTop="true"
+            :helpText="$tc('bf-sales-channel.detail.ebayBestOfferFixHelpText')"
+            :disabled="!ebayBestOfferActive || isDisabled"
+            size="small"
+            @change="$emit('change', 'ebayBestOfferFix', $event)">
+        </sw-switch-field>
+    {% endblock %}
+</sw-container>

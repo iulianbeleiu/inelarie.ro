@@ -1,0 +1,61 @@
+{
+    "document": {
+        "invoiceNumber": "N.º de factura %invoiceNumber%",
+        "invoiceHeadline": "N.º de factura %invoiceNumber%",
+        "stornoHeadline": "N.º de anulación %stornoNumber% para n.º de factura %invoiceNumber%",
+        "stornoNumber": "N.º de anulación %stornoNumber%",
+        "deliveryNoteNumber": "N.º de albarán de entrega %deliveryNoteNumber%",
+        "deliveryNoteHeadline": "N.º de albarán de entrega %deliveryNoteNumber% para n.º de pedido %orderNumber%",
+        "creditNoteNumber": "Nota de crédito %creditNoteNumber%",
+        "creditNoteHeadline": "N.º de vale %creditNoteNumber% para n.º de factura %invoiceNumber%",
+        "customerNumber": "Número de cliente: %customerNumber%",
+        "date": "Fecha %date%",
+        "comment": "Comentario: %comment%",
+        "orderDate": "Fecha de pedido %orderDate%",
+        "deliveryDate": "Plazo de entrega %deliveryDate%",
+        "page": "Página %pageNumber%",
+        "orderNumber": "Número de pedido: %orderNumber%",
+        "taxNumber": "Impuesto no: %taxNumber%",
+        "vatId": "VAT Reg. No: %vatId%",
+        "taxOffice": "Oficina de Impuestos: %taxOffice%",
+        "bankAccount": "Datos bancarios",
+        "bankIban": "IBAN %bankIban%",
+        "bankBic": "BIC %bankBic%",
+        "placeOfJurisdiction": "La jurisdicción competente es %placeOfJurisdiction%",
+        "serviceDateNotice": "Fecha de servicio equivalente a la fecha de factura",
+        "placeOfFulfillment": "Lugar de cumplimiento %placeOfFulfillment%",
+        "intraCommunity": "Entrega intracomunitaria (UE)",
+        "shippingAddress": "Dirección de envío",
+        "phoneNumber": "Número de teléfono: %phoneNumber%",
+        "email": "Dirección de correo electrónico: %email%",
+        "ceo": "Gerente",
+        "lineItems": {
+            "header": {
+                "position": "Pos.",
+                "label": "Denominación",
+                "tax": "IVA",
+                "quantity": "Cant.",
+                "unitPrice": "Precio/ud.",
+                "productNumber": "N.º prod.",
+                "total": "Total"
+            },
+            "tax": "más %taxRate% % IVA:",
+            "total": "Total:",
+            "roundedTotal": "Total redondeado:",
+            "totalNet": "Total (neto):",
+            "shippingCosts": "Gastos de envío"
+        },
+        "paymentShippingInfo": {
+            "paymentMethod": "Modalidad de pago elegida: %paymentMethod%",
+            "shippingMethod": "Modo de envío elegido: %shippingMethod%",
+            "additionalInfo": "La mercancía permanece de nuestra propiedad hasta el pago del importe completo."
+        }
+    },
+    "filter": {
+        "sortByNameAscending": "Nombre, A-Z",
+        "sortByNameDescending": "Nombre, Z-A",
+        "sortByPriceAscending": "Precio ascendente",
+        "sortByPriceDescending": "Precio descendente",
+        "sortByScore": "Los mejores resultados"
+    }
+}

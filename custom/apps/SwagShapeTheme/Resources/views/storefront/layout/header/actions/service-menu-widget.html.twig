@@ -1,0 +1,13 @@
+{% sw_extends '@Storefront/storefront/layout/header/actions/service-menu-widget.html.twig' %}
+
+{% block layout_header_actions_service_menu_items %}
+    <div class="dropdown-menu dropdown-menu-left"
+         aria-labelledby="serviceMenuDropdown-{{ position }}">
+        {% for category in page.header.serviceMenu %}
+            {% set externalLink = category.translated.externalLink %}
+            <a class="top-bar-list-item dropdown-item"
+               href="{% if externalLink %}{{ externalLink }}{% else %}{{ seoUrl('frontend.navigation.page', { navigationId: category.id }) }}{% endif %}"
+               title="{{ category.translated.name }}">{{ category.translated.name }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}

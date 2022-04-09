@@ -1,0 +1,121 @@
+/*
+CMS elements
+==============================================
+General styling for cms elements
+*/
+
+.cms-element-image-gallery {
+    &.has-vertical-alignment {
+        display: block;
+        height: 100%;
+    }
+}
+
+.cms-element-product-slider {
+    .product-slider-controls-prev {
+        left: -20px;
+    }
+
+    .product-slider-controls-next {
+        right: -20px;
+    }
+}
+
+.cms-element-product-listing {
+    .cms-listing-row {
+        padding-bottom: 44px;
+    }
+
+    &-actions {
+        padding-bottom: $spacer-20;
+        border-bottom: $hr-border-width solid $hr-border-color;
+        margin-bottom: 0;
+
+        &:empty {
+            border-bottom: 0;
+        }
+    }
+
+    .b2b--ajax-panel {
+        @extend .mt-0;
+    }
+}
+
+.cms-element-product-listing-view-mode {
+    float: left;
+
+    .border-primary {
+        line-height: 30px;
+        border-color: $custom-select-border-color !important;
+
+        .icon {
+            width: 18px;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            border-color: $primary;
+            box-shadow: none;
+        }
+    }
+}
+
+.cms-element-sidebar-filter {
+    padding-top: $spacer-20;
+    padding-bottom: $spacer-20;
+    border-top: $hr-border-width solid $hr-border-color;
+}
+
+.cms-block-sidebar-filter + .cms-block-product-listing {
+    .cms-element-product-listing-actions {
+        padding-top: 0;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .cms-element-product-listing-actions {
+        .sorting {
+            margin-top: 0;
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .cms-element-product-slider {
+        .product-slider-controls-prev {
+            left: -35px;
+        }
+
+        .product-slider-controls-next {
+            right: -35px;
+        }
+    }
+
+    .cms-element-product-listing {
+        .cms-listing-row {
+            padding-bottom: 54px;
+        }
+    }
+
+    .is-act-search {
+        .cms-element-product-listing-actions {
+            padding-top: $spacer-20;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .cms-element-sidebar-filter {
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .cms-element-product-listing-actions {
+        border-bottom: none;
+
+        .sorting {
+            min-width: 280px;
+        }
+    }
+}

@@ -1,0 +1,6 @@
+{% sw_extends '@Storefront/storefront/layout/header/actions/currency-widget.html.twig' %}
+
+{% block layout_header_actions_currency_widget_dropdown_toggle_name %}
+    {{ page.header.activeCurrency.symbol }}
+    <span class="top-bar-nav-text">{{ page.header.activeCurrency.translated.shortName }}</span>
+{% endblock %}

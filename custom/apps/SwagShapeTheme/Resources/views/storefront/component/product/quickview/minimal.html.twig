@@ -1,0 +1,22 @@
+{% sw_extends '@Storefront/storefront/component/product/quickview/minimal.html.twig' %}
+
+{% block component_product_quickview_minimal_footer %}
+    {{ parent() }}
+
+    {% if page.product.sortedProperties|length > 0 %}
+        <div class="h3 product-detail-description-title">
+            {{ "detail.propertyTitle"|trans|sw_sanitize }}
+        </div>
+
+        {% sw_include '@Storefront/storefront/page/product-detail/properties.html.twig' %}
+    {% endif %}
+
+{% endblock %}
+
+{% block component_product_quickview_minimal_footer_text %}
+    <div class="h3 product-detail-description-title">
+        {{ "detail.descriptionTitle"|trans|sw_sanitize }} "{{ page.product.translated.name }}"
+    </div>
+
+    {{ parent() }}
+{% endblock %}

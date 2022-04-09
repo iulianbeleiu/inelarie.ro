@@ -1,0 +1,23 @@
+{% sw_extends '@Storefront/storefront/layout/navigation/offcanvas/categories.html.twig' %}
+
+{# override this block in order to swap position of two block active-item-link and back-link #}
+{% block layout_navigation_offcanvas_navigation_categories %}
+    <div class="navigation-offcanvas-container js-navigation-offcanvas">
+        <div class="navigation-offcanvas-overlay-content js-navigation-offcanvas-overlay-content">
+            {% if not isRoot %}
+                {% sw_include '@Storefront/storefront/layout/navigation/offcanvas/show-all-link.html.twig' %}
+
+                {% sw_include '@Storefront/storefront/layout/navigation/offcanvas/back-link.html.twig' with { item: active } %}
+
+                {% sw_include '@Storefront/storefront/layout/navigation/offcanvas/active-item-link.html.twig' with { item: active } %}
+            {% endif %}
+
+            <ul class="list-unstyled navigation-offcanvas-list {{ isRoot ? 'is-root' : '' }}">
+                {# @var item \Shopware\Core\Content\Category\Tree\TreeItem #}
+                {% for item in children.tree %}
+                    {% sw_include '@Storefront/storefront/layout/navigation/offcanvas/item-link.html.twig' with { item: item, activeId: activeId } %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

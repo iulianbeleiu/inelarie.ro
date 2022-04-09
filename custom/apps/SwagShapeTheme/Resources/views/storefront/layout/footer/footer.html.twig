@@ -1,0 +1,79 @@
+{% sw_extends '@Storefront/storefront/layout/footer/footer.html.twig' %}
+
+{% block layout_footer_navigation_hotline %}
+{% endblock %}
+
+{% block layout_footer_navigation_column %}
+    <div class="col-md-3 footer-column js-footer-column">
+        {% block layout_footer_navigation_information_headline %}
+            {{ parent() }}
+        {% endblock %}
+
+        {% block layout_footer_navigation_information_content %}
+            {{ parent() }}
+        {% endblock %}
+    </div>
+{% endblock %}
+
+{% block layout_footer_navigation_information_icons %}
+    <div class="footer-column-toggle">
+        <span class="footer-plus-icon">
+            {% sw_icon 'ic-chevron-down' style {'pack' : 'shape'}  %}
+        </span>
+        <span class="footer-minus-icon">
+            {% sw_icon 'ic-chevron-up' style {'pack' : 'shape'} %}
+        </span>
+    </div>
+{% endblock %}
+
+{% block layout_footer_inner_container %}
+    <div class="container-main">
+        {% block layout_footer_newsletter_content %}
+            {% sw_include '@Storefront/storefront/layout/footer/footer-newsletter.html.twig' %}
+        {% endblock %}
+
+        {% block layout_footer_middle %}
+            <div class="footer-middle">
+                <div class="container">
+                    <div class="row">
+                        {% block layout_footer_navigation_hotline_icons %}
+                            {% sw_include '@Storefront/storefront/layout/footer/footer-links.html.twig' %}
+                        {% endblock %}
+
+                        {% block layout_footer_navigation %}
+                            <div class="footer-navigation">
+                                {{ parent() }}
+                            </div>
+                        {% endblock %}
+
+                        {% block layout_footer_payment_shipping_logos %}
+                            {{ parent() }}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
+        {% block layout_footer_bottom %}
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row align-items-baseline">
+                        {% block layout_footer_service_menu_content %}
+                            {{ parent() }}
+                        {% endblock %}
+
+                        {% block layout_footer_vat %}
+                            {{ parent() }}
+                        {% endblock %}
+
+                        {% block layout_footer_copyright %}
+                            <div class="footer-copyright">
+                                &copy;{{ "footer.copyrightInfo"|trans|raw }}
+                            </div>
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

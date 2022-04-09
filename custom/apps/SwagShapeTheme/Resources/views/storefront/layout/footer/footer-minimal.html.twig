@@ -1,0 +1,25 @@
+{% sw_extends '@Storefront/storefront/layout/footer/footer.html.twig' %}
+
+{% block layout_footer_inner_container %}
+    <footer class="footer-minimal">
+        {% block layout_footer_bottom %}
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row align-items-baseline">
+                        {% block layout_footer_service_menu_content %}
+                            {{ parent() }}
+                        {% endblock %}
+
+                        {% block layout_footer_vat %}
+                            {{ parent() }}
+                        {% endblock %}
+
+                        {% block layout_footer_copyright %}
+                            {{ parent() }}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    </footer>
+{% endblock %}

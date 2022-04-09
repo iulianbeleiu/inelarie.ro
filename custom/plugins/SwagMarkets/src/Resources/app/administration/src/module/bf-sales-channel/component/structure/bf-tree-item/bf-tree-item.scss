@@ -1,0 +1,13 @@
+.bf-tree-item {
+  .bf-tree-item__element {
+    grid-template-columns: 30px 24px auto;
+
+    .sw-field {
+      margin-bottom: 0;
+
+      .sw-field__radio-option {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

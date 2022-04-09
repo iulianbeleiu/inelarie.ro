@@ -1,0 +1,28 @@
+{% block bf_sales_channel_shopware_segment_dropdown %}
+    <div class="bf-segment-dropdown-container">
+        <sw-alert v-if="isDisabled" variant="info" appearance="notification" :showIcon="true" :closable="false">
+            {{ $tc('salesChannelSettings.invalidContractInfo') }}
+        </sw-alert>
+
+        {% block bf_sales_channel_shopware_segment_dropdown_input_segment %}
+        <sw-single-select
+            :label="$tc('bf-category-segment-mapping.amazonProductSegmentLabel')"
+            :options="allProductsSegments"
+            :disabled="isDisabled"
+            v-model="selectedSegment"
+            @change="onSelectSegment"
+        ></sw-single-select>
+        {% endblock %}
+
+        {% block bf_sales_channel_shopware_segment_dropdown_input_ %}
+        <sw-single-select
+            v-if="productsTypes.length > 1"
+            :label="$tc('bf-category-segment-mapping.amazonProductTypeLabel')"
+            :options="productsTypes"
+            :disabled="isDisabled"
+            v-model="selectedType"
+            @change="onSelectType"
+        ></sw-single-select>
+        {% endblock %}
+    </div>
+{% endblock %}

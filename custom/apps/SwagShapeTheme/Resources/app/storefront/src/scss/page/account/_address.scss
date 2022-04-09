@@ -1,0 +1,211 @@
+.address-action-set-default {
+    padding: 0;
+    border: none;
+}
+
+.address-actions-defaults {
+    margin-bottom: 0;
+}
+
+.address-actions-buttons {
+    line-height: 32px;
+}
+
+.address-card {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.default-address,
+.address-list {
+    &.row,
+    > .row {
+        margin-right: -12px;
+        margin-left: -12px;
+    }
+}
+
+.address-list {
+    padding-top: 0;
+    padding-bottom: 12px;
+}
+
+.address-action-create {
+    width: 100%;
+    margin-bottom: $spacer-20;
+    min-height: 217px;
+
+    .icon-shape-ic-plus {
+        display: flex;
+        width: 40px;
+        height: 40px;
+        background-color: $gray-900;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-bottom: $spacer-lg;
+
+        > svg {
+            width: 12px;
+            height: 12px;
+            top: 0;
+            color: $white;
+
+            g {
+                fill: $white;
+            }
+        }
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+        padding: $spacer-lg;
+        background-color: $white;
+
+        &:hover {
+            box-shadow: $dropdown-box-shadow;
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .is-ctl-address {
+        .account-welcome {
+            margin-bottom: $spacer-50;
+        }
+    }
+
+    .address-list {
+        padding-bottom: 60px;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .is-ctl-address {
+        .account-welcome {
+            margin-bottom: $spacer-40;
+        }
+    }
+
+    .address-list {
+        padding-bottom: 112px;
+    }
+}
+
+// New Address Form
+.address-form-actions {
+    margin: $spacer-lg 0 0;
+}
+
+.address-required-info {
+    padding-left: 12px;
+}
+
+.account-address-form {
+    padding-bottom: $spacer-40;
+}
+
+@include media-breakpoint-up(lg) {
+    .account-address-form {
+        padding-bottom: 120px;
+
+        .account-welcome {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+.account-address-actions-context-menu {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+    border-color: $gray-900;
+    border-width: $hr-border-width;
+    position: relative;
+    overflow: unset;
+
+    .icon {
+        position: unset;
+        margin: 0;
+        width: 24px;
+        height: 24px;
+
+        > svg {
+            width: 24px;
+            position: unset;
+
+            path {
+                fill: $gray-900;
+            }
+        }
+    }
+
+    &::after {
+        content: unset;
+    }
+}
+
+.account-address-actions-context-content {
+    border-radius: 4px;
+    margin-top: $spacer-10;
+    min-width: 238px;
+
+    &-link {
+        padding: $spacer-10 14px;
+
+        &:hover {
+            background-color: $shape-gray-200;
+            color: inherit;
+        }
+    }
+
+    .address-actions-buttons .btn-light,
+    .btn-link {
+        display: block;
+        border: 0 none;
+        width: 100%;
+        color: $sw-text-color;
+        background: none;
+        cursor: pointer;
+        text-align: left;
+        font-weight: $font-weight-base;
+        text-transform: capitalize;
+        line-height: 18px;
+        padding: $spacer-10 14px;
+        border-radius: 0;
+
+        &:not(:disabled):not(.disabled) {
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: $shape-gray-200;
+                color: inherit;
+            }
+        }
+
+        &:active {
+            outline: none;
+        }
+    }
+
+    .address-action-delete {
+        margin-left: 0;
+
+        .btn-light {
+            color: #9e3229;
+        }
+    }
+
+    .col-auto {
+        @include make-col(12);
+    }
+}

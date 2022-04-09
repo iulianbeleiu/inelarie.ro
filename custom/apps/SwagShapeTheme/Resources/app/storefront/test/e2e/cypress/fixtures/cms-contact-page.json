@@ -1,0 +1,29 @@
+{
+  "name": "Test Contact Form Page",
+  "type": "page",
+  "id": "8c287c93aae24001976d8aef2ade2f24",
+  "sections": [
+    {
+      "type": "default",
+      "position": 0,
+      "blocks": [
+        {
+          "type": "form",
+          "position": 0,
+          "slots": [
+            {
+              "type": "form",
+              "slot": "content",
+              "config": {
+                "displayMode": {
+                  "source": "static",
+                  "value": "cover"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+<sw-card v-if="showTokenCard" :title="$tc('bf-sales-channel.detail.ebayExpireTokenTitle')" :isLoading="isLoading">
+    <sw-alert variant="info" appearance="system" :showIcon="true" :closable="false" v-if="!clientRdy && !errorLoadingTokens">
+        {{ $tc('bf-sales-channel.detail.ebayTokenSystemInfo') }}
+    </sw-alert>
+    <sw-alert variant="error" appearance="system" :showIcon="true" :closable="false" v-if="errorLoadingTokens">
+        {{ $tc('bf-sales-channel.detail.ebayErrorLoadingTokens') }}
+    </sw-alert>
+    <sw-container columns="1fr 1fr">
+        <sw-description-list>
+            <dt style="text-align: center">{{ $tc('bf-sales-channel.detail.ebayExpireTokenOAuthTitle') }}
+                <span v-html="oAuthTokenDate" style="color: #2a8844"></span>
+            </dt>
+            <dd>
+                <sw-button
+                    :disabled="!clientRdy || errorLoadingTokens || errorOAuthTokenLink"
+                    variant="ghost" size="small"
+                    :square="false" :block="true"
+                    :isLoading="false"
+                    @click="authorizeOAuthToken">
+                    {{ $tc('bf-sales-channel.detail.ebayExtendTokenOAuthBtn') }}
+                </sw-button>
+            </dd>
+        </sw-description-list>
+        <sw-description-list>
+            <dt style="text-align: center">{{ $tc('bf-sales-channel.detail.ebayExpireTokenAuthTitle') }}
+                <span v-html="authTokenDate"></span>
+            </dt>
+            <dd>
+                <sw-button
+                    :disabled="!clientRdy || errorLoadingTokens || errorAuthTokenLink"
+                    variant="ghost" size="small"
+                    :square="false"
+                    :block="true"
+                    :isLoading="false"
+                    @click="authorizeAuthToken">
+                    {{$tc('bf-sales-channel.detail.ebayExtendTokenAuthBtn')}}
+                </sw-button>
+            </dd>
+        </sw-description-list>
+    </sw-container>
+</sw-card>

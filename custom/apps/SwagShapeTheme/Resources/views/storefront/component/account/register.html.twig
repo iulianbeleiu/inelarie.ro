@@ -1,0 +1,43 @@
+{% sw_extends '@Storefront/storefront/component/account/register.html.twig' %}
+
+{% block component_account_register_address_billing_header %}
+{% endblock %}
+
+{% block component_account_register_address_shipping_fields_personal %}
+    {% sw_include '@Storefront/storefront/component/address/address-personal.html.twig' with {
+        'prefix': 'shippingAddress',
+        'data': data.get('shippingAddress'),
+        'hideCustomerTypeSelect': false,
+        'accountType': data.get('shippingAddress').get('accountType')
+    } %}
+{% endblock %}
+
+{% block component_account_register_personal_account_fields %}
+    <div class="form-row contact-register">
+        <div class="form-group col-sm-6">
+            {{ formGroupMail }}
+        </div>
+
+        {% if config('core.loginRegistration.requireEmailConfirmation') %}
+            <div class="form-group col-sm-6">
+                {{ formGroupMailConfirmation }}
+            </div>
+        {% elseif not config('core.loginRegistration.requirePasswordConfirmation') %}
+            <div class="form-group col-sm-6">
+                {{ formGroupPassword }}
+            </div>
+        {% endif %}
+
+        {% if config('core.loginRegistration.requireEmailConfirmation') or config('core.loginRegistration.requirePasswordConfirmation') %}
+            <div class="form-group col-sm-6">
+                {{ formGroupPassword }}
+            </div>
+        {% endif %}
+
+        {% if config('core.loginRegistration.requirePasswordConfirmation') %}
+            <div class="form-group col-sm-6">
+                {{ formGroupPasswordConfirmation }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

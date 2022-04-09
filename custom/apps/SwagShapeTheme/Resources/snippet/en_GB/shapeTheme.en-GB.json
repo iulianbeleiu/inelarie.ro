@@ -1,0 +1,79 @@
+{
+    "general": {
+        "404ErrorPageHeader": "It looks like you are lost.",
+        "404ErrorDescription": "The page you are looking for no longer exists",
+        "maintenanceModeHeader": "We`ll be back soon.",
+        "maintenanceModeDescription": "The page you are looking for no longer exists.",
+        "requiredFields": "*required field",
+        "offcanvasCloseMenu": "My Account"
+    },
+    "header": {
+        "topBarMessage": "FREE TRANSFER TO AND FREE OF CHARGE RETURNS from an order value of X euros",
+        "searchPlaceholder": "Search...",
+        "searchAllResults": "Show all results"
+    },
+    "footer": {
+        "newsletterHeadline": "Our newsletter.<br>Subscribe now and don't miss anything anymore!",
+        "newsletterInfo": "Subscribe to the newsletter now and get a x Euro voucher!",
+        "instagramLink": "Instagram",
+        "facebookLink": "Instagram",
+        "pinterestLink": "Pinterest",
+        "scrollTop": "To the top"
+    },
+    "checkout":{
+        "welcome": "Welcome back!",
+        "addressRegisterCardTitle": "I am new here.",
+        "registerWelcome": "Welcome! Please register to continue:",
+        "addressLoginToggle": "If you already have an account? Click here to login.",
+        "cartyEmptyDesc": "Add some product to fill your cart."
+    },
+    "newsletter": {
+        "formSubmit": "Sign up",
+        "formSubscribe": "Subscribe",
+        "placeholderMail": "Your e-mail address"
+    },
+    "detail": {
+        "propertyTitle": "Material",
+        "sale": "Sale"
+    },
+    "account": {
+        "overviewTitle": "Hello",
+        "overviewInfo": "This is the account overview! Find and edit basic information on selected payment methods and addresses.",
+        "overviewProfileHeader": "your profile",
+        "overviewChangeProfile": "Change",
+        "overviewPaymentHeader": "Payment Method",
+        "overviewChangePayment": "Change",
+        "newsletterTitle": "newsletter setting",
+        "overviewNewestOrderHeader": "Your last order",
+        "orderActionView": "View more",
+        "overviewChangeBilling": "Change",
+        "overviewChangeShipping": "Change",
+        "orderContextMenuChangePayment": "Change",
+        "greetings": "Your Account",
+        "loginHeader": "Welcome back!",
+        "registerPersonalHeader": "I am new here.",
+        "loginPasswordRecover": "Did you forget your password?",
+        "personalPasswordDescription": "Your password must contain at least %minLength% characters.",
+        "profileCurrentPass": "Password",
+        "profileChangeEmail": "Change",
+        "profileChangePassword": "Change",
+        "profilePasswordText": "**************************",
+        "profileAccountDeleting": "Customer account",
+        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-target=\"%target%\">Click here</a> to delete all your personal data",
+        "profileDeleteModalTitle": "Customer Account",
+        "profileDeleteButton": "Delete Account",
+        "profileDeleteAlert": "After deleting your customer account personal data, newsletter entries and reviews won't be accessible to you anymore.\n Note that records of all orders will be kept nonetheless in order to fulfill legal regulations.",
+        "profileDeleteConfirm": "Do you really want to delete your customer account?",
+        "addressListHeader": "Your Address",
+        "addressesContentItemActionEdit": "Change",
+        "addressHeadline": "Change billing address",
+        "orRegisterLink": "Register",
+        "orderItemColumnProductNumber": "Product number: ",
+        "orderItemColumnPrice": "Price per unit",
+        "orderItemDate": "From:"
+    },
+    "listing": {
+        "boxAddProductMobile": "Add to cart",
+        "boxProductDetails": "More details"
+    }
+}

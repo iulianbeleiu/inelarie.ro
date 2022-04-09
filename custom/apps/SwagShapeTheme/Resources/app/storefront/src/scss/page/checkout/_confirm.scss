@@ -1,0 +1,60 @@
+.is-act-editorder,
+.is-act-confirmpage {
+    .confirm-main-header {
+        margin-bottom: $spacer-50;
+    }
+
+    .checkout-additional-wrap {
+        margin-bottom: $spacer-50;
+
+        .card-title {
+            padding-bottom: 8px;
+            margin-bottom: $spacer-20;
+        }
+
+        textarea {
+            border-radius: 8px;
+            line-height: 2.5;
+        }
+    }
+}
+
+.confirm-tos {
+    margin-bottom: 0;
+
+    .revocation-notice {
+        padding-bottom: 1rem;
+        border-bottom: $hr-border-width solid $border-color;
+    }
+
+    a {
+        color: $shape-gray-900;
+    }
+}
+
+:is(
+.confirm-shipping .card-title,
+.confirm-payment .card-title,
+.confirm-card-title
+) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-size: $font-size-base;
+    border-bottom-width: $hr-border-width;
+}
+
+.confirm-product {
+    .cart-header-info {
+        @include checkout-headline;
+    }
+}
+
+@include media-breakpoint-only(md) {
+    .is-act-confirmpage {
+        div[data-swag-paypal-smart-payment-buttons='true'] {
+            width: 50%;
+        }
+    }
+}

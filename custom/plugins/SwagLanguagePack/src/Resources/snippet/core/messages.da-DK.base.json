@@ -1,0 +1,61 @@
+{
+    "document": {
+        "invoiceNumber": "Faktura %invoiceNumber%",
+        "invoiceHeadline": "Faktura %invoiceNumber%",
+        "stornoHeadline": "Kreditnota %stornoNumber% for faktura %invoiceNumber%",
+        "stornoNumber": "Annulleringsnummer %stornoNumber%",
+        "deliveryNoteNumber": "Leveringsbekræftelse %deliveryNoteNumber%",
+        "deliveryNoteHeadline": "Leveringsbekræftelse %deliveryNoteNumber% for ordre %orderNumber%",
+        "creditNoteNumber": "Kreditnote %creditNoteNumber%",
+        "creditNoteHeadline": "Kreditnota %creditNoteNumber% for fakturanummer %invoiceNumber%",
+        "customerNumber": "Kundenr.: %customerNumber%",
+        "date": "Dato: %date%",
+        "comment": "Kommentar: %comment%",
+        "orderDate": "Ordre dato: %orderDate%",
+        "deliveryDate": "Leveringsdato: %deliveryDate%",
+        "page": "Side %pageNumber%",
+        "orderNumber": "Ordre nr: %orderNumber%",
+        "taxNumber": "Skat nr.: %taxNumber%",
+        "vatId": "Momsreg.nr.: %vatId%",
+        "taxOffice": "Skat kontor: %taxOffice%",
+        "bankAccount": "Bankkonto",
+        "bankIban": "IBAN: %bankIban%",
+        "bankBic": "BIC: %bankBic%",
+        "placeOfJurisdiction": "Værneting: %placeOfJurisdiction%",
+        "serviceDateNotice": "Servicedato svarende til fakturadatoen",
+        "placeOfFulfillment": "Lagerplacering: %placeOfFulfillment%",
+        "intraCommunity": "Levering inden for Fællesskabet (EU)",
+        "shippingAddress": "Forsendelsesadresse",
+        "phoneNumber": "Telefonnummer: %phoneNumber%",
+        "email": "E-mail-adresse: %email%",
+        "ceo": "CEO",
+        "lineItems": {
+            "header": {
+                "position": "Pos.",
+                "label": "Label",
+                "tax": "Moms",
+                "quantity": "Antal",
+                "unitPrice": "Varepris",
+                "productNumber": "Varenr.",
+                "total": "I alt"
+            },
+            "tax": "plus %taxRate%% moms:",
+            "total": "I alt:",
+            "roundedTotal": "Afrundet i alt",
+            "totalNet": "I alt inkl. moms:",
+            "shippingCosts": "Forsendelsesomkostninger"
+        },
+        "paymentShippingInfo": {
+            "paymentMethod": "Betalingsmetode: %paymentMethod%",
+            "shippingMethod": "Leveringsmetode: %shippingMethod%",
+            "additionalInfo": "Leverede varer forbliver vores ejendom, indtil fuld betaling er foretaget."
+        }
+    },
+    "filter": {
+        "sortByNameAscending": "Navn, A-Z",
+        "sortByNameDescending": "Navn, Z-A",
+        "sortByPriceAscending": "Pris, stigende",
+        "sortByPriceDescending": "Pris, faldende",
+        "sortByScore": "Top resultater"
+    }
+}

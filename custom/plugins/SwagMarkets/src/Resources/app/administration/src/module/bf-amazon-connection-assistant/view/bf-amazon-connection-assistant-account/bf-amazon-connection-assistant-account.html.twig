@@ -1,0 +1,9 @@
+{% block bf_amazon_connection_assistant_account %}
+    <div class="bf-amazon-connection-assistant-account">
+        {% block bf_amazon_connection_assistant_account_content %}
+            <div class="bf-amazon-connection-assistant-account__content">
+                <router-view v-on="$listeners" :nextBtnIsClicked="nextBtnIsClicked"></router-view>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

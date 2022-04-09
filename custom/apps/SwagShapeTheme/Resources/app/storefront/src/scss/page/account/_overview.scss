@@ -1,0 +1,15 @@
+.account-overview-card {
+    margin-bottom: 0;
+}
+
+.account-overview-newest-order {
+    margin-top: $spacer-30;
+}
+
+@include media-breakpoint-up(sm) {
+    .account-overview-card {
+        &.col-lg-6 {
+            @include make-col(6);
+        }
+    }
+}

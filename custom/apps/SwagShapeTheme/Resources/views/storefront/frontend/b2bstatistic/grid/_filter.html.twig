@@ -1,0 +1,32 @@
+{% sw_extends '@SwagB2bPlatform/storefront/frontend/b2bstatistic/grid/_filter.html.twig' %}
+
+{% block b2b_statistic_filter_panel_actions %}
+    <div class="text-left filter-actions">
+        {{ block('b2b_statistic_filter_panel_actions_inner') }}
+    </div>
+{% endblock %}
+
+{% block b2b_statistic_filter_panel_content_filter %}
+    {# Hide the first form-group when contact length < 1 #}
+    <div class="form-row panel-content-filter">
+        {% if contacts|length > 1 %}
+            <div class="form-group">
+                {% block b2b_statistic_filter_panel_content_filter_contact %}
+                    {{ parent() }}
+                {% endblock %}
+            </div>
+        {% endif %}
+        <div class="form-group">
+            {% block b2b_statistic_filter_panel_content_filter_role %}
+                {{ parent() }}
+            {% endblock %}
+        </div>
+
+        <div class="form-group">
+            {% block b2b_statistic_filter_panel_content_filter_state %}
+                {{ parent() }}
+            {% endblock %}
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+.bf-ebay-connection-assistant-account-product__content {
+    .bf-ebay-connection-assistant-account-product__content-button-check {
+        margin: 35px 0;
+    }
+
+    .bf-ebay-connection-assistant-account-product__content-information {
+        .title, p, a {
+            font-size: 14px;
+            line-height: 22px;
+            letter-spacing: .1px;
+            font-weight: normal;
+        }
+
+        .title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        a {
+            margin-top: 10px;
+        }
+        .bf-ebay-connection-assistant-account-product-content-information-delete-button {
+            margin-top: 25px;
+        }
+    }
+}

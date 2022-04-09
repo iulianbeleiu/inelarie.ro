@@ -1,0 +1,22 @@
+.b2b--navigation {
+    max-width: 100%;
+    background-color: $shape-gray-200;
+
+    &::before,
+    &::after {
+        content: unset;
+    }
+
+    &-mainmenu {
+        @extend .container;
+    }
+
+    .navigation--link {
+        text-transform: uppercase;
+        font-weight: $font-weight-semibold;
+
+        &.is--active {
+            font-weight: $font-weight-semibold;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{% sw_extends '@Storefront/storefront/element/cms-element-form/form-components/cms-element-form-privacy.html.twig' %}
+
+{% block cms_form_privacy_opt_in_title %}
+    <strong>{{ "general.privacyTitle"|trans }} {{ "general.required"|trans }}</strong>
+{% endblock %}
+
+{% block cms_form_privacy_opt_in_input %}
+    {% if config('core.loginRegistration.requireDataProtectionCheckbox') == 1 %}
+        <input name="privacy"
+               type="checkbox"
+               class="custom-control-input"
+               id="{{ identifierTemplate|format(_key) }}"
+               required>
+    {% endif %}
+{% endblock %}
+
+{% block cms_form_privacy_opt_in_label %}
+    <label for="{{ identifierTemplate|format(_key) }}" {% if config('core.loginRegistration.requireDataProtectionCheckbox') == 1 %}class="custom-control-label"{% endif %}>
+        {{ "general.privacyNotice"|trans({
+            '%url%': path('frontend.cms.page',{ id: config('core.basicInformation.privacyPage') })
+        })|raw }}
+    </label>
+{% endblock %}

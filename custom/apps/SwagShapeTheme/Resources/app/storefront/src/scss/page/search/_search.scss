@@ -1,0 +1,21 @@
+.search-page {
+    padding-left: $spacer-20;
+    padding-right: $spacer-20;
+
+    .filter-panel {
+        padding-top: $spacer-20;
+        padding-bottom: $spacer-20;
+    }
+}
+
+.search-headline {
+    padding-top: $spacer-lg;
+}
+
+@include media-breakpoint-up(xl) {
+    .cms-page {
+        &.search-page {
+            @include container-gutter();
+        }
+    }
+}

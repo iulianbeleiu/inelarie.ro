@@ -1,0 +1,17 @@
+{% sw_extends '@Storefront/storefront/component/customized-products/_include/title-step-by-step.html.twig' %}
+
+{% block swag_customized_products_option_type_template_label_content %}
+    <div class="swag-customized-products__link col-10 p-0">
+        {% block swag_customized_products_option_type_template_label_content_text %}
+            {{ parent() }}
+        {% endblock %}
+
+        {% if option.required %}
+            {% block swag_customized_products_option_type_template_label_content_required_addition %}
+            {{ parent() }}
+            {% endblock %}
+        {% endif %}
+    </div>
+
+    <div class="col-2 p-0 text-right swag-customized-products__pager-number"></div>
+{% endblock %}

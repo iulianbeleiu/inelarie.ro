@@ -1,0 +1,14 @@
+{% block bf_sales_channel_detail_base_delete %}{% endblock %}
+{% block bf_sales_channel_detail_base_ebay_token_expires %}{% endblock %}
+{% block bf_sales_channel_detail_base_general_select_marketplace %}
+    <sw-single-select
+            :label="$tc('bf-sales-channel.create.labelMarketplace')"
+            v-model="salesChannel.marketplaceId"
+            @change="onUpdateMarketplace"
+            :options="marketplaces"
+            required
+            validation="required"
+            :error="salesChannelCountryIdError"
+    >
+    </sw-single-select>
+{% endblock %}

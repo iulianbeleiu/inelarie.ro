@@ -1,0 +1,166 @@
+{% block bf_sales_channel_product_detail %}
+<sw-modal :isLoading="isLoading"
+        :variant="'large'"
+        class="bf-modal"
+        :title="product.name"
+        @modal-close="$emit('modal-close')">
+    {% block bf_sales_channel_product_detail__content %}
+    <sw-alert v-if="isDisabled" variant="info" appearance="notification" :showIcon="true" :closable="false">
+        {{ $tc('salesChannelSettings.invalidContractInfo') }}
+    </sw-alert>
+
+    {% block bf_sales_channel_product_category_mapping %}
+        <sw-inherit-wrapper v-model="product.categories"
+                            :inheritedValue="null"
+                            isAssociation
+                            :label="$tc('sw-product.categoryForm.labelCategory')">
+            <template #content="{ currentValue, isInherited }">
+                <bf-sales-channel-product-category-mapping
+                        :product="product"
+                        :categoriesCollection="currentValue ? currentValue : []"
+                        class="sw-product-detail__select-category"
+                        :disabled="isInherited"
+                        :key="isInherited"
+                        :placeholder="$tc('sw-product.categoryForm.placeholderCategory')">
+                </bf-sales-channel-product-category-mapping>
+            </template>
+        </sw-inherit-wrapper>
+       {% endblock %}
+    {% block bf_sales_channel_product_detail__content_base %}
+    <div v-if="salesChannelType === 'amazon'">
+        <sw-card :title="$tc('products.edit.general')" large>
+            <sw-text-field
+                    type="text"
+                    :label="$tc('products.edit.label.searchTerms')"
+                    :placeholder="$tc('products.edit.placeholder.searchTerms')"
+                    :value="formData.searchTerms"
+                    :name="formData.bfProductId + '-searchTerms'"
+                    @change="formData.searchTerms = $event"
+            ></sw-text-field>
+            <sw-text-field
+                    type="text"
+                    :label="$tc('products.edit.label.platinumKeywords')"
+                    :placeholder="$tc('products.edit.placeholder.platinumKeywords')"
+                    :value="formData.platinumKeywords"
+                    :name="formData.bfProductId + '-platinumKeywords'"
+                    @change="formData.platinumKeywords = $event"
+            ></sw-text-field>
+        </sw-card>
+
+        <sw-alert variant="info" appearance="notification" :showIcon="true" :closable="false" v-if="isDisabled">
+            {{ $tc('products.edit.invalidContractInfo') }}
+        </sw-alert>
+
+        <sw-card :title="$tc('products.edit.basisBFeatures')" large>
+            <sw-text-field
+                    type="text"
+                    :disabled="currentContract.name !== 'Plus'"
+                    :label="$tc('products.edit.label.merchantShippingGroupName')"
+                    :placeholder="$tc('products.edit.placeholder.merchantShippingGroupName')"
+                    :value="formData.merchantShippingGroupName"
+                    :name="formData.bfProductId + '-merchantShippingGroupName'"
+                    :helpText="$tc('salesChannelSettings.amazon.helpText.merchantShippingGroup')"
+                    @change="formData.merchantShippingGroupName = $event"
+            ></sw-text-field>
+            <sw-switch-field
+                :label="$tc('products.edit.label.fbaActive')"
+                :value="formData.fbaActive"
+                :ghostValue="false"
+                :noMarginTop="true"
+                :disabled="isDisabled"
+                :helpText="$tc('salesChannelSettings.amazon.helpText.fba')"
+                @change="formData.fbaActive = $event"
+            ></sw-switch-field>
+        </sw-card>
+    </div>
+
+    <div>
+        <sw-single-select
+            :label="this.$tc('products.edit.label.condition')"
+            :options="allConditions"
+            :value="formData.conditionAttribute"
+            v-model="formData.conditionAttribute"
+            @change="formData.conditionAttribute = $event"
+        ></sw-single-select>
+    </div>
+    <div v-if="salesChannelType === 'amazon'">
+        <sw-text-field
+            :label="this.$tc('products.edit.label.conditionNote')"
+            :value="formData.conditionNote"
+            v-model="formData.conditionNote"
+            @change="formData.conditionNote = $event"
+        ></sw-text-field>
+    </div>
+
+    <div v-if="salesChannelType === 'ebay'">
+        <sw-switch-field
+            :label="$tc('products.edit.label.ebayPlus')"
+            :value="formData.ebayPlus"
+            :ghostValue="false"
+            :noMarginTop="true"
+            :disabled="isDisabled"
+            :helpText="$tc('salesChannelSettings.ebay.helpText.ebayPlus')"
+            @change="formData.ebayPlus = $event"
+        ></sw-switch-field>
+
+        <bf-sales-channel-ebay-best-offer
+            :isGeneralPage="false"
+            :clientExists="clientExists"
+            :clientInProgress="clientInProgress"
+            :currentContractName="currentContract.name"
+            :ebayBestOfferActive="formData.ebayProposedPrice.ebayBestOfferActive"
+            :ebayBestOfferAbsolute="formData.ebayProposedPrice.ebayBestOfferAbsolute"
+            :ebayBestOfferRelative="formData.ebayProposedPrice.ebayBestOfferRelative"
+            :ebayBestOfferAutoAccept="formData.ebayProposedPrice.ebayBestOfferAutoAccept"
+            :ebayBestOfferAbsoluteAutoAccept="formData.ebayProposedPrice.ebayBestOfferAbsoluteAutoAccept"
+            :ebayBestOfferRelativeAutoAccept="formData.ebayProposedPrice.ebayBestOfferRelativeAutoAccept"
+            :ebayBestOfferFix="false"
+            @change="changeFormInputValue"
+        ></bf-sales-channel-ebay-best-offer>
+
+        <sw-card :title="$tc('bf-sales-channel.detail.titleGeneralEbayPolicies')" large>
+            <sw-single-select
+                :name="formData.bfProductId + '-policiesShipping'"
+                :options="allPolicies.shipping"
+                :label="$tc('bf-sales-channel.detail.ebayShippingPolicyLabel')"
+                v-model="formData.policies.shipping"
+            ></sw-single-select>
+
+            <sw-single-select
+                :name="formData.bfProductId + '-policiesReturns'"
+                :options="allPolicies.returns"
+                :label="$tc('bf-sales-channel.detail.ebayReturnPolicyLabel')"
+                v-model="formData.policies.returns"
+            ></sw-single-select>
+
+            <sw-single-select
+                :name="formData.bfProductId + '-policiesPayments'"
+                :options="allPolicies.payments"
+                :label="$tc('bf-sales-channel.detail.ebayPaymentPolicyLabel')"
+                v-model="formData.policies.payments"
+            ></sw-single-select>
+        </sw-card>
+    </div>
+    {% endblock %}
+    {% endblock %}
+    {% block bf_sales_channel_product_detail__footer %}
+    <template slot="modal-footer">
+        {% block bf_sales_channel_product_detail__footer_cancel %}
+        <sw-button
+            @click="$emit('modal-close')"
+            size="small">
+            {{ $tc('products.edit.cancel') }}
+        </sw-button>
+        {% endblock %}
+        {% block bf_sales_channel_product_detail__footer_save %}
+        <sw-button
+            @click="saveData"
+            variant="primary"
+            size="small">
+            {{ $tc('products.edit.save') }}
+        </sw-button>
+        {% endblock %}
+    </template>
+    {% endblock %}
+</sw-modal>
+{% endblock %}

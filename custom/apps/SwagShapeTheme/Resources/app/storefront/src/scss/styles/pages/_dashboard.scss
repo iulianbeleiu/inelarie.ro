@@ -1,0 +1,33 @@
+.dashboard-teaser--container > a > .dashboard-teaser {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 16px;
+    align-items: flex-start;
+
+    .icon {
+        width: 24px;
+        height: 24px;
+        position: unset;
+        align-items: flex-start;
+        align-self: flex-start;
+
+        svg {
+            color: currentColor;
+        }
+    }
+
+    .content h3 {
+        margin-bottom: 4px;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .dashboard-teaser--container > a > .dashboard-teaser {
+        &:hover {
+            .content h3::after {
+                opacity: 0;
+            }
+        }
+    }
+}

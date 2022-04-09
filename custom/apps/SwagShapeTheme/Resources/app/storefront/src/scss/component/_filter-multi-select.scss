@@ -1,0 +1,16 @@
+.filter-multi-select-list-item {
+    background-color: transparent;
+    @include transition(background-color 0.15s ease-in-out);
+
+    &:hover {
+        background-color: $shape-gray-200;
+    }
+
+    &.disabled {
+        opacity: 1;
+
+        .filter-property-select-preview {
+            opacity: 0.4;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{% block bf_sales_channel_detail_base_contract %}
+    <div class="bf-plugin-configuration">
+        <sw-container
+            columns="1fr"
+            class="bf-sales-channel-detail-base__connection-assistant-warning">
+
+            <sw-alert
+                variant="warning"
+                appearance="notification"
+                :closable="false">
+
+                <p>
+                    {{ $tc('bf-plugin-configuration.integration.repair-description') }}
+                </p>
+
+                <sw-button
+                    class="repair-button"
+                    :disabled="false"
+                    variant="ghost"
+                    size="small"
+                    :square="false"
+                    :block="false"
+                    :isLoading="isLoading"
+                    @click="repairIntegrationUser"
+                >
+                    {{ $tc('bf-plugin-configuration.integration.repair-integration-button') }}
+                </sw-button>
+            </sw-alert>
+        </sw-container>
+    </div>
+{% endblock %}

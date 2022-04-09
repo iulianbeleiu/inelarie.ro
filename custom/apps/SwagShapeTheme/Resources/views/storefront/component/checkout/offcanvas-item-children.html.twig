@@ -1,0 +1,16 @@
+{% sw_extends '@Storefront/storefront/component/checkout/offcanvas-item-children.html.twig' %}
+
+{% block page_checkout_item_child_remove %}
+    <div class="d-md-block col-md-1 cart-item-child-remove-icon-container col-1">
+        {%- block page_checkout_item_remove_icon %}
+            {%- if nestedLineItem.removable %}
+                <button class="cart-item-child-remove-icon">
+                    {% sw_icon 'x' style {
+                        'color': 'primary',
+                        'size': 'xs'
+                    } %}
+                </button>
+            {% endif -%}
+        {% endblock -%}
+    </div>
+{% endblock %}

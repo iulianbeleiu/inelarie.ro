@@ -1,0 +1,47 @@
+{% block bf_sales_channel_detail_custom_fields %}
+<div>
+    <sw-container columns="1fr" class="bf-sales-channel-detail-base__connection-assistant-warning">
+        <sw-alert variant="warning" appearance="notification" :showIcon="true" :closable="false">
+            {{ $tc('bf-property-transfer.tab.warningText') }}
+        </sw-alert>
+        <sw-alert variant="info" appearance="notification" :closable="false">
+            {{ $tc('bf-custom-fields-transfer.tab.text') }}
+        </sw-alert>
+    </sw-container>
+
+    <sw-card class="bf-card" title="Custom field transfer">
+        <div class="bf_property_mapping">
+            {% block sw_property_list_grid %}
+            <sw-entity-listing :items="propertyGroup"
+                               :columns="getPropertyColumns()"
+                               :repository="customFieldsRepository"
+                               ref="propertyList"
+                               :showSelection="false"
+                               :showActions="false"
+                               :fullPage="false"
+                               :sortBy="sortBy"
+                               :sortDirection="sortDirection"
+                               :isLoading="isLoading"
+                               :allowColumnEdit="false"
+                               :compactMode="true"
+                               identifier="sw-properties-list"
+                               @column-sort="onSortColumn">
+
+                {% block sw_property_list_grid_bound %}
+                <template slot="column-transfer" slot-scope="{ item }">
+                    <sw-field
+                        :disabled="false"
+                        @change="toggleItemCheck($event, item)"
+                        type="checkbox"
+                        :value="checked(item)">
+                    </sw-field>
+                </template>
+                {% endblock %}
+
+            </sw-entity-listing>
+            {% endblock %}
+        </div>
+    </sw-card>
+</div>
+{% endblock %}
+

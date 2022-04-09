@@ -1,0 +1,15 @@
+{
+    "swagCmsExtensions": {
+        "quickview": {
+            "detailPageLinkText": "Prikaži više detalja"
+        },
+        "form": {
+            "component": {
+                "checkbox": {
+                    "true": "Da",
+                    "false": "Ne"
+                }
+            }
+        }
+    }
+}

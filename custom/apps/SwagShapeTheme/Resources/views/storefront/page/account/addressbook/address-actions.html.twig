@@ -1,0 +1,19 @@
+{% sw_extends '@Storefront/storefront/page/account/addressbook/address-actions.html.twig' %}
+
+{% block page_account_address_actions %}
+    {% block page_account_address_actions_context_menu_button %}
+        <button class="btn dropdown-toggle account-address-actions-context-menu"
+                type="button"
+                id="accountAddressActionsDropdown"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+            {% sw_icon 'more-horizontal' %}
+        </button>
+    {% endblock %}
+
+    <div class="dropdown-menu dropdown-menu-right account-address-actions-context-content"
+         aria-labelledby="accountAddressActionsDropdown">
+        {{ parent() }}
+    </div>
+{% endblock %}

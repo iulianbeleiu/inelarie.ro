@@ -1,0 +1,54 @@
+{% block bf_segment_category_tree %}
+    <div class="sw-tree">
+        {% block bf_segment_category_tree_search %}
+            <slot name="search">
+                <div class="sw-tree__search bf-tree-search">
+                    <sw-field
+                        name="segmentCategoryTreeSearch"
+                        :placeholder="$tc('sw-tree.general.placeholderSearch')"
+                        v-model="currentTreeSearch"
+                        @input="searchItems"
+                        size="small">
+                        <template #prefix>
+                            <sw-icon name="default-action-search"></sw-icon>
+                        </template>
+                    </sw-field>
+                </div>
+            </slot>
+        {% endblock %}
+
+        {% block bf_segment_category_tree_actions_headline %}
+            <slot name="headline">
+                <div class="sw-tree-actions__headline">
+                    {{ title }}
+                </div>
+            </slot>
+        {% endblock %}
+
+        {% block bf_segment_category_tree_content %}
+            <div class="sw-tree__content">
+                <div class="tree-items">
+                    {% block bf_segment_category_tree_items %}
+                        <div class="sw-tree__content-no-items" v-if="hasNoItems">
+                            <p>No categories to show</p>
+                        </div>
+                        <slot v-else
+                              name="items"
+                              :treeItems="treeItems"
+                              :onChangeItem="onChange">
+                            <bf-segment-category-tree-item
+                                    v-for="item in treeItems"
+                                    :key="item.id"
+                                    :item="item">
+                            </bf-segment-category-tree-item>
+                        </slot>
+                    {% endblock %}
+
+                    {% block bf_segment_category_tree_loader %}
+                        <sw-loader v-if="isLoading"></sw-loader>
+                    {% endblock %}
+                </div>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

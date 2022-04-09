@@ -1,0 +1,35 @@
+{% sw_extends '@Storefront/storefront/page/error/error-404.html.twig' %}
+
+{% block base_content %}
+    {% block not_found_error_content %}
+        <div class="container-404 container">
+            <div class="content-bg">
+                <picture>
+                    <source srcset="{{ theme_config('sw-404-bg-tablet') |sw_encode_url }}"
+                            media="(min-width: {{ theme_config('breakpoint.md') }}px) and (max-width: {{ theme_config('breakpoint.lg') - 1 }}px)">
+
+                    <source srcset="{{ theme_config('sw-404-bg') |sw_encode_url }}"
+                            media="(max-width: {{ theme_config('breakpoint.md') - 1 }}px)">
+
+                    <img src="{{ theme_config('sw-404-bg-desktop') |sw_encode_url }}"
+                         alt="{{ "general.404ErrorPageHeader"|trans|striptags }}"
+                         class="img-fluid w-100"/>
+                </picture>
+            </div>
+            <div class="content">
+                <div class="picture">
+                    <img src="{{ theme_config('sw-404-logo') |sw_encode_url }}"
+                         alt="{{ "general.404ErrorPageHeader"|trans|striptags }}"
+                         class="img-fluid w-100"/>
+                </div>
+
+                <h1 class="text-center">{{ "general.404ErrorPageHeader"|trans|sw_sanitize }}</h1>
+                <p class="text-center w-60-l">{{ "general.404ErrorDescription"|trans|sw_sanitize }}</p>
+
+                {% block not_found_error_return %}
+                    {{ parent() }}
+                {% endblock %}
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}

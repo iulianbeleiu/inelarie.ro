@@ -1,0 +1,69 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/index.html.twig' %}
+
+{% block base_breadcrumb %}{% endblock %}
+
+{% block page_product_detail_content %}
+    <div class="product-detail-content">
+        <div class="container">
+            {% set mediaItems = page.product.media.media %}
+
+            {{ block('page_product_detail_main') }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_product_detail_media %}
+    <div class="col-lg-7 product-detail-media">
+        {% if page.product.media %}
+            {% sw_include '@Storefront/storefront/element/cms-element-image-gallery.html.twig' with {
+                'mediaItems': mediaItems,
+                'zoom': true,
+                'zoomModal': true,
+                'displayMode': 'contain',
+                'gutter': 0,
+                'minHeight': '430px',
+                'navigation': true,
+                'navigationArrows': 'outside',
+                'navigationDots': 'inside',
+                'galleryPosition': 'underneath',
+                'isProduct': true,
+                'fallbackImageTitle': page.product.translated.name,
+                'startIndexThumbnails': page.product.cover.position + 1,
+                'startIndexSlider': page.product.cover.position + 1,
+                'keepAspectRatioOnZoom': false
+            } %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block page_product_detail_tabs %}
+    <div class="product-detail-tabs">
+        <div class="container">
+            {% sw_include '@Storefront/storefront/page/product-detail/tabs.html.twig' %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_product_detail_cross_selling %}
+    {% if page.crossSellings.elements is defined and page.crossSellings.elements|filter(item => item.total > 0)|length > 0 %}
+        <div class="product-detail-tabs product-detail-cross-selling">
+            <div class="container">
+                {% sw_include '@Storefront/storefront/page/product-detail/cross-selling/tabs.html.twig' with {
+                    crossSellings: page.crossSellings
+                } %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block page_product_detail_inner %}
+    <div class="breadcrumb cms-breadcrumb">
+        <div class="container">
+            {% sw_include '@Storefront/storefront/layout/breadcrumb.html.twig' with {
+                context: context,
+                category: page.product.seoCategory
+            } only %}
+        </div>
+    </div>
+    {{ parent() }}
+{% endblock %}

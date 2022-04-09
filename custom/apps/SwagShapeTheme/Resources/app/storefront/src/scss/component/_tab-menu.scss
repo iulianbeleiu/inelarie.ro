@@ -1,0 +1,53 @@
+.card-tabs {
+    .card-body {
+        padding-top: 0;
+    }
+
+    .nav-link {
+        color: $sw-text-color;
+        font-size: $font-size-lg;
+        font-weight: $font-weight-semibold;
+        padding: 12px 0;
+        line-height: 28px;
+        border-bottom: none;
+        border-top: $hr-border-width solid $gray-300;
+
+        &.active {
+            color: $sw-text-color;
+            border-color: $gray-300;
+            background-color: transparent;
+        }
+
+        &:hover {
+            background-color: transparent;
+        }
+    }
+
+    .nav-item {
+        margin-right: 0;
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    .card-tabs {
+        .nav-link {
+            color: #9ea7bc;
+            text-transform: uppercase;
+            padding-bottom: $spacer-sm;
+            border-top: none;
+            font-weight: $font-weight-bold;
+
+            &.active {
+                border-bottom: $hr-border-width solid $gray-900;
+            }
+        }
+
+        .nav-item {
+            margin-right: 42px;
+        }
+    }
+
+    .tab-content {
+        padding-top: $spacer-40;
+    }
+}

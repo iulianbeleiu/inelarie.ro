@@ -1,0 +1,17 @@
+{% sw_extends '@Storefront/storefront/component/address/address-editor-modal-list.html.twig' %}
+
+{% block component_address_address_editor_modal_list_address %}
+    <div class="col-md-6 mb-4">
+        <div class="card address-editor-card">
+            {{ block('component_address_address_editor_modal_list_address_body') }}
+
+            {{ block('component_address_address_editor_modal_list_address_actions') }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block component_address_address_editor_modal_list_addresses %}
+    <div class="row">
+        {{ parent() }}
+    </div>
+{% endblock %}

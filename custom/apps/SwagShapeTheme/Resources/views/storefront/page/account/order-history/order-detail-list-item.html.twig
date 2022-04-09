@@ -1,0 +1,23 @@
+{% sw_extends '@Storefront/storefront/page/account/order-history/order-detail-list-item.html.twig' %}
+
+{% block page_account_order_item_detail_image %}
+    <div class="col-4 col-md-2 order-item order-item-image">
+        {{ block('page_account_order_item_detail_image_value') }}
+    </div>
+{% endblock %}
+
+{% block page_account_order_item_detail_name %}
+    <div class="col-8 col-md-4 order-item order-item-name">
+        {{ block('page_account_order_item_detail_name_value') }}
+
+        {{ block('page_account_order_item_detail_variants') }}
+
+        {{ block('page_account_order_item_detail_unitprice') }}
+
+        {% block page_account_order_item_detail_product_number %}
+            <div class="order-item-number">
+                {{ "account.orderItemColumnProductNumber"|trans|sw_sanitize }}{{ lineItem.payload.productNumber }}
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

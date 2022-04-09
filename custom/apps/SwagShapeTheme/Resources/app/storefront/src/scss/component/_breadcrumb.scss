@@ -1,0 +1,57 @@
+.breadcrumb {
+    padding: $spacer-20;
+    margin-bottom: 0;
+
+    &.cms-breadcrumb {
+        background-color: $white;
+    }
+
+    @include media-breakpoint-down(lg) {
+        .container {
+            padding: 0;
+        }
+    }
+
+    .breadcrumb-item {
+        color: $shape-gray-900;
+        font-weight: $font-weight-bold;
+
+        .breadcrumb-link {
+            @extend .breadcrumb-item;
+
+            &:hover {
+                color: $sw-color-brand-primary;
+            }
+        }
+
+        .is-active {
+            color: $shape-gray-500;
+            font-weight: $font-weight-bold;
+        }
+    }
+
+    .breadcrumb-placeholder {
+        line-height: 23px;
+        margin: 0 $spacer-md;
+    }
+
+    @include media-breakpoint-up(md) {
+        padding-top: $spacer-40;
+        padding-bottom: $spacer-40;
+    }
+}
+
+nav[aria-label='breadcrumb'] {
+    .breadcrumb {
+        @include make-container();
+        padding: 0;
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .breadcrumb {
+        $gutter-width: calc((100vw - 100%) / 2);
+        margin-left: calc(#{$gutter-width} * -1);
+        margin-right: calc(#{$gutter-width} * -1);
+    }
+}

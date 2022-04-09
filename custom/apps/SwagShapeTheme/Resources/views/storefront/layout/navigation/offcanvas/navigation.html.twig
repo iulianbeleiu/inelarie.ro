@@ -1,0 +1,21 @@
+{% sw_extends '@Storefront/storefront/layout/navigation/offcanvas/navigation.html.twig' %}
+
+{% block utilities_offcanvas_content %}
+    {% sw_include '@Storefront/storefront/layout/navigation/offcanvas/categories.html.twig' with { navigation: navigation } %}
+
+    {{ block('layout_navigation_offcanvas_navigation_actions') }}
+{% endblock %}
+
+{% block utilities_offcanvas_close %}
+    <div class="offcanvas-close sticky-top flex-row">
+        {% sw_include '@Storefront/storefront/layout/header/logo.html.twig' %}
+
+        <button class="btn js-offcanvas-close">
+            {{ block('utilities_offcanvas_close_icon') }}
+        </button>
+    </div>
+
+{% endblock %}
+
+{% block utilities_offcanvas_close_text %}
+{% endblock %}

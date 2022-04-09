@@ -1,0 +1,32 @@
+{% sw_extends '@Storefront/storefront/component/review/point.html.twig' %}
+
+{% block component_review_point %}
+    {% if size is not defined %}
+        {% set size = 'xs' %}
+    {% endif %}
+
+    <span class="product-review-point">
+        {% if type == 'half' %}
+            <div class="point-container">
+                <div class="point-rating point-partial-placeholder">
+                    {% sw_icon 'ic-half-star' style { 'color': 'light', 'size': size, 'pack': 'shape' } %}
+                </div>
+                <div class="point-rating point-partial" style="clip-path: inset(0 {{ (1 - left) * 100 }}% 0 0)">
+                    {% sw_icon 'ic-half-star' style { 'color': 'review', 'size': size, 'pack': 'shape' } %}
+                </div>
+            </div>
+        {% elseif type == 'blank' %}
+            <div class="point-container">
+                <div class="point-rating point-blank">
+                    {% sw_icon 'ic-star' style { 'size': size, 'pack': 'shape' } %}
+                </div>
+            </div>
+        {% else %}
+            <div class="point-container">
+                <div class="point-rating point-full">
+                    {% sw_icon 'ic-review' style { 'color': 'review', 'size': size, 'pack': 'shape' } %}
+                </div>
+            </div>
+        {% endif %}
+    </span>
+{% endblock %}

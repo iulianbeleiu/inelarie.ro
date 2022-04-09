@@ -1,0 +1,12 @@
+.node {
+    margin-left: 0;
+
+    > .is--b2b-tree-select {
+        border-left: none;
+    }
+}
+
+.node__inner--toggle-children {
+    left: auto;
+    right: 0;
+}

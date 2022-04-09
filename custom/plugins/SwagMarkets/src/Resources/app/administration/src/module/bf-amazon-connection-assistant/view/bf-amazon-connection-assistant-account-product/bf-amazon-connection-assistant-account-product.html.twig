@@ -1,0 +1,102 @@
+{% block bf_amazon_connection_assistant_account_product %}
+    <div class="bf-amazon-connection-assistant-account-product__content">
+        {% block bf_amazon_connection_assistant_account_product_content_information %}
+            <sw-card-section class="bf-amazon-connection-assistant-modal__content-description">
+                {{ $tc('amazon.productCheckDescription') }}
+            </sw-card-section>
+            <div v-if="hasRetailerProducts" class="bf-amazon-connection-assistant-account-product__content-information">
+                {% block bf_amazon_connection_assistant_account_product_content_information_warning %}
+                    <sw-alert variant="warning" v-if="hasRetailerProducts"
+                              class="bf-amazon-connection-assistant-account-product__content-information-warning">
+                        {{ $tc('amazon.productCheckAccountHasAlreadyProducts') }}
+                    </sw-alert>
+                {% endblock %}
+                {% block bf_amazon_connection_assistant_account_product_content_information_takeover %}
+                    <div class="bf-amazon-connection-assistant-account-product__content-information-takeover">
+                        {% block bf_amazon_connection_assistant_account_product_content_information_takeover_title %}
+                            <h6 class="title">{{ $tc('amazon.productCheckBookTransferTitle') }}</h6>
+                        {% endblock %}
+                        {% block bf_amazon_connection_assistant_account_product_content_information_takeover_content %}
+                            <p>{{ $tc('amazon.productCheckBookTransferContent') }}</p>
+                        {% endblock %}
+                        {% block bf_amazon_connection_assistant_account_product_content_information_takeover_link %}
+                        <sw-button
+                            size="small"
+                            variant="contrast"
+                            @click="$emit('showSupportModal')"
+                            class="bf-amazon-connection-assistant-account-product-content-information-delete-button">
+                            {{ $tc('amazon.productCheckBookTransfer') }}
+                        </sw-button>
+                        {% endblock %}
+                    </div>
+                {% endblock %}
+                {% block bf_amazon_connection_assistant_account_product_content_information_delete %}
+                    <div class="bf-amazon-connection-assistant-account-product__content-information-delete">
+                        {% block bf_amazon_connection_assistant_account_product_content_information_delete_title %}
+                            <h6 class="title">{{ $tc('amazon.productCheckDeleteExistingTitle') }}</h6>
+                        {% endblock %}
+                        {% block bf_amazon_connection_assistant_account_product_content_information_delete_content %}
+                            <p>{{ $tc('amazon.productCheckDeleteExistingContent') }}</p>
+                        {% endblock %}
+                        {% block bf_amazon_connection_assistant_account_product_content_information_delete_button %}
+                            <sw-button
+                                size="small"
+                                variant="danger"
+                                link="https://sellercentral.amazon.de/"
+                                class="bf-amazon-connection-assistant-account-product-content-information-delete-button">
+                                {{ $tc('amazon.productCheckDeleteExistingBtn') }}
+                            </sw-button>
+                        {% endblock %}
+                    </div>
+                {% endblock %}
+            </div>
+            <div v-if="!hasRetailerProducts && hasRetailerProducts !== null" class="bf-amazon-connection-assistant-account-product__content-information">
+                {% block bf_amazon_connection_assistant_account_product_content_information_success %}
+                    <sw-alert variant="success"
+                              class="bf-amazon-connection-assistant-account-product__content-information-success">
+                        {{ $tc('amazon.productCheckCongrats') }}
+                    </sw-alert>
+                {% endblock %}
+            </div>
+        {% endblock %}
+
+        <sw-container align="end" justify="end"
+                      class="bf-amazon-connection-assistant-account-product__content-button-check">
+            {% block bf_amazon_connection_assistant_accout_product_check_button %}
+                <sw-button
+                    v-if="hasRetailerProducts || hasRetailerProducts === null"
+                    size="small"
+                    variant="primary"
+                    :block="true"
+                    @click="productCheck"
+                    v-tooltip="tooltip">
+                    {{$tc('amazon.productCheckBtn')}}
+                </sw-button>
+            {% endblock %}
+        </sw-container>
+        {% block bf_amazon_connection_assistant_confirm_finish_modal %}
+        <sw-modal
+            :title="$t('amazon.amazonConfirmFinishModalTitle')"
+            v-if="showConfirmModal"
+            variant="small"
+            @modal-close="closeModal">
+            {% block bf_amazon_connection_assistant_confirm_fnish_modal_content %}
+                <sw-card>
+                    {{ $tc('amazon.amazonConfirmFinishModalMessageFirstPart') }}<br>
+                    {{ $tc('amazon.amazonConfirmFinishModalMessageSecondPart') }}
+                </sw-card>
+            {% endblock %}
+            {% block bf_amazon_connection_assistant_confirm_finish_footer %}
+                <template #modal-footer>
+                    <sw-button size="small" @click="closeModal">
+                        {{ $tc('button.cancel') }}
+                    </sw-button>
+                    <sw-button size="small" variant="primary" @click="confirmFinishModal">
+                        {{ $tc('button.finish') }}
+                    </sw-button>
+                </template>
+            {% endblock %}
+        </sw-modal>
+        {% endblock %}
+    </div>
+{% endblock %}

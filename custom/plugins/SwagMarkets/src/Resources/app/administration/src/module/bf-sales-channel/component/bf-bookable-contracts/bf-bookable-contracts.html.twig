@@ -1,0 +1,95 @@
+{% block bf_bookable_contracts %}
+    <sw-container columns="1fr" gap="20px" class="bf-bookable-contracts">
+        <table>
+            <tr>
+                <td>
+                    {% block swag_markets_terms_and_conditions__content %}
+                        <div>
+                            <sw-checkbox-field
+                                class="swag-markets-contract-checkbox__terms"
+                                v-model="acceptTermsAndConditions">
+                            </sw-checkbox-field>
+                            <div class="swag-markets-contract-terms" style="float: left;">
+                                <span>
+                                    {{ $tc('bf-sales-channel.contractModal.table.contractTermsAndConditionsBegin') }}
+                                </span>
+                                <sw-external-link icon="small-arrow-small-external" @click="openTermsAndConditions">
+                                    {{ $tc('bf-sales-channel.contractModal.table.contractTermsAndConditionsEnd') }}
+                                </sw-external-link>
+                            </div>
+                        </div>
+                        <div style="clear: both;"></div>
+                        <div>
+                            <sw-checkbox-field class="swag-markets-contract-checkbox__terms"
+                                               v-model="acceptSubProcessor"></sw-checkbox-field>
+                            <div class="swag-markets-contract-terms" style="float: left;">
+                                <span>{{ $tc('bf-sales-channel.contractModal.table.contractSubProcessorBegin') }}</span>
+                                <sw-external-link icon="small-arrow-small-external"
+                                                  @click="openPermissionModal">
+                                    {{ $tc('bf-sales-channel.contractModal.table.contractSubProcessorLink1') }}
+                                </sw-external-link>
+                                <span>{{ $tc('bf-sales-channel.contractModal.table.contractSubProcessorMiddle') }}</span>
+                                <sw-external-link
+                                    icon="small-arrow-small-external" @click="openSubProcessorModal">
+                                    {{ $tc('bf-sales-channel.contractModal.table.contractSubProcessorLink2') }}
+                                </sw-external-link>
+                                <span>{{ $tc('bf-sales-channel.contractModal.table.contractSubProcessorEnd') }}</span>
+                            </div>
+                        </div>
+                    {% endblock %}
+                </td>
+                <td v-for="contract in bookableContracts">
+                <span v-if="currentContract.name === contract.name" class="current-contract">
+                    {{ $tc('bf-sales-channel.contractModal.currentContractText') }}
+                </span>
+                    <br>
+                    <strong class="contract-name">{{ contract.label }}</strong>
+                    <br>
+                    <strong class="contract-price">&euro; {{ contract.minPricePerMonth }}</strong>
+                    / {{ $tc('bf-sales-channel.contractModal.month') }}
+
+                    {% block bf_radio_panel_body_actions %}
+                        <sw-button
+                            v-if="currentContract.name === contract.name"
+                            @click="$emit('onRemoveContract', contract.name)">
+                            {{ $tc('bf-sales-channel.contractModal.buttonRemove') }}
+                        </sw-button>
+
+                        <sw-button
+                            v-else
+                            @click="$emit('setNewContract', contract, 'change')"
+                            variant="primary"
+                            :disabled="!acceptTermsAndConditions || !acceptSubProcessor">
+                            {{ $tc('bf-sales-channel.contractModal.buttonChooseContract') }}
+                        </sw-button>
+                    {% endblock %}
+                </td>
+            </tr>
+
+            <tr v-for="row in tableData">
+                <td>
+                    <div style="float:left;">
+                        {{ row[0] }}
+                    </div>
+                    <div style="float:right;">
+                        <sw-help-text :text="row[1]" :width="200" tooltipPosition="top"></sw-help-text>
+                    </div>
+                </td>
+                <td>
+                    <span v-if="typeof row[2] === 'string'">{{ row[2] }}</span>
+                    <sw-icon v-else-if="row[2] === 1" name="default-basic-checkmark-line" :small="true"></sw-icon>
+                </td>
+                <td>
+                    <span v-if="typeof row[3] === 'string'">{{ row[3] }}</span>
+                    <sw-icon v-else-if="row[3] === 1" name="default-basic-checkmark-line" :small="true"></sw-icon>
+                </td>
+                <td>
+                    <span v-if="typeof row[4] === 'string'">{{ row[4] }}</span>
+                    <sw-icon v-else-if="row[4] === 1" name="default-basic-checkmark-line" :small="true"></sw-icon>
+                </td>
+            </tr>
+        </table>
+
+        <span class="additional-text">{{ $tc('bf-sales-channel.contractModal.bfSpecialProposal') }}</span>
+    </sw-container>
+{% endblock %}

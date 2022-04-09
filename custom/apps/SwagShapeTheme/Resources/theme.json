@@ -1,0 +1,342 @@
+{
+    "name": "Shape Theme",
+    "author": "Shopware AG",
+    "views": [
+        "@Storefront",
+        "@SwagCustomizedProducts",
+        "@SwagPayPal",
+        "@SwagAmazonPay",
+        "@SwagCmsExtensions",
+        "@SwagB2bPlatform",
+        "@SwagShapeTheme",
+        "@Plugins"
+    ],
+    "previewMedia": "app/storefront/src/assets/images/preview.png",
+    "style": [
+        "app/storefront/src/scss/overrides.scss",
+        "@Storefront",
+        "app/storefront/src/scss/base.scss"
+    ],
+    "script": [
+        "@Storefront",
+        "app/storefront/dist/storefront/js/swag-shape-theme.js"
+    ],
+    "asset": ["app/storefront/src/assets"],
+    "config": {
+        "blocks": {
+            "themeColors": {
+                "label": {
+                    "en-GB": "Theme colors",
+                    "de-DE": "Themenfarben"
+                }
+            },
+            "typography": {
+                "label": {
+                    "en-GB": "Typography",
+                    "de-DE": "Typografie"
+                }
+            },
+            "statusColors": {
+                "label": {
+                    "en-GB": "Status messages",
+                    "de-DE": "Status-Meldungen"
+                }
+            },
+            "media": {
+                "label": {
+                    "en-GB": "Media",
+                    "de-DE": "Medien"
+                }
+            },
+            "footer": {
+                "label": {
+                    "en-GB": "Footer",
+                    "de-DE": "Fußzeile"
+                }
+            },
+            "404 Page": {
+                "label": {
+                    "en-GB": "404 error page",
+                    "de-DE": "404-Fehlerseite"
+                }
+            },
+            "Maintenance Page": {
+                "label": {
+                    "en-GB": "Maintenance page",
+                    "de-DE": "Wartungsseite"
+                }
+            },
+            "wishlist": {
+                "label": {
+                    "en-GB": "Wishlist",
+                    "de-DE": "Wishlist"
+                }
+            }
+        },
+        "fields": {
+            "sw-color-brand-primary": {
+                "label": {
+                    "en-GB": "Primary colour",
+                    "de-DE": "Primärfarbe"
+                },
+                "value": "#f17662"
+            },
+            "sw-color-brand-secondary": {
+                "label": {
+                    "en-GB": "Secondary colour",
+                    "de-DE": "Sekundärfarbe"
+                },
+                "value": "#f17662",
+                "editable": false
+            },
+            "sw-border-color": {
+                "label": {
+                    "en-GB": "Border",
+                    "de-DE": "Rahmen"
+                },
+                "value": "#dde2ed"
+            },
+            "sw-background-color": {
+                "label": {
+                    "en-GB": "Background",
+                    "de-DE": "Hintergrund"
+                }
+            },
+            "sw-color-success": {
+                "label": {
+                    "en-GB": "Success",
+                    "de-DE": "Erfolg"
+                },
+                "value": "#42954d"
+            },
+            "sw-color-info": {
+                "label": {
+                    "en-GB": "Information",
+                    "de-DE": "Information"
+                },
+                "value": "#26b6cf"
+            },
+            "sw-color-warning": {
+                "label": {
+                    "en-GB": "Notice",
+                    "de-DE": "Hinweis"
+                },
+                "value": "#ffbd5d"
+            },
+            "sw-color-danger": {
+                "label": {
+                    "en-GB": "Error",
+                    "de-DE": "Fehler"
+                },
+                "value": "#9e3229"
+            },
+            "sw-font-family-base": {
+                "label": {
+                    "en-GB": "Text font type",
+                    "de-DE": "Schriftart Text"
+                },
+                "value": "'Raleway', sans-serif"
+            },
+            "sw-text-color": {
+                "label": {
+                    "en-GB": "Text colour",
+                    "de-DE": "Textfarbe"
+                },
+                "value": "#1f2e3d"
+            },
+            "sw-font-family-headline": {
+                "label": {
+                    "en-GB": "Headline font type",
+                    "de-DE": "Schriftart Überschrift"
+                },
+                "value": "'Raleway', sans-serif"
+            },
+            "sw-headline-color": {
+                "label": {
+                    "en-GB": "Headline colour",
+                    "de-DE": "Überschriftfarbe"
+                },
+                "value": "#1f2e3d"
+            },
+            "sw-color-price": {
+                "label": {
+                    "en-GB": "Price",
+                    "de-DE": "Preis"
+                },
+                "value": "#1f2e3d"
+            },
+            "sw-color-buy-button": {
+                "label": {
+                    "en-GB": "Buy button",
+                    "de-DE": "Kaufen-Button"
+                },
+                "value": "#f17662",
+                "editable": false
+            },
+            "sw-color-buy-button-text": {
+                "label": {
+                    "en-GB": "Buy button text",
+                    "de-DE": "Kaufen-Button-Text"
+                },
+                "value": "#ffffff"
+            },
+            "sw-logo-desktop": {
+                "label": {
+                    "en-GB": "Desktop",
+                    "de-DE": "Desktop"
+                },
+                "type": "media",
+                "value": "app/storefront/src/assets/logo/shape-logo.svg"
+            },
+            "sw-logo-tablet": {
+                "label": {
+                    "en-GB": "Tablet",
+                    "de-DE": "Tablet"
+                },
+                "type": "media",
+                "value": "app/storefront/src/assets/logo/shape-logo.svg"
+            },
+            "sw-logo-mobile": {
+                "label": {
+                    "en-GB": "Mobile",
+                    "de-DE": "Handy"
+                },
+                "type": "media",
+                "value": "app/storefront/src/assets/logo/shape-logo.svg"
+            },
+            "sw-logo-share": {
+                "label": {
+                    "en-GB": "App & share icon",
+                    "de-DE": "App- & Share-Icon"
+                }
+            },
+            "sw-logo-favicon": {
+                "label": {
+                    "en-GB": "Favicon",
+                    "de-DE": "Favicon"
+                }
+            },
+            "sw-footer-text-color": {
+                "label": {
+                    "en-GB": "Text colour",
+                    "de-DE": "Textfarbe"
+                },
+                "type": "color",
+                "value": "#1f2e3d",
+                "editable": true,
+                "block": "footer",
+                "order": 200
+            },
+            "sw-footer-logo": {
+                "label": {
+                    "en-GB": "Footer logo",
+                    "de-DE": "Footer-Logo"
+                },
+                "type": "media",
+                "value": "app/storefront/src/assets/logo/shape-logo.svg",
+                "editable": true,
+                "block": "media",
+                "order": 300
+            },
+            "sw-404-logo": {
+                "label": {
+                    "en-GB": "Logo",
+                    "de-DE": "Logo"
+                },
+                "type": "media",
+                "value": "app/storefront/src/assets/logo/404-logo.png",
+                "editable": true,
+                "block": "404 Page"
+            },
+            "sw-404-bg-desktop": {
+                "label": {
+                    "en-GB": "Desktop background",
+                    "de-DE": "Desktop-Hintergrund"
+                },
+                "type": "media",
+                "value": "app/storefront/src/assets/images/404-bg-desktop.png",
+                "editable": true,
+                "block": "404 Page"
+            },
+            "sw-404-bg-tablet": {
+                "label": {
+                    "en-GB": "Tablet background",
+                    "de-DE": "Tablet-Hintergrund"
+                },
+                "type": "media",
+                "value": "app/storefront/src/assets/images/404-bg-tablet.png",
+                "editable": true,
+                "block": "404 Page"
+            },
+            "sw-404-bg": {
+                "label": {
+                    "en-GB": "Mobile background",
+                    "de-DE": "Handy-Hintergrund"
+                },
+                "type": "media",
+                "value": "app/storefront/src/assets/images/404-bg.png",
+                "editable": true,
+                "block": "404 Page"
+            },
+            "sw-maintenance-bg": {
+                "label": {
+                    "en-GB": "Maintenance background",
+                    "de-DE": "Wartung-Hintergrund"
+                },
+                "type": "media",
+                "value": "app/storefront/src/assets/images/maintenance.png",
+                "editable": true,
+                "block": "Maintenance Page"
+            },
+            "sw-maintenance-bg-tablet": {
+                "label": {
+                    "en-GB": "Tablet background",
+                    "de-DE": "Tablet-Hintergrund"
+                },
+                "type": "media",
+                "value": "app/storefront/src/assets/images/maintenance-m.png",
+                "editable": true,
+                "block": "Maintenance Page"
+            },
+            "sw-instagram-link": {
+                "label": {
+                    "en-GB": "Instagram link",
+                    "de-DE": "Instagram-Link"
+                },
+                "type": "textarea",
+                "value": "https://www.instagram.com/",
+                "editable": true,
+                "block": "footer"
+            },
+            "sw-facebook-link": {
+                "label": {
+                    "en-GB": "Facebook link",
+                    "de-DE": "Facebook-Link"
+                },
+                "type": "textarea",
+                "value": "https://www.facebook.com/",
+                "editable": true,
+                "block": "footer"
+            },
+            "sw-pinterest-link": {
+                "label": {
+                    "en-GB": "Pinterest link",
+                    "de-DE": "Pinterest-Link"
+                },
+                "type": "textarea",
+                "value": "https://www.pinterest.com/",
+                "editable": true,
+                "block": "footer"
+            },
+            "sw-wishlist-empty": {
+                "label": {
+                    "en-GB": "Empty state",
+                    "de-DE": "Leerzustand"
+                },
+                "type": "media",
+                "value": "app/storefront/src/assets/images/wishlist_empty.svg",
+                "block": "wishlist"
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/app-system/0.1.0/src/Core/Content/App/Manifest/Schema/manifest-1.0.xsd">
+    <meta>
+        <name>SwagShapeTheme</name>
+        <label>Shape Theme</label>
+        <label lang="de-DE">Shape Theme</label>
+        <description>The Shopware Shape Theme has a clean and light design for perfect product placement. It can be used in any branch, offers additional functions and can be extended by apps.</description>
+        <description lang="de-DE">Das Shape Theme von Shopware hat ein cleanes und leichtes Design für eine perfekte Produktplatzierung. Es ist in jeder Branche einsetzbar, bietet zusätzliche Funktionen und kann durch Apps erweitert werden.</description>
+        <author>shopware AG</author>
+        <copyright>(c) by shopware AG</copyright>
+        <version>1.3.0</version>
+        <icon>theme-icon.png</icon>
+        <license>MIT</license>
+    </meta>
+</manifest>

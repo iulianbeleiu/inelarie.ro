@@ -1,0 +1,25 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/review/review.html.twig' %}
+
+{% block utilities_offcanvas_close %}
+    <button class="product-detail-offcanvas-close offcanvas-close js-offcanvas-close sticky-top">
+        {% block utilities_offcanvas_close_icon %}
+            {% sw_icon 'ic-chevron-left' style { 'pack': 'shape', 'size': 'xs' } %}
+        {% endblock %}
+
+        {% block utilities_offcanvas_close_text %}
+            {{ "detail.tabsReview"|trans|sw_sanitize }}
+        {% endblock %}
+    </button>
+{% endblock %}
+
+{% block page_product_detail_review_tab_pane %}
+    <div class="row product-detail-review-content js-review-container">
+        {{ block('page_product_detail_review_main') }}
+
+        {% block page_product_detail_review_aside %}
+            <div class="col-12 col-lg-5 product-detail-review-widget-wrapper">
+                {{ block('page_product_detail_review_widget_container') }}
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

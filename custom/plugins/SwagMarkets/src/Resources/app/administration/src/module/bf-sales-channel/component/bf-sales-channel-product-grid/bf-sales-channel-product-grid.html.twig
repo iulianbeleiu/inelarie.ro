@@ -1,0 +1,82 @@
+{% block sw_data_grid_columns_render_value %}
+    <span class="sw-data-grid__cell-value">
+        <template v-if="column.property === 'active'">
+            <sw-icon v-if="item.active" name="small-default-checkmark-line-medium" small class="is--active"></sw-icon>
+            <sw-icon v-else name="small-default-x-line-medium" small class="is--inactive"></sw-icon>
+        </template>
+        <template v-else-if="column.property === 'category'">
+            <span v-if="shopProductData[item.id]">
+                <span v-for="(category, index) in shopProductData[item.id].categories" :key="category.id">
+                {{ category.name }} <span v-if="index < shopProductData[item.id].categories.length - 1"> | </span>
+                </span>
+            </span>
+{# {{ typeof shopProductData[item.id] !== 'undefined' ? shopProductData[item.id].category.name : '' }} #}
+        </template>
+        <template v-else-if="column.property === 'online'">
+            <sw-color-badge
+                :class="!shopProductData[item.id] || shopProductData[item.id].marketplaceProductId === '' || shopProductData[item.id].stock === 0 ? 'is--error' : 'is--success'"></sw-color-badge>
+        </template>
+        <template v-else-if="column.property === 'error'">
+            <sw-color-badge
+                :class="!shopProductData[item.id] || shopProductData[item.id].errors.length > 0 ? 'is--error' : 'is--success'"></sw-color-badge>
+        </template>
+        <template v-else>
+            {{ renderColumn(item, column) }}
+        </template>
+    </span>
+{% endblock %}
+
+{% block sw_data_grid_slot_actions %}
+    <slot name="detail-action" v-bind="{ item }">
+        <sw-context-menu-item
+            :disabled="!shopProductData[item.id]"
+            class="sw-entity-listing__context-menu-edit-action"
+            @click="onEditProductClick(item)">
+            {{ $tc('global.default.edit') }}
+        </sw-context-menu-item>
+
+        <sw-context-menu-item v-if="getMarketplaceName == 'amazon' && clientExists"
+                              :disabled="!shopProductData[item.id]"
+                              class="sw-entity-listing__context-menu-edit-action"
+                              @click="onAsinManagement(item)">
+            {{ $tc('products.table-headers.asinManagement') }}
+        </sw-context-menu-item>
+
+        <sw-context-menu-item
+            :disabled="shopProductData[item.id] === undefined || getProductId(shopProductData[item.id]) === ''"
+            class="sw-entity-listing__context-menu-edit-action"
+            @click="onOpenMarketplaceProductClick(shopProductData[item.id])">
+            {{ $tc('products.action.openMarketplaceProduct') }}
+        </sw-context-menu-item>
+
+        <sw-context-menu-item
+            :disabled="shopProductData[item.id] && shopProductData[item.id].errors.length === 0"
+            class="sw-entity-listing__context-menu-edit-action"
+            @click="$emit('onOpenProductErrorsModal', item)">
+            {{ $tc('products.showErrorsButton') }}
+        </sw-context-menu-item>
+    </slot>
+{% endblock %}
+
+{% block sw_data_grid_slot_pagination %}
+    <sw-pagination v-bind="{ page, limit, total }" :total-visible="7" @page-change="paginate"></sw-pagination>
+{% endblock %}
+
+{% block sw_data_grid_slot_bulk_modals %}
+    <bf-sales-channel-product-modal
+        v-if="showProductDetailModal"
+        :product="selectedProduct"
+        :shopProductData="shopProductData"
+        :clientExists="clientExists"
+        :clientInProgress="clientInProgress"
+        :currentContract="currentContract"
+        @modal-close="showProductDetailModal = false"
+    >
+    </bf-sales-channel-product-modal>
+    <bf-sales-channel-amazon-asin-management
+        v-if="showAsinManagement"
+        :shopProductData="shopProductData"
+        :product="selectedProduct"
+        @modal-close="showAsinManagement = false">
+    </bf-sales-channel-amazon-asin-management>
+{% endblock %}

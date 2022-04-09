@@ -1,0 +1,16 @@
+.sw-category-tree-field {
+    .sw-category-tree__input-field {
+        display: block;
+        min-width: 150px;
+        width: 150px;
+    }
+
+    .swag-markets-category-tree-field__search-results {
+        line-height: 15px;
+
+        li.swag-markets-category-tree-field__search-result {
+            height: auto;
+            min-height: 40px !important;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{% block bf_sales_channel_detail_content_tab %}
+    {% parent() %}
+
+    {% block bf_sales_channel_detail_content_tab_amazon_fba_prime %}
+        <sw-tabs-item
+            v-if="isSalesChannelAmazon"
+            :disabled="!clientExists || clientInProgress"
+            :route="{ name: 'bf.sales.channel.detail.amazon-fba-prime', params: { id: $route.params.id } }"
+            :title="$tc('sw-sales-channel.detail.tabProductComparison')">
+            {{ $tc('amazonFbaPrime.tab-title') }}
+        </sw-tabs-item>
+    {% endblock %}
+{% endblock %}

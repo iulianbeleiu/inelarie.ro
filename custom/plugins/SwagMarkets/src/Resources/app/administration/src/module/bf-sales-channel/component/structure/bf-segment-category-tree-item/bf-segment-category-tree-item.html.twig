@@ -1,0 +1,61 @@
+{% block bf_segment_category_tree_item %}
+    <div class="sw-tree-item bf-tree-item" :class="styling">
+        {% block bf_segment_category_tree_item_element %}
+            <div class="sw-tree-item__element bf-tree-item__element">
+                {% block bf_segment_category_tree_item_leaf_icon %}
+                    <div class="sw-tree-item__leaf" v-if="item.childCount <= 0"></div>
+                {% endblock %}
+
+                {% block bf_segment_category_tree_item_element_toggle %}
+                    <div class="sw-tree-item__toggle" @click="openTreeItem(); getTreeItemChildren(item)" v-else>
+                        {% block bf_segment_category_tree_item_element_toggle_loader %}
+                            <sw-loader v-if="isLoading" size="14"></sw-loader>
+                        {% endblock %}
+
+                        {% block bf_segment_category_tree_item_element_toggle_icon %}
+                            <sw-icon :name="opened ? 'small-arrow-small-down' : 'small-arrow-small-right'" size="18"
+                                     v-else></sw-icon>
+                        {% endblock %}
+                    </div>
+                {% endblock %}
+
+                {% block bf_segment_category_tree_item_element_grip %}
+                    <div v-if="item.childCount > 0" class="sw-tree-item__icon">
+                        <sw-icon name="multicolor-folder-tree-open" multicolor small v-if="opened"></sw-icon>
+                        <sw-icon name="multicolor-folder-tree" multicolor small v-else></sw-icon>
+                    </div>
+                    <div v-else class="sw-tree-item__icon">
+                        <sw-icon name="small-default-circle-small" size="18"></sw-icon>
+                    </div>
+                {% endblock %}
+
+                {% block bf_segment_category_tree_item_element_selection %}
+                    <div class="sw-tree-item__selection">
+                        <sw-field type="radio"
+                                  name="segmentCategory"
+                                  checked="currentSelected == item.id ? 'checked' : false"
+                                  :options="[{value: item.id, name: item.data.translated.name}]"
+                                  @change="onChangeItem"
+                        ></sw-field>
+                    </div>
+                {% endblock %}
+
+            </div>
+        {% endblock %}
+
+        {% block bf_segment_category_tree_item_children_transition %}
+            <transition name="fade">
+                {% block bf_segment_category_tree_item_children_content %}
+                    <div class="sw-tree-item__children" v-if="isOpened && item.children.length > 0">
+                        <bf-segment-category-tree-item
+                            v-for="child in item.children"
+                            :key="child.id"
+                            :item="child"
+                            @on-change="emitCheckedItem"
+                        ></bf-segment-category-tree-item>
+                    </div>
+                {% endblock %}
+            </transition>
+        {% endblock %}
+    </div>
+{% endblock %}

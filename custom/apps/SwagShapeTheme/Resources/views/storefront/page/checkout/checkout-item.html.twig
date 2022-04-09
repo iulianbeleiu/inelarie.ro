@@ -1,0 +1,67 @@
+{% sw_extends '@Storefront/storefront/page/checkout/checkout-item.html.twig' %}
+
+{% block page_checkout_item_remove_submit %}
+    <button type="submit"
+            title="{{ "checkout.removeLineItem"|trans|striptags }}"
+            data-product-id="{{ lineItem.id }}"
+            class="btn btn-light btn-sm cart-item-remove-button">
+        {% sw_icon 'x' style { 'size': 'md', 'pack': 'solid' } %}
+    </button>
+{% endblock %}
+
+{% block page_checkout_item_container %}
+    {% if isCustomizedProduct %}
+        {% set isNested = false %}
+        {% for child in lineItem.children %}
+            {% if child.type == 'product' %}
+                {% set label = child.label %}
+                {% set referencedId = child.referencedId %}
+                {% set productNumber = lineItem.payload|merge({ 'productNumber': child.payload.productNumber }) %}
+
+                {% if child.cover.url %}
+                    {% set cover = child.cover %}
+                {% endif %}
+
+                {% do lineItem.setLabel(label) %}
+                {% do lineItem.setCover(cover) %}
+                {% do lineItem.setReferencedId(referencedId) %}
+                {% do lineItem.setPayload(productNumber) %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    <div  class="cart-item cart-item-{{ lineItem.type }}{% if isDiscount %} is-discount{% endif %}{% if isNested %} is-nested{% endif %}{% if isChild %} is-child{% endif %}">
+        <div class="row cart-item-row">
+            {% block page_checkout_item_info %}
+                <div class="col-12 col-md-6 cart-item-info">
+                    {{ block('page_checkout_item_info_inner') }}
+                </div>
+            {% endblock %}
+
+            {% block page_checkout_item_quantity %}
+                <div class="col-3 col-md-2 cart-item-quantity">
+                    <div class="cart-item-quantity-row">
+                        {{ block('page_checkout_item_quantity_form') }}
+                    </div>
+                </div>
+            {% endblock %}
+
+            {% block page_checkout_price %}
+                <div class="col col-md-4 cart-item-price-wrap">
+                    {% block page_checkout_total_price %}
+                        <div class="cart-item-total-price">
+                            {{ block('page_checkout_item_total_price_wrapper') }}
+                        </div>
+                    {% endblock %}
+                    {% block page_checkout_unit_price %}
+                        <div class="cart-item-unit-price">
+                            {{ block('page_checkout_item_unit_price_wrapper') }}
+                        </div>
+                    {% endblock %}
+                </div>
+            {% endblock %}
+
+            {{ block('page_checkout_item_children_template') }}
+        </div>
+    </div>
+{% endblock %}

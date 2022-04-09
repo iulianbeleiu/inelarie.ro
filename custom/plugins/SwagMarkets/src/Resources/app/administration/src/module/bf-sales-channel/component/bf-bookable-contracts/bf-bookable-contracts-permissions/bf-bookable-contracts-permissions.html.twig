@@ -1,0 +1,23 @@
+{% block swag_markets_permissions_modal__content %}
+    <div>
+        <img style="margin: auto;display: block" :src="'swagmarkets/static/img/permission_asset.png' | asset"/>
+        <div style="text-align: center;margin-top: 5px;font-size:0.8rem">
+            {{ $tc('bf-sales-channel.contractModal.permissionsSharedData.contentText') }}
+            <sw-external-link
+                icon="small-arrow-small-external" @click="closePermissionModal">
+                {{ $tc('bf-sales-channel.contractModal.table.contractSubProcessorLink2') }}
+            </sw-external-link>
+            {{ $tc('bf-sales-channel.contractModal.permissionsSharedData.contentTextEnd') }}
+        </div>
+        <div style="margin-top: 60px;">
+            <sw-description-list>
+                <dt>{{ $tc('bf-sales-channel.contractModal.permissionsSharedData.headLine') }}</dt>
+                <dd>{{ $tc('bf-sales-channel.contractModal.permissionsSharedData.name') }}</dd>
+                <dd>{{ $tc('bf-sales-channel.contractModal.permissionsSharedData.email') }}</dd>
+                <dd>{{ $tc('bf-sales-channel.contractModal.permissionsSharedData.phone') }}</dd>
+                <dd>{{ $tc('bf-sales-channel.contractModal.permissionsSharedData.birthdate') }}</dd>
+                <dd>{{ $tc('bf-sales-channel.contractModal.permissionsSharedData.address') }}</dd>
+            </sw-description-list>
+        </div>
+    </div>
+{% endblock %}

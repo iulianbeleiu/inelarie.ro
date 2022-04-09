@@ -1,0 +1,23 @@
+.product-detail-tabs {
+    margin-bottom: 0;
+}
+
+.product-detail-tab-navigation {
+    &-list {
+        padding: 0;
+        border-bottom: $hr-border-width solid $gray-300;
+    }
+
+    &-icon {
+        svg {
+            height: 14px;
+            top: -2px;
+        }
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    .product-detail-tab-navigation-list {
+        border-bottom: none;
+    }
+}

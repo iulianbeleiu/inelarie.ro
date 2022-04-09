@@ -1,0 +1,61 @@
+{
+    "document": {
+        "invoiceNumber": "Factuurnr. %invoiceNumber%",
+        "invoiceHeadline": "Factuurnr. %invoiceNumber%",
+        "stornoHeadline": "Annuleringsnr. %stornoNumber% voor factuurnr. %invoiceNumber%",
+        "stornoNumber": "Annuleringsnummer %stornoNumber%",
+        "deliveryNoteNumber": "Leveringsnr. %deliveryNoteNumber%",
+        "deliveryNoteHeadline": "Leveringsnr. %deliveryNoteNumber% voor bestelnr. %orderNumber%",
+        "creditNoteNumber": "Credit notitie %creditNoteNumber%",
+        "creditNoteHeadline": "Vouchercode %creditNoteNumber% voor factuurnr. %invoiceNumber%",
+        "customerNumber": "Klant nr.: %customerNumber%",
+        "date": "Datum: %date%",
+        "comment": "Commentaar: %comment%",
+        "orderDate": "Besteldatum: %orderDate%",
+        "deliveryDate": "Leverdatum: %deliveryDate%",
+        "page": "Pagina %pageNumber%",
+        "orderNumber": "Bestelling nr: %orderNumber%",
+        "taxNumber": "Fiscaal nr.: %taxNumber%",
+        "vatId": "BTW Reg.nr.: %vatId%",
+        "taxOffice": "Belastingkantoor: %taxOffice%",
+        "bankAccount": "Bankgegevens",
+        "bankIban": "IBAN: %bankIban%",
+        "bankBic": "BIC: %bankBic%",
+        "placeOfJurisdiction": "Bevoegde rechtbank: %placeOfJurisdiction%",
+        "serviceDateNotice": "Dienstdatum gelijk aan factuurdatum",
+        "placeOfFulfillment": "Plaats van handeling: %placeOfFulfillment%",
+        "intraCommunity": "Intracommunautaire levering (EU)",
+        "shippingAddress": "Verzendadres",
+        "phoneNumber": "Telefoonnummer: %phoneNumber%",
+        "email": "E-mailadres: %email%",
+        "ceo": "Directeur",
+        "lineItems": {
+            "header": {
+                "position": "Pos.",
+                "label": "Kenmerk",
+                "tax": "BTW",
+                "quantity": "Hoeveelheid",
+                "unitPrice": "Artikelprijs",
+                "productNumber": "Product nr.",
+                "total": "Totaal"
+            },
+            "tax": "excl. %taxRate%% BTW:",
+            "total": "Totaal:",
+            "roundedTotal": "Afgerond totaal:",
+            "totalNet": "Totaal (netto):",
+            "shippingCosts": "Verzendkosten"
+        },
+        "paymentShippingInfo": {
+            "paymentMethod": "Gekozen betaalwijze: %paymentMethod%",
+            "shippingMethod": "Gekozen verzendwijze: %shippingMethod%",
+            "additionalInfo": "De goederen blijven onze eigendom tot de volledige betaling is gedaan."
+        }
+    },
+    "filter": {
+        "sortByNameAscending": "Naam, A-Z",
+        "sortByNameDescending": "Naam, Z-A",
+        "sortByPriceAscending": "Prijs, aflopend",
+        "sortByPriceDescending": "Prijs, oplopend",
+        "sortByScore": "Beste resultaten"
+    }
+}

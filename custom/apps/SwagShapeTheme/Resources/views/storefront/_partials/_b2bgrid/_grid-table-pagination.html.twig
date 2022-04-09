@@ -1,0 +1,42 @@
+{% sw_extends '@SwagB2bPlatform/storefront/_partials/_b2bgrid/_grid-table-pagination.html.twig' %}
+
+{% block b2b_grid_table_pagination_button_previous %}
+    <button
+        class="btn btn-light btn--previous"
+        value="{{ gridState.currentPage - 1 }}"
+        {% if gridState.currentPage is same as(1) %}disabled{% endif %}
+    >
+        {% sw_icon 'ic-arrow-left' style {'pack': 'shape'} %}
+    </button>
+{% endblock %}
+
+{% block b2b_grid_table_pagination_button_next %}
+    <button
+        class="btn btn-light btn--next"
+        value="{{ gridState.currentPage + 1 }}"
+        {% if gridState.currentPage == gridState.maxPage %}disabled{% endif %}
+    >
+        {% sw_icon 'ic-arrow-right' style {'pack': 'shape'} %}
+    </button>
+{% endblock %}
+
+{% block b2b_grid_table_pagination_button_current %}
+    <button
+        class="btn btn-primary ml-1 mr-1"
+        value="{{ gridState.currentPage }}"
+    >
+        {{ gridState.currentPage }}/{{ gridState.maxPage }}
+    </button>
+{% endblock %}
+
+{% block b2b_grid_table_pagination_button_last %}
+{% endblock %}
+
+{% block b2b_grid_table_pagination_button_first %}
+{% endblock %}
+
+{% block b2b_grid_table_pagination_button_previous_inner %}
+{% endblock %}
+
+{% block b2b_grid_table_pagination_button_next_inner %}
+{% endblock %}

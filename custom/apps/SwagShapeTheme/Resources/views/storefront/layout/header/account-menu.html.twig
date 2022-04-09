@@ -1,0 +1,38 @@
+{% sw_extends '@Storefront/storefront/layout/header/account-menu.html.twig' %}
+
+{% block utilities_offcanvas_close %}
+    <div class="offcanvas-header-mobile">
+        <button class="btn btn-light btn-block offcanvas-close js-offcanvas-close sticky-top">
+            {% block utilities_offcanvas_close_icon %}
+                {% sw_icon 'ic-close' style { 'pack': 'shape' } %}
+            {% endblock %}
+        </button>
+
+        {% block utilities_offcanvas_close_text %}
+            <span class="d-md-none">{{ "general.offcanvasCloseMenu"|trans|sw_sanitize }}</span>
+        {% endblock %}
+    </div>
+{% endblock %}
+
+{% block utilities_offcanvas_content %}
+    <div class="account-menu">
+        {% block layout_header_actions_account_widget_dropdown_header %}
+            {% if not context.customer.guest %}
+                <div class="dropdown-header account-menu-header">
+                    {% sw_icon 'ic-profile' style { 'pack': 'shape' } %}
+
+                    {% if b2bSuite %}
+                        <a href="{{ path('frontend.b2b.b2baccount.index') }}">{{ "account.myAccount"|trans|sw_sanitize }}</a>
+                    {% else %}
+                        {{ "account.myAccount"|trans|sw_sanitize }}
+                    {% endif %}
+
+                </div>
+            {% endif %}
+        {% endblock %}
+
+        {{ block('layout_header_actions_account_widget_dropdown_links') }}
+
+        {{ block('layout_header_actions_account_widget_dropdown_login') }}
+    </div>
+{% endblock %}

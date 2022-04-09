@@ -1,0 +1,166 @@
+.account {
+    &.account-content {
+        min-height: inherit;
+    }
+
+    .card-body {
+        p {
+            margin-bottom: 0;
+            line-height: 23px;
+
+            &:empty {
+                display: none;
+            }
+        }
+    }
+
+    h2.card-title {
+        font-size: $h4-font-size;
+        font-weight: $font-weight-bold;
+        line-height: 26px;
+        border-color: $sw-text-color;
+        margin-bottom: 36px;
+    }
+
+    .card-title {
+        @include card-title;
+
+        .btn-light {
+            @include button-change;
+        }
+    }
+
+    &-item-children {
+        background-color: transparent;
+    }
+}
+
+.account-content {
+    .account-content-main {
+        @extend .col-xl-8;
+    }
+}
+
+.account-content-main,
+.account-aside {
+    padding-top: $spacer-lg;
+}
+
+.account-overview {
+    display: flex;
+    flex-direction: column;
+
+    &-newsletter,
+    &-newest-order {
+        order: 1;
+    }
+}
+
+.account-overview-card,
+.address-card {
+    &:not(.account-overview-newest-order) {
+        .card {
+            @include card-box;
+        }
+    }
+}
+
+.account-welcome {
+    padding-bottom: $spacer-10;
+    margin-bottom: 0;
+    padding-top: 0;
+
+    h1 {
+        font-weight: $font-weight-semibold;
+        font-size: $h4-font-size;
+        line-height: 26px;
+        padding-bottom: $spacer-sm;
+        margin-bottom: $spacer-md;
+        border-bottom: solid 2px $sw-text-color;
+    }
+
+    > p {
+        line-height: 20px;
+    }
+}
+
+.account-aside-footer {
+    border-top: none;
+    padding-top: 36px;
+
+    .account-aside-btn {
+        @extend .btn-outline-primary;
+
+        padding: 0 $spacer-lg;
+        border-radius: 20px;
+        line-height: 36px;
+        font-size: $font-size-sm;
+        background-color: $white;
+        min-width: 115px;
+    }
+
+    .icon-log-out {
+        @extend .d-none;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .account-content .account-content-main {
+        padding-left: $spacer-60;
+        padding-right: $spacer-60;
+    }
+
+    .account-content-main,
+    .account-aside {
+        padding-top: $spacer-50;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .account {
+        &.account-content {
+            margin: 0;
+        }
+    }
+
+    .account-content .account-content-main {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .account-welcome {
+        padding-left: $spacer-lg;
+        padding-right: $spacer-lg;
+    }
+
+    .account h2.card-title {
+        margin-left: $spacer-lg;
+        margin-right: $spacer-lg;
+    }
+
+    .account-aside-header {
+        padding: 0 $spacer-20;
+
+        h1 {
+            font-size: $h3-font-size;
+            line-height: 26px;
+            font-weight: $font-weight-bold;
+            padding-bottom: $spacer-sm;
+            margin-bottom: $spacer-md;
+            border-bottom: solid $hr-border-width $sw-text-color;
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .account-content {
+        .account-content-aside {
+            padding: 0;
+        }
+
+        .account-aside {
+            margin-left: -$spacer-20;
+            margin-right: -$spacer-20;
+        }
+    }
+}

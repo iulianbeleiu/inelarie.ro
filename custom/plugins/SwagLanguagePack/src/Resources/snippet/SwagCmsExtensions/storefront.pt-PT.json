@@ -1,0 +1,15 @@
+{
+    "swagCmsExtensions": {
+        "quickview": {
+            "detailPageLinkText": "Mostrar mais detalhes"
+        },
+        "form": {
+            "component": {
+                "checkbox": {
+                    "true": "sim",
+                    "false": "Não"
+                }
+            }
+        }
+    }
+}

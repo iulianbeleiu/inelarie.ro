@@ -1,0 +1,9 @@
+{% sw_extends '@Storefront/storefront/component/customized-products/option-type/option.html.twig' %}
+
+{% block swag_customized_products_option_type_template_option_input_card_description %}
+    {% if option.translated.description|length %}
+        <div class="swag-customized-products-configuration__description">
+            {{ option.translated.description|raw }}
+        </div>
+    {% endif %}
+{% endblock %}

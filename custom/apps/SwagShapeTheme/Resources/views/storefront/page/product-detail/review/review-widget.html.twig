@@ -1,0 +1,54 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/review/review-widget.html.twig' %}
+
+{% block page_product_detail_review_info %}
+    <div class="product-detail-review-info js-review-info">
+        {% block page_product_detail_review_overview %}
+            <div class="product-detail-review-rating"
+                {% if productReviewCount > 0 %}
+                itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating"
+                {% endif %}>
+
+                {% if productReviewCount > 0 %}
+                    <meta itemprop="bestRating" content="5">
+                    <meta itemprop="ratingCount" content="{{ productReviewCount }}">
+                    <meta itemprop="ratingValue" content="{{ productAvgRating }}">
+                {% endif %}
+
+                {% if productReviewCount > 0 %}
+                    <h6 class="h6 product-detail-review-count">
+                        {{ productAvgRating }}
+                    </h6>
+                {% endif %}
+            </div>
+        {% endblock %}
+
+        <div>
+            {% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
+                points: productAvgRating,
+                style: 'text-primary'
+            } %}
+
+            {{ block('page_product_detail_review_title') }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_product_detail_review_filter_checkbox_label %}
+    <label class="custom-control-label text-nowrap"
+           for="reviewRating{{ matrix.points }}">
+        <small>{{ matrix.points }}</small>
+    </label>
+{% endblock %}
+
+{% block page_product_detail_review_filter_progressbar %}
+    <div class="col product-detail-review-progressbar-col">
+        <div class="progress product-detail-review-progressbar-container">
+            <div class="progress-bar product-detail-review-progressbar-bar"
+                 role="progressbar"
+                 style="width: {{ matrix.percent }}%;"
+                 aria-valuenow="{{ matrix.percent }}"
+                 aria-valuemin="0"
+                 aria-valuemax="100"></div>
+        </div>
+    </div>
+{% endblock %}

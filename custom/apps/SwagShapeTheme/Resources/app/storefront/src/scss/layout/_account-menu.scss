@@ -1,0 +1,205 @@
+/*
+Account menu
+==================================================
+Contains custom styles for the account menu which opens via click/touch on the avatar icon in the header section.
+The menu opens on smaller viewports inside an offcanvas and on larger viewports inside a bootstrap dropdown.
+*/
+
+.account-menu-header {
+    border-bottom: none;
+    font-size: $font-size-lg;
+    padding: 0 $spacer-xl;
+    margin-bottom: 28px;
+
+    a {
+        color: $headings-color;
+    }
+}
+
+.account-menu-offcanvas {
+    &.offcanvas {
+        display: flex;
+        flex-direction: column;
+
+        .offcanvas-header-mobile {
+            display: flex;
+            align-items: center;
+            font-size: $font-size-lg;
+            font-weight: $font-weight-bold;
+            color: $sw-text-color;
+            line-height: 21px;
+            background-color: $shape-gray-200;
+        }
+
+        .offcanvas-close {
+            display: block;
+            width: auto;
+            padding: $spacer-md 13px $spacer-md 22px;
+            background-color: transparent;
+            border: none;
+
+            svg {
+                height: 14px;
+                width: 12px;
+                margin-right: $spacer-10;
+                margin-top: -3px;
+            }
+        }
+
+        span {
+            width: calc(100% - 120px);
+            text-align: center;
+        }
+
+        .offcanvas-content-container {
+            padding: $spacer-40 0 0;
+            flex-grow: 1;
+        }
+    }
+
+    .account-menu,
+    .header-account-menu,
+    .account-menu-inner {
+        height: 100%;
+    }
+
+    .list-group {
+        margin-bottom: $spacer-40;
+    }
+
+    .account-aside-item {
+        font-weight: $font-weight-base;
+        padding: 0 $spacer-xl;
+        margin-bottom: $spacer-lg;
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: $gray-900;
+            background: transparent;
+        }
+
+        &.is-active {
+            color: inherit;
+            font-weight: $font-weight-bold;
+        }
+    }
+
+    .account-aside-btn {
+        @extend .w-100;
+    }
+
+    .account-menu {
+        display: flex;
+        flex-wrap: wrap;
+
+        > div {
+            width: 100%;
+        }
+    }
+
+    .account-menu-login {
+        order: 1;
+        padding: $spacer-40 $spacer-xl;
+        margin-top: auto;
+        margin-bottom: 0;
+        border-bottom: none;
+        background-color: $shape-gray-100;
+
+        .btn {
+            margin-bottom: 15px;
+        }
+    }
+
+    .account-aside-footer {
+        &:not(.account-guest-abort) {
+            padding: $spacer-40 $spacer-xl 72px;
+            margin-top: auto;
+            background-color: $shape-gray-100;
+        }
+
+        &.account-guest-abort {
+            padding: 0 $spacer-xl;
+        }
+    }
+
+    .account-menu-register {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-bold;
+    }
+
+    .account-menu-header {
+        display: none;
+    }
+}
+
+.account-menu-register {
+    text-transform: uppercase;
+    font-weight: $font-weight-semibold;
+    color: $gray-900;
+}
+
+.account-menu-login-button {
+    margin-bottom: 15px;
+}
+
+@include media-breakpoint-up(md) {
+    .account-menu-dropdown {
+        min-width: 233px;
+        box-shadow: $dropdown-box-shadow;
+        border: none;
+        border-radius: 0;
+
+        .account-aside-footer {
+            padding: $spacer-20 28px;
+            text-align: center;
+            border-top: solid $hr-border-width $hr-border-color;
+            margin-top: $spacer-10;
+
+            &.account-guest-abort {
+                border-top: none;
+                margin-top: 0;
+            }
+        }
+
+        .account-aside-btn {
+            width: 100%;
+        }
+    }
+
+    .account-menu {
+        .icon-shape-ic-profile {
+            display: inline-block;
+            line-height: 22px;
+            padding: 0 $spacer-md 0 18px;
+        }
+
+        .list-group-item {
+            font-size: $font-size-base;
+            font-weight: $font-weight-base;
+            line-height: 23px;
+            padding: $spacer-10 55px;
+
+            &:hover {
+                border-radius: 0;
+            }
+        }
+    }
+
+    .account-menu-header {
+        display: block;
+        padding: 35px 0 12px;
+        vertical-align: middle;
+        margin-bottom: 0;
+        line-height: 24px;
+        font-size: $font-size-base;
+    }
+
+    .account-menu-login {
+        padding: $spacer-20 28px;
+        border-bottom: none;
+        margin-bottom: 0;
+        margin-top: $spacer-10;
+        border-top: $hr-border-width solid $hr-border-color;
+    }
+}

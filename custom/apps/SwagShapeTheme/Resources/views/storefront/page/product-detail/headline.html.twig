@@ -1,0 +1,24 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/headline.html.twig' %}
+
+{% block page_product_detail_name_container %}
+    {% set price = page.product.calculatedPrice %}
+    {% if page.product.calculatedPrices.count > 0 %}
+        {% set price = product.calculatedPrices.last %}
+    {% endif %}
+
+    {% set listPrice = price.listPrice.percentage > 0 %}
+    {% set hasRange = product.calculatedPrices.count > 1 %}
+
+    {% if listPrice and not hasRange %}
+        {% block page_product_detail_was_price_badge %}
+            <p class="product-detail-price-discount">{{ "detail.sale"|trans|sw_sanitize }}</p>
+        {% endblock %}
+    {% endif %}
+
+    <div class="product-detail-name-container">
+        {{ block('page_product_detail_name') }}
+    </div>
+{% endblock %}
+
+{% block page_product_detail_manufacturer %}
+{% endblock %}

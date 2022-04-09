@@ -1,0 +1,36 @@
+/*
+Scroll up
+==============================================
+Shows a scroll up button at the bottom right of the page.
+*/
+
+.scroll-up-button {
+    bottom: 50px;
+    transform: translateX(50%);
+    padding: 0;
+    left: 20px;
+
+    .btn {
+        font-weight: $font-weight-bolder;
+    }
+
+    .icon-shape-ic-arrow-up path {
+        fill: $white;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .scroll-up-button {
+        &.is-visible {
+            transform: scale(1);
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .scroll-up-button {
+        right: 155px;
+        bottom: 20px;
+        left: auto;
+    }
+}

@@ -1,0 +1,39 @@
+{% block swag_markets_amazon_asin_management %}
+    <sw-modal
+        @modal-close="$emit('modal-close')"
+        title="ASIN management"
+        :variant="'large'"
+        class="bf-modal">
+        <sw-data-grid style="min-height: 300px;"
+            :dataSource="dataSource"
+            :columns="getColumns"
+            :allowInlineEdit="true"
+            itemIdentifierProperty="shopsProductsVariationsId"
+            :showSelection="false"
+            @inline-edit-save="inlineEditSave">
+            <template #column-asin="{ item, column, isInlineEdit, compact }">
+                <sw-text-field
+                    v-if="isInlineEdit"
+                    :placeholder="$tc('products.table-headers.asin')"
+                    v-model="item.asin"
+                    size="small">
+                </sw-text-field>
+                <template v-else>
+                    {{ item.asin }}
+                </template>
+            </template>
+        </sw-data-grid>
+        {% block swag_markets_asin_matching_pagination %}
+            <sw-pagination :total="total" :limit="limit" :page="page" :steps="[5]" @page-change="paginate"></sw-pagination>
+        {% endblock %}
+        <template slot="modal-footer">
+            {% block bf_sales_channel_product_detail__footer_cancel %}
+                <sw-button
+                    @click="$emit('modal-close')"
+                    size="small">
+                    {{ $tc('products.edit.cancel') }}
+                </sw-button>
+            {% endblock %}
+        </template>
+    </sw-modal>
+{% endblock %}

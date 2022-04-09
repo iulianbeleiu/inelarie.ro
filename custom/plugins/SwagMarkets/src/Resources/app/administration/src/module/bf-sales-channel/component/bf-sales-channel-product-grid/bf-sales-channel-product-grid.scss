@@ -1,0 +1,17 @@
+@import "~scss/variables";
+
+$bf-sales-channel-product-grid-color-error: #de294c;
+$bf-sales-channel-product-grid-color-success: #37d046;
+
+.bf-card {
+  .is--inactive {
+    color: $bf-sales-channel-product-grid-color-error;
+  }
+
+  .is--active {
+    color: $bf-sales-channel-product-grid-color-success;
+  }
+  .sw-data-grid__cell-value {
+    white-space: nowrap;
+  }
+}

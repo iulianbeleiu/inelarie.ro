@@ -1,0 +1,29 @@
+{
+  "null": {
+    "SwagPayPal.settings.ecsButtonColor": "gold",
+    "SwagPayPal.settings.ecsButtonShape": "rect",
+    "SwagPayPal.settings.ecsCartEnabled": true,
+    "SwagPayPal.settings.ecsDetailEnabled": true,
+    "SwagPayPal.settings.ecsListingEnabled": true,
+    "SwagPayPal.settings.ecsLoginEnabled": true,
+    "SwagPayPal.settings.ecsOffCanvasEnabled": true,
+    "SwagPayPal.settings.ecsSubmitCart": true,
+    "SwagPayPal.settings.installmentBannerEnabled": true,
+    "SwagPayPal.settings.intent": "CAPTURE",
+    "SwagPayPal.settings.landingPage": "NO_PREFERENCE",
+    "SwagPayPal.settings.loggingLevel": 300,
+    "SwagPayPal.settings.merchantLocation": "germany",
+    "SwagPayPal.settings.plusCheckoutEnabled": true,
+    "SwagPayPal.settings.sandbox": true,
+    "SwagPayPal.settings.sendOrderNumber": true,
+    "SwagPayPal.settings.spbAlternativePaymentMethodsEnabled": true,
+    "SwagPayPal.settings.spbButtonColor": "gold",
+    "SwagPayPal.settings.spbButtonShape": "rect",
+    "SwagPayPal.settings.spbCheckoutEnabled": true,
+    "SwagPayPal.settings.submitCart": true,
+    "SwagPayPal.settings.clientId": "AQOs-Zqi0kU3aLWsrLVActt1d1u2AhpdLeiddWssUq-y7WnT_kPv4TEFNkTShvrlLFlschWKIi9JCVkl",
+    "SwagPayPal.settings.clientSecret": "EMATe3fxb-01TvYZxs1QFKf2N2WpQjE_os-XtfBddY5hjyHJ71SEpU4dr7woMlWz5_OYw-kpSwMRQvoD",
+    "SwagPayPal.settings.clientSecretSandbox": "EMATe3fxb-01TvYZxs1QFKf2N2WpQjE_os-XtfBddY5hjyHJ71SEpU4dr7woMlWz5_OYw-kpSwMRQvoD",
+    "SwagPayPal.settings.clientIdSandbox": "AQOs-Zqi0kU3aLWsrLVActt1d1u2AhpdLeiddWssUq-y7WnT_kPv4TEFNkTShvrlLFlschWKIi9JCVkl"
+  }
+}

@@ -1,0 +1,98 @@
+.scroll-up-button {
+    display: block;
+}
+
+.scroll-navigation-sidebar {
+    @include media-breakpoint-up(lg) {
+        background-color: $shape-gray-100;
+        box-shadow: 0 9px 20px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    &.list--visible {
+        .scroll-navigation-sidebar-list {
+            overflow: visible;
+        }
+
+        .scroll-navigation-sidebar-close {
+            right: $spacer-20;
+        }
+    }
+
+    &-entry {
+        &-bullet {
+            background-color: $shape-gray-500;
+            transform: scale(1.5);
+        }
+
+        &--active > .scroll-navigation-sidebar-entry-bullet {
+            transform: scale(2.5);
+        }
+
+        &-line {
+            opacity: 0;
+        }
+
+        &-label {
+            border-top-right-radius: 14px;
+            border-bottom-right-radius: 14px;
+            font-size: 12px;
+            font-weight: $font-weight-bold;
+            color: $shape-gray-900;
+        }
+    }
+
+    &-mobile {
+        &-menu {
+            background-color: $shape-gray-100;
+            border-radius: $spacer-lg;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 9px 20px 0 rgba(0, 0, 0, 0.2);
+            bottom: 24px;
+        }
+
+        &-button {
+            &-icon:focus,
+            &:focus {
+                outline: none;
+            }
+
+            &:first-child {
+                height: auto;
+                border-right: none;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    border-right: 1px solid $shape-gray-500;
+                    top: 11px;
+                    bottom: 11px;
+                    right: 0;
+                }
+            }
+        }
+
+        &-button-icon {
+            top: auto;
+        }
+    }
+
+    &-close .icon {
+        color: $shape-gray-900;
+        cursor: pointer;
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .scroll-navigation-sidebar-entry:hover > .scroll-navigation-sidebar-entry-label {
+        background-color: $shape-gray-100;
+        box-shadow: none;
+    }
+
+    .scroll-navigation-sidebar-mobile-menu {
+        display: none;
+    }
+}

@@ -1,0 +1,79 @@
+{
+    "general": {
+        "404ErrorPageHeader": "Es sieht so aus, als hätten Sie sich verfahren.",
+        "404ErrorDescription": "Die von Ihnen gesuchte Seite existiert nicht mehr",
+        "maintenanceModeHeader": "Wir werden bald wiederkommen.",
+        "maintenanceModeDescription": "Die Seite, die Sie suchen, existiert nicht mehr.",
+        "requiredFields": "*Pflichtfeld",
+        "offcanvasCloseMenu": "Mein Konto"
+    },
+    "header": {
+        "topBarMessage": "KOSTENLOSE ÜBERWEISUNG UND KOSTENLOSE RÜCKGABE ab einem Bestellwert von X Euro",
+        "searchPlaceholder": "Suche...",
+        "searchAllResults": "Alle Ergebnisse anzeigen"
+    },
+    "footer": {
+        "newsletterHeadline": "Unser Newsletter.<br>Jetzt abonnieren und nichts mehr verpassen!",
+        "newsletterInfo": "Melden Sie sich jetzt für den Newsletter an und erhalten Sie einen x Euro Gutschein!",
+        "instagramLink": "Instagram",
+        "facebookLink": "Instagram",
+        "pinterestLink": "Pinterest",
+        "scrollTop": "Nach oben"
+    },
+    "checkout": {
+        "welcome": "Willkommen zurück!",
+        "addressRegisterCardTitle": "Ich bin neu hier.",
+        "registerWelcome": "Herzlich willkommen! Bitte registrieren Sie sich, um fortzufahren:",
+        "addressLoginToggle": "Sind Sie bereits Kunde? Klicken Sie hier, um sich einzuloggen.",
+        "cartyEmptyDesc": "Fügen Sie ein Produkt hinzu, um Ihren Warenkorb zu füllen."
+    },
+    "newsletter": {
+        "formSubmit": "Anmelden",
+        "formSubscribe": "Anmelden",
+        "placeholderMail": "Ihre E-Mail Adresse"
+    },
+    "detail": {
+        "propertyTitle": "Material",
+        "sale": "Verkauf"
+    },
+    "account": {
+        "overviewTitle": "Hallo",
+        "overviewInfo": "Dies ist die Kontoübersicht! Finden und bearbeiten Sie grundlegende Informationen zu ausgewählten Zahlungsarten und Adressen.",
+        "overviewProfileHeader": "Ihr Profil",
+        "overviewChangeProfile": "Ändern",
+        "overviewPaymentHeader": "Zahlungsmethode",
+        "overviewChangePayment": "Ändern",
+        "newsletterTitle": "Newsletter-Einstellung",
+        "overviewNewestOrderHeader": "Ihr letzter Auftrag",
+        "orderActionView": "Mehr sehen",
+        "overviewChangeBilling": "Ändern",
+        "orderContextMenuChangePayment": "Ändern",
+        "overviewChangeShipping": "Ändern",
+        "greetings": "Ihr Konto",
+        "loginHeader": "Willkommen zurück!",
+        "registerPersonalHeader": "Ich bin neu hier.",
+        "loginPasswordRecover": "Haben Sie Ihr Passwort vergessen?",
+        "personalPasswordDescription": "Ihr Passwort muss mindestens %minLength% Zeichen enthalten.",
+        "profileCurrentPass": "Passwort",
+        "profileChangeEmail": "Ändern",
+        "profileChangePassword": "Ändern",
+        "profilePasswordText": "**************************",
+        "profileAccountDeleting": "Kundenkonto",
+        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-target=\"%target%\">Klicken Sie hier</a> um alle Ihre persönlichen Daten zu löschen",
+        "profileDeleteModalTitle": "Kundenkonto",
+        "profileDeleteButton": "Konto löschen",
+        "profileDeleteAlert": "Nach der Löschung der persönlichen Daten Ihres Kundenkontos sind Newsletter-Einträge und Bewertungen für Sie nicht mehr zugänglich.\n Beachten Sie, dass dennoch Aufzeichnungen über alle Bestellungen aufbewahrt werden, um die gesetzlichen Bestimmungen zu erfüllen.",
+        "profileDeleteConfirm": "Möchten Sie Ihr Kundenkonto wirklich löschen?",
+        "addressListHeader": "Ihre Adresse",
+        "addressesContentItemActionEdit": "Ändern",
+        "addressHeadline": "Rechnungsadresse ändern",
+        "orRegisterLink": "Registrieren",
+        "orderItemColumnProductNumber": "Produkt-Nummer: ",
+        "orderItemColumnPrice": "Preis pro Einheit",
+        "orderItemDate": "Von:"
+    },
+    "listing": {
+        "boxAddProductMobile": "In den Warenkorb",
+        "boxProductDetails": "Mehr Details"
+    }
+}

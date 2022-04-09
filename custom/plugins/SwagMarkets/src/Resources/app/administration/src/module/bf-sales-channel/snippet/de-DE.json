@@ -1,0 +1,635 @@
+{
+    "global": {
+        "error-codes": {
+            "bd79c0ab-ddba-46cc-a703-a7a4b08de310": "Diese Email ist ungültig",
+            "d94b19cc-114f-4f44-9cc4-4138e80a87b9": "Die maximale Länge muss 20 Zeichen betragen",
+            "9ff3fdc4-b214-49db-8718-39c315e33d45": "Die Mindestlänge muss 8 Zeichen betragen",
+            "de1e3db3-5ed4-4941-aae4-59f3667cc3a3": "Telefonnummer ist ungültig"
+        },
+        "titleSaveError": "Fehler",
+        "clientNotReady": "Der Mandant ist nicht bereit",
+        "notAuthorised": "Benutzer ist nicht autorisiert",
+        "yes": "Ja",
+        "no": "Nein",
+        "globalConfigInfo": "Bitte beachte, dass diese Einstellung für alle Marktplatz Verkaufskanäle gültig ist!",
+        "login": "Anmelden"
+    },
+    "bf-ebay-best-offer": {
+        "notification": {
+            "error": {
+                "title": "Ebay Preisvorschlag Fehler",
+                "absoluteAutoAcceptMessage": "Das automatische Akzeptieren vom absoluten Rabattwert darf nicht unter Maximale Absolute Rabatt liegen",
+                "relativeAutoAcceptMessage": "Das automatische Akzeptieren vom relativen Rabattwert darf nicht unter Maximale Relative Rabatt liegen"
+            }
+        }
+    },
+    "bf-sales-channel": {
+        "create": {
+            "labelMarketplace": "Marktplatz",
+            "labelCountry": "Land",
+            "labelCurrency": "Währung",
+            "labelLanguage": "Sprache",
+            "duplicateSalesChannel": "Der Verkaufskanaltyp \"{type}\" existiert bereits, mehrere Kanäle von dem typ \"Amazon\" oder \"eBay\" können nicht angelegt werden."
+
+        },
+        "detail": {
+            "labelInputActive": "aktiv",
+            "labelInputNotActive": "inaktiv",
+            "labelActiveSince": "Aktiv seit",
+            "labelNextBilling": "Nächste Abrechnung",
+            "labelInputProcessingTime": "Bearbeitungszeit",
+            "contractLabel": "Vertragsdetails",
+            "contractButton": "Vertrag wechseln",
+            "withoutContractTitle": "Keine Lizenz",
+            "contractContentDescription": "Beschreibung",
+            "contractContentPrice": "Preis",
+            "labelProcessingTime": "Standard Bearbeitungszeit",
+            "notAuthorisedText": "Um zu sehen welche Subscription du gebucht hast, logge dich bitte in den Shopware Account ein ",
+            "delete": "Das Entfernen dieses Verkaufskanals kann nicht wieder rückgängig gemacht werden. Sämtliche Einstellungen gehen verloren. Angebote auf dem Verkaufskanal werden deaktiviert und nicht weiter aktualisiert.",
+            "titleGeneralEbayPolicies": "Rahmenbedingungen",
+            "ebayShippingPolicyLabel": "Versand",
+            "ebayPaymentPolicyLabel": "Zahlart",
+            "ebayReturnPolicyLabel": "Retouren",
+            "ebayPoliciesInfo": "Um die Rahmenbedinungen für eBay zu aktivieren klicke bitte auf folgenden Link: ",
+            "ebayPoliciesLinkName": "eBay Rahmenbedinung",
+            "ebayPoliciesSystemInfo": "Damit du die Rahmenbedingungen konfigurieren kannst, musst du dein eBay Konto verbinden.",
+            "ebayErrorLoadingPolicies": "Beim Laden der Rahmenbedinungen ist ein Fehler aufgetreten. Damit die Rahmenbedingungen angezeigt werden können, muss dein eBay Konto verbunden sein.",
+            "ebayExpireTokenTitle": "eBay - Token",
+            "ebayExpireTokenOAuthTitle": "Der Oauth-Token ist gültig bis:",
+            "ebayExpireTokenAuthTitle": "Der Auth-Token ist gültig bis:",
+            "ebayExpireTokenOAuthNotAvailable": "Keine Angaben",
+            "ebayExpireTokenAuthNotAvailable": "Keine Angaben",
+            "ebayExtendTokenOAuthBtn": "OAuth-Token verlängern",
+            "ebayExtendTokenAuthBtn": "Auth-Token verlängern",
+            "ebayTokenSystemInfo": "Um neue Tokens zu erzeugen, musst du dein eBay Konto verbinden.",
+            "ebayErrorLoadingTokens": "Beim Laden der Tokens ist ein Fehler aufgetreten. Damit du neue Tokens generieren kannst, muss dein eBay Konto verbunden sein.",
+            "infoActivateDeactivateSalesChannel": "Bitte beachte, dass nach dem Deaktivieren keine Daten mehr an den Marktplatz übergeben werden. Somit werden keine Bestandsänderungen und Preisänderungen übergeben.",
+            "ebayAccountCardTitle": "eBay - Konto",
+            "ebayAccountInfo": "Damit du die Konto-Informationen konfigurieren kannst, musst du dein eBay Konto verbinden.",
+            "ebayBestOffers": "eBay - Preisvorschläge",
+            "ebayBestOfferAbsolute": "Maximaler Absoluter Rabatt",
+            "ebayBestOfferAbsoluteHelpText": "Ist der Rabatt des Preisvorschlags höher als der angegebene Wert, wird dieser automatisch abgelehnt",
+            "ebayBestOfferAbsoluteAutoAccept": "Automatisch akzeptieren ab absolutem Rabatt",
+            "ebayBestOfferAbsoluteAutoAcceptHelpText": "Ist der Rabatt des Preisvorschlags niedriger als der angegebene Wert, wird dieser automatisch akzeptiert",
+            "ebayBestOfferActive": "Preisvorschläge Aktiv",
+            "ebayBestOfferActiveHelpText": "Der Preisvorschlag ist nur in manchen Kategorien möglich und kann nicht mit Varianten verwendet werden",
+            "ebayBestOfferAutoAccept": "Automatisch akzeptieren",
+            "ebayBestOfferAutoAcceptHelpText": "Ist der Rabatt des Preisvorschlags niedriger als der maximale Rabatt, wird dieser automatisch akzeptiert",
+            "ebayBestOfferRelative": "Maximaler Relativer Rabatt",
+            "ebayBestOfferRelativeHelpText": "Ist der Rabatt des Preisvorschlags höher als der angegebene Wert, wird dieser automatisch abgelehnt",
+            "ebayBestOfferRelativeAutoAccept": "Automatisch akzeptieren ab relativem Rabatt",
+            "ebayBestOfferRelativeAutoAcceptHelpText": "Ist der Rabatt des Preisvorschlags niedriger als der angegebene Wert, wird dieser automatisch akzeptiert",
+            "ebayBestOfferFix": "Preisvorschläge automatisch abschalten",
+            "ebayBestOfferFixHelpText": "Preisvorschläge automatisch abschalten, falls schon jemand drauf geboten hat. Dafür wird die Auktion beendet und wieder neu eingestellt",
+            "ebayPaymentMethods": "eBay - Zahlungsarten",
+            "ebayPaymentMethodPayPal": "eBay - PayPal: ",
+            "ebayPaymentMethodMoneyXferAcceptedInCheckout": "eBay - Vorkasse: ",
+            "ebayPaymentMethodCashOnPickup": "eBay - Barzahlung bei Abholung: ",
+            "ebayPaymentMethodCod": "eBay - Nachname: ",
+            "ebayPaymentMethodEbayPayments": "eBay - Payments: ",
+            "ebayPaymentSelectName": "Auswählen...",
+            "showPaymentChangedNotificationMsg": "Die Zahlarten am Saleschannel wurden geändert, bitte speichere diese Änderungen zuerst.",
+            "noPaymentMethodsSelected":  "Damit du den Saleschannel aktiv schalten kannst, musst du mindestens eine Zahlart matchen.",
+            "noPoliciesSelected":  "Damit du den Saleschannel aktiv schalten kannst, musst du alle Ebay - Rahmenbedinungen ausgewählt haben.",
+            "amazonFbaPrimeShippingMethodsTitle": "FBA / Prime Versandarten",
+            "amazonFbaPrimeFbaLabel": "FBA",
+            "amazonFbaPrimeFbaHelpText": "Wenn du für Amazon FBA Bestellungen eine andere Versandart verwenden willst, wähle diese hier aus.",
+            "amazonFbaPrimePrimeHelpText": "Wenn du für Amazon Prime Bestellungen eine andere Versandart verwenden willst, wähle diese hier aus.",
+            "amazonFbaPrimePrimeNextDayHelpText": "Wenn du für Amazon Prime next day Bestellungen eine andere Versandart verwenden willst, wähle diese hier aus.",
+            "amazonFbaPrimePrimeSecondDayHelpText": "Wenn du für Amazon Prime second day Bestellungen eine andere Versandart verwenden willst, wähle diese hier aus.",
+            "amazonFbaPrimePrimeLabel": "Prime",
+            "amazonFbaPrimePrimeNextDayLabel": "Prime next day",
+            "amazonFbaPrimePrimeSecondDayLabel": "Prime second day",
+            "amazonDangerousGoodsLabel": "Wert für Gefahrengut",
+            "amazonNeedsBatteryLabel": "Batterien werden benötigt?",
+            "amazonFbaRequiredInfo": "Für eine korrekte Übertragung deiner FBA Artikel braucht Amazon folgende Informationen.",
+            "netPriceSwitchLabel": "Produkte sollen mit Nettopreisen verkauft werden",
+            "amazonPaymentMethodInfoText": "Der Verkaufskanal ist mit der Zahlungsart \"Shopware Markets - Amazon\" verknüpft. Alle Bestellungen werden auf diese Zahlungsart geschrieben. Diese darf nicht gelöscht werden, andernfalls können Bestellungen nicht an Shopware übertragen werden.",
+            "prices": "Preise"
+        },
+        "contractModal": {
+            "title": "Vertragsdetails",
+            "text": "Wenn du deinen Vertrag ändern möchtest, wähle eine andere Option und klicke auf die Speichern-Taste.",
+            "chooseButton": "Auswählen",
+            "currentContractText": "Aktiver Vertrag",
+            "month": "Monat",
+            "buttonRemove": "Lizenz kündigen",
+            "buttonChooseContract": "Buchen",
+            "perChannel": "Produkte pro Vertriebskanal",
+            "includedText": "Verkäufe inklusive*",
+            "extraPriceText": "* jeder weitere Verkauf",
+            "bfSpecialProposal": "* Nach Prüfung durch die brickfox GmbH erhalten Sie hier ein separates Angebot",
+            "permissionsModalTitle": "Shopware Markets Berechtigungen",
+            "permissionsClose": "Schließen",
+            "permissionsSharedData": {
+                "contentText": "Shopware Markets wird einige der folgenden Daten mit unserem Unterauftragsnehmer",
+                "contentTextEnd": "teilen",
+                "headLine": "Geteilte Kundendaten",
+                "name": "Kundennamen",
+                "email": "Kunden Email-Adressen",
+                "phone": "Kunden Telefonnummern",
+                "birthdate": "Kunden Geburtsdatum",
+                "address": "Kunden Rechnungs- und Lieferadressen"
+            },
+            "subProcessorTitle": "Unterauftragnehmer von Shopware",
+            "table": {
+                "withoutLimitText": "Ohne Limit",
+                "feeLabel": "Gebühr je Transaktion",
+                "feeHelpText": "Kosten je zusätzlichem Verkauf",
+                "transactionsLabel": "Transaktionen inkl.",
+                "transactionsHelpText": "Anzahl der Verkäufe ohne Aufpreis",
+                "limitsLabel": "SKU-Limit je Kanal",
+                "limitsHelpText": "Maximum der zugewiesenen Artikel je Verkaufskanal",
+                "singleProductListLabel": "Einzelprodukt listen",
+                "singleProductListHelpText": "Möglichkeit einen Einzelartikel eBay oder Amazon zuzuweisen. Dieser wird dann wenn alle Voraussetzungen erfüllt sind, an den Verkaufskanal exportiert.",
+                "assigningLabel": "Kategorieverknüpfung",
+                "assignHelpText": "Möglichkeit eine Shopware-Shopkategorie / Unterkategorie auf einmal einer Marktplatzkategorie zuweisen. Alle mit der Shopkategorie verknüften Artikel werden somit der Marktplatzkategorie zugewiesen.",
+                "generalSettingsLabel": "Allgemeine Konfiguration",
+                "generalSettingsHelpText": "In diesem Bereich werden übergreifende Einstellungen vorgenommen, wie z.B. Versand- und Zahlungsarten.",
+                "createNewArticleLabel": "Anlegen neuer Artikel",
+                "createNewArticleHelpText": "Ein Artikel, welcher noch nicht auf Amazon oder eBay gelistet ist, wird automatisch als neues Marktplatzangebot angelegt.",
+                "bulletPointsLabel": "Anlegen von Bulletpoints",
+                "bulletPointsHelpText": "Attribute können als Bulletpoints direkt auf die Marktplatzfelder zugewiesen und übertragen werden.",
+                "amazonKeywordsLabel": "Amazon Keywords",
+                "amazonKeywordsHelpText": "Suchbegriffe können vergeben und direkt auf die Marktplatzfelder zugewiesen und übertragen werden.",
+                "offerExistingItemsLabel": "Aufschalten auf bestehende Amazon Angebote",
+                "offerExistingItemsHelpText": "Ein Artikel aus dem Sortiment, zu dem es bereits ein Angebot auf dem Marktplatz gibt, wird automatisch diesem Angebot zugewiesen.",
+                "channelErrorListLabel": "Anzeige Fehlerliste",
+                "channelErrorListHelpText": "Artikel die auf Fehler laufen, werden entsprechend markiert und die Fehlerliste kann aufgerufen werden. Ein Einloggen in das Seller Central / Mein eBay ist nicht erforderlich.",
+                "deeplinkPossibilityLabel": "Deeplink auf Artikel im Verkaufskanal",
+                "deeplinkPossibilityHelpText": "Es kann über einen im Sales Channel angezeigten Link direkt der gelistete Marktplatzartikel aufgerufen und im einem separaten Browserfenster angesehen und geprüft werden.",
+                "amazonFbaLabel": "Amazon FBA",
+                "amazonFbaHelpText": "Im Sales Channel ist es möglich, Artikel zu markieren, für die es einen eingelagerten Bestand direkt in einem Amazon-Lager gibt. Ist diese Markierung gesetzt, wird der verfügbare Bestand nicht aus Shopware an Amazon übertragen und Amazon verwendet seinen eigenen Bestand. Alle weiteren Artikelinformationen werden weiterhin aktualisiert (z.B. Preisänderungen).",
+                "ebayPlusLabel": "Ebay Plus",
+                "ebayPlusHelpText": "Es können im Sales Channel eBay spezielle Einstellungen für eBay Plus, den für den eBay-Kunden kostenlosen Premiumversand, vorgenommen werden, z.B. Artikel für eBay Plus markieren und eine spezielle Versandart hierfür anlegen.",
+                "amazonPrimeLabel": "Amazon Prime",
+                "amazonPrimeHelpText": "SW-Markets kann am Amazon Programm \"Prime für Händler\" teilnehmen und somit für den eigenen Versand das Prime-Logo auf Amazon verwenden. Hierzu wird u.a. eine spezielle Versandart eingerichtet, um Prime für Händler-Bestellungen zu identifizieren. Das verwendete ERP-System muss ebenfalls \"Prime für Händler\" unterstützen.",
+                "customEbayTemplateLabel": "Shopware Ebay Template",
+                "customEbayTemplateHelpText": "Es gibt ein von Shopware bereitgestelltes Template, welches für die Darstellung der Produkte auf eBay verwendet werden kann.",
+                "ebaySuggestedPriceLabel": "eBay - vorgeschlagener Preis",
+                "ebaySuggestedPriceHelpText": "Es können Regeln für die Preisvorschlagsfunktion von eBay festgelegt werden. Dies ermöglicht es eBay automatsiert auf Preisvorschläge zu antworten, ohne dass der Händler im Einzelfall entscheiden muss.",
+                "optionsTransferLabel": "Option der Übernahme Shop Artikeln *",
+                "optionsTransferHelpText": "Aus Shopware wird eine Verbindung mit dem bestehenden Marktplatz-Konto hergestellt. Handelt es sich um ein bereits befülltes Marktplatzkonto, so erfolgt eine Rückfrage, ob bestehende Angebote übernommen werden sollen. ",
+                "contractTermsAndConditionsBegin": "Ich akzeptiere die ",
+                "contractTermsAndConditionsLink": "https://www.shopware.com/de/gtc/",
+                "contractTermsAndConditionsEnd": "AGB ",
+                "contractSubProcessorBegin": "Mir ist bewusst, dass diese App weitere ",
+                "contractSubProcessorLink1": "Berechtigungen ",
+                "contractSubProcessorMiddle": "benötigt und aktzeptiere ",
+                "contractSubProcessorLink2": "brickfox GmbH ",
+                "contractSubProcessorEnd": "als neuen Unterauftragsnehmer von Shopware"
+            },
+            "notification": {
+                "title": "Lizenz",
+                "canceledMessage": "Die Lizenz wurde erfolgreich gekündigt",
+                "changedMessage": "Eine neue Lizenz wurde erfolgreich erworben",
+                "errorTitle": "Fehler",
+                "errorSkuLimitAchieved": "Das zulässige Limit von {limit} Produkte für die Saleschannel {name} wurde erreicht. Um weitere Artikel freizuschalten benötigst du ein anderes Lizenzpaket. Du kannst dieses in der generellen Konfigurationsseite deines Saleschannel erwerben.",
+                "errorTooMuchProductsAssigned": "Die Lizenz {contractName} kann leider nicht beendet werden, da noch aktive Produkte zugewiesen sind."
+            }
+        },
+        "contractAgbModal": {
+            "text": "Durch die Aktion erwirbst du das kostenpflichtige Saleschannel Plugin",
+            "agreementWithPaymentLabel": "Ich bestätige den kostenpflichtigen Erwerb der Lizenz \"{name}\" für {price} EUR mtl.",
+            "agreementWithAgbLabel": "Ich erkläre mich mit den Bedingungen einverstanden",
+            "agreementWithAgbText": "Bitte beachte unsere"
+        },
+        "contractCancelModal": {
+            "title": "Lizenz kündigen",
+            "text": "Eine Kündigung der Lizenz \"{name}\" wird unverzüglich durchgeführt. Ab sofort steht dir kein Support mehr zur Verfügung.",
+            "agreementWithCancelingLabel": "Ich bestätige, dass die Lizenz sofort gekündigt wird"
+        }
+    },
+    "bf-support": {
+        "modal": {
+            "titleSupport": "Support Anfrage",
+            "titleTransferProducts": "Anfrage Artikelübernahme",
+            "nameFieldLabel": "Vor- / Nachname",
+            "labelMessage": "Deine Nachricht",
+            "messagePlaceholder": "Schreibe hier deine Nachricht",
+            "agreementWithSendToBrickfox": "Hiermit willige ich ein, dass meine Daten an die brickfox GmbH, Hermannstraße 5A, 70178 Stuttgart für die Anfrage des Artikelübernahme Services übertragen wird. Die Anfrage selbst ist kostenlos.",
+            "buttonSendRequest": "Anfrage senden"
+        },
+        "notification": {
+            "success": {
+                "title": "Erfolg",
+                "message": "Deine Anfrage wurde erfolgreich gesendet"
+            },
+            "error": {
+                "title": "Fehler",
+                "message": "Du hast einige Fehler"
+            }
+        }
+    },
+    "bf-property-transfer": {
+        "tab": {
+            "label": "Eigenschaften übertragen",
+            "text": "Bevor die Eigenschaften mit den Attributen des Marktplatzes verknüpft werden können, müssen Sie die Eigenschaften für den entsprechenden Marktplatz bereitstellen. Wähle bitte die entsprechenden Merkmale aus und klicke auf Speichern. Danach kannst du die entsprechenden Mappings vornehmen.",
+            "warningText": "Bitte beachte, dass diese Einstellung für alle Marktplatz Verkaufskanäle gültig ist!"
+        },
+        "list": {
+            "columnName": "Eigenschaften",
+            "columnTransfer": "Übertragen"
+        },
+        "notification": {
+            "title": "Eigenschaften Übertragung",
+            "messageSuccess": "Eigenschaften wurden erfolgreich übertragen.",
+            "messageError": "Eigenschaften wurden nicht übertragen. Bitte wende dich an die Verwaltung."
+        }
+    },
+    "bf-custom-fields-transfer": {
+        "tab": {
+            "label": "Zusatzfelder übertragen",
+            "text": "Bevor die Zusatzfelder mit den Attributen des Marktplatzes verknüpft werden können, musst du die Zusatzfelder für den entsprechenden Marktplatz bereitstellen. Wähle bitte die entsprechenden Merkmale aus und klicke auf Speichern. Danach kannst du die entsprechenden Mappings vornehmen."
+        },
+        "list": {
+            "columnName": "Technischer Name des Zusatzfelder",
+            "columnTransfer": "Übertragen"
+        },
+        "notification": {
+            "title": "Zusatzfelder Übertragung",
+            "messageSuccess": "Zusatzfelder wurden erfolgreich übertragen.",
+            "messageError": "Zusatzfelder wurden nicht übertragen. Bitte wende dich an die Verwaltung."
+        }
+    },
+    "bf-category-segment-mapping": {
+        "title": "Segment Zuordnung",
+        "description": "Hier verknüpfst du deine Shopware Kategorien mit den Amazon Produktsegmenten und den dazugehörigen Produkttypen. Auf der linken Seite befinden Sie die Shopware Kategorien. Dort wählst du bitte eine Kategorie aus. Hierdurch werden im Hintergrund alle sich darin befindlichen Produkte selektiert.\nAuf der rechten Seite wählst du ein Produktsegment und einen Produkttyp aus. Mit Speichern werden nun beide Bäume und die darin enthaltenen Produkte verknüpft.",
+        "information": "Wähle eine Kategorie für die Zuweisung des Amazon-Segments und des Produkttyps",
+        "notification": {
+            "title": "Zuordnung von Kategorie zu Amazon-Segment",
+            "messageSuccess": "Deine Kategorie wurde erfolgreich zugeordnet",
+            "messageError": "Fehler passiert"
+        },
+        "deleteCategoryMapping": "Kategorie - Zuweisung löschen",
+        "amazonProductSegmentLabel": "Produktsegment",
+        "amazonProductTypeLabel": "Produkttyp",
+        "savedCategoryMapping": "Kategorie - Zuweisung wurde erfolgreich gespeichert.",
+        "savedCategoryMappingTitle": "Kategorie - Zuweisung",
+        "deleteModalWarning": "Achtung",
+        "deleteModalWarningMsg": "Sind Sie sicher das Sie die Kategorie-Zuweisung löschen wollen?",
+        "deleteModalCancelBtn": "Abbrechen",
+        "deleteModalDeleteBtn": "Löschen",
+        "categoriesMappingEmptyState": "Keine Kategorie-Zuweisungen vorhanden",
+        "categoriesMappingDescription": "Hier kannst du deine Shopware-Kategorien mit Marktplatz-Kategorien verknüpfen. Alle Produkte, aus den selektierten Shopware-Kategorien, werden den ausgewählten Marktplatz-Kategorien zugewiesen.",
+        "categoriesMappingTitle": "Kategorie - Zuweisung"
+    },
+    "attributesMapping": {
+        "amazonColumnName": "Amazon-Attribut Name",
+        "ebayColumnName": "Ebay-Attribut Name",
+        "assigned": "Verknüpft",
+        "removeWarningMsg": "Bist du sicher, dass du die Verknüpfung aufheben willst?",
+        "properties": {
+            "emptyStateText": "Keine Eigenschaften vorhanden",
+            "columnName": "Shopware Eigenschaften"
+        },
+        "custom-fields":{
+            "emptyStateText": "Keine Zusatzfelder vorhanden",
+            "columnName": "Shopware Zusatzfelder"
+        },
+        "removeAssignment": "Verknüpfung entfernen",
+        "selectAttribute": "Attribut auswählen",
+        "mandatory": "Pflichtfeld"
+    },
+    "products": {
+        "tab-title": "Produkte",
+        "title": "Zugewiesene Produkte",
+        "table-headers": {
+            "product-name": "Artikelname",
+            "product-number": "Produktnummer",
+            "status": "Aktivitätsstatus",
+            "online-status": "Marktplatz Onlinestatus",
+            "category-name": "Kategorie",
+            "error": "Fehler",
+            "asin": "ASIN",
+            "asinManagement": "ASIN Verwaltung"
+        },
+        "no-license": "Keine gültige Marktplatzlizenz",
+        "showErrorsButton": "Fehler anzeigen",
+        "notTransferredProduct": "Das Produkt wurde nicht auf die Brickfox Business Platform übertragen.",
+        "notTransferredProductToMarketplace": "Das Produkt ist nicht auf den Marktplatz übertragen.",
+        "failedShopsFilter": "Das Produkt hat einen Kanal-Filter nicht bestanden: ",
+        "modalErrors": {
+            "title": "Fehler",
+            "text": "Hier siehst du Fehler in Bezug auf dein Produkt vom Marktplatz."
+        },
+        "action": {
+            "openMarketplaceProduct": "Produkt auf Markplatz öffnen"
+        },
+        "edit": {
+            "noInformation": "Kein Antrag",
+            "invalidContractInfo": "Um die erweiterten Einstellungen nutzen zu können, musst du deinen Vertrag aufwerten.",
+            "basisBFeatures": "Erweiterte Einstellungen",
+            "cancel": "Abbrechen",
+            "save": "Speichern",
+            "general": "Allgemeine Einstellungen",
+            "label": {
+                "ebayPlus": "eBayPlus für diesen Artikel aktivieren",
+                "condition": "Artikel zustand",
+                "conditionNote": "Artikel Zustand Hinweis",
+                "merchantShippingGroupName": "Verkäuferversandgruppe",
+                "searchTerms": "Allgemeine Schlüsselwörter",
+                "platinumKeywords": "Platinum Schlüsselwörter",
+                "fbaActive": "FBA für diesen Artikel aktivieren"
+            },
+            "placeholder": {
+                "merchantShippingGroupName": "Standardvorlage Amazon",
+                "searchTerms": "Schlüsselwort 1, Schlüsselwort 2, Schlüsselwort 3, …",
+                "platinumKeywords": "Schlüsselwort 1, Schlüsselwort 2, Schlüsselwort 3, …"
+            },
+            "conditions": {
+                "ebay": {
+                    "new": "Neu",
+                    "asNew": "Neuwertig",
+                    "used": "Gebraucht",
+                    "veryGood": "Sehr gut",
+                    "good": "Gut",
+                    "acceptable": "Akzeptabel"
+                },
+                "amazon": {
+                    "new": "Neu",
+                    "usedLikeNew": "Gebraucht - Wie Neu",
+                    "usedVeryGood": "Gebraucht - Sehr Gut",
+                    "usedGood": "Gebraucht - Gut",
+                    "usedAcceptable": "Gebraucht - Akzeptabel",
+                    "collectibleLikeNew": "Sammlerstück - Wie Neu",
+                    "collectibleVeryGood": "Sammlerstück - Sehr gut",
+                    "collectibleGood": "Sammlerstück - Gut",
+                    "collectibleAcceptable": "Sammlerstück - Akzeptabel",
+                    "refurbished": "Generalüberholt",
+                    "club": "Club"
+                }
+            },
+            "notification": {
+                "title": {
+                    "success": "Erfolg",
+                    "error": "Fehler"
+                },
+                "message": {
+                    "success": "Produktinformationen wurden erfolgreich gespeichert.",
+                    "error": "Beim Speichern der Produktinformationen ist ein Fehler aufgetreten."
+                }
+            }
+        }
+    },
+    "salesChannel-connectionAssistant": {
+        "connectionNotAvailable": "Damit du dich mit dem Markplatz verbinden kannst, musst du als erstes ein passenden Vertag auswählen.",
+        "connectionAvailable": "Um den Saleschannel zu aktivieren, musst du dich mit dem Marktplatz - Konto verbinden.",
+        "startConnectionAssistant": "Verbindungs-Assistent starten",
+        "chooseContract": "Vertrag auswählen"
+    },
+    "salesChannelSettings": {
+        "invalidContractInfo": "Um die erweiterten Einstellungen nutzen zu können, musst du deinen Vertrag aufwerten.",
+        "card": {
+            "title": {
+                "extendedSettings": "Erweiterte Einstellungen"
+            }
+        },
+        "amazon": {
+            "helpText": {
+                "merchantShippingGroup": "<a class=\"bf-help-link\" href=\"https://sellercentral.amazon.de/gp/help/201834130\" target=\"_blank\">>> Gehe zu Hilfeseite</a>",
+                "fba": "<a class=\"bf-help-link\" href=\"https://sellercentral.amazon.de/gp/help/help.html?itemID=53921\" target=\"_blank\">>> Gehe zu Hilfeseite</a>"
+            },
+            "label": {
+                "merchantShippingGroupName": "Verkäuferversandgruppe",
+                "enableFba": "FBA Service aktivieren",
+                "vatCalculationService": "Umsatzsteuer - Berechnungsservice",
+                "fcShelfLifeAttribute": "FCShelfLife-Attribut für Amazon"
+            },
+            "placeholder": {
+                "merchantShippingGroupName": "Standardvorlage Amazon"
+            }
+        },
+        "ebay": {
+            "helpText": {
+                "ebayPlus": "Hier kannst du den eBay Plus Service aktivieren oder deaktivieren"
+            },
+            "label": {
+                "enableEbayPlus": "eBay Plus aktivieren",
+                "payPalEmail": "PayPal Email-Adresse",
+                "ebayLogo": "Verkäufer-Logo URL",
+                "sellerZip": "Postleitzahl",
+                "sellerCity": "Artikelstandort",
+                "feedbackComment": "Automatische Käuferbewertung",
+                "manufacturerAsBrands" : "Hersteller als Marke exportieren"
+            }
+        }
+    },
+    "categories": {
+        "tab-title": "Kategorien",
+        "title": "Kategorien Mapping",
+        "shopware-tree-title": "Shopware Kategorien",
+        "amazon-marketplace-title": "Amazon Kategorien",
+        "ebay-marketplace-title": "eBay Kategorien",
+        "marketplace-default-title": "Marktplatz Kategorien",
+        "descriptionAmazon": "<p>Hier verknüpfst du deine Shopware Kategorien mit den Amazon Shopkategorien. Auf der linken Seite befinden sich die Shopware Kategorien. Dort wählst du bitte eine Kategorie aus. Hierdurch werden im Hintergrund alle sich darin befindlichen Produkte selektiert.</p><p>Auf der rechten Seite wählst du eine oder mehrere Amazon Shopkategorien aus. Mit Speichern werden nun beide Bäume und die darin enthaltenen Produkte verknüpft. Hierdurch erscheinen deine Produkte in den jeweiligen Kategorien bei Amazon.</p>",
+        "descriptionEbay": "<p>Hier verknüpfst du deine Shopware Kategorien mit den eBay Shopkategorien. Auf der linken Seite befinden sich die Shopware Kategorien. Dort wählst du bitte eine Kategorie aus. Hierdurch werden im Hintergrund alle sich darin befindlichen Produkte selektiert.</p><p>Auf der rechten Seite wählst du eine oder mehrere eBay Shopkategorien aus. Mit Speichern werden nun beide Bäume und die darin enthaltenen Produkte verknüpft. Hierdurch erscheinen deine Produkte in den jeweiligen Kategorien bei ebay.</p>"
+    },
+    "propertyMapping": {
+        "tab-title": "Mapping",
+        "card-title": {
+            "transferredProperties": "Attribut - Zuweisung",
+            "variationProperties": "Variantenbildende Eigenschaften"
+        },
+        "variationProperties": {
+            "swLabel": "Variantenbildende Eigenschaften",
+            "amazonLabel": "Amazon Merkmale",
+            "emptyState": "Keine variantenbildenden Eigenschaften vorhanden"
+        },
+        "columns": {
+            "name": "Name",
+            "externalName": "Externer Name"
+        },
+        "labels": {
+            "search": "Suchen"
+        },
+        "placeholder": {
+            "search": "Name suchen …"
+        },
+        "buttons": {
+            "save": "Speichern",
+            "cancel": "Abbrechen"
+        },
+        "infoText": "Hier siehst du alle Eigenschaften und Zusatzfelder, die bereits an den Markplatz übergeben wurden. Diese musst du nun noch mit den entsprechenden Merkmalen des Verkaufskanals verknüpfen.",
+        "notifications": {
+            "title": {
+                "success": "Erfolg",
+                "warning": "Warnung",
+                "error": "Fehler"
+            },
+            "message": {
+                "success": "Eigenschaften / Zusatzfelder Mapping wurde erfolgreich gespeichert.",
+                "error": "Beim Speichern des Eigenschaften / Zusatzfelder Mappings ist ein Fehler aufgetreten.",
+                "warningTooManySelected": "Es kann nur ein externer Name ausgewählt werden.",
+                "warningNoSelection": "Es wurde kein externer Name ausgewählt.",
+                "noPropertiesFound": "Es konnten keine externen Namen gefunden werden.",
+                "noVariationPropertiesFound": "Es konnten keine Eigenschaften gefunden werden, die benutzt werden, um eine Variante zu erstellen"
+            }
+        },
+        "information": {
+            "message": "Sie können nur Eigenschaften/Zusatfelder mappen, wenn die Produkte mit diesen Eigenschaften/Zusatzfeldern übertragen worden sind."
+        },
+        "product-variant-properties" : {
+            "edit": "Zum Bearbeiten bitte in die betroffene Spalte doppelklicken"
+        }
+    },
+    "unitMapping": {
+        "tab-title": "Maßeinheiten Mapping",
+        "card-title": "Maßeinheiten",
+        "column": {
+            "name": "Name",
+            "externalName": "Externer Name",
+            "type": "Typ"
+        },
+        "edit": {
+            "externalName": "Externer Name"
+        },
+        "infoText": "Hier siehst du alle Maßangaben, die an den Artikeln hängen, die den Verkaufskanälen zugewiesen wurden. Diese musst du nun noch mit den entsprechenden Maßangaben des Verkaufskanals verknüpfen.",
+        "notifications": {
+            "title": {
+                "success": "Erfolg",
+                "warning": "Warnung",
+                "error": "Fehler"
+            },
+            "message": {
+                "success": "Maßeinheiten Mapping wurde erfolgreich gespeichert.",
+                "error": "Beim Speichern des Maßeinheiten Mappings ist ein Fehler aufgetreten.",
+                "warningTooManySelected": "Es kann nur eine Maßeinheit ausgewählt werden.",
+                "warningNoSelection": "Es wurde keine Maßeinheit ausgewählt."
+            }
+        },
+        "noScaleUnit": "Keine Maßeinheit - Zuweisung vorhanden"
+    },
+    "amazonFbaPrime": {
+        "tab-title": "FBA / Prime Einstellungen"
+    },
+    "tabs": {
+        "general": "Allgemein"
+    },
+    "amazon": {
+        "baseTitle": "Amazon Connection Assistant - Account - ",
+        "step1": "Schritt 1",
+        "step2": "Schritt 2",
+        "step3": "Schritt 3",
+        "authoriseDescription": "Um deine Produkte bei Amazon zu listen, ist es erforderlich, dass du deinen Shopware Shop mit Amazon verbindest. Bitte gib hier deine Amazon Seller Central Zugangsdaten ein, um dich mit deinem Amazon Konto zu verbinden.",
+        "manualConnect": "Zugangsdaten",
+        "retailerIdPlaceHolderInput": "Amazon Seller-ID",
+        "retailerId": "Amazon Seller-ID",
+        "mwsTokenPlaceHolderInput": "Amazon MWS Token...",
+        "mwsToken": "Amazon MWS Token",
+        "validateMarketplaceDescription": "In diesem Schritt wird geprüft, ob du im ausgewählten Verkaufskanal Produkte verkaufen darfst.",
+        "validateMarketplaceTooltip": "Hier wird geprüft, ob dein Konto für den ausgewählten Marktplatz freigegeben ist.",
+        "validateMarketplaceBtnTitle": "Prüfung Marktplatz - Zugriffsrecht",
+        "validateMarketplaceTitle": "Amazon Connection Assistant - Account - Marktplatz Prüfung",
+        "productCheckDescription": "In diesem Schritt wird geprüft, ob es bereits Artikel im gewählten Verkaufskanal gibt.",
+        "productCheckTooltip": "Überprüfung auf schon vorhandene Artikel auf Amazon.",
+        "productCheckTitle": "Amazon Connection Assistant - Account - Produkt Prüfung",
+        "productCheckCongrats": "Gratulation, du kannst jetzt Produkte auf Amazon verkaufen.",
+        "productCheckDeleteExistingBtn": "Hier gelangst du in dein Amazon Konto",
+        "productCheckDeleteExistingTitle": "Amazon Artikel löschen",
+        "productCheckDeleteExistingContent": "Solltest du den kostenpflichtigen Service der Artikelübernahme nicht wünschen, kannst du auch im Vorfeld deine Artikel bei Amazon löschen. Danach kannst du hier die Prüfung erneut starten.",
+        "productCheckBookTransfer": "Anfrage Artikelübernahme von Amazon starten",
+        "productCheckBookTransferTitle": "Übernahme Amazon Artikel in Shopware 6",
+        "productCheckBookTransferContent": "Wenn du deine Artikel von Amazon in deinen Shopware Shop importieren willst, ist dies selbstverständlich möglich. Das ist eine kostenpflichtige Dienstleistung. Die Konditionen dafür, kannst du hier erfragen. Bitte beachte, dass dies ein manueller und individueller Aufwand ist, die Kosten hierfür können je nach Aufwand unterschiedlich sein.",
+        "productCheckAccountHasAlreadyProducts": "Der verbundene Amazon Account hat bereits existierende Produkte.",
+        "productCheckBtn": "Prüfe auf existierende Produkte",
+        "howTo": {
+            "mwsNotificationHowToTitle": "Wo finde ich mein Amazon MWS-Token? Bitte klicke hier!",
+            "mwsNotificationHowToUser": "Benutzer: brickfox",
+            "mwsNotificationHowToPassword": "Passwort: 6133-1265-3313",
+            "mwsNotificationHowToLastPart": "Anschließend erhältst deinen MWS-Auth-Token, welchen du oben im Eingabefeld eingeben kannst.",
+            "mwsNotificationHowToFirstPart": "Um deinen Shop mit Amazon zu verbinden, logge dich bitte in deinem {link} ein.",
+            "mwsNotificationHowToSecondPart": "Bitte wähle dort den Punkt 2 aus und hinterlege folgende Daten:"
+        },
+        "amazonConfirmFinishModalTitle": "Info",
+        "amazonConfirmFinishModalMessageFirstPart": "Du hast deinen Saleschannel erfolgreich eingerichtet und aktiviert",
+        "amazonConfirmFinishModalMessageSecondPart": "Nach dem Beenden des Verbindungsassistenten kann die bestehende Verbindung bzw. der Saleschannel nicht einfach angepasst werden. Bist du sicher, dass du den Verbindungsassistent abschließen möchtest?"
+    },
+    "ebay": {
+        "baseTitle": "eBay Connection Assistant - Account - ",
+        "step1": "Schritt 1",
+        "step2": "Schritt 2",
+        "step3": "Schritt 3",
+        "step4": "Schritt 4",
+        "authoriseDescription": "Um deine Produkte bei eBay zu listen, ist es erforderlich, dass du deinen Shopware Shop mit eBay verbindest.",
+        "authoriseOAuthDescription": "Um deine Produkte bei eBay zu listen, ist es erforderlich, dass du einen OAuth-Token erzeugst.",
+        "validateMarketplaceDescription": "In diesem Schritt wird geprüft, ob du im ausgewählten Verkaufskanal Produkte verkaufen darfst.",
+        "validateMarketplaceTooltip": "Hier wird geprüft, ob dein Konto für den ausgewählten Marktplatz freigegeben ist.",
+        "validateMarketplaceTitle": "eBay Connection Assistant - Account - Marktplatz prüfung",
+        "validateMarketplaceBtnTitle": "Prüfung Marktplatz - Zugriffsrecht",
+        "productCheckDescription": "In diesem Schritt wird geprüft, ob es bereits Artikel im gewählten Verkaufskanal gibt.",
+        "productCheckTooltip": "Überprüfung auf schon vorhanden Artikel auf ebay.",
+        "productCheckTitle": "eBay Connection Assistant - Account - Product check",
+        "productCheckCongrats": "Gratulation, du kannst jetzt Produkte auf eBay verkaufen.",
+        "productCheckDeleteExistingBtn": "Hier gelangst du in dein eBay Konto",
+        "productCheckDeleteExistingTitle": "eBay Artikel  löschen",
+        "productCheckDeleteExistingContent": "Solltest du den kostenpflichtigen Service der Artikelübernahme nicht wünschen, kannst du auch im Vorfeld deine Artikel bei eBay löschen. Danach kannst du hier die Prüfung erneut starten.",
+        "productCheckBookTransfer": "Anfrage Artikelübernahme von eBay starten",
+        "productCheckBookTransferTitle": "Übernahme eBay Artikel in Shopware 6",
+        "productCheckBookTransferContent": "Wenn du deine Artikel von eBay in deinen Shopware Shop importieren willst, ist dies selbstverständlich möglich. Das ist eine kostenpflichtige Dienstleistung. Die Konditionen kannst du hier erfragen. Bitte beachte,  dass dies ein manueller und individueller Aufwand ist, die Kosten hierfür können je nach Aufwand unterschiedlich sein.",
+        "productCheckAccountHasAlreadyProducts": "Der verbundene eBay Account hat bereits existierende Produkte.",
+        "productCheckBtn": "Prüfen auf existierende Produkte",
+        "amazonConfirmFinishModalTitle": "Info",
+        "amazonConfirmFinishModalMessageFirstPart": "Du hast deinen Saleschannel erfolgreich eingerichtet und aktiviert",
+        "amazonConfirmFinishModalMessageSecondPart": "Nach dem Beenden des Verbindungsassistenten kann die bestehende Verbindung bzw. der Saleschannel nicht einfach angepasst werden. Bist du sicher, dass du den Verbindungsassistent abschließen möchtest?",
+        "infoAuthorization": "Sobald du dich erfolgreich authorisiert hast, wirst du automatisch weitergeleitet.",
+        "paymentMethodError": "Es wurde keine eBay-Zahlart gewählt."
+    },
+    "button": {
+        "connect": "Verbinden",
+        "cancel": "Abbrechen",
+        "next": "Weiter",
+        "finish": "Abschließen"
+    },
+    "error": {
+        "notification": {
+            "title": "Fehler"
+        },
+        "global": {
+            "internalError": "Es scheint ein Problem in der Kommunikation zu geben. Bitte versuche es später noch einmal.",
+            "bfBpUnauthorized": "Die Verbindung zwischen deinem Shop und dem Marktplatz ist unterbrochen. Bitte kontaktiere den Shopware Support",
+            "systemSettingUp": "Das System für die Marktplatz-Aussteuerung befindet sich aktuell im Setup, dieser Vorgang kann einige Minuten dauern."
+        },
+        "amazon": {
+            "title": "Amazon Connection Assistant",
+            "credentialValidationError": "Amazon Seller-ID und Amazon MWS Token sind Pflichtfelder. Bitte prüfe deine Eingaben.",
+            "accountConnectionError": "Du konnstest nicht erfolgreich mit Amazon verbunden werden. Bitte prüfe deine Eingaben.",
+            "validateMarketplaceError": "Du kannst mit deinem Konto nicht auf dem ausgewählten Amazon - Markplatz verkaufen.",
+            "confirmFinishSavingDataError": "Beim Speichern der Informationen ist ein Fehler aufgetreten. Bitte versuche es nochmal."
+        },
+        "ebay": {
+            "title": "eBay Connection Assistant",
+            "accountConnectionError": "Something went wrong while trying to connect to your eBay account.",
+            "validateMarketplaceError": "Du kannst mit deinem Konto nicht auf dem ausgewählten Ebay - Markplatz verkaufen.",
+            "cantGetConnectionLink": "Es ist ein Fehler aufgetreten, bitte versuche es später noch einmal.",
+            "productCheck": "Bei der Produktprüfung ist ein Fehler aufgetreten. Bitte versuche es später noch einmal.",
+            "ebayInvalidLogoUrl": "Deine Logo-Url konnte nicht gespeichert werden. Dein Logo muss unter https:// erreichbar sein.",
+            "ebayInvalidPayPalMailAddress": "Deine PayPal Email-Adresse konnte nicht gespeichert werden. Es scheint, dass deine Email-Adresse nicht valide ist."
+        }
+    },
+    "success": {
+        "amazon": {
+            "title": "Amazon Connection Assistant",
+            "accountConnectionSuccess": "Du hast dich erfolgreich mit Amazon verbunden.",
+            "validateMarketplaceSuccess": "Überprüfung des Amazon - Marktplatz war erfolgreich.",
+            "successfulFinishedConnectionAssistant": "Deine Daten wurden erfolgreich gespeichert. Viel Spaß mit Amazon."
+        },
+        "ebay": {
+            "title": "eBay Connection Assistant",
+            "accountConnectionSuccess": "You are successfully connected to ebay.",
+            "validateMarketplaceSuccess": "Überprüfung des eBay - Marktplatz war erfolgreich."
+        }
+    },
+    "bf-plugin-configuration": {
+        "integration": {
+            "repair-description": "Sollte der Integrationsbenutzer für SwagMarkets gelöscht worden sein oder andere Kommunikationsprobleme auftreten, kann dieser Prozess den Zugriff wiederherstellen",
+            "repair-integration-button": "Integration reparieren",
+            "dialogue": {
+                "successTitle": "Reparatur erfolgreich",
+                "successMessage": "Der Integrationsbenutzer für SwagMarkets wurde erfolgreich repariert!",
+                "errorTitle": "Reparatur fehlgeschlagen",
+                "errorMessage": "Bei der Reparatur ist ein Fehler aufgetreten!"
+            }
+        }
+    }
+}

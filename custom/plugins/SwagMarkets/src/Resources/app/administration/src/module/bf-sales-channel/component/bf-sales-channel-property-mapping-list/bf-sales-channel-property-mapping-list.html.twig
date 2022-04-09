@@ -1,0 +1,32 @@
+{% block sw_data_grid_columns_slot %}
+    <slot :name="`column-${column.property}`"
+          v-bind="{ item, itemIndex, column, columnIndex, compact }">
+
+        <template v-if="column.property === 'external_name'">
+            {{ getExternalName(item) }}
+        </template>
+        <template v-else>
+            {{ renderColumn(item, column) }}
+        </template>
+    </slot>
+{% endblock %}
+
+{% block sw_data_grid_slot_actions %}
+<slot name="detail-action" v-bind="{ item }">
+    <sw-context-menu-item class="sw-entity-listing__context-menu-edit-action"
+                          @click="onEditPropertyMappingClick(item)">
+        {{ $tc('global.default.edit') }}
+    </sw-context-menu-item>
+</slot>
+{% endblock %}
+
+{% block sw_data_grid_slot_bulk_modals %}
+<bf-sales-channel-property-mapping-modal
+    v-if="showPropertyMappingModal"
+    :title="selectedProperty.productsAttributesDescription[currentLocale].productsAttributesName"
+    :property="selectedProperty"
+    :bfAttributeMappingData="getBfAttributeMappingData()"
+    @modal-close="showPropertyMappingModal = false; $emit('load-attribute-mapping');"
+>
+</bf-sales-channel-property-mapping-modal>
+{% endblock %}

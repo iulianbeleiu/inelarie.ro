@@ -1,0 +1,91 @@
+{% sw_extends '@Storefront/storefront/element/cms-element-image-gallery.html.twig' %}
+
+{% block element_image_gallery_slider_dots %}
+    {% if imageCount > 1 and navigationDots %}
+        <div class="dots-text">
+            <span class="js-dots-text-current"></span>/{{ imageCount }}
+        </div>
+        <div class="base-slider-dots">
+            {{ block('element_image_gallery_slider_dots_buttons') }}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block element_image_gallery_alignment %}
+    {% if config.verticalAlign.value %}
+        <div class="cms-element-alignment{% if verticalAlign == "center" %} align-self-center{% elseif verticalAlign == "flex-end" %} align-self-end{% else %} align-self-start{% endif %}">
+    {% endif %}
+
+    {% set gallerySliderOptions = {
+        slider: {
+            navPosition: 'bottom',
+            speed: 500,
+            gutter: gutter ? gutter : 0,
+            controls: navigationArrows ? true : false,
+            autoHeight: false,
+            startIndex: startIndexThumbnails ? startIndexThumbnails : null
+        },
+        thumbnailSlider: {
+            enabled: navigation ? false : true,
+            items: 5,
+            gutter: 10,
+            responsive: {
+                xs: {
+                    enabled: false,
+                    controls: false
+                },
+                sm: {
+                    enabled: false,
+                    controls: false
+                },
+                lg: {
+                    enabled: navigation ? false : true,
+                    controls: true,
+                    items: (galleryPosition == "underneath") ? 5 : 5,
+                    gutter: 20
+                },
+                xl: {
+                    enabled: navigation ? false : true,
+                    controls: true,
+                    items: (galleryPosition == "underneath") ? 7 : 5,
+                    gutter: 20
+                }
+            }
+        }
+    } %}
+
+    {% if galleryPosition == "left" %}
+        {% set gallerySliderOptions = gallerySliderOptions|replace_recursive({
+            thumbnailSlider: {
+                responsive: {
+                    md: {
+                        axis: 'vertical'
+                    },
+                    lg: {
+                        axis: 'vertical'
+                    },
+                    xl: {
+                        axis: 'vertical'
+                    }
+                }
+            }
+        }) %}
+    {% endif %}
+
+    {{ block('element_image_gallery_inner') }}
+
+    {% if config.verticalAlign.value %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block element_image_gallery_inner_thumbnails_controls %}
+    {% if not navigation %}
+        <div data-thumbnail-slider-controls="true" class="gallery-slider-thumbnails-controls">
+
+            {{ block('element_image_gallery_inner_thumbnails_controls_prev') }}
+
+            {{ block('element_image_gallery_inner_thumbnails_controls_next') }}
+        </div>
+    {% endif %}
+{% endblock %}

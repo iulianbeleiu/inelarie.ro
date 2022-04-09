@@ -1,0 +1,12 @@
+{% block bf_sales_channel_detail_content_tab %}
+    {% parent() %}
+
+    {% block bf_sales_channel_detail_content_tab_unit_mapping %}
+    <sw-tabs-item
+        :disabled="!clientExists || clientInProgress"
+        :route="{ name: 'bf.sales.channel.detail.unit', params: { id: $route.params.id } }"
+        :title="$tc('sw-sales-channel.detail.tabProductComparison')">
+        {{ $tc('unitMapping.tab-title') }}
+    </sw-tabs-item>
+    {% endblock %}
+{% endblock %}

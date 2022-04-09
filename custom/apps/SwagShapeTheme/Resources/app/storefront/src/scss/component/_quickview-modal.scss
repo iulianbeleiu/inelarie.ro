@@ -1,0 +1,85 @@
+$modal-max-width: 872px;
+$modal-spacing: 84px;
+
+.quickview-modal {
+    .quickview-minimal {
+        &-top {
+            margin-bottom: $spacer-60;
+        }
+
+        &-product-name {
+            font-size: 40px;
+            display: inline-block;
+            line-height: 44px;
+            font-weight: $font-weight-bold;
+            padding-bottom: 1rem;
+        }
+
+        &-product-number {
+            margin-bottom: $spacer-20;
+        }
+
+        &-product {
+            margin-left: auto;
+        }
+
+        &-footer-heading {
+            text-transform: uppercase;
+            display: inline-block;
+            line-height: 20px;
+            padding-bottom: $spacer-xs;
+            border-bottom: $hr-border-width solid $primary;
+            margin-bottom: $spacer-40;
+        }
+
+        &-product-manufacturer-logo {
+            max-width: 200px;
+            max-height: 70px;
+            object-fit: contain;
+        }
+
+        &-image {
+            > img {
+                box-shadow: $dropdown-box-shadow;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .product-detail-description-title {
+        margin-bottom: 1rem;
+        font-size: $font-size-base;
+        font-weight: $font-weight-bold;
+    }
+
+    .product-detail-properties-container {
+        > div[class^='col'] {
+            @include make-col(12);
+        }
+    }
+
+    table {
+        @extend .table-striped;
+    }
+
+    @include media-breakpoint-up(lg) {
+        .quickview-minimal-image {
+            @include make-col(5);
+
+            > img {
+                max-width: 290px;
+                max-height: 290px;
+            }
+        }
+
+        .modal-dialog {
+            max-width: $modal-max-width;
+
+            .modal-body {
+                padding-left: $modal-spacing;
+                padding-right: $modal-spacing;
+                padding-bottom: $modal-spacing;
+            }
+        }
+    }
+}
