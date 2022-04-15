@@ -1,0 +1,245 @@
+{% set stripeSdkPageExtension = page.extensions.stripePaymentStripeSdk %}
+{% set sepaBankAccountPageExtension = page.extensions.stripePaymentSepaBankAccount %}
+{% if stripeSdkPageExtension and stripeSdkPageExtension.stripePublicKey and sepaBankAccountPageExtension %}
+    <div class="stripe-shopware-payment-sepa-bank-account-selection"
+         id="stripe-shopware-payment-sepa-bank-account-selection"
+         data-stripe-shopware-payment-sepa-bank-account-selection
+         data-stripe-shopware-payment-sepa-bank-account-selection-options="{{
+             {
+                 'selectedSepaBankAccount': sepaBankAccountPageExtension.selectedSepaBankAccount,
+                 'availableSepaBankAccounts': sepaBankAccountPageExtension.availableSepaBankAccounts,
+                 'isSavingSepaBankAccountsAllowed': sepaBankAccountPageExtension.isSavingSepaBankAccountsAllowed,
+                 'stripeApiVersion': stripeSdkPageExtension.stripeApiVersion,
+                 'stripePublicKey': stripeSdkPageExtension.stripePublicKey,
+                 'salesChannelLocale': stripeSdkPageExtension.salesChannelLocale,
+                 'countryIsoCode': context.customer.activeBillingAddress.country.iso,
+                 'updateStripeShopwarePaymentMethodSettingsUrl': path('frontend.stripe-payment.payment-method-settings'),
+                 'snippets': {
+                     'error': 'stripe-shopware-payment.checkout.error'|trans,
+                     'errors': {
+                         'incomplete_iban': 'stripe-shopware-payment.checkout.sepa.errors.incomplete_iban'|trans,
+                         'invalid_account_owner': 'stripe-shopware-payment.checkout.sepa.errors.invalid_account_owner'|trans,
+                         'invalid_city': 'stripe-shopware-payment.checkout.sepa.errors.invalid_city'|trans,
+                         'invalid_country': 'stripe-shopware-payment.checkout.sepa.errors.invalid_country'|trans,
+                         'invalid_iban': 'stripe-shopware-payment.checkout.sepa.errors.invalid_iban'|trans,
+                         'invalid_iban_country_code': 'stripe-shopware-payment.checkout.sepa.errors.invalid_iban_country_code'|trans,
+                         'invalid_street': 'stripe-shopware-payment.checkout.sepa.errors.invalid_street'|trans,
+                         'invalid_zip_code': 'stripe-shopware-payment.checkout.sepa.errors.invalid_zip_code'|trans,
+                         'invalid_email': 'stripe-shopware-payment.checkout.sepa.errors.invalid_email'|trans,
+                         'error-during-saving': 'stripe-shopware-payment.checkout.error-during-saving'|trans
+                     }
+                 }
+             }|json_encode()|escape('html_attr')
+         }}"
+    >
+        {% if sepaBankAccountPageExtension.isSavingSepaBankAccountsAllowed or sepaBankAccountPageExtension.availableSepaBankAccounts|length > 0 %}
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label
+                        class="form-label"
+                        for="stripe-shopware-payment-sepa-bank-account-selection-saved-sepa-bank-accounts-select"
+                    >
+                        {{ "stripe-shopware-payment.checkout.sepa.sepa-bank-account-selection.saved-sepa-bank-accounts"|trans }}
+                    </label>
+                    <div class="select-field">
+                        <select
+                            id="stripe-shopware-payment-sepa-bank-account-selection-saved-sepa-bank-accounts-select"
+                            class="custom-select"
+                        >
+                            <option value="new" selected>
+                                <span>{{ "stripe-shopware-payment.checkout.sepa.sepa-bank-account-selection.new-sepa-bank-account"|trans }}</span>
+                            </option>
+                            {% for sepaBankAccount in sepaBankAccountPageExtension.availableSepaBankAccounts %}
+                                <option value="{{ sepaBankAccount.id }}">
+                                    {{ sepaBankAccount.name }} | {{ sepaBankAccount.country }}
+                                    | &bull;&bull;&bull;&bull;{{ sepaBankAccount.last4 }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div class="stripe-shopware-payment-sepa-bank-account-selection__new-sepa-bank-account-form">
+            {# A box for displaying validation errors #}
+            <div
+                role="alert"
+                id="stripe-shopware-payment-sepa-bank-account-selection-errors"
+                class="alert alert-danger alert-has-icon"
+                style="display: none;"
+            >
+                {% sw_icon 'blocked' %}
+                <div class="alert-content-container">
+                    <div class="alert-content"></div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {# Account owner #}
+                    <label
+                        class="form-label"
+                        for="stripe-shopware-payment-sepa-bank-account-selection-account-owner-input"
+                    >
+                        {{ "stripe-shopware-payment.checkout.sepa.account-owner"|trans }} *
+                    </label>
+                    <input
+                        type="text"
+                        id="stripe-shopware-payment-sepa-bank-account-selection-account-owner-input"
+                        name="account_owner"
+                        class="form-control"
+                        value="{{ context.customer.firstName }} {{ context.customer.lastName }}"
+                        required="required"
+                    >
+                </div>
+                <div class="form-group col-md-6">
+                    {# IBAN #}
+                    <label
+                        class="form-label"
+                        for="stripe-shopware-payment-sepa-bank-account-selection-iban-input"
+                    >
+                        {{ "stripe-shopware-payment.checkout.sepa.iban"|trans }} *
+                    </label>
+                    <div
+                        id="stripe-shopware-payment-sepa-bank-account-selection-iban-input"
+                        class="form-control"
+                    >
+                        <!-- Stripe element is inserted here -->
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {# EMail #}
+                    <label
+                        class="form-label"
+                        for="stripe-shopware-payment-sepa-bank-account-selection-email-input"
+                    >
+                        {{ "stripe-shopware-payment.checkout.sepa.email"|trans }} *
+                    </label>
+                    <input
+                        type="email"
+                        id="stripe-shopware-payment-sepa-bank-account-selection-email-input"
+                        name="email"
+                        class="form-control"
+                        value="{{ context.customer.email }}"
+                        required="required"
+                    >
+                </div>
+                <div class="form-group col-md-6">
+                    {# Street #}
+                    <label
+                        class="form-label"
+                        for="stripe-shopware-payment-sepa-bank-account-selection-street-input"
+                    >
+                        {{ "stripe-shopware-payment.checkout.sepa.street"|trans }} *
+                    </label>
+                    <input
+                        type="text"
+                        id="stripe-shopware-payment-sepa-bank-account-selection-street-input"
+                        name="street"
+                        class="form-control"
+                        value="{{ context.customer.activeBillingAddress.street }}"
+                        required="required"
+                    >
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {# ZIP code #}
+                    <label
+                        class="form-label"
+                        for="stripe-shopware-payment-sepa-bank-account-selection-zip-code-input"
+                    >
+                        {{ "stripe-shopware-payment.checkout.sepa.zip-code"|trans }} *
+                    </label>
+                    <input
+                        type="text"
+                        id="stripe-shopware-payment-sepa-bank-account-selection-zip-code-input"
+                        name="zip_code"
+                        class="form-control"
+                        value="{{ context.customer.activeBillingAddress.zipcode }}"
+                        required="required"
+                    >
+                </div>
+                <div class="form-group col-md-6">
+                    {# City #}
+                    <label
+                        class="form-label"
+                        for="stripe-shopware-payment-sepa-bank-account-selection-city-input"
+                    >
+                        {{ "stripe-shopware-payment.checkout.sepa.city"|trans }} *
+                    </label>
+                    <input
+                        type="text"
+                        id="stripe-shopware-payment-sepa-bank-account-selection-city-input"
+                        name="city"
+                        class="form-control"
+                        value="{{ context.customer.activeBillingAddress.city }}"
+                        required="required"
+                    >
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {# Country #}
+                    <label class="form-label" for="stripe-shopware-payment-sepa-bank-account-selection-country-select">
+                        {{ "stripe-shopware-payment.checkout.sepa.country"|trans }} *
+                    </label>
+                    <div class="select-field">
+                        <select
+                            id="stripe-shopware-payment-sepa-bank-account-selection-country-select"
+                            class="custom-select"
+                            required="required"
+                        >
+                            {% for country in sepaBankAccountPageExtension.countries %}
+                                <option
+                                    value="{{ country.iso }}"
+                                    {% if country.id is same as (context.customer.activeBillingAddress.countryId) %}
+                                        selected="selected"
+                                    {% endif %}
+                                >
+                                    {{ country.name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            {% if sepaBankAccountPageExtension.isSavingSepaBankAccountsAllowed %}
+                <div class="form-row">
+                    <div class="form-group">
+                        {# Save SEPA bank account checkbox #}
+                        <div class="custom-control custom-checkbox">
+                            <input
+                                id="stripe-shopware-payment-sepa-bank-account-selection-save-sepa-bank-account-checkbox"
+                                class="custom-control-input"
+                                type="checkbox"
+                            >
+                            <label
+                                class="custom-control-label"
+                                for="stripe-shopware-payment-sepa-bank-account-selection-save-sepa-bank-account-checkbox"
+                            >
+                                {{ "stripe-shopware-payment.checkout.sepa.save-sepa-bank-account"|trans }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            {# A box for displaying the SEPA mandate authorization text #}
+            <div role="alert" class="alert alert-info alert-has-icon">
+                {% sw_icon 'info' %}
+                <div class="alert-content-container">
+                    <div class="alert-content">
+                        {{ "stripe-shopware-payment.checkout.sepa.mandate-info"|trans({'%creditor%': sepaBankAccountPageExtension.sepaCreditor}) }}
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                {{ "stripe-shopware-payment.checkout.required"|trans }}
+            </div>
+        </div>
+    </div>
+{% endif %}

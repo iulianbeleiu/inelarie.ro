@@ -1,0 +1,15 @@
+{
+    "name": "stripe/shopware-payment-autoload-dist",
+    "description": "",
+    "type": "project",
+    "require": {
+        "stripe/stripe-php": "^7.50.0"
+    },
+    "minimum-stability": "stable",
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "viison/composer-git-hooks-installer-plugin": true
+        }
+    }
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container
+    xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd"
+>
+    <services>
+        <service id="Stripe\ShopwarePayment\Payment\DependencyInjection\PaymentHandlerFactory">
+            <argument type="service" id="Stripe\ShopwarePayment\StripeApi\StripeApiFactory" />
+            <argument type="service" id="Stripe\ShopwarePayment\Payment\StripeOrderTransactionService" />
+            <argument type="service" id="Stripe\ShopwarePayment\Payment\IdempotentOrderTransactionStateHandler" />
+            <argument type="service" id="Stripe\ShopwarePayment\Payment\StripeCustomerService" />
+            <argument type="service" id="Stripe\ShopwarePayment\Session\StripePaymentMethodSettings" />
+            <argument
+                type="service"
+                id="Stripe\ShopwarePayment\OrderTransactionLocking\OrderTransactionLockingService"
+            />
+        </service>
+        <service
+            id="Stripe\ShopwarePayment\Payment\DependencyInjection\PaymentHandlerFactoryLoggingDecorator"
+            decorates="Stripe\ShopwarePayment\Payment\DependencyInjection\PaymentHandlerFactory"
+        >
+            <argument
+                type="service"
+                id="Stripe\ShopwarePayment\Payment\DependencyInjection\PaymentHandlerFactoryLoggingDecorator.inner"
+            />
+            <argument type="service" id="stripe.shopware_payment.logger" />
+        </service>
+        <service id="Stripe\ShopwarePayment\Payment\PaymentIntentPaymentConfig\DefaultPaymentIntentPaymentConfigurator">
+            <argument type="service" id="order_transaction.repository" />
+            <argument type="service" id="Stripe\ShopwarePayment\Config\StripePluginConfigService" />
+            <argument type="service" id="Stripe\ShopwarePayment\Payment\StripeOrderService" />
+        </service>
+        <service id="Stripe\ShopwarePayment\Payment\SourcePaymentConfig\DefaultSourcePaymentConfigurator">
+            <argument type="service" id="Stripe\ShopwarePayment\Config\StripePluginConfigService" />
+            <argument type="service" id="order_transaction.repository" />
+        </service>
+        <service id="Stripe\ShopwarePayment\Payment\StripeOrderTransactionService">
+            <argument type="service" id="order_transaction.repository" />
+        </service>
+        <service id="Stripe\ShopwarePayment\Payment\StripeOrderService">
+            <argument type="service" id="Stripe\ShopwarePayment\Config\StripePluginConfigService" />
+            <argument type="service" id="order.repository" />
+        </service>
+        <service id="Stripe\ShopwarePayment\Payment\StripeCustomerService">
+            <argument type="service" id="Stripe\ShopwarePayment\StripeApi\StripeApiFactory" />
+            <argument type="service" id="customer.repository" />
+        </service>
+        <service id="Stripe\ShopwarePayment\Payment\IdempotentOrderTransactionStateHandler">
+            <argument type="service" id="Shopware\Core\System\StateMachine\StateMachineRegistry" />
+            <argument type="service" id="order_transaction.repository" />
+        </service>
+        <service id="Stripe\ShopwarePayment\Payment\DependencyInjection\SourcePaymentConfiguratorRegistry" />
+    </services>
+</container>

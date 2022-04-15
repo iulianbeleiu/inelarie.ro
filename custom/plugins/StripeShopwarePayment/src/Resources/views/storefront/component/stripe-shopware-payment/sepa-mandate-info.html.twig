@@ -1,0 +1,26 @@
+{% if page.extensions.stripePaymentSepaBankAccount and page.extensions.stripePaymentSepaBankAccount.mandateUrl %}
+    {% set sepaBankAccountPageExtension = page.extensions.stripePaymentSepaBankAccount %}
+    <div class="stripe-shopware-payment-sepa-mandate">
+        <div role="alert" class="alert alert-info alert-has-icon">
+            {% sw_icon 'info' %}
+            <div class="alert-content-container">
+                <div class="alert-heading h5">
+                    {{ "stripe-shopware-payment.checkout.sepa.mandate-info-box.title"|trans }}
+                </div>
+                <div class="alert-content">
+                    <div>
+                        {{ "stripe-shopware-payment.checkout.sepa.mandate-info-box.text"|trans }}
+                    </div>
+                    <a href="{{ sepaBankAccountPageExtension.mandateUrl }}"
+                       class="btn btn-outline-secondary mandate-button"
+                       target="_blank"
+                       rel="noopener"
+                       title="{{ "stripe-shopware-payment.checkout.sepa.mandate-info-box.open-mandate-button.title"|trans }}"
+                    >
+                        {{ "stripe-shopware-payment.checkout.sepa.mandate-info-box.open-mandate-button.title"|trans }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

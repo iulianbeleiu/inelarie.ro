@@ -1,0 +1,43 @@
+{% if context.paymentMethod.formattedHandlerIdentifier is same as('stripe.shopware_payment.payment_handler.digital_wallets') %}
+    <div
+        id="stripe-shopware-payment-digital-wallets-errors"
+        role="alert"
+        class="alert alert-danger alert-has-icon stripe-shopware-payment-digital-wallets-errors--hidden"
+    >
+        {% sw_icon 'blocked' %}
+        <div class="alert-content-container">
+            <div class="alert-content"></div>
+        </div>
+    </div>
+    {% set stripeSdkPageExtension = page.extensions.stripePaymentStripeSdk %}
+    <!--
+        This template is used in checkout/confirm as well as in account/order/edit. In checkout/confirm, the needed
+        information is stored in 'cart', in account/order/edit it is stored in 'order'.
+     -->
+    {% set orderOrCart = (page.cart is defined) ? page.cart : page.order %}
+    <template
+        data-stripe-shopware-payment-digital-wallets
+        data-stripe-shopware-payment-digital-wallets-options="{{
+            {
+                'stripeApiVersion': stripeSdkPageExtension.stripeApiVersion,
+                'stripePublicKey': stripeSdkPageExtension.stripePublicKey,
+                'salesChannelLocale': stripeSdkPageExtension.salesChannelLocale,
+                'lineItems': orderOrCart.lineItems,
+                'totalAmount': orderOrCart.price.totalPrice,
+                'shippingCost': orderOrCart.deliveries.first().shippingCosts.totalPrice,
+                'currencyCode': context.currency.isoCode,
+                'currencyDecimalPrecision': context.currency.decimalPrecision,
+                'countryCode': stripeSdkPageExtension.stripeAccountCountryIso,
+                'snippets': {
+                    'shippingCost': 'stripe-shopware-payment.checkout.digital-wallets.shipping-cost'|trans,
+                    'total': 'stripe-shopware-payment.checkout.digital-wallets.total'|trans,
+                    'error': 'stripe-shopware-payment.checkout.error'|trans,
+                    'errors': {
+                        'payment-api-unavailable': 'stripe-shopware-payment.checkout.digital-wallets.errors.payment-api-unavailable'|trans,
+                        'connection-not-secure': 'stripe-shopware-payment.checkout.digital-wallets.errors.connection-not-secure'|trans,
+                        'payment-cancelled': 'stripe-shopware-payment.checkout.digital-wallets.errors.payment-cancelled'|trans
+                    }
+                }
+            }|json_encode()|escape('html_attr')
+        }}"></template>
+{% endif %}

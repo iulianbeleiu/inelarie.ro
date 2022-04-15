@@ -1,0 +1,32 @@
+{% set showPaymentProviderLogosPageExtension = page.extensions.stripePaymentShowPaymentProviderLogos %}
+{% set stripePaymentProviderLogoBasePath = 'bundles/stripeshopwarepayment/img/payment-provider-logos/' %}
+{% if showPaymentProviderLogosPageExtension and showPaymentProviderLogosPageExtension.shouldShowPaymentProviderLogos %}
+    <div class="stripe-shopware-payment-provider-logos">
+        <div>
+            {% if payment.formattedHandlerIdentifier is same as('stripe.shopware_payment.payment_handler.card') %}
+                <img class="stripe-shopware-payment-provider-logo" src="{{ asset(stripePaymentProviderLogoBasePath ~ 'visa.svg') }}" alt="visa">
+                <img class="stripe-shopware-payment-provider-logo" src="{{ asset(stripePaymentProviderLogoBasePath ~ 'mastercard.svg') }}" alt="mastercard">
+                <img class="stripe-shopware-payment-provider-logo" src="{{ asset(stripePaymentProviderLogoBasePath ~ 'american-express.svg') }}" alt="american-express">
+            {% elseif payment.formattedHandlerIdentifier is same as('stripe.shopware_payment.payment_handler.sofort') %}
+                <img class="stripe-shopware-payment-provider-logo" src="{{ asset(stripePaymentProviderLogoBasePath ~ 'sofort.svg') }}" alt="sofort">
+            {% elseif payment.formattedHandlerIdentifier is same as('stripe.shopware_payment.payment_handler.digital_wallets') %}
+                <img class="stripe-shopware-payment-provider-logo" src="{{ asset(stripePaymentProviderLogoBasePath ~ 'apple-pay.svg') }}" alt="apple-pay">
+                <img class="stripe-shopware-payment-provider-logo" src="{{ asset(stripePaymentProviderLogoBasePath ~ 'google-pay.svg') }}" alt="google-pay">
+            {% elseif payment.formattedHandlerIdentifier is same as('stripe.shopware_payment.payment_handler.sepa') %}
+                <img class="stripe-shopware-payment-provider-logo" src="{{ asset(stripePaymentProviderLogoBasePath ~ 'sepa.svg') }}" alt="sepa">
+            {% elseif payment.formattedHandlerIdentifier is same as('stripe.shopware_payment.payment_handler.klarna') %}
+                <img class="stripe-shopware-payment-provider-logo" src="{{ asset(stripePaymentProviderLogoBasePath ~ 'klarna.svg') }}" alt="klarna">
+            {% elseif payment.formattedHandlerIdentifier is same as('stripe.shopware_payment.payment_handler.giropay') %}
+                <img class="stripe-shopware-payment-provider-logo" src="{{ asset(stripePaymentProviderLogoBasePath ~ 'giropay.svg') }}" alt="giropay">
+            {% elseif payment.formattedHandlerIdentifier is same as('stripe.shopware_payment.payment_handler.ideal') %}
+                <img class="stripe-shopware-payment-provider-logo" src="{{ asset(stripePaymentProviderLogoBasePath ~ 'ideal.svg') }}" alt="ideal">
+            {% elseif payment.formattedHandlerIdentifier is same as('stripe.shopware_payment.payment_handler.p24') %}
+                <img class="stripe-shopware-payment-provider-logo" src="{{ asset(stripePaymentProviderLogoBasePath ~ 'p24.svg') }}" alt="p24">
+            {% elseif payment.formattedHandlerIdentifier is same as('stripe.shopware_payment.payment_handler.eps') %}
+                <img class="stripe-shopware-payment-provider-logo" src="{{ asset(stripePaymentProviderLogoBasePath ~ 'eps.svg') }}" alt="eps">
+            {% elseif payment.formattedHandlerIdentifier is same as('stripe.shopware_payment.payment_handler.bancontact') %}
+                <img class="stripe-shopware-payment-provider-logo" src="{{ asset(stripePaymentProviderLogoBasePath ~ 'bancontact.svg') }}" alt="bancontact">
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container
+    xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd"
+>
+    <services>
+        <service
+            id="stripe.shopware_payment.payment_handler.giropay"
+            class="Stripe\ShopwarePayment\Payment\PaymentIntentPaymentHandler\PaymentIntentPaymentHandler"
+        >
+            <factory
+                service="Stripe\ShopwarePayment\Payment\DependencyInjection\PaymentHandlerFactory"
+                method="createPaymentIntentPaymentHandler"
+            />
+            <argument type="service" id="Stripe\ShopwarePayment\PaymentMethods\Giropay\GiropayPaymentConfigurator" />
+            <tag name="shopware.payment.method.async" />
+        </service>
+        <service id="Stripe\ShopwarePayment\PaymentMethods\Giropay\GiropayPaymentConfigurator">
+            <argument
+                type="service"
+                id="Stripe\ShopwarePayment\Payment\PaymentIntentPaymentConfig\DefaultPaymentIntentPaymentConfigurator"
+            />
+            <argument type="service" id="Stripe\ShopwarePayment\StripeApi\StripeApiFactory" />
+            <argument type="service" id="order_transaction.repository" />
+        </service>
+    </services>
+</container>

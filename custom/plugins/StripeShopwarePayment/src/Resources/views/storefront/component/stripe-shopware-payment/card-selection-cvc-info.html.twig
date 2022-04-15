@@ -1,0 +1,64 @@
+{% set stripePaymentProviderLogoBasePath = 'bundles/stripeshopwarepayment/img/payment-provider-logos/' %}
+{% set stripeCardCvcInfoBasePath = 'bundles/stripeshopwarepayment/img/card-cvc-info/' %}
+
+<div
+     class="stripe-shopware-payment-card-cvc-info modal fade"
+     id="stripe-shopware-payment-card-cvc-info"
+     tabindex="-1"
+     role="dialog"
+>
+    <div
+        class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered"
+        role="document"
+    >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button
+                    type="button"
+                    class="modal-close close"
+                    aria-label="Close"
+                    onclick="$('#stripe-shopware-payment-card-cvc-info').modal('hide')"
+                >
+                    <span aria-hidden="true">
+                        {% sw_icon 'x' style { 'size': 'sm' } %}
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body row">
+                <div class="col-md-6">
+                    <div class="stripe-shopware-payment-card-cvc-info__header">
+                        <span>
+                            {{ "stripe-shopware-payment.checkout.card.cvc-info.visa-mastercard.header.title.card"|trans }}<br>
+                            <strong>{{ "stripe-shopware-payment.checkout.card.cvc-info.visa-mastercard.header.title.front"|trans }}</strong>
+                        </span>
+                        <div>
+                            <img class="stripe-shopware-payment-provider-logo" src="{{ asset(stripePaymentProviderLogoBasePath ~ 'mastercard.svg') }}" alt="mastercard">
+                            <img class="stripe-shopware-payment-provider-logo" src="{{ asset(stripePaymentProviderLogoBasePath ~ 'visa.svg') }}" alt="visa">
+                        </div>
+                    </div>
+                    <img class="stripe-shopware-payment-card-cvc-info__schematic" src="{{ asset(stripeCardCvcInfoBasePath ~ 'front.svg') }}" />
+                    <div class="stripe-shopware-payment-card-cvc-info__infotext">
+                        <strong>{{ "stripe-shopware-payment.checkout.card.cvc-info.visa-mastercard.title"|trans }}:</strong>
+                        {{ "stripe-shopware-payment.checkout.card.cvc-info.visa-mastercard.message"|trans }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="stripe-shopware-payment-card-cvc-info__header">
+                        <span>
+                            {{ "stripe-shopware-payment.checkout.card.cvc-info.amex.header.title.card"|trans }}<br>
+                            <strong>{{ "stripe-shopware-payment.checkout.card.cvc-info.amex.header.title.back"|trans }}</strong>
+                        </span>
+                        <div>
+                            <img class="stripe-shopware-payment-provider-logo" src="{{ asset(stripePaymentProviderLogoBasePath ~ 'american-express.svg') }}" alt="american-express">
+                        </div>
+                    </div>
+                    <img class="stripe-shopware-payment-card-cvc-info__schematic" src="{{ asset(stripeCardCvcInfoBasePath ~ 'back.svg') }}" />
+                    <div class="stripe-shopware-payment-card-cvc-info__infotext">
+                        <strong>{{ "stripe-shopware-payment.checkout.card.cvc-info.amex.title"|trans }}:</strong>
+                        {{ "stripe-shopware-payment.checkout.card.cvc-info.amex.message"|trans }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

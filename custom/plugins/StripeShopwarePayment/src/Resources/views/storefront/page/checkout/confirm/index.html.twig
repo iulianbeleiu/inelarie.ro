@@ -1,0 +1,11 @@
+{% sw_extends '@Storefront/storefront/page/checkout/confirm/index.html.twig' %}
+
+{% block page_checkout_main_content %}
+    <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+    {{ parent() }}
+{% endblock %}
+
+{% block page_checkout_confirm_alerts %}
+    {{ parent() }}
+    {% include 'storefront/component/stripe-shopware-payment/digital-wallets.html.twig' %}
+{% endblock %}

@@ -1,0 +1,194 @@
+{% set stripeSdkPageExtension = page.extensions.stripePaymentStripeSdk %}
+{% set creditCardPageExtension = page.extensions.stripePaymentCreditCard %}
+{% if stripeSdkPageExtension and stripeSdkPageExtension.stripePublicKey and creditCardPageExtension %}
+    <div class="stripe-shopware-payment-card-selection"
+         id="stripe-shopware-payment-card-selection"
+         data-stripe-shopware-payment-card-selection
+         data-stripe-shopware-payment-card-selection-options="{{
+             {
+                 'selectedCard': creditCardPageExtension.selectedCard,
+                 'availableCards': creditCardPageExtension.availableCards,
+                 'isSavingCreditCardsAllowed': creditCardPageExtension.isSavingCreditCardsAllowed,
+                 'stripeApiVersion': stripeSdkPageExtension.stripeApiVersion,
+                 'stripePublicKey': stripeSdkPageExtension.stripePublicKey,
+                 'salesChannelLocale': stripeSdkPageExtension.salesChannelLocale,
+                 'updateStripeShopwarePaymentMethodSettingsUrl': path('frontend.stripe-payment.payment-method-settings'),
+                 'snippets': {
+                     'error': 'stripe-shopware-payment.checkout.error'|trans,
+                     'errors': {
+                         'api_connection_error': 'stripe-shopware-payment.checkout.card.errors.api_connection_error'|trans,
+                         'card_declined': 'stripe-shopware-payment.checkout.card.errors.card_declined'|trans,
+                         'expired_card': 'stripe-shopware-payment.checkout.card.errors.expired_card'|trans,
+                         'incomplete_card': 'stripe-shopware-payment.checkout.card.errors.incomplete_card'|trans,
+                         'incomplete_cvc': 'stripe-shopware-payment.checkout.card.errors.incomplete_cvc'|trans,
+                         'incomplete_expiry': 'stripe-shopware-payment.checkout.card.errors.incomplete_expiry'|trans,
+                         'incomplete_number': 'stripe-shopware-payment.checkout.card.errors.incomplete_number'|trans,
+                         'incorrect_cvc': 'stripe-shopware-payment.checkout.card.errors.incorrect_cvc'|trans,
+                         'incorrect_number': 'stripe-shopware-payment.checkout.card.errors.incorrect_number'|trans,
+                         'invalid_card_holder': 'stripe-shopware-payment.checkout.card.errors.invalid_card_holder'|trans,
+                         'invalid_cvc': 'stripe-shopware-payment.checkout.card.errors.invalid_cvc'|trans,
+                         'invalid_expiry_month': 'stripe-shopware-payment.checkout.card.errors.invalid_expiry_month'|trans,
+                         'invalid_expiry_month_past': 'stripe-shopware-payment.checkout.card.errors.invalid_expiry_month_past'|trans,
+                         'invalid_expiry_year': 'stripe-shopware-payment.checkout.card.errors.invalid_expiry_year'|trans,
+                         'invalid_expiry_year_past': 'stripe-shopware-payment.checkout.card.errors.invalid_expiry_year_past'|trans,
+                         'invalid_number': 'stripe-shopware-payment.checkout.card.errors.invalid_number'|trans,
+                         'processing_error': 'stripe-shopware-payment.checkout.card.errors.processing_error'|trans,
+                         'processing_error_intransient': 'stripe-shopware-payment.checkout.card.errors.processing_error_intransient'|trans,
+                         'unexpected': 'stripe-shopware-payment.checkout.card.errors.unexpected'|trans,
+                         'no_card_selected': 'stripe-shopware-payment.checkout.card.errors.no_card_selected'|trans,
+                         'card_not_found': 'stripe-shopware-payment.checkout.card.errors.card_not_found'|trans,
+                         'error-during-saving': 'stripe-shopware-payment.checkout.error-during-saving'|trans
+                     }
+                 }
+             }|json_encode()|escape('html_attr')
+         }}"
+    >
+        {% if creditCardPageExtension.isSavingCreditCardsAllowed or creditCardPageExtension.availableCards|length > 0 %}
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label
+                        class="form-label"
+                        for="stripe-shopware-payment-card-selection-saved-cards-select"
+                    >
+                        {{ "stripe-shopware-payment.checkout.card.card-selection.saved-cards"|trans }}
+                    </label>
+                    <div class="select-field">
+                        <select
+                            id="stripe-shopware-payment-card-selection-saved-cards-select"
+                            class="custom-select"
+                        >
+                            <option
+                                value="new"
+                                selected
+                            >
+                                <span>{{ "stripe-shopware-payment.checkout.card.card-selection.new-card"|trans }}</span>
+                            </option>
+                            {% for card in creditCardPageExtension.availableCards %}
+                                <option value="{{ card.id }}">
+                                    {{ card.name }} | {{ card.brand }} | &bull;&bull;&bull;&bull;{{ card.last4 }}
+                                    | {{ "%02d"|format(card.exp_month) }}/{{ card.exp_year }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div class="stripe-shopware-payment-card-selection__new-card-form">
+            {# A box for displaying validation errors #}
+            <div
+                role="alert"
+                id="stripe-shopware-payment-card-selection-errors"
+                class="alert alert-danger alert-has-icon"
+                style="display: none;"
+            >
+                {% sw_icon 'blocked' %}
+                <div class="alert-content-container">
+                    <div class="alert-content"></div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {# Card holder #}
+                    <label
+                        class="form-label"
+                        for="stripe-shopware-payment-card-selection-card-holder-input"
+                    >
+                        {{ "stripe-shopware-payment.checkout.card.holder"|trans }} *
+                    </label>
+                    <input type="text"
+                           id="stripe-shopware-payment-card-selection-card-holder-input"
+                           name="card_holder"
+                           class="form-control"
+                           value="{{ context.customer.firstName }} {{ context.customer.lastName }}"
+                           required="required"
+                    >
+                </div>
+                <div class="form-group col-md-6">
+                    {# Card number #}
+                    <label
+                        class="form-label"
+                        for="stripe-shopware-payment-card-selection-card-number-input"
+                    >
+                        {{ "stripe-shopware-payment.checkout.card.number"|trans }} *
+                    </label>
+                    <div
+                        id="stripe-shopware-payment-card-selection-card-number-input"
+                        class="form-control"
+                    >
+                        <!-- Stripe element is inserted here -->
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {# Expiry date #}
+                    <label
+                        class="form-label"
+                        for="stripe-shopware-payment-card-selection-expiry-input"
+                    >
+                        {{ "stripe-shopware-payment.checkout.card.expiry"|trans }} *
+                    </label>
+                    <div
+                        id="stripe-shopware-payment-card-selection-expiry-input"
+                        class="form-control"
+                    >
+                        <!-- Stripe element is inserted here -->
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="stripe-shopware-payment-card-selection__card-cvc">
+                        {# CVC #}
+                        <div class="stripe-shopware-payment-card-selection__card-cvc-input">
+                            <label
+                                class="form-label"
+                                for="stripe-shopware-payment-card-selection-card-cvc-input"
+                            >
+                                {{ "stripe-shopware-payment.checkout.card.cvc"|trans }} *
+                            </label>
+                            <div
+                                id="stripe-shopware-payment-card-selection-card-cvc-input"
+                                class="form-control"
+                            >
+                                <!-- Stripe element is inserted here -->
+                            </div>
+                        </div>
+                        <div class="stripe-shopware-payment-card-selection__card-cvc-info-button"
+                             data-toggle="modal"
+                             data-modal-class="quickview-modal"
+                             data-target="#stripe-shopware-payment-card-cvc-info"
+                        >
+                            {% sw_icon 'info' %}
+                        </div>
+                        {% include 'storefront/component/stripe-shopware-payment/card-selection-cvc-info.html.twig' %}
+                    </div>
+                </div>
+            </div>
+            {% if creditCardPageExtension.isSavingCreditCardsAllowed %}
+                <div class="form-row">
+                    <div class="form-group">
+                        {# Save card checkbox #}
+                        <div class="custom-control custom-checkbox">
+                            <input
+                                id="stripe-shopware-payment-card-selection-save-card-checkbox"
+                                class="custom-control-input"
+                                type="checkbox"
+                            >
+                            <label
+                                class="custom-control-label"
+                                for="stripe-shopware-payment-card-selection-save-card-checkbox"
+                            >
+                                {{ "stripe-shopware-payment.checkout.card.save-card"|trans }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div>
+                {{ "stripe-shopware-payment.checkout.required"|trans }}
+            </div>
+        </div>
+    </div>
+{% endif %}

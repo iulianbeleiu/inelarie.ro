@@ -1,0 +1,33 @@
+{% sw_extends '@Storefront/storefront/component/payment/payment-method.html.twig' %}
+
+{% block component_payment_method_description %}
+    {% set isStripePaymentMethodCard = payment.formattedHandlerIdentifier is same as('stripe.shopware_payment.payment_handler.card') %}
+    {% set isStripePaymentMethodSepa = payment.formattedHandlerIdentifier is same as('stripe.shopware_payment.payment_handler.sepa') %}
+    {% set isStripePaymentMethod = payment.formattedHandlerIdentifier starts with 'stripe.shopware_payment.payment_handler' %}
+
+    {% if isStripePaymentMethod %}
+        <div class="payment-method-description stripe-shopware-payment-payment-method-description">
+            {% include 'storefront/component/stripe-shopware-payment/payment-provider-logos.html.twig' %}
+            <strong>{{ payment.translated.name }}</strong>
+            {% if payment.translated.description %}
+                {% set paymentDescription = payment.translated.description|raw %}
+
+                {% if not payment.id is same as(selectedPaymentMethodId) %}
+                    {% set paymentDescription = (paymentDescription|length > 75 ? paymentDescription[:75] ~ ' ...' : paymentDescription) %}
+                {% endif %}
+
+                <p title="{{ payment.translated.description|raw }}">{{ paymentDescription }}</p>
+            {% endif %}
+
+            {% if payment.id is same as(selectedPaymentMethodId) %}
+                {% if isStripePaymentMethodCard %}
+                    {% include 'storefront/component/stripe-shopware-payment/card-selection.html.twig' %}
+                {% elseif isStripePaymentMethodSepa %}
+                    {% include 'storefront/component/stripe-shopware-payment/sepa-bank-account-selection.html.twig' %}
+                {% endif %}
+            {% endif %}
+        </div>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

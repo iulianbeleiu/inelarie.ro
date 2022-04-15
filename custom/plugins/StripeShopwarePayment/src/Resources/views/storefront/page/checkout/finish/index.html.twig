@@ -1,0 +1,8 @@
+{% sw_extends '@Storefront/storefront/page/checkout/finish/index.html.twig' %}
+
+{% block page_checkout_finish_details %}
+    {{ parent() }}
+    {% if context.paymentMethod.formattedHandlerIdentifier is same as('stripe.shopware_payment.payment_handler.sepa') %}
+        {% include 'storefront/component/stripe-shopware-payment/sepa-mandate-info.html.twig' %}
+    {% endif %}
+{% endblock %}

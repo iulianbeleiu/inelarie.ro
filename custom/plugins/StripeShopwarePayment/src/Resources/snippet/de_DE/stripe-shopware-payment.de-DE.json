@@ -1,0 +1,112 @@
+{
+    "stripe-shopware-payment": {
+        "checkout": {
+            "error": "Fehler",
+            "required": "* Pflichtfeld",
+            "error-during-saving": "Beim Speichern ist ein Fehler aufgetreten. Bitte versuche es erneut.",
+            "card": {
+                "holder": "Karteninhaber",
+                "number": "Kartennummer",
+                "cvc": "CVC",
+                "expiry": "Gültig bis (Monat/Jahr)",
+                "save-card": "Karte speichern",
+                "card-selection": {
+                    "new-card": "Neue Karte",
+                    "saved-cards": "Gespeicherte Karten"
+                },
+                "errors": {
+                    "api_connection_error": "Die Verbindung zum Server des Zahlungsdienstleisters kann derzeit nicht hergestellt werden. Bitte versuche es in Kürze erneut.",
+                    "card_declined": "Deine Kreditkarte wurde abgelehnt.",
+                    "expired_card": "Die Kreditkarte ist nicht mehr gültig.",
+                    "incomplete_card": "Bitte gib deine Kreditkartendaten ein.",
+                    "incomplete_cvc": "Die eingegebene Prüfziffer (CVC) ist unvollständig.",
+                    "incomplete_expiry": "Das eingegebene Gültigkeitsdatum ist unvollständig",
+                    "incomplete_number": "Die eingegebene Kreditkartennummer ist unvollständig.",
+                    "incorrect_cvc": "Die eingegebene Prüfziffer (CVC) ist falsch.",
+                    "incorrect_number": "Die eingegebene Kreditkartennummer ist falsch.",
+                    "invalid_card_holder": "Bitte gib den Namen des Karteninhabers ein.",
+                    "invalid_cvc": "Die eingegebene Prüfziffer (CVC) ist ungültig",
+                    "invalid_expiry_month": "Der eingegebene Gültigkeits-Monat ist ungültig.",
+                    "invalid_expiry_month_past": "Der eingegebene Gültigkeits-Monat liegt in der Vergangenheit.",
+                    "invalid_expiry_year": "Das eingegebene Gültigkeits-Jahr ist ungültig.",
+                    "invalid_expiry_year_past": "Das eingegebene Gültigkeits-Jahr liegt in der Vergangenheit.",
+                    "invalid_number": "Die eingegebene Kreditkartennummer ist ungültig.",
+                    "processing_error": "Beim Verarbeiten der Kreditkarte ist ein Fehler aufgetreten. Bitte versuche es in Kürze erneut.",
+                    "processing_error_intransient": "Beim Verarbeiten der Kreditkarte ist ein Fehler aufgetreten.",
+                    "unexpected": "Ein unerwarteter Fehler ist aufgetreten.",
+                    "no_card_selected": "Es ist keine Kreditkarte ausgewählt.",
+                    "card_not_found": "Die ausgewählte Kreditkarte wurde nicht gefunden."
+                },
+                "cvc-info": {
+                    "visa-mastercard": {
+                        "header": {
+                            "title": {
+                                "card": "Karte",
+                                "front": "Vorderseite"
+                            }
+                        },
+                        "title": "Visa / Mastercard",
+                        "message": "Die dreistellige Prüfziffer befindet sich auf der Kartenrückseite im rechten Bereich des Unterschriftenfeldes. Sollten mehr als drei Ziffern aufgedruckt sein, bilden die letzten drei Ziffern die Prüfziffer."
+                    },
+                    "amex": {
+                        "header": {
+                            "title": {
+                                "card": "Karte",
+                                "back": "Rückseite"
+                            }
+                        },
+                        "title": "American Express",
+                        "message": "Die vierstellige Prüfziffer befindet sich auf der Kartenvorderseite oberhalb der Kreditkartennummer."
+                    }
+                }
+            },
+            "digital-wallets": {
+                "shipping-cost": "Versandkosten",
+                "total": "Gesamtbetrag",
+                "errors": {
+                    "payment-api-unavailable": "Weder Apple Pay noch Google Pay stehen auf diesem Gerät / diesem Browser nicht zur Verfügung. Bitte wähle eine andere Zahlungsart.",
+                    "connection-not-secure": "Deine Verbindung zu diesem Shop ist nicht sicher. Apple Pay und Google Pay funktionieren nur, wenn die Verbindung durch SSL/TLS (HTTPS) gesichert ist. Bitte wähle eine andere Zahlungsart.",
+                    "payment-cancelled": "Die Zahlung wurde abgebrochen."
+                }
+            },
+            "sepa": {
+                "sepa-bank-account-selection": {
+                    "new-sepa-bank-account": "Neue SEPA Bankverbindung",
+                    "saved-sepa-bank-accounts": "Gespeicherte SEPA Bankverbindungen"
+                },
+                "save-sepa-bank-account": "SEPA Bankverbindung speichern",
+                "iban": "IBAN",
+                "account-owner": "Kontoinhaber",
+                "email": "E-Mail",
+                "street": "Anschrift",
+                "zip-code": "Postleitzahl",
+                "city": "Stadt",
+                "country": "Land",
+                "mandate-info": "Ich ermächtige / Wir ermächtigen (A) %creditor% sowie Stripe, den durchführenden Zahlungsdienstleister, Zahlungen von meinem / unserem Konto mittels Lastschrift einzuziehen. Zugleich (B) weise ich mein / weisen wir unser Kreditinstitut an, die von %creditor% bzw. Stripe auf mein / unser Konto gezogenen Lastschriften einzulösen. Hinweis: Ich kann / Wir können innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrages verlangen. Es gelten dabei die mit meinem / unserem Kreditinstitut vereinbarten Bedingungen.",
+                "errors": {
+                    "no_sepa_bank_account_selected": "Es ist keine SEPA-Bankverbindung ausgewählt.",
+                    "incomplete_iban": "Bitte gib eine vollständige IBAN ein.",
+                    "invalid_account_owner": "Bitte gib den Namen des Kontoinhabers ein.",
+                    "invalid_city": "Bitte gib eine Stadt ein.",
+                    "invalid_country": "Bitte wähle ein Land aus.",
+                    "invalid_iban": "Bitte gib eine gültige IBAN ein.",
+                    "invalid_iban_country_code": "Der Ländercode der eingegebenen IBAN ist ungültig.",
+                    "invalid_street": "Bitte gib eine Anschrift ein.",
+                    "invalid_zip_code": "Bitte gib eine Postleitzahl ein.",
+                    "invalid_email": "Bitte gib eine E-Mail-Adresse ein."
+                },
+                "mandate-info-box": {
+                    "title": "SEPA-Lastschriftmandat",
+                    "text": "Der fällige Betrag wird in den kommenden Tagen von dem angegebene Konto eingezogen. Das dazu von Ihnen erteilte SEPA-Lastschriftmandat kann über nachfolgenden Link eingesehen werden.",
+                    "open-mandate-button": {
+                        "title": "Lastschriftmandat öffnen"
+                    }
+                }
+            }
+        },
+        "cookies": {
+            "session": "Zahlungsdienstleister (Stripe) Session",
+            "fraud-prevention": "Zahlungsdienstleister (Stripe) Betrugsprävention"
+        }
+    }
+}

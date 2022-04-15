@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd"
+>
+    <card>
+        <title>Basic Configuration</title>
+        <title lang="de-DE">Grundeinstellungen</title>
+        <input-field>
+            <name>stripeSecretKey</name>
+            <placeholder>sk_live_**********</placeholder>
+            <label>Secret Stripe API Key</label>
+            <label lang="de-DE">Geheimer Stripe-API-Schlüssel</label>
+            <helpText>
+                Enter your private Stripe API key ("Secret key") here. The key is available in the Stripe dashboard via
+                "Developers" > "API keys" in the field "Secret key". Please make sure to use the "live" key to be able
+                to accept payments.
+            </helpText>
+            <helpText lang="de-DE">
+                Trage hier deinen geheimen Stripe-API-Schlüssel ("Secret key") ein. Diesen findest du im
+                Stripe-Dashboard unter "Entwickler" > "API-Schlüssel" im Feld "Geheimschlüssel". Bitte stelle sicher,
+                dass du den "Live-API-Schlüssel" verwendest, um Zahlung akzeptieren zu können.
+            </helpText>
+        </input-field>
+        <input-field>
+            <name>stripePublicKey</name>
+            <placeholder>pk_live_**********</placeholder>
+            <label>Publishable Stripe API Key</label>
+            <label lang="de-DE">Veröffentlichbarer Stripe-API-Schlüssel</label>
+            <helpText>
+                Enter your public Stripe API key ("Publishable key") here. The key is available in the Stripe dashboard
+                via "Developers" > "API keys" in the field "Publishable key". Please make sure to use the "live" key to
+                be able to accept payments.
+            </helpText>
+            <helpText lang="de-DE">
+                Trage hier deinen öffentlichen Stripe-API-Schlüssel ("Publishable key") ein. Diesen findest du im
+                Stripe-Dashboard unter "Entwickler" > "API-Schlüssel" im Feld "Veröffentlichbarer Schlüssel". Bitte
+                stelle sicher, dass du den "Live-API-Schlüssel" verwendest, um Zahlung akzeptieren zu können.
+            </helpText>
+        </input-field>
+        <input-field>
+            <name>stripeAccountCountryIso</name>
+            <disabled>true</disabled>
+            <label>Country of Stripe Account</label>
+            <label lang="de-DE">Land des Stripe-Accounts</label>
+            <helpText>This value is automatically retrieved when the configuration is saved.</helpText>
+            <helpText lang="de-DE">Dieser Wert wird beim Speichern der Konfiguration automatisch abgerufen.</helpText>
+        </input-field>
+        <input-field>
+            <name>stripeWebhookSecret</name>
+            <disabled>true</disabled>
+            <label>Stripe Webhook Secret</label>
+            <label lang="de-DE">Stripe-Webhook-Geheimschlüssel</label>
+            <helpText>
+                Your secret Stripe webhook key ("Webhook secret") is populated automatically once a Webhook is
+                registered.
+            </helpText>
+            <helpText lang="de-DE">
+                Dein geheimer Stripe-Webhook-Schlüssel ("Geheimschlüssel für Signatur") wird automatisch ausgefüllt,
+                sobald ein Webhook registriert ist.
+            </helpText>
+        </input-field>
+        <input-field>
+            <name>stripeWebhookId</name>
+            <disabled>true</disabled>
+            <label>Stripe Webhook ID</label>
+            <label lang="de-DE">Stripe-Webhook-ID</label>
+            <helpText>Your Stripe webhook ID is populated automatically once a Webhook is registered.</helpText>
+            <helpText lang="de-DE">
+                Deine Stripe-Webhook-ID wird automatisch ausgefüllt, sobald ein Webhook registriert ist.
+            </helpText>
+        </input-field>
+        <input-field type="bool">
+            <name>sendStripeChargeEmails</name>
+            <label>Send Stripe receipts via email</label>
+            <label lang="de-DE">Stripe-Belege via E-Mail versenden</label>
+            <helpText>Enable this field to automatically send Stripe payment receipts to customers.</helpText>
+            <helpText lang="de-DE">
+                Aktiviere dieses Feld, um automatisch Stripe-Zahlungsbelege per E-Mail an den Kunden zu versenden.
+            </helpText>
+        </input-field>
+        <input-field>
+            <name>statementDescriptor</name>
+            <label>Statement descriptor</label>
+            <label lang="de-DE">Verwendungszweck</label>
+            <helpText>
+                Enter a custom statement descriptor, which will be joined with the order number and sent to the payment
+                provider. Please note that only characters, numbers as well as full stops, commas and spaces are
+                allowed.
+            </helpText>
+            <helpText lang="de-DE">
+                Trage hier einen eigenen Verwendungszweck ein, der zusammen mit der Nummer der Bestellung an die
+                Zahlungsdienstleister übermittelt wird. Bitte beachte, dass nur Buchstaben, Zahlen sowie Punkt, Komma
+                und Leerzeichen erlaubt sind.
+            </helpText>
+        </input-field>
+        <input-field type="bool">
+            <name>isSavingCreditCardsAllowed</name>
+            <label>Display "Save credit card" option</label>
+            <label lang="de-DE">"Kreditkarte speichern" anzeigen</label>
+            <helpText>
+                Enable this field to allow customers to save a credit card at checkout for future purchases.
+            </helpText>
+            <helpText lang="de-DE">
+                Aktiviere dieses Feld, um beim Bezahlvorgang das Speichern der Kreditkarte zu erlauben.
+            </helpText>
+        </input-field>
+        <input-field type="bool">
+            <name>isSavingSepaBankAccountsAllowed</name>
+            <label>Display "Save SEPA bank account" option</label>
+            <label lang="de-DE">"SEPA Bankverbindung speichern" anzeigen</label>
+            <helpText>
+                Enable this field to allow customers to save a SEPA bank account at checkout for future
+                purchases.
+            </helpText>
+            <helpText lang="de-DE">
+                Aktiviere dieses Feld, um beim Bezahlvorgang das Speichern der SEPA Bankverbindung zu erlauben.
+            </helpText>
+        </input-field>
+        <input-field type="bool">
+            <name>shouldShowPaymentProviderLogos</name>
+            <label>Display payment method logos</label>
+            <label lang="de-DE">Logos der Zahlungsarten anzeigen</label>
+            <helpText>
+                Enable this field to display the respective logos of the Stripe payment methods in the payment method
+                selection.
+            </helpText>
+            <helpText lang="de-DE">
+                Aktiviere dieses Feld, um in der Liste der verfügbaren Zahlungsarten die Logos der von diesem Plugin zur
+                Verfügung gestellten Zahlungsarten anzuzeigen.
+            </helpText>
+        </input-field>
+    </card>
+</config>
